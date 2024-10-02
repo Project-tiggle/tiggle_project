@@ -1,7 +1,9 @@
 package com.ex.tiggle.orgregist.controller;
 
 public class OrgregistController {
-/////////////////////hjhjhjhjhj
+/////////////////////hjhjhjhjhj//
 	private String jhjh;
-	private String sisi;
+	private String s11111;
+
+	
 }
