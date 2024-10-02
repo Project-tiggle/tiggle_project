@@ -18,7 +18,7 @@
                     <li><a href="#">위치기반서비스 이용약관</a></li>
                     <li><a href="#">티켓판매안내</a></li>
                     <li><a href="#">고객센터</a></li>
-                    <li><a href="#">전시등록</a></li>
+                    <li><a href="orgRegistPage.do">전시등록</a></li>
                 </ul><!-- f_menu end -->
             </nav>
         </div><!-- f_top end -->
