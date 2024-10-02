@@ -7,8 +7,6 @@ import com.ex.tiggle.exhibition.model.service.ExhibitionService;
 
 @Controller
 public class ExhibitionController {
-	// 다른 파일 동시 작업 test test 
-	
 	
 	@Autowired
 	private ExhibitionService exhibitionService;
