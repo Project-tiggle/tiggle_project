@@ -40,7 +40,7 @@
 
             <nav>
                 <ul class="gnb">
-                    <li><a href="#">전시회</a></li>
+                    <li><a href="exhibitionMain.do">전시회</a></li>
                     <li><a href="#">박람회</a></li>
                     <li><a href="#">내 주변?</a></li>
                     <li><a href="#">공지사항</a></li>

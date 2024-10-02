@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="exhibitionMapper">
+<!-- namespace (이름공간) == 패키지와 같음 : 매퍼 영역에 이름을 붙여준 것으로 이해하면 됌 -->
+
+	<!-- select 조회한 결과 매핑 처리하는 용도의 엘리먼트임
+		 결과매핑 : select 한 행의 컬럼값을 한개씩 dto 객체의 필드에 옮겨 저장하는 것
+		 property 는 클래스의 필드명, column 은 데이터베이스 테이블의 컬럼명을 기술하면 됨
+	 -->
+	<resultMap id="resultExhibition" type="Exhibition">
+		<result property="userId" column="USERID" />
+		<result property="userPwd" column="USERID" />
+		<result property="userName" column="USERNAME" />
+	</resultMap>
+	
+	<resultMap type="Exhibition" id="result2Exhibition">
+		<result property="totalId" column="totalId" />
+		<result property="uuid" column="uuid" />
+		<result property="contributor" column="contributor" />
+		<result property="description" column="discription" />
+		<result property="eventSite" column="eventSite" />
+		<result property="detailEventSite" column="detailEventSite" />
+		<result property="latitude" column="latitude" />
+		<result property="longitude" column="longitude" />
+		<result property="genre" column="genre" />
+		<result property="contactPoint" column="contactPoint" />
+		<result property="viewCounter" column="viewCounter" />
+		<result property="url" column="url" />
+		<result property="period" column="period" />
+		<result property="startDate" column="startDate" />
+		<result property="endDate" column="endDate" />
+		<result property="approvalStatus" column="approvalStatus" />
+		<result property="category" column="category" />
+		<result property="fileUrl" column="fileUrl" />
+	</resultMap>
+	
+	<!-- dao 에서 사용되는 쿼리문(sql문)을 각 엘리멘트 안에 작성함 
+		 마이바티스는 기본 PreparedStatement 를 사용함
+		 ? 를 #{변수명 | 필드명} 필드명을 사용하면 자동으로 getter 가 작동됨
+		 resultType 은 반환되는 자료형 표기하면 됨
+		 resultMap 은 결과를 매핑할 경우 사용할 resultMap 의 id 명을 표기함
+		 단, resultType 과 resultMap 은 둘 중 하나만 사용해야 함
+	-->
+	<!-- <select id="selectLogin" parameterType="User" resultMap="resultUser">
+		select * from users where userid = #{userId} and userpwd = #{userPwd}
+	</select> -->
+	
+	<!-- 전시정보 조회용 쿼리 -->
+	<select id="selectExhibition" parameterType="string" resultMap="resultExhibition">
+		select * from member where totalId = #{ totalId } 
+	</select>
+	
+		
+	<!-- 전시정보 데이터 입력 -->
+	<insert id="insertExhibition" parameterType="Exhibition">
+		insert into TB_Exhibition
+		values (#{totalId}, #{uuid}, #{title}, #{contributor}, #{description}, #{eventSite}, default, default, default, default, default, default, #{ url },
+		 #{period}, TOCHAR(SUBSTR(#{period}, 1, 10), yyyy-MM-dd), TOCHAR(SUBSTR(#{period}, 12, 21), yyyy-MM-dd), default, default, default)
+	</insert>
+	
+	<!-- 전시정보 삭제용 쿼리 -->
+	<delete id="deleteExhibition" parameterType="string">
+		delete from member where totalId = #{ totalId }
+	</delete>
+	
+</mapper>
