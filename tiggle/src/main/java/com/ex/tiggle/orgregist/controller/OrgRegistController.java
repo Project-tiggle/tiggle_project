@@ -1,6 +1,6 @@
 package com.ex.tiggle.orgregist.controller;
 
-public class OrgregistController {
+public class OrgRegistController {
 /////////////////////hjhjhjhjhj//
 	private String jhjh;
 	private String aaaa; ///

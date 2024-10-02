@@ -1,5 +1,5 @@
 package com.ex.tiggle.orgregist.model.service;
 
-public interface OrgregistService {
+public interface OrgRegistService {
 
 }
