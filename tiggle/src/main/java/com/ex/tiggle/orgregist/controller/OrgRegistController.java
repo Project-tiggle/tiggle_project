@@ -1,10 +1,24 @@
 package com.ex.tiggle.orgregist.controller;
 
-public class OrgRegistController {
-/////////////////////hjhjhjhjhj//
-	private String jhjh;
-	private String aaaa; ///
-	private String s11111;////sjdfslkfadj
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ex.tiggle.orgregist.model.service.OrgRegistService;
+
+@Controller
+public class OrgRegistController {
+
+	@Autowired
+	private OrgRegistService orgRegistService;
 	
+	@RequestMapping("orgRegistPage.do")
+	public String moveOrgRegist() {
+		return "orgregist/orgRegist";
+	}
+	
+	@RequestMapping("orgRegDetail.do")
+	public String moveOrgRegistDetail() {
+		return "orgregist/orgRegistDetail";
+	}
 }
