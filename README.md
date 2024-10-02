@@ -1,2 +1,2 @@
-# tiggle
-project_tiggle
+# Commit 양식 : yyyy-MM-dd 이름 : 작업 내용
+상세 정보 : 변경한 위치, 변경 코드 작성해서 공유 //
