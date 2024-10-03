@@ -16,7 +16,7 @@ header, footer {
 
 #container {
     width: 100%;
-    min-height: calc(100vh - 200px); /* 헤더와 푸터를 제외한 높이 */
+    min-height: calc(100vh - 200px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,36 +83,65 @@ header, footer {
 }
 
 #ptPhoto {
-    margin: 20px auto;
-    width: 200px;
-    height: 220px;
+    margin: 0 auto;
+    width: 225px;
+    height: 400px;
     padding: 10px;
     border: 1px solid #ccc;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f5f5f5;
+    overflow: hidden;
 }
 
-#myphoto img {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
+#photo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 #outer {
     margin: 20px auto;
     text-align: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.file-actions {
+    display: block;
+    margin-top: 10px;
+}
+
+#deleteBtn {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#deleteBtn:hover {
+    background-color: #e9e9e9;
 }
 </style>
 <script type="text/javascript">
     window.onload = function(){
         var photofile = document.getElementById("photofile");
+        var myphoto = document.getElementById("photo");
+        var deleteBtn = document.getElementById("deleteBtn");
+
         photofile.addEventListener('change', function(event){
             const files = event.currentTarget.files;
             const file = files[0];
-
-            const myphoto = document.getElementById("photo");
 
             const reader = new FileReader();  
             reader.onload = (e) => {  
@@ -120,6 +149,13 @@ header, footer {
                 myphoto.setAttribute('data-file', file.name);
             };
             reader.readAsDataURL(file);  
+        });
+
+        // 삭제 버튼 클릭 시 파일 초기화 및 미리보기 삭제
+        deleteBtn.addEventListener('click', function() {
+            photofile.value = ''; // 파일 선택 필드 초기화
+            myphoto.setAttribute('src', ''); // 이미지 미리보기 초기화
+            myphoto.removeAttribute('data-file'); // data-file 속성 제거
         });
     };
 </script>
@@ -181,12 +217,13 @@ header, footer {
             <!-- 이미지 등록 -->
             <div id="outer">
                 <div id="ptPhoto">
-                    <img src="/tiggle/resources/images/${ requestScope.member.photoFileName }" id="photo" 
-                    alt="사진을 드래그 드롭하세요.">
+                    <img src="" id="photo" alt="포스터 이미지를 올려주세요">
                 </div>
                 <br>
-                ${ requestScope.ofile } <br>
-                업로드할 포스터 선택 : <input type="file" id="photofile" name="photofile">
+                <div class="file-actions">
+                    <input type="file" id="photofile" name="photofile">
+                    <button type="button" id="deleteBtn">삭제</button>
+                </div>
             </div>
 
             <!-- 신청자 정보 -->
