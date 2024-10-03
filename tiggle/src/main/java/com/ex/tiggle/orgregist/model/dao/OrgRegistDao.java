@@ -14,5 +14,19 @@ public class OrgRegistDao {
 	public int insertOrgRegist(OrgRegist orgRegist) {
 		return sqlSessionTemplate.insert("orgRegistMapper.insertOrgRegist", orgRegist);
 	}
+	
+	public OrgRegist selectOrgRegistByUuid(String uuid) {
+        return sqlSessionTemplate.selectOne("selectOrgRegistByUuid", uuid);
+    }
+
+    // 데이터를 수정하는 메서드
+    public int updateOrgRegist(OrgRegist orgRegist) {
+        return sqlSessionTemplate.update("updateOrgRegist", orgRegist);
+    }
+
+    // 데이터를 삭제하는 메서드
+    public int deleteOrgRegist(String uuid) {
+        return sqlSessionTemplate.delete("deleteOrgRegist", uuid);
+    }
 
 }

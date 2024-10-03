@@ -17,4 +17,19 @@ public class OrgRegistServiceImpl implements OrgRegistService {
 		return orgRegistDao.insertOrgRegist(orgRegist);
 	}
 
+	@Override
+	public OrgRegist selectOrgRegistByUuid(String uuid) {
+		return orgRegistDao.selectOrgRegistByUuid(uuid);
+	}
+
+	@Override
+	public int updateOrgRegist(OrgRegist orgRegist) {
+		 return orgRegistDao.updateOrgRegist(orgRegist);
+	}
+
+	@Override
+	public int deleteOrgRegist(String uuid) {
+		return orgRegistDao.deleteOrgRegist(uuid);
+	}
+
 }

@@ -68,7 +68,7 @@
                 <option value="setec">세텍(SETEC)</option>
                 <option value="songdo">송도컨벤시아(Songdo Convensia)</option>
                 <option value="messe">수원메쎄(SUWON MESSE)</option>
-                <option value="coex">코엑스(COEX)</option>
+                <option value="coex" selected>코엑스(COEX)</option>
                 <option value="kintex">킨텍스(KINTEX)</option>
                 <option value="etc">기타</option>
             </select>

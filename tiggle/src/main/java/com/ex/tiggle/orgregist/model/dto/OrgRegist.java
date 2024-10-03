@@ -18,8 +18,8 @@ public class OrgRegist implements java.io.Serializable {
 	private String contactPoint;	//	CONTACT_POINT	VARCHAR2(30 BYTE)
 	private int viewCounter;		//	VIEW_COUNTER	NUMBER
 	private String eUrl;			//	E_URL	VARCHAR2(300 BYTE)
-	private java.sql.Date startDate;//	START_DATE	DATE
-	private java.sql.Date endDate;	//	END_DATE	DATE
+	private Date startDate;//	START_DATE	DATE
+	private Date endDate;	//	END_DATE	DATE
 	private String approvalStatus;	//	APPROVAL_STATUS	CHAR(1 BYTE)
 	private int eCategory;			//	E_CATEGORY	NUMBER
 	private String fileUrl;			//	FILE_URL	VARCHAR2(300 BYTE)

@@ -74,7 +74,7 @@
 		<div class="message">등록 승인 상황</div>
 
 		<div class="buttons">
-			<form action="#" method="get">
+			<form action="orgRegEdit.do" method="get">
 				<input type="submit" value="수정하기" class="btn">
 			</form>
 
