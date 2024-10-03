@@ -1,0 +1,130 @@
+[18:20:56][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:20:57][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1121 ms
+[18:20:57][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:20:58][INFO ][FrameworkServlet.java: 547] - Completed initialization in 701 ms
+[18:26:33][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:26:34][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1094 ms
+[18:26:34][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:26:34][INFO ][FrameworkServlet.java: 547] - Completed initialization in 715 ms
+[18:28:03][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:28:04][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1089 ms
+[18:28:05][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:28:05][INFO ][FrameworkServlet.java: 547] - Completed initialization in 724 ms
+[19:06:51][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[19:06:52][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1088 ms
+[19:06:52][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[19:06:53][INFO ][FrameworkServlet.java: 547] - Completed initialization in 731 ms
+[19:09:31][WARN ][DispatcherServlet.java: 1278] - No mapping for POST /tiggle/orgRegist.do
+[19:17:10][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[19:17:11][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1084 ms
+[19:17:11][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[19:17:12][INFO ][FrameworkServlet.java: 547] - Completed initialization in 731 ms
+[19:17:23][WARN ][DispatcherServlet.java: 1278] - No mapping for POST /tiggle/orgRegist.do
+[19:19:17][WARN ][DispatcherServlet.java: 1278] - No mapping for POST /tiggle/orgRegist.do
+[19:37:07][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[19:37:08][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1136 ms
+[19:37:08][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[19:37:09][INFO ][FrameworkServlet.java: 547] - Completed initialization in 759 ms
+[19:37:20][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/orgRegEdit.do
+[19:37:54][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[19:37:55][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1142 ms
+[19:37:56][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[19:37:56][INFO ][FrameworkServlet.java: 547] - Completed initialization in 733 ms
+[20:10:32][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[20:10:33][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1131 ms
+[20:10:33][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[20:10:34][INFO ][FrameworkServlet.java: 547] - Completed initialization in 738 ms
+[20:41:56][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[20:41:57][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1117 ms
+[20:41:57][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[20:41:58][INFO ][FrameworkServlet.java: 547] - Completed initialization in 713 ms
+[20:42:08][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/orgRegEdit.do
+[20:43:05][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[20:43:06][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1114 ms
+[20:43:06][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[20:43:07][INFO ][FrameworkServlet.java: 547] - Completed initialization in 747 ms
+[20:43:28][WARN ][AbstractHandlerExceptionResolver.java: 208] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'uuid' for method parameter type String is not present]
+[20:44:51][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[20:44:52][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1106 ms
+[20:44:52][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[20:44:53][INFO ][FrameworkServlet.java: 547] - Completed initialization in 740 ms
+[20:45:05][WARN ][AbstractHandlerExceptionResolver.java: 208] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'uuid' for method parameter type String is not present]
+[20:46:03][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[20:46:04][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1100 ms
+[20:46:04][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[20:46:05][INFO ][FrameworkServlet.java: 547] - Completed initialization in 711 ms
+[21:00:05][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[21:00:06][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1139 ms
+[21:00:06][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[21:00:07][INFO ][FrameworkServlet.java: 547] - Completed initialization in 735 ms
+[21:00:47][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[21:00:48][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1106 ms
+[21:00:48][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[21:00:49][INFO ][FrameworkServlet.java: 547] - Completed initialization in 742 ms
+[21:00:57][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[21:00:58][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1127 ms
+[21:00:58][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[21:00:59][INFO ][FrameworkServlet.java: 547] - Completed initialization in 729 ms
+[21:02:54][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[21:02:55][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1111 ms
+[21:02:55][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[21:02:56][INFO ][FrameworkServlet.java: 547] - Completed initialization in 712 ms
+[21:06:06][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[21:06:07][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1167 ms
+[21:06:07][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[21:06:08][INFO ][FrameworkServlet.java: 547] - Completed initialization in 721 ms
+[21:20:08][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[21:20:09][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1118 ms
+[21:20:09][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[21:20:10][INFO ][FrameworkServlet.java: 547] - Completed initialization in 726 ms
+[21:26:31][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[21:26:32][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1180 ms
+[21:26:32][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[21:26:33][INFO ][FrameworkServlet.java: 547] - Completed initialization in 748 ms
+[21:45:59][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[21:46:00][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1180 ms
+[21:46:00][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[21:46:01][INFO ][FrameworkServlet.java: 547] - Completed initialization in 732 ms
+[21:47:36][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[21:47:38][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1151 ms
+[21:47:38][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[21:47:38][INFO ][FrameworkServlet.java: 547] - Completed initialization in 698 ms
+[22:15:07][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:15:09][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1134 ms
+[22:15:09][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:15:09][INFO ][FrameworkServlet.java: 547] - Completed initialization in 717 ms
+[22:28:33][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:28:35][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1122 ms
+[22:28:35][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:28:35][INFO ][FrameworkServlet.java: 547] - Completed initialization in 718 ms
+[22:32:05][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:32:07][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1162 ms
+[22:32:07][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:32:07][INFO ][FrameworkServlet.java: 547] - Completed initialization in 769 ms
+[22:35:07][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:35:08][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1126 ms
+[22:35:08][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:35:09][INFO ][FrameworkServlet.java: 547] - Completed initialization in 732 ms
+[22:38:55][INFO ][MemberController.java: 105] - enroll.do : Member [uuid=null, id=jihoon2, pwd=jihoon2, name=이지훈, phone=010-4483-0519, email=leejh22@kookle.com, nickname=easy22, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[22:38:55][INFO ][MemberController.java: 109] - after encode : $2a$10$sNuepV/Zu4TPZpQj4xjcJuLdIZCyBWl/IMdW1T2fc7ZKevapogXFW, length : 60
+[22:38:55][INFO ][MemberController.java: 114] - uuid : 71490fc6-1b33-4bbb-8169-8e3b3ceffd87
+[22:40:07][INFO ][MemberController.java: 65] - login : Member [uuid=null, id=jihoon2, pwd=jihoon2, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[22:40:20][INFO ][MemberController.java: 65] - login : Member [uuid=null, id=jihoon2, pwd=j, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[22:43:16][INFO ][MemberController.java: 65] - login : Member [uuid=null, id=jihoon2, pwd=jihoon2, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[22:56:51][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:56:52][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1134 ms
+[22:56:52][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:56:53][INFO ][FrameworkServlet.java: 547] - Completed initialization in 715 ms
+[23:37:08][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:37:09][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1125 ms
+[23:37:09][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:37:10][INFO ][FrameworkServlet.java: 547] - Completed initialization in 726 ms
+[23:37:38][INFO ][MemberController.java: 74] - login : Member [uuid=null, id=jihoon2, pwd=jihoon2, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[23:53:43][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:53:45][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1179 ms
+[23:53:45][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:53:45][INFO ][FrameworkServlet.java: 547] - Completed initialization in 754 ms
+[23:58:04][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:58:05][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1140 ms
+[23:58:05][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:58:06][INFO ][FrameworkServlet.java: 547] - Completed initialization in 738 ms

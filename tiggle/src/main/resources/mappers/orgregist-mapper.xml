@@ -32,9 +32,10 @@
 	 
 	<!-- 전시/박람회 정보 불러오기 -->
     <select id="selectOrgRegistByUuid" parameterType="string" resultMap="resultOrgRegist">
-        select ef.*,m.name, m.mng_dept, m.mng_jobid, m.phone, m.email
-		from tb_exhibition_fair ef join tb_member m on (ef.uuid = m.uuid)
-		where ef.uuid = '1b2c3d4e-5f6g-7h8i-9j0k-1l2m3n4o5p6q' and rownum = '1'
+        select *
+		from tb_exhibition_fair
+		join tb_member using (uuid)
+		where uuid = #{ uuid } and rownum = '1'
     </select>
 	
 </mapper>
