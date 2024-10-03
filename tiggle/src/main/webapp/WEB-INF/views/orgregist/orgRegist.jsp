@@ -7,8 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>기업 전시/박람회 등록</title>
-<link href="/tiggle/resources/css/orgRegist_style.css" rel="stylesheet"
-	type="text/css">
+<link href="/tiggle/resources/css/orgRegist_style.css" rel="stylesheet"	type="text/css">
 </head>
 <body>
 	<c:import url="/WEB-INF/views/common/header.jsp" />
@@ -23,7 +22,7 @@
 		<div class="message">등록 승인 상황</div>
 
 		<div class="buttons">
-			<form action="editDetail.do" method="get">
+			<form action="#" method="get">
 				<input type="submit" value="수정하기" class="btn">
 			</form>
 
@@ -35,6 +34,5 @@
 	<br><br><br><br>
 	
 	<c:import url="/WEB-INF/views/common/footer.jsp" />
-
 </body>
 </html>
