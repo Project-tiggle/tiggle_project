@@ -10,9 +10,6 @@
 <link rel="stylesheet" href="/tiggle/resources/css/member_style.css">
 </head>
 <body>
-	<c:import url="/WEB-INF/views/common/header.jsp" />
-
-
 	<!-- 이용약관 페이지 -->
 	<div class="tos_section">
 		<div class="tos_wrap">
@@ -24,6 +21,7 @@
 			<div class="tos_content">
 				<form action="/" method="post" id="tos_form">
 					<input type="hidden" name="marketingYN" value="/">
+					<input type="hidden" name="org_enroll" value="/">
 					<div class="tos_check_all">
 						<input type="checkbox" name="tosCheckAll" id="check_all">
 						<label for="check_all">모두 동의합니다.</label>
@@ -44,8 +42,8 @@
 							<button type="button" class="tos_txt_btn">내용보기</button>
 						</li><!-- tos_box end -->
 						<li class="tos_box">
-							<input type="checkbox" name="agreement" id="tos3" value="tos3">
-							<label for="tos3">[선택] 자사 마케팅 수집 및 이용 동의</label>
+							<input type="checkbox" name="agreement" id="marketingYN" value="marketingYN">
+							<label for="marketingYN">[선택] 자사 마케팅 수집 및 이용 동의</label>
 							<p>
 								개인정보 제공에 대한 동의를 거부할 권리가 있으며, 동의를 거부할 경우 마케팅 정보를 받을 수 없습니다.
 							</p>
@@ -53,27 +51,25 @@
 					</ul><!-- tos_list end -->
 
 					<div class="org_tos">
-						<input type="checkbox" name="marketingYN" id="marketingYN" value="marketingYN">
-						<label for="marketingYN">전시관계자 회원가입</label>
+						<input type="checkbox" name="org_enroll" id="org_enroll" value="org_enroll">
+						<label for="org_enroll">전시관계자 회원가입</label>
 						<p>
 							'티글'에 전시정보를 등록할 전시관계자는 반드시 체크하세요.
 						</p>
 					</div><!-- org_tos end -->
 
-					<button type="submit" class="agree_btn" disabled>동의</button>
+					<button type="submit" class="agree_btn" disabled onclick="javascript:location.href='${ pageContext.servletContext.contextPath }/enrollPage.do'">동의</button>
 				</form><!-- tos_form end -->
 			</div><!-- tos_content end -->
 
 			<div class="tos_move_home">
-				<a href="#">홈으로 이동</a>
+				<a href="main.do">홈으로 이동</a>
 			</div>
 		</div><!-- tos_wrap end -->
 	</div><!-- tos_section end -->
 	<!-- 이용약관 페이지 end -->
 	
-	
-	
-	<c:import url="/WEB-INF/views/common/footer.jsp" />
+
 
 	<script src="/tiggle/resources/js/jquery-3.7.1.min.js"></script>
 	<script src="/tiggle/resources/js/script.js"></script>

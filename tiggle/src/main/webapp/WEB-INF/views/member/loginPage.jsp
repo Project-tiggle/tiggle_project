@@ -23,8 +23,8 @@
 				<form action="login.do" method="post">
 					<input type="hidden" id="loginType" name="loginType" value="member">
 					<div>
-						<input type="text" name="Id" id="id" class="login_input" required placeholder="로그인">
-						<input type="password" name="Pwd" id="pwd" class="login_input" required placeholder="패스워드">
+						<input type="text" name="Id" id="login_id" class="login_input" required placeholder="로그인">
+						<input type="password" name="Pwd" id="login_pwd" class="login_input" required placeholder="패스워드">
 					</div>
 					<input class="l_submit_btn" type="submit" value="로그인">
 				</form>
@@ -36,7 +36,9 @@
 				<li><a href="#">비밀번호 찾기</a></li>
 			</ul><!-- find_wrap end -->
 
-			<button class="enroll_btn">회원가입</button>
+			<button class="enroll_btn">
+				<a href="TOSPage.do">회원가입</a>
+			</button>
 		</div><!-- login_wrap end -->
 	</section><!-- container end -->
 
