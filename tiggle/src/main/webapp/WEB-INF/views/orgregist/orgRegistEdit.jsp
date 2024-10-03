@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>전시회 신청서 편집</title>
+<title>전시회 등록 신청서 편집</title>
 <link href="/tiggle/resources/css/orgRegist_style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
     window.onload = function(){
