@@ -6,133 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>전시회 신청서</title>
-<style>
-header, footer {
-    width: 100%;
-    background-color: #fff;
-    box-sizing: border-box;
-    padding: 20px;
-}
-
-#container {
-    width: 100%;
-    min-height: calc(100vh - 200px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-#exreg {
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-}
-
-#title, #applicantInfoTitle {
-    text-align: center;
-    color: #ff5f2c;
-}
-
-#exreg label {
-    font-weight: bold;
-    color: #333;
-    display: block;
-    margin-top: 10px;
-}
-
-#exreg input, #exreg select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-#submitBtn, #resetBtn {
-    width: 100%;
-    padding: 10px;
-    margin-top: 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#submitBtn {
-    background-color: #ff5f2c;
-    color: white;
-}
-
-#submitBtn:hover {
-    background-color: #e6551e;
-}
-
-#resetBtn {
-    background-color: #777;
-    color: white;
-}
-
-#resetBtn:hover {
-    background-color: #555;
-}
-
-#ptPhoto {
-    margin: 0 auto;
-    width: 225px;
-    height: 400px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f5f5f5;
-    overflow: hidden;
-}
-
-#photo {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-#outer {
-    margin: 20px auto;
-    text-align: center;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #ffffff;
-}
-
-.file-actions {
-    display: block;
-    margin-top: 10px;
-}
-
-#deleteBtn {
-    background-color: #f5f5f5;
-    color: #333;
-    border: 1px solid #ccc;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
-    margin-top: 10px;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-#deleteBtn:hover {
-    background-color: #e9e9e9;
-}
-</style>
+<link href="/tiggle/resources/css/orgRegist_style.css" rel="stylesheet"	type="text/css">
 <script type="text/javascript">
     window.onload = function(){
         var photofile = document.getElementById("photofile");
@@ -161,11 +35,8 @@ header, footer {
 </script>
 </head>
 <body>
+    <c:import url="/WEB-INF/views/common/header.jsp" />
 
-    <!-- 메뉴바 -->
-    <header>
-        <c:import url="/WEB-INF/views/common/header.jsp" />
-    </header>
 
     <!-- 메인 컨테이너 -->
     <div id="container">
@@ -249,10 +120,6 @@ header, footer {
         </form>
     </div>
 
-    <!-- 푸터 -->
-    <footer>
         <c:import url="/WEB-INF/views/common/footer.jsp" />
-    </footer>
-
 </body>
 </html>
