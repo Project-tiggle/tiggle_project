@@ -10,11 +10,11 @@ import org.json.JSONObject; // JSON 파싱을 위한 라이브러리 (org.json)
 
 public class TestMapXY {
 
-    private static final String API_KEY = "83c9ede8284039881680b8405433b70e"; // 발급받은 카카오 REST API 키
+    private static final String API_KEY = "83c9ede8284039881680b8405433b70e"; // 카카오 REST API 키
 
     public static void main(String[] args) {
     	Scanner sc = new Scanner(System.in);
-    	System.out.print("위도 경도를 추적할 아무 주소나 입력하세요(도로명만으로도가능) : ");
+    	System.out.print("주소입력(전체주소 or 도로명만 or 동/번지만 : ");
         String address = sc.nextLine(); // 변환할 주소
         try {
             // 주소를 좌표로 변환
