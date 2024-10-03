@@ -5,6 +5,7 @@ import java.sql.Date;
 public class OrgRegist implements java.io.Serializable {
 	private static final long serialVersionUID = 6700511157757941396L;
 
+	//tb_exhibition_fair
 	private String uuid;			//	UUID	VARCHAR2(36 BYTE)
 	private String totalId;			//	TOTAL_ID	VARCHAR2(16 BYTE)
 	private String title;			//	TITLE	VARCHAR2(100 BYTE)
@@ -23,9 +24,15 @@ public class OrgRegist implements java.io.Serializable {
 	private String approvalStatus;	//	APPROVAL_STATUS	CHAR(1 BYTE)
 	private int eCategory;			//	E_CATEGORY	NUMBER
 	private String fileUrl;			//	FILE_URL	VARCHAR2(300 BYTE)
+	//tb_member
+	private String name;			//	EMAIL	VARCHAR2(50 BYTE)
+	private String mngDept;			//	MNG_DEPT	VARCHAR2(50 BYTE)
+	private String mngJobId;		//	MNG_JOBID	VARCHAR2(20 BYTE)
+    private String phone;			//	PHONE	VARCHAR2(15 BYTE)
+    private String email;			//	EMAIL	VARCHAR2(50 BYTE)
 	
-	
-	public OrgRegist() {
+    
+    public OrgRegist() {
 		super();
 	}
 
@@ -33,7 +40,7 @@ public class OrgRegist implements java.io.Serializable {
 	public OrgRegist(String uuid, String totalId, String title, String contributor, String eDescription,
 			String eventSite, String detailEventSite, double latitude, double longitude, String genre,
 			String contactPoint, int viewCounter, String eUrl, Date startDate, Date endDate, String approvalStatus,
-			int eCategory, String fileUrl) {
+			int eCategory, String fileUrl, String name, String mngDept, String mngJobId, String phone, String email) {
 		super();
 		this.uuid = uuid;
 		this.totalId = totalId;
@@ -53,29 +60,11 @@ public class OrgRegist implements java.io.Serializable {
 		this.approvalStatus = approvalStatus;
 		this.eCategory = eCategory;
 		this.fileUrl = fileUrl;
-	}
-
-
-	public OrgRegist(String uuid, String totalId, String title, String contributor, String eDescription,
-			String eventSite, String detailEventSite, double latitude, double longitude, String genre,
-			String contactPoint, String eUrl, Date startDate, Date endDate, String approvalStatus, int eCategory) {
-		super();
-		this.uuid = uuid;
-		this.totalId = totalId;
-		this.title = title;
-		this.contributor = contributor;
-		this.eDescription = eDescription;
-		this.eventSite = eventSite;
-		this.detailEventSite = detailEventSite;
-		this.latitude = latitude;
-		this.longitude = longitude;
-		this.genre = genre;
-		this.contactPoint = contactPoint;
-		this.eUrl = eUrl;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.approvalStatus = approvalStatus;
-		this.eCategory = eCategory;
+		this.name = name;
+		this.mngDept = mngDept;
+		this.mngJobId = mngJobId;
+		this.phone = phone;
+		this.email = email;
 	}
 
 
@@ -209,22 +198,22 @@ public class OrgRegist implements java.io.Serializable {
 	}
 
 
-	public java.sql.Date getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
 
-	public void setStartDate(java.sql.Date startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
 
-	public java.sql.Date getEndDate() {
+	public Date getEndDate() {
 		return endDate;
 	}
 
 
-	public void setEndDate(java.sql.Date endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 
@@ -259,6 +248,56 @@ public class OrgRegist implements java.io.Serializable {
 	}
 
 
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getMngDept() {
+		return mngDept;
+	}
+
+
+	public void setMngDept(String mngDept) {
+		this.mngDept = mngDept;
+	}
+
+
+	public String getMngJobId() {
+		return mngJobId;
+	}
+
+
+	public void setMngJobId(String mngJobId) {
+		this.mngJobId = mngJobId;
+	}
+
+
+	public String getPhone() {
+		return phone;
+	}
+
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -271,8 +310,10 @@ public class OrgRegist implements java.io.Serializable {
 				+ ", latitude=" + latitude + ", longitude=" + longitude + ", genre=" + genre + ", contactPoint="
 				+ contactPoint + ", viewCounter=" + viewCounter + ", eUrl=" + eUrl + ", startDate=" + startDate
 				+ ", endDate=" + endDate + ", approvalStatus=" + approvalStatus + ", eCategory=" + eCategory
-				+ ", fileUrl=" + fileUrl + "]";
+				+ ", fileUrl=" + fileUrl + ", name=" + name + ", mngDept=" + mngDept + ", mngJobId=" + mngJobId
+				+ ", phone=" + phone + ", email=" + email + "]";
 	}
-	
+   
+    
 	
 }

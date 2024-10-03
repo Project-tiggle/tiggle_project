@@ -108,19 +108,19 @@
             <!-- 신청자 정보 -->
             <h3 id="applicantInfoTitle">신청자 정보</h3>
             <label for="applicantName">*이름:</label>
-            <input type="text" id="applicantName" name="applicantName" value="<%-- ${} --%>" required>
+            <input type="text" id="applicantName" name="applicantName" value="${orgRegist.name}" required>
 
             <label for="department">부서:</label>
-            <input type="text" id="department" name="department" value="<%-- ${} --%>">
+            <input type="text" id="department" name="department" value="${orgRegist.mngDept}">
 
             <label for="position">직책:</label>
-            <input type="text" id="position" name="position" value="<%-- ${} --%>">
+            <input type="text" id="position" name="position" value="${orgRegist.mngJobId}">
 
             <label for="phoneNumber">*연락처:</label>
-            <input type="text" id="phoneNumber" name="phoneNumber" value="<%-- ${} --%>" required>
+            <input type="text" id="phoneNumber" name="phoneNumber" value="${orgRegist.phone}" required>
 
             <label for="email">*이메일:</label>
-            <input type="email" id="email" name="email" value="<%-- ${} --%>" required>
+            <input type="email" id="email" name="email" value="${orgRegist.email}" required>
 
             <!-- 수정하기 버튼 -->
             <input type="submit" id="submitBtn" value="수정하기">

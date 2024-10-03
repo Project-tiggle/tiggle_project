@@ -23,11 +23,18 @@
 	       <result property="approvalStatus" column="APPROVAL_STATUS" />
 	       <result property="eCategory" column="E_CATEGORY" />
 	       <result property="fileUrl" column="FILE_URL" />
+	       <result property="name" column="NAME" />
+	       <result property="mngDept" column="MNG_DEPT" />
+	       <result property="mngJobId" column="MNG_JOBID" />
+	       <result property="phone" column="PHONE" />
+	       <result property="email" column="EMAIL" />
 	</resultMap>
 	 
 	<!-- 전시/박람회 정보 불러오기 -->
     <select id="selectOrgRegistByUuid" parameterType="string" resultMap="resultOrgRegist">
-        SELECT * FROM TB_EXHIBITION_FAIR WHERE UUID = #{uuid} and rownum = 1
+        select ef.*,m.name, m.mng_dept, m.mng_jobid, m.phone, m.email
+		from tb_exhibition_fair ef join tb_member m on (ef.uuid = m.uuid)
+		where ef.uuid = '1b2c3d4e-5f6g-7h8i-9j0k-1l2m3n4o5p6q' and rownum = '1'
     </select>
 	
 </mapper>
