@@ -12,7 +12,7 @@
 	
 	<!-- 파일에 로그 메세지 저장하는 appender 추가함 : 로그를 분석할 때 이용함 -->
 	<appender name="fileLogger" class="org.apache.log4j.DailyRollingFileAppender"> <!-- 날짜별 파일을 자동으로 만들어주는 appender -->
-		<param name="file" value="D:\\tiggle\\tiggle\\src\\main\\resources\\logs\\system.log" /> <!-- "" 안에서는 \ 2개가 있어야 ~폴더 아래라는 뜻을 가진다. -->
+		<param name="file" value="D:\\tiggle_workspace\\tiggle\\src\\main\\resources\\logs\\system.log" /> <!-- "" 안에서는 \ 2개가 있어야 ~폴더 아래라는 뜻을 가진다. -->
 		<param name="Append" value="true" />
 		<param name="DatePattern" value="yyyy-MM-dd" />
 		<layout class="org.apache.log4j.PatternLayout">

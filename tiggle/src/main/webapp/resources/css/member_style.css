@@ -38,19 +38,34 @@
 .tos_title > p {font-size: 36px; font-weight: bold;}
 /* tos_title end */
 
-.all_check {border-bottom: 1px solid #ddd; padding-bottom: 20px;}
+
+
+
+
+
+
+
+/* .all_check {border-bottom: 1px solid #ddd; padding-bottom: 20px;}
 .tos_checkbox {display: flex; align-items: center;}
 .tos_checkbox > input {width: 20px; height: 20px; margin: 10px 0;}
 .tos_txt {font-size: 18px; margin-left: 10px;}
-.all_check > p {width: 90%; margin-left: 30px;}
+.all_check > p {width: 90%; margin-left: 30px; font-size: 14px;}
 
 .tos_list {border-bottom: 1px solid #ddd; padding: 10px 0 20px;}
 .tos_list_item {display: flex; justify-content: space-between; align-items: center; margin: 5px 0;}
 .tos_list > .tos_list_item:last-child {display: flex; flex-wrap: wrap;}
 .tos_list > .tos_list_item:last-child .tos_checkbox {width: 100%;}
-.tos_list > .tos_list_item:last-child > p {margin-left: 30px; font-size: 15px; color: #999;}
+.tos_list > .tos_list_item:last-child > p {margin-left: 30px; font-size: 14px; color: #999;}
 .tos_list_item > button {border: 1px solid #ddd; padding: 7px 13px; transition: all 0.3s;}
 .tos_list_item > button:hover {background: #eee;}
+
+.org_agree_wrap {padding: 10px 0;}
+.org_agree {display: flex; align-items: center;}
+.org_agree > input {width: 20px; height: 20px; margin: 10px 0;}
+.org_agree_wrap > p {font-size: 14px; margin-left: 30px; font-weight: bold; color: #ff5f2c;}
+
+.agree_btn {width: 100%; height: 45px; text-align: center; line-height: 45px; font-weight: bold; background: #eee; font-size: 18px; margin-top: 15px; letter-spacing: 2px;} */
+
 /* tos_wrap.jsp end */
 
 
