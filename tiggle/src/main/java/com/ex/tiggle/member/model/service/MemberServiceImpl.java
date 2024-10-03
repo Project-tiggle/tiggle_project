@@ -16,6 +16,11 @@ public class MemberServiceImpl implements MemberService {
 	public Member selectMember(Member member) {
 		return memberDao.selectMember(member);
 	}//암호화 전
+
+	@Override
+	public int insertMember(Member member) {
+		return memberDao.insertMember(member);
+	}//회원가입용
 	
 	
 }//MemberServiceImpl end

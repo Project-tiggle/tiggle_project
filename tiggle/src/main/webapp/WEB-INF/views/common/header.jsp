@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,16 +11,30 @@
 <body>
 	<!-- header start -->
 	<header class="header">
-        <div class="h_top">
-            <nav>
-                <ul class="lnb">
-                    <li><a href="#">고객센터</a></li>
-                    <li><a href="TOSPage.do">회원가입</a></li>
-                    <li><a href="loginPage.do">로그인</a></li>
-                    <li><a href="#">마이페이지</a></li>
-                </ul><!-- lnb end -->
-            </nav>
-        </div><!-- h_top end -->
+        <c:if test="${ empty sessionScope.loginMember }"><%-- 로그인 안함 --%>
+            <div class="h_top">
+                <nav>
+                    <ul class="lnb">
+                        <li><a href="#">고객센터</a></li>
+                        <li><a href="TOSPage.do">회원가입</a></li>
+                        <li><a href="loginPage.do">로그인</a></li>
+                        <li><a href="loginPage.do">마이페이지</a></li>
+                    </ul><!-- lnb end -->
+                </nav>
+            </div><!-- h_top end -->
+        </c:if>
+        
+        <c:if test="${ !empty sessionScope.loginMember }"><%-- 로그인 함 --%>
+            <div class="h_top">
+                <nav>
+                    <ul class="lnb">
+                        <li><a href="#" style="color: #333 !important; font-weight: normal !important; cursor: default !important;">${ sessionScope.loginMember.name } 님</a></li>
+                        <li><a href="logout.do">로그아웃</a></li>
+                        <li><a href="#">마이페이지</a></li>
+                    </ul><!-- lnb end -->
+                </nav>
+            </div><!-- h_top end -->
+        </c:if>
 
         <div class="h_bt">
             <div class="logo">
@@ -53,14 +68,25 @@
         </div><!-- h_bt end -->
 
         <div class="m_menu">
-            <div class="m_top">
-                <ul class="m_lnb">
-                    <li><a href="TOSPage.do">회원가입</a></li>
-                    <li><a href="loginPage.do">로그인</a></li>
-                    <li class="close_btn"><span>&#10005;</span></li>
-                </ul><!-- m_lnb end -->
-            </div><!-- m_top end -->
-            
+            <c:if test="${ empty sessionScope.loginMember }"><%-- 로그인 안함 --%>
+                <div class="m_top">
+                    <ul class="m_lnb">
+                        <li><a href="TOSPage.do">회원가입</a></li>
+                        <li><a href="loginPage.do">로그인</a></li>
+                        <li class="close_btn"><span>&#10005;</span></li>
+                    </ul><!-- m_lnb end -->
+                </div><!-- m_top end -->
+            </c:if>
+            <c:if test="${ !empty sessionScope.loginMember }"><%-- 로그인 함 --%>
+                <div class="m_top">
+                    <ul class="m_lnb">
+                        <li><a href="#" style="color: #333 !important; font-weight: normal !important; cursor: default !important;">${ sessionScope.loginMember.name } 님</a></li>
+                        <li><a href="logout.do">로그아웃</a></li>
+                        <li class="close_btn"><span>&#10005;</span></li>
+                    </ul><!-- m_lnb end -->
+                </div><!-- m_top end -->
+            </c:if>
+
             <div class="m_bt">
                 <ul class="m_gnb">
                     <li><a href="#"><span>&middot;</span>전시회</a></li>

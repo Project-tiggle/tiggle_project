@@ -13,7 +13,7 @@
 .loginform div {width: 100%; border: 1px solid #ddd; box-sizing: border-box;}
 .login_input {display: block; width: 100%; height: 55px; box-sizing: border-box; margin: 0 auto; border: 0; outline: none; padding:
 3px 20px;}
-#id {border-bottom: 1px solid #ddd; box-sizing: border-box;}
+#login_id {border-bottom: 1px solid #ddd; box-sizing: border-box;}
 .l_submit_btn {display: block; width: 100%; box-sizing: border-box; height: 50px; border: none; margin: 25px 0; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; background: #eee;}
 .l_submit_btn:hover {background: #ff5f2c; color: #fff;}
 /* loginform end */
@@ -32,45 +32,66 @@
 
 
 /* tos_wrap.jsp */
-.tos_wrap {width: 450px; padding: 25px; border: 1px solid #ddd; margin: 100px auto;}
-.tos_title {display: flex; align-items: center; margin-bottom: 20px;}
+.tos_section {width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center;}
+.tos_wrap {width: 80%; max-width: 450px; padding: 25px; border: 1px solid #ddd; margin: 100px auto;}
+.tos_title {display: flex; align-items: center; margin-bottom: 30px;}
 .tos_title > img {display: block; width: 45px; margin-right: 20px;}
 .tos_title > p {font-size: 36px; font-weight: bold;}
 /* tos_title end */
 
+.tos_content {width: 100%;}
+.tos_form {width: 100%;}
+.tos_check_all {display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 20px;}
+#check_all {width: 20px; height: 20px; margin-right: 10px;}
+.tos_check_all > label {font-size: 18px;}
+.tos_check_all > p {width: calc(100% - 30px); margin-left: 30px; font-size: 14px; margin-top: 10px;}
+/* tos_check_all end */
 
+.tos_list {width: 100%; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 20px 0 10px;}
+.tos_box {position: relative; display: flex; align-items: center; flex-wrap: wrap; margin: 20px 0;}
+.tos_box > input {width: 20px; height: 20px; margin-right: 10px;}
+.tos_box > label {font-size: 18px;}
+.tos_txt_btn {position: absolute; right: 0; border: 1px solid #ddd; padding: 6px 12px; font-size: 12px;}
+.tos_txt_btn:hover {background: #eee;}
+.tos_list > li:last-child > p {width: calc(100% - 30px); margin-left: 30px; font-size: 14px; margin-top: 10px;}
+/* tos_list end */
 
+.org_tos {width: 100%; padding: 20px 0; display: flex; align-items: center; flex-wrap: wrap;}
+.org_tos > input {width: 20px; height: 20px; margin-right: 10px;}
+.org_tos > label {font-size: 18px;}
+.org_tos > p {width: calc(100% - 30px); margin-left: 30px; font-size: 14px; margin-top: 10px; color: #ff5f2c; font-weight: bold;}
+/* org_tos end */
 
+.agree_btn {width: 100%; height: 45px; text-align: center; line-height: 45px; font-size: 16px; cursor: default; background: #ff5f2c; color: #fff; font-weight: bold; cursor: pointer; transition: all 0.3s;}
+.agree_btn:disabled {opacity: 0.2; font-weight: normal; cursor: not-allowed;}
+/* tos_content end */
 
-
-
-
-/* .all_check {border-bottom: 1px solid #ddd; padding-bottom: 20px;}
-.tos_checkbox {display: flex; align-items: center;}
-.tos_checkbox > input {width: 20px; height: 20px; margin: 10px 0;}
-.tos_txt {font-size: 18px; margin-left: 10px;}
-.all_check > p {width: 90%; margin-left: 30px; font-size: 14px;}
-
-.tos_list {border-bottom: 1px solid #ddd; padding: 10px 0 20px;}
-.tos_list_item {display: flex; justify-content: space-between; align-items: center; margin: 5px 0;}
-.tos_list > .tos_list_item:last-child {display: flex; flex-wrap: wrap;}
-.tos_list > .tos_list_item:last-child .tos_checkbox {width: 100%;}
-.tos_list > .tos_list_item:last-child > p {margin-left: 30px; font-size: 14px; color: #999;}
-.tos_list_item > button {border: 1px solid #ddd; padding: 7px 13px; transition: all 0.3s;}
-.tos_list_item > button:hover {background: #eee;}
-
-.org_agree_wrap {padding: 10px 0;}
-.org_agree {display: flex; align-items: center;}
-.org_agree > input {width: 20px; height: 20px; margin: 10px 0;}
-.org_agree_wrap > p {font-size: 14px; margin-left: 30px; font-weight: bold; color: #ff5f2c;}
-
-.agree_btn {width: 100%; height: 45px; text-align: center; line-height: 45px; font-weight: bold; background: #eee; font-size: 18px; margin-top: 15px; letter-spacing: 2px;} */
-
+.tos_move_home {text-align: center; opacity: 0.5; font-size: 13px; margin-top: 25px;}
+.tos_move_home:hover {opacity: 1; font-weight: bold;}
 /* tos_wrap.jsp end */
 
 
 
 /* enrollPage.jsp */
+.enroll_section {width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center;}
 
+.enroll_top {width: 80%; max-width: 450px; position: absolute; top: 30px; left: 0; right: 0; margin: 0 auto; display: flex; justify-content: space-around; align-items: center;}
+.e_top_title {font-size: 18px; position: relative; left: -30px;}
+/* enroll_top end */
 
+.enroll_wrap {width: 80%; max-width: 450px; padding: 25px; border: 1px solid #ddd; margin: 0 auto; position: absolute; top: 120px;}
+
+.enroll_box {width: 100%;}
+.enroll_list {display: flex; align-items: center; border-bottom: 1px solid #ddd; padding: 15px 0;}
+.enroll_box > .enroll_list:first-child {padding-top: 0;}
+.enroll_box > .enroll_list:nth-child(3) {border-bottom-color: #333;}
+.enroll_box > .enroll_list:nth-child(6) {border-bottom-color: #333;}
+.enroll_list > p {width: 130px; font-size: 18px;}
+.enroll_list > input {height: 28px; width: 40%; border: none; outline: none;}
+.enroll_list > input::placeholder {}
+.enroll_list > input:nth-of-type(2) {position: absolute; right: 25px; width: 110px; height: 32px; line-height: 32px; font-size: 14px; background: #fff; border: 1px solid #ddd; cursor: pointer;}
+.enroll_list > input:nth-of-type(2):hover {background: #eee;}
+
+.e_success_btn {width: 100%; height: 45px; text-align: center; line-height: 45px; font-size: 16px; cursor: default; background: #ff5f2c; color: #fff; font-weight: bold; cursor: pointer; transition: all 0.3s; margin-top: 25px;}
+.e_success_btn:disabled {opacity: 0.2; font-weight: normal; cursor: not-allowed;}
 /* enrollPage.jsp end */

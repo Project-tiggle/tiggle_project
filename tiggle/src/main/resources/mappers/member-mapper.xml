@@ -15,6 +15,7 @@
 	 	<result property="uuid" column="UUID"/>
 	 	<result property="id" column="ID"/>
 	 	<result property="pwd" column="PWD"/>
+	 	<result property="name" column="NAME"/>
 	 	<result property="phone" column="PHONE"/>
 	 	<result property="email" column="EMAIL"/>
 	 	<result property="nickname" column="NICKNAME"/>
@@ -36,10 +37,18 @@
 	 	<result property="deletedReason" column="DELETED_REASON"/>
 	 </resultMap><!-- resultMember end -->
 	 
-	 <select id="selectMember" parameterType="Member" resultMap="resultMember">
-		select * from tb_member where id = #{ id } and pwd = #{ pwd }
+	 <!-- 로그인용 쿼리 -->
+	 <select id="selectMember" parameterType="string" resultMap="resultMember">
+		select * from tb_member where id = #{ id } and login_ok = 'Y'
 	 </select>
 	 
+	 <!-- 일반사용자 회원가입용 쿼리 -->
+	 <select id="insertMember" parameterType="Member">
+	 	insert into tb_member
+	 	values (#{uuid}, #{id}, #{pwd}, #{name}, #{phone}, #{email}, #{nickname}, 
+	 			null, null, default, 'Y', null, null, null, null, null, 
+	 			default, sysdate, sysdate, 'Y', null, null, null)
+	 </select>
 	 
 	 
 	 <!-- ************************************************** -->

@@ -16,4 +16,8 @@ public class MemberDao {
 		return sqlSessionTemplate.selectOne("memberMapper.selectMember", member);
 	}//암호화 전
 
+	public int insertMember(Member member) {
+		return sqlSessionTemplate.insert("memberMapper.insertMember", member);
+	}//회원가입 처리용
+
 }//MemberDao end
