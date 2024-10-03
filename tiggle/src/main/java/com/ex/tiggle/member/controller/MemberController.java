@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.ex.tiggle.member.model.dto.Member;
@@ -50,11 +51,19 @@ public class MemberController {
 	}//moveTOSPage() end
 	
 	
-	//회원가입(이용약관) 페이지 내보내기용
+	//일반사용자 회원가입 페이지 내보내기용
 	@RequestMapping(value="enrollPage.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public String moveEnrollPage() {
 		return "member/enrollPage";
 	}//moveEnrollPage() end
+	
+	
+	//일반사용자 회원가입 페이지 내보내기용
+	@RequestMapping(value="orgEnrollPage.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public String moveOrgEnrollPage() {
+		return "member/orgEnrollPage";
+	}//moveEnrollPage() end
+	
 	
 	
 	//요청 받아서 모델쪽 서비스로 넘기고 결과받는 메서드 --------------------------------------------------
@@ -120,6 +129,29 @@ public class MemberController {
 			return "common/error";
 		}
 	}//memberInsertMethod() end	
+	
+	
+	//전시관계자 회원가입 처리용
+	@RequestMapping(value="orgEnroll.do", method=RequestMethod.POST)
+	public String orgMemberInsertMethod(Member member, Model model) {
+		logger.info("enroll.do : " + member); //전송온 값 확인
+		
+		//패스워드 암호화 처리
+		member.setPwd(bcryptPasswordEncoder.encode(member.getPwd()));
+		logger.info("after encode : " + member.getPwd() 
+					+ ", length : " + member.getPwd().length());
+		
+		//uuid 생성
+		member.setUuid(UUID.randomUUID().toString());
+		logger.info("uuid : " + member.getUuid());
+		
+		if(memberService.insertOrgMember(member) > 0) {
+			return "member/loginPage";
+		}else {
+			model.addAttribute("message", "회원가입에 실패하였습니다.<br> 확인하고 다시 가입해 주세요.");
+			return "common/error";
+		}
+	}//orgMemberInsertMethod() end	
 	
 	
 }//MemberController end

@@ -20,8 +20,8 @@
 			
 			<div class="tos_content">
 				<form action="/" method="post" id="tos_form">
-					<input type="hidden" name="marketingYN" value="/">
-					<input type="hidden" name="org_enroll" value="/">
+					<input type="hidden" name="marketingYN" value="marketingYN">
+					<input type="hidden" name="org_enroll" value="org_enroll">
 					<div class="tos_check_all">
 						<input type="checkbox" name="tosCheckAll" id="check_all">
 						<label for="check_all">모두 동의합니다.</label>
@@ -58,7 +58,7 @@
 						</p>
 					</div><!-- org_tos end -->
 
-					<button type="submit" class="agree_btn" disabled onclick="javascript:location.href='${ pageContext.servletContext.contextPath }/enrollPage.do'">동의</button>
+					<button type="submit" class="agree_btn" id="agreeBtn" disabled>동의</button>
 				</form><!-- tos_form end -->
 			</div><!-- tos_content end -->
 

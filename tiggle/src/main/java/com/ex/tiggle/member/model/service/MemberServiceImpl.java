@@ -21,6 +21,11 @@ public class MemberServiceImpl implements MemberService {
 	public int insertMember(Member member) {
 		return memberDao.insertMember(member);
 	}//회원가입용
+
+	@Override
+	public int insertOrgMember(Member member) {
+		return memberDao.insertOrgMember(member);
+	}//전시관계자 회원가입용
 	
 	
 }//MemberServiceImpl end

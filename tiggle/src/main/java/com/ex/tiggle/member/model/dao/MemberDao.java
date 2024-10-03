@@ -20,4 +20,8 @@ public class MemberDao {
 		return sqlSessionTemplate.insert("memberMapper.insertMember", member);
 	}//회원가입 처리용
 
+	public int insertOrgMember(Member member) {
+		return sqlSessionTemplate.insert("memberMapper.insertOrgMember", member);
+	}//전시관계자 회원가입 처리용
+
 }//MemberDao end

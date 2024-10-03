@@ -20,11 +20,11 @@
                 </a>
             </div><!-- logo end -->
 
-			<div class="e_top_title">정보입력</div>
+			<div class="e_top_title">전시관계자 정보입력</div>
 		</div><!-- enroll_top end -->
 
 		<div class="enroll_wrap">
-			<form action="enroll.do" method="post" onsubmit="return validate();">
+			<form action="orgEnroll.do" method="post" onsubmit="return validate();">
 				<div class="enroll_box">
 					<div class="enroll_list">
 						<p>아이디</p>
@@ -43,13 +43,13 @@
 					</div>
 
 					<div class="enroll_list">
-						<p>이름</p>
-						<input type="text" name="name" id="enroll_name" placeholder="이름 입력" required>
+						<p>기관명</p>
+						<input type="text" name="orgName" id="enroll_name" placeholder="이름 입력" required>
 					</div>
 
 					<div class="enroll_list">
-						<p>이메일</p>
-						<input type="email" name="email" id="enroll_email" placeholder="tiggle@tiggle.com" required>
+						<p>기관 이메일</p>
+						<input type="email" name="orgEmail" id="enroll_email" placeholder="tiggle@tiggle.com" required>
 						<input type="button" value="인증메일 발송">
 					</div>
 					
@@ -60,13 +60,13 @@
 					</div>
 
 					<div class="enroll_list">
-						<p>연락처</p>
-						<input type="tel" name="phone" id="enroll_phone" placeholder="010-1234-5678" required>
+						<p>담당자 이름</p>
+						<input type="text" name="mngName" id="enroll_mngname" placeholder="닉네임 입력" required>
 					</div>
-
+					
 					<div class="enroll_list">
-						<p>닉네임</p>
-						<input type="text" name="nickname" id="enroll_nickname" placeholder="닉네임 입력" required>
+						<p>담당자 연락처</p>
+						<input type="tel" name="phone" id="mng_phone" placeholder="010-1234-5678" required>
 					</div>
 				</div><!-- enroll_box end -->
 

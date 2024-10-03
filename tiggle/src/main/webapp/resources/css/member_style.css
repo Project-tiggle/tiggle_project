@@ -88,7 +88,6 @@
 .enroll_box > .enroll_list:nth-child(6) {border-bottom-color: #333;}
 .enroll_list > p {width: 130px; font-size: 18px;}
 .enroll_list > input {height: 28px; width: 40%; border: none; outline: none;}
-.enroll_list > input::placeholder {}
 .enroll_list > input:nth-of-type(2) {position: absolute; right: 25px; width: 110px; height: 32px; line-height: 32px; font-size: 14px; background: #fff; border: 1px solid #ddd; cursor: pointer;}
 .enroll_list > input:nth-of-type(2):hover {background: #eee;}
 

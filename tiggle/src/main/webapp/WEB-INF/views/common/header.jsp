@@ -28,7 +28,12 @@
             <div class="h_top">
                 <nav>
                     <ul class="lnb">
-                        <li><a href="#" style="color: #333 !important; font-weight: normal !important; cursor: default !important;">${ sessionScope.loginMember.name } 님</a></li>
+                    	<c:if test="${ !empty sessionScope.loginMember.name  }">
+                        	<li><a href="#" style="color: #333 !important; font-weight: normal !important; cursor: default !important;">${ sessionScope.loginMember.name } 님</a></li>
+                    	</c:if>
+                    	<c:if test="${ empty sessionScope.loginMember.name  }">
+                        	<li><a href="#" style="color: #333 !important; font-weight: normal !important; cursor: default !important;">${ sessionScope.loginMember.id } 님</a></li>
+                    	</c:if>
                         <li><a href="logout.do">로그아웃</a></li>
                         <li><a href="#">마이페이지</a></li>
                     </ul><!-- lnb end -->
@@ -80,7 +85,12 @@
             <c:if test="${ !empty sessionScope.loginMember }"><%-- 로그인 함 --%>
                 <div class="m_top">
                     <ul class="m_lnb">
-                        <li><a href="#" style="color: #333 !important; font-weight: normal !important; cursor: default !important;">${ sessionScope.loginMember.name } 님</a></li>
+                    	<c:if test="${ !empty sessionScope.loginMember.name  }">
+                        	<li><a href="#" style="color: #333 !important; font-weight: normal !important; cursor: default !important;">${ sessionScope.loginMember.name } 님</a></li>
+                       	</c:if>
+                    	<c:if test="${ empty sessionScope.loginMember.name  }">
+                        	<li><a href="#" style="color: #333 !important; font-weight: normal !important; cursor: default !important;">${ sessionScope.loginMember.id } 님</a></li>
+                       	</c:if>
                         <li><a href="logout.do">로그아웃</a></li>
                         <li class="close_btn"><span>&#10005;</span></li>
                     </ul><!-- m_lnb end -->
