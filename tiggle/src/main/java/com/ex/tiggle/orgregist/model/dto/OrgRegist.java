@@ -79,6 +79,191 @@ public class OrgRegist implements java.io.Serializable {
 	}
 
 
+	public String getUuid() {
+		return uuid;
+	}
+
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
+
+	public String getTotalId() {
+		return totalId;
+	}
+
+
+	public void setTotalId(String totalId) {
+		this.totalId = totalId;
+	}
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+	public String getContributor() {
+		return contributor;
+	}
+
+
+	public void setContributor(String contributor) {
+		this.contributor = contributor;
+	}
+
+
+	public String geteDescription() {
+		return eDescription;
+	}
+
+
+	public void seteDescription(String eDescription) {
+		this.eDescription = eDescription;
+	}
+
+
+	public String getEventSite() {
+		return eventSite;
+	}
+
+
+	public void setEventSite(String eventSite) {
+		this.eventSite = eventSite;
+	}
+
+
+	public String getDetailEventSite() {
+		return detailEventSite;
+	}
+
+
+	public void setDetailEventSite(String detailEventSite) {
+		this.detailEventSite = detailEventSite;
+	}
+
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+
+	public String getGenre() {
+		return genre;
+	}
+
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+
+	public String getContactPoint() {
+		return contactPoint;
+	}
+
+
+	public void setContactPoint(String contactPoint) {
+		this.contactPoint = contactPoint;
+	}
+
+
+	public int getViewCounter() {
+		return viewCounter;
+	}
+
+
+	public void setViewCounter(int viewCounter) {
+		this.viewCounter = viewCounter;
+	}
+
+
+	public String geteUrl() {
+		return eUrl;
+	}
+
+
+	public void seteUrl(String eUrl) {
+		this.eUrl = eUrl;
+	}
+
+
+	public java.sql.Date getStartDate() {
+		return startDate;
+	}
+
+
+	public void setStartDate(java.sql.Date startDate) {
+		this.startDate = startDate;
+	}
+
+
+	public java.sql.Date getEndDate() {
+		return endDate;
+	}
+
+
+	public void setEndDate(java.sql.Date endDate) {
+		this.endDate = endDate;
+	}
+
+
+	public String getApprovalStatus() {
+		return approvalStatus;
+	}
+
+
+	public void setApprovalStatus(String approvalStatus) {
+		this.approvalStatus = approvalStatus;
+	}
+
+
+	public int geteCategory() {
+		return eCategory;
+	}
+
+
+	public void seteCategory(int eCategory) {
+		this.eCategory = eCategory;
+	}
+
+
+	public String getFileUrl() {
+		return fileUrl;
+	}
+
+
+	public void setFileUrl(String fileUrl) {
+		this.fileUrl = fileUrl;
+	}
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 	@Override
 	public String toString() {
 		return "OrgRegist [uuid=" + uuid + ", totalId=" + totalId + ", title=" + title + ", contributor=" + contributor
