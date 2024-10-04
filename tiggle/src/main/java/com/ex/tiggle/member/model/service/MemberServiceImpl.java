@@ -26,6 +26,11 @@ public class MemberServiceImpl implements MemberService {
 	public int insertOrgMember(Member member) {
 		return memberDao.insertOrgMember(member);
 	}//전시관계자 회원가입용
+
+	@Override
+	public int selectCheckId(String id) {
+		return memberDao.selectCheckId(id);
+	}//아이디 중복 체크(ajax)
 	
 	
 }//MemberServiceImpl end

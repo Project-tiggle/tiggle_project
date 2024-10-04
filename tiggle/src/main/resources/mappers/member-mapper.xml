@@ -46,7 +46,7 @@
 	 <select id="insertMember" parameterType="Member">
 	 	insert into tb_member
 	 	values (#{uuid}, #{id}, #{pwd}, #{name}, #{phone}, #{email}, #{nickname}, 
-	 			null, null, default, 'Y', null, null, null, null, null, 
+	 			null, null, default, #{marketingYN}, null, null, null, null, null, 
 	 			default, sysdate, sysdate, 'Y', null, null, null)
 	 </select>
 	 
@@ -54,9 +54,15 @@
 	 <select id="insertOrgMember" parameterType="Member">
 	 	insert into tb_member
 	 	values (#{uuid}, #{id}, #{pwd}, null, #{phone}, null, null, 
-	 			null, null, default, 'Y', #{orgName}, null, #{orgEmail}, null, null, 
+	 			null, null, default, #{marketingYN}, #{orgName}, null, #{orgEmail}, null, null, 
 	 			'ORGANIZER', sysdate, sysdate, 'Y', null, null, null)
 	 </select>
+	 
+	 <!-- 회원 가입시 아이디 중복 검사용 쿼리 -->
+	<select id="selectCheckId" parameterType="string" resultType="_int">
+		select count(id) from tb_member 
+		where id = #{ id } 
+	</select>
 	 
 	 
 	 <!-- ************************************************** -->

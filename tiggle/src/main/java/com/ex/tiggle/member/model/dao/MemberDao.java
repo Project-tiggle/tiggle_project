@@ -24,4 +24,8 @@ public class MemberDao {
 		return sqlSessionTemplate.insert("memberMapper.insertOrgMember", member);
 	}//전시관계자 회원가입 처리용
 
+	public int selectCheckId(String id) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectCheckId", id);
+	}//아이디 중복 체크(ajax)
+
 }//MemberDao end

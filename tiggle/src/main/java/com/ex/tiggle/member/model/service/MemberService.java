@@ -10,5 +10,7 @@ public interface MemberService {
 	int insertMember(Member member);
 	//전시관계자 회원가입 처리용
 	int insertOrgMember(Member member);
+	//아이디 중복 체크(ajax)
+	int selectCheckId(String id);
 
 }//MemberService end

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,7 @@
 <body>
 	<!-- 회원가입 페이지 -->
 	<div class="enroll_section">
+	
 		<div class="enroll_top">
 			<div class="logo">
                 <a href="main.do">
@@ -24,7 +26,8 @@
 		</div><!-- enroll_top end -->
 
 		<div class="enroll_wrap">
-			<form action="enroll.do" method="post" onsubmit="return validate();">
+			<form action="enroll.do" method="post" onsubmit="return validatePwd();">
+				<input type="hidden" name="marketingYN" value="${param.marketingYN}">
 				<div class="enroll_box">
 					<div class="enroll_list">
 						<p>아이디</p>

@@ -25,6 +25,7 @@
 
 		<div class="enroll_wrap">
 			<form action="orgEnroll.do" method="post" onsubmit="return validate();">
+			<input type="hidden" name="marketingYN" value="${param.marketingYN}">
 				<div class="enroll_box">
 					<div class="enroll_list">
 						<p>아이디</p>

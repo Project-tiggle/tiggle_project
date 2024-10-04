@@ -12,6 +12,7 @@
 <body>
 	<c:import url="/WEB-INF/views/common/header.jsp" />
 	
+	
 	<section class="container">
 		<div class="l_title">
 			<img src="/tiggle/resources/images/tiggle_logo.png" alt="">

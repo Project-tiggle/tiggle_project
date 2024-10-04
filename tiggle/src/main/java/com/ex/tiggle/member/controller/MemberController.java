@@ -1,8 +1,12 @@
 package com.ex.tiggle.member.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -51,18 +55,26 @@ public class MemberController {
 	}//moveTOSPage() end
 	
 	
-	//일반사용자 회원가입 페이지 내보내기용
+	// 일반사용자 회원가입 페이지 내보내기용
 	@RequestMapping(value="enrollPage.do", method= {RequestMethod.GET, RequestMethod.POST})
-	public String moveEnrollPage() {
-		return "member/enrollPage";
-	}//moveEnrollPage() end
+	public String moveEnrollPage(
+			@RequestParam(name="marketingYN", required=false) String marketingYN, Model model) {
+	    logger.info("마케팅 동의 값 확인: " + marketingYN);
+	    model.addAttribute("marketingYN", marketingYN);
+	    
+	    return "member/enrollPage";
+	}
 	
 	
-	//일반사용자 회원가입 페이지 내보내기용
+	//전시관계자 회원가입 페이지 내보내기용
 	@RequestMapping(value="orgEnrollPage.do", method= {RequestMethod.GET, RequestMethod.POST})
-	public String moveOrgEnrollPage() {
+	public String moveOrgEnrollPage(
+			@RequestParam(name="marketingYN", required=false) String marketingYN, Model model) {
+		logger.info("마케팅 동의 값 확인: " + marketingYN);
+	    model.addAttribute("marketingYN", marketingYN);
+		
 		return "member/orgEnrollPage";
-	}//moveEnrollPage() end
+	}//moveOrgEnrollPage() end
 	
 	
 	
@@ -110,8 +122,17 @@ public class MemberController {
 	
 	//회원가입 처리용
 	@RequestMapping(value="enroll.do", method=RequestMethod.POST)
-	public String memberInsertMethod(Member member, Model model) {
+	public String memberInsertMethod(Member member, Model model,
+			@RequestParam("marketingYN") String marketingYN) {
 		logger.info("enroll.do : " + member); //전송온 값 확인
+		
+		// marketingYN 값이 null일 경우 'N'으로 설정
+	    if (marketingYN == null || marketingYN.isEmpty()) {
+	        marketingYN = "N"; // 기본값 'N' 설정
+	    }
+		
+		// 마케팅 동의 값을 Member 객체에 설정
+	    member.setMarketingYN(marketingYN); // 마케팅 동의 여부 저장
 		
 		//패스워드 암호화 처리
 		member.setPwd(bcryptPasswordEncoder.encode(member.getPwd()));
@@ -133,8 +154,17 @@ public class MemberController {
 	
 	//전시관계자 회원가입 처리용
 	@RequestMapping(value="orgEnroll.do", method=RequestMethod.POST)
-	public String orgMemberInsertMethod(Member member, Model model) {
+	public String orgMemberInsertMethod(Member member, Model model,
+			@RequestParam("marketingYN") String marketingYN) {
 		logger.info("enroll.do : " + member); //전송온 값 확인
+		
+		// marketingYN 값이 null일 경우 'N'으로 설정
+		if (marketingYN == null || marketingYN.isEmpty()) {
+			marketingYN = "N"; // 기본값 'N' 설정
+		}
+		
+		// 마케팅 동의 값을 Member 객체에 설정
+		member.setMarketingYN(marketingYN); // 마케팅 동의 여부 저장
 		
 		//패스워드 암호화 처리
 		member.setPwd(bcryptPasswordEncoder.encode(member.getPwd()));
@@ -151,7 +181,30 @@ public class MemberController {
 			model.addAttribute("message", "회원가입에 실패하였습니다.<br> 확인하고 다시 가입해 주세요.");
 			return "common/error";
 		}
-	}//orgMemberInsertMethod() end	
+	}//orgMemberInsertMethod() end
+	
+	
+	//아이디 중복 체크(ajax)
+	@RequestMapping(value="idchk.do", method=RequestMethod.POST)
+	public void dupCheckIdMethod(
+			@RequestParam("id") String id, HttpServletResponse response) throws IOException {
+		int idCount = memberService.selectCheckId(id);
+		String returnStr = null;
+		
+		if(idCount == 0) {
+			returnStr = "ok";
+		}else {
+			returnStr = "dup";
+		}
+		
+		//response 를 이용해서 클라이언트와 출력스트림을 열어서 문자열값 내보냄
+		response.setContentType("text/html; charset=utf-8"); 
+		PrintWriter out = response.getWriter();
+		out.append(returnStr);
+		out.flush();
+		out.close();
+		
+	}//dupCheckIdMethod() end
 	
 	
 }//MemberController end
