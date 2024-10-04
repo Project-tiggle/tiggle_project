@@ -14,27 +14,26 @@ import com.ex.tiggle.reserve.model.service.KakaoPayService;
 
 
 @Controller
-
 public class KakaoPayController {
-	private static final Logger logger = LoggerFactory.getLogger(KakaoPayController.class);
-   @Autowired
-    private KakaoPayService kakaoPay;
-
-    @GetMapping("/kakaoPay")
-    public void kakaoPayGet() {
-
-    }
-
-    @PostMapping("/kakaoPay")
-    public String kakaoPay(){
-        logger.info("kakaoPay post.....................");
-
-        return "redirect:" + kakaoPay.kakaoPayReady();
-    }
-
-    @GetMapping("/kakaoPaySuccess")
-    public void kakaoPaySuccess(@RequestParam("pg_token")String pg_token, Model model) {
-        logger.info("kakaoPay Success get................");
-        logger.info("kakaoPaySuccess pg_token : " + pg_token);
-    }
+//	private static final Logger logger = LoggerFactory.getLogger(KakaoPayController.class);
+//   @Autowired
+//    private KakaoPayService kakaoPay;
+//
+//    @GetMapping("/kakaoPay")
+//    public void kakaoPayGet() {
+//
+//    }
+//
+//    @PostMapping("/kakaoPay")
+//    public String kakaoPay(){
+//        logger.info("kakaoPay post.....................");
+//
+//        return "redirect:" + kakaoPay.kakaoPayReady();
+//    }
+//
+//    @GetMapping("/kakaoPaySuccess")
+//    public void kakaoPaySuccess(@RequestParam("pg_token")String pg_token, Model model) {
+//        logger.info("kakaoPay Success get................");
+//        logger.info("kakaoPaySuccess pg_token : " + pg_token);
+//    }
 }
