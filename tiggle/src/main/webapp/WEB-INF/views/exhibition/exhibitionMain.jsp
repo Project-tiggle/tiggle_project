@@ -21,8 +21,9 @@
 		<table>
 			 <c:forEach var="poster" begin="0" end="20" step="1">
        			 <div class="poster" style="flex-basis: calc(20% - 20px);">
-		            <a href="exhibitionDetail.do"><img src="/tiggle/resources/images/poster_sample.png" alt="포스터" 
-		           ></a>
+		            <a href="exhibitionDetail.do"><img src="/tiggle/resources/images/poster_sample.png" alt="포스터" ></a><br>
+		            전시 제목<br>
+		            전시 기간<br>
 		        </div>
 		    </c:forEach>
 		</table>
