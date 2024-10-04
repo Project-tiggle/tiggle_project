@@ -40,7 +40,7 @@
 	<%-- 이전 페이지 그룹으로 이동 --%>
 	<%-- 이전 그룹이 있다면 --%>
 	<c:if test="${ (currentPage - 10) lt startPage and (currentPage - 10) gt 1}">
-		<a href="/first/${ urlMapping }?page=${ startPage - 10 }">[이전그룹]</a> &nbsp;
+		<a href="/tiggle/${ urlMapping }?page=${ startPage - 10 }">[이전그룹]</a> &nbsp;
 	</c:if>
 	
 	<%-- 이전 그룹이 없다면 --%>
@@ -54,7 +54,7 @@
 			<font color="blue" size="4"><b>${ p }</b></font>
 		</c:if>	
 		<c:if test="${ p ne current }">
-			<a href="/first/${ urlMapping }?page=${ p }">${ p }</a>
+			<a href="/tiggle/${ urlMapping }?page=${ p }">${ p }</a>
 			<%-- 예 : 페이지 7 클릭시 href="/first/list.do?page=7" 요청 처리됨 --%>
 		</c:if>
 	</c:forEach>
@@ -62,7 +62,7 @@
 	<%-- 다음 페이지 그룹으로 이동 --%>
 	<%-- 다음 그룹이 있다면 --%>
 	<c:if test="${ (currentPage + 10) gt endPage and (currentPage + 10) lt maxPage }">
-		<a href="/first/${ urlMapping }?page=${ startPage + 10 }">[다음그룹]</a> &nbsp;
+		<a href="/tiggle/${ urlMapping }?page=${ startPage + 10 }">[다음그룹]</a> &nbsp;
 	</c:if>
 	
 	<%-- 다음 그룹이 없다면 --%>
@@ -76,7 +76,7 @@
 		[맨끝페이지로] &nbsp;
 	</c:if>
 	<c:if test="${ currnetPage lt maxPage }">
-		<a href="/first/${ urlMapping }?page=${ maxPage } }">[첫페이지로]</a> &nbsp;
+		<a href="/tiggle/${ urlMapping }?page=${ maxPage } }">[첫페이지로]</a> &nbsp;
 	</c:if>
 </div>
 </c:if>
@@ -88,7 +88,7 @@
 		[첫페이지로] &nbsp;
 	</c:if>
 	<c:if test="${ currnetPage gt 1 }">
-		<a href="/first/${ urlMapping }?page=1&action=${ action }&keyword=${ keyword }">[첫페이지로]</a> &nbsp;
+		<a href="/tiggle/${ urlMapping }?page=1&action=${ action }&keyword=${ keyword }">[첫페이지로]</a> &nbsp;
 	</c:if>
 	
 	
@@ -97,7 +97,7 @@
 	<%-- 이전 페이지 그룹으로 이동 --%>
 	<%-- 이전 그룹이 있다면 --%>
 	<c:if test="${ (currentPage - 10) lt startPage and (currentPage - 10) gt 1}">
-		<a href="/first/${ urlMapping }?page=${ startPage - 10 }&action=${ action }&keyword=${ keyword }">[이전그룹]</a> &nbsp;
+		<a href="/tiggle/${ urlMapping }?page=${ startPage - 10 }&action=${ action }&keyword=${ keyword }">[이전그룹]</a> &nbsp;
 	</c:if>
 	
 	<%-- 이전 그룹이 없다면 --%>
@@ -111,7 +111,7 @@
 			<font color="blue" size="4"><b>${ p }</b></font>
 		</c:if>	
 		<c:if test="${ p ne current }">
-			<a href="/first/${ urlMapping }?page=${ p }&action=${ action }&keyword=${ keyword }">${ p }</a>
+			<a href="/tiggle/${ urlMapping }?page=${ p }&action=${ action }&keyword=${ keyword }">${ p }</a>
 			<%-- 예 : 페이지 7 클릭시 href="/first/list.do?page=7" 요청 처리됨 --%>
 		</c:if>
 	</c:forEach>
@@ -119,7 +119,7 @@
 	<%-- 다음 페이지 그룹으로 이동 --%>
 	<%-- 다음 그룹이 있다면 --%>
 	<c:if test="${ (currentPage + 10) gt endPage and (currentPage + 10) lt maxPage }">
-		<a href="/first/${ urlMapping }?page=${ startPage + 10 }&action=${ action }&keyword=${ keyword }">[다음그룹]</a> &nbsp;
+		<a href="/tiggle/${ urlMapping }?page=${ startPage + 10 }&action=${ action }&keyword=${ keyword }">[다음그룹]</a> &nbsp;
 	</c:if>
 	
 	<%-- 다음 그룹이 없다면 --%>
@@ -137,7 +137,7 @@
 		[첫페이지로] &nbsp;
 	</c:if>
 	<c:if test="${ currnetPage gt 1 }">
-		<a href="/first/${ urlMapping }?page=1&action=${ action }&begin=${ begin }&end=${ end }">[첫페이지로]</a> &nbsp;
+		<a href="/tiggle/${ urlMapping }?page=1&action=${ action }&begin=${ begin }&end=${ end }">[첫페이지로]</a> &nbsp;
 	</c:if>
 	
 	
@@ -146,7 +146,7 @@
 	<%-- 이전 페이지 그룹으로 이동 --%>
 	<%-- 이전 그룹이 있다면 --%>
 	<c:if test="${ (currentPage - 10) lt startPage and (currentPage - 10) gt 1}">
-		<a href="/first/${ urlMapping }?page=${ startPage - 10 }&action=${ action }&begin=${ begin }&end=${ end }">[이전그룹]</a> &nbsp;
+		<a href="/tiggle/${ urlMapping }?page=${ startPage - 10 }&action=${ action }&begin=${ begin }&end=${ end }">[이전그룹]</a> &nbsp;
 	</c:if>
 	
 	<%-- 이전 그룹이 없다면 --%>
@@ -160,7 +160,7 @@
 			<font color="blue" size="4"><b>${ p }</b></font>
 		</c:if>	
 		<c:if test="${ p ne current }">
-			<a href="/first/${ urlMapping }?page=${ p }&action=${ action }&begin=${ begin }&end=${ end }">${ p }</a>
+			<a href="/tiggle/${ urlMapping }?page=${ p }&action=${ action }&begin=${ begin }&end=${ end }">${ p }</a>
 			<%-- 예 : 페이지 7 클릭시 href="/first/list.do?page=7" 요청 처리됨 --%>
 		</c:if>
 	</c:forEach>
@@ -168,7 +168,7 @@
 	<%-- 다음 페이지 그룹으로 이동 --%>
 	<%-- 다음 그룹이 있다면 --%>
 	<c:if test="${ (currentPage + 10) gt endPage and (currentPage + 10) lt maxPage }">
-		<a href="/first/${ urlMapping }?page=${ startPage + 10 }&action=${ action }&begin=${ begin }&end=${ end }">[다음그룹]</a> &nbsp;
+		<a href="/tiggle/${ urlMapping }?page=${ startPage + 10 }&action=${ action }&begin=${ begin }&end=${ end }">[다음그룹]</a> &nbsp;
 	</c:if>
 	
 	<%-- 다음 그룹이 없다면 --%>
@@ -181,7 +181,7 @@
 		[맨끝페이지로] &nbsp;
 	</c:if>
 	<c:if test="${ currnetPage lt maxPage }">
-		<a href="/first/${ urlMapping }?page=${ maxPage }&action=${ action }&begin=${ begin }&end=${ end } }">[첫페이지로]</a> &nbsp;
+		<a href="/tiggle/${ urlMapping }?page=${ maxPage }&action=${ action }&begin=${ begin }&end=${ end } }">[첫페이지로]</a> &nbsp;
 	</c:if>
 </div>
 </c:if>
