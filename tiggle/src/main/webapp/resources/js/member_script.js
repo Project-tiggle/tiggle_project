@@ -117,4 +117,62 @@ function validatePwd() {
 }//validate() end
 
 
+//회원가입 이메일 인증번호 보냄
+var certifyCode='';
+function mailSend() {
+  var enrollEmail = $('#enroll_email').val();
+
+  // 이메일 입력 여부 확인
+  if (enrollEmail === '') {
+    alert('이메일을 입력해 주세요.');
+    $('#enroll_email').focus();
+    return false;
+  }
+
+  // 인증번호 필드 초기화
+  $('#mail_check_input').attr('disabled', false).val(''); // 필드 활성화 및 값 초기화
+
+  $.ajax({
+    url: 'mailCheck.do',
+    type: 'post',
+    data: { email: enrollEmail },
+    cache: false,
+    success: function(data){
+      if(data == 'error') {
+        alert('이메일 주소가 올바르지 않습니다.\n유효한 이메일 주소를 입력해주세요.');
+        $('#enroll_email').attr('autofocus', true);
+      }else{
+        alert('인증번호 발송이 완료되었습니다.\n입력한 이메일에서 인증번호 확인을 해주십시오.');
+        certifyCode = data;
+      }
+    },//success end
+    error: function() {
+      alert('인증메일 발송 중 오류가 발생했습니다. 다시 시도해 주세요.');
+    },
+  });//ajax end
+
+  return false; // 폼이 전송되지 않도록 막음
+};//mailSend() end
+
+function mailValidate() {
+  if ($('#mail_check_input').val() == '') {
+    alert('인증번호를 입력해 주세요.');
+    $('#mail_check_input').focus();
+    return false;
+  }
+
+   if($('#mail_check_input').val() == certifyCode) {
+      alert('인증번호가 일치합니다.');
+      $('#email_double_check').val('true');
+      $('#mail_check_input').attr('disabled', true);
+    }else {
+      alert('인증번호가 일치하지 않습니다. 확인해주시기 바랍니다.');
+      $('#email_double_check').val('false');
+      $('#mail_check_input').attr('autofocus', true);
+    }
+  
+  return false;
+};//mailValidate() end
+
+
 //enrollPage.jsp, orgEnrollPage.jsp end

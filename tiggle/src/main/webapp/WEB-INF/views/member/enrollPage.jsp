@@ -53,13 +53,14 @@
 					<div class="enroll_list">
 						<p>이메일</p>
 						<input type="email" name="email" id="enroll_email" placeholder="tiggle@tiggle.com" required>
-						<input type="button" value="인증메일 발송">
+						<input type="button" id="mail_check_btn" value="인증메일 발송" onclick="return mailSend();">
 					</div>
 					
 					<div class="enroll_list">
-						<p>인증코드</p>
-						<input type="text" name="authcode" id="authcode" placeholder="인증코드 입력">
-						<input type="button" value="인증">
+						<p>인증번호</p>
+						<input type="text" id="mail_check_input" placeholder="인증번호 입력" required>
+						<input type="button" id="mail_certify_btn" value="인증" onclick="return mailValidate();">
+						<input type="hidden" id="email_double_check" name="email_double_check" value="false">
 					</div>
 
 					<div class="enroll_list">

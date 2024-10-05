@@ -2,9 +2,9 @@ package com.ex.tiggle.member.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Map;
 import java.util.UUID;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -12,12 +12,15 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.ex.tiggle.member.model.dto.Member;
@@ -32,6 +35,9 @@ public class MemberController {
 	
 	@Autowired
 	private BCryptPasswordEncoder bcryptPasswordEncoder; //패스워드 암호화
+	
+	@Autowired
+    private JavaMailSender mailSender; //회원가입 이메일 인증
 	
 	//뷰페이지 내보내기용 메서드 --------------------------------------------------
 	//메인 페이지 내보내기용
@@ -205,6 +211,51 @@ public class MemberController {
 		out.close();
 		
 	}//dupCheckIdMethod() end
+	
+	
+	//회원가입 이메일 인증(ajax)
+	@RequestMapping(value="mailCheck.do", method=RequestMethod.POST)
+	@ResponseBody
+	public String mailCheck(
+			@RequestParam(value = "email", required = false) String email,
+	        @RequestParam(value = "orgEmail", required = false) String orgEmail) {
+		// 이메일이 null이거나 비어있으면 orgEmail을 사용
+	    if (email == null || email.isEmpty()) {
+	        email = orgEmail;  // orgEmail을 사용
+	    }
+
+	    // email과 orgEmail 둘 다 null 또는 비어있을 경우 처리
+	    if (email == null || email.isEmpty()) {
+	        return "error";  // 두 이메일 모두 없는 경우 에러 처리
+	    }
+		
+	    int certifyCode = (int)((Math.random()* (999999 - 100000 + 1)) + 100000);
+	    
+		String from = "tiggle2024@naver.com";
+		String to = email;
+		String title = "[인증번호] '티글' 회원가입시 필요한 인증번호 입니다.";
+		String content = "[인증번호] " + certifyCode + " 입니다.<br>인증번호 확인란에 기입해주십시오.";
+		String mailNum = "";
+		
+		try {
+			MimeMessage mail = mailSender.createMimeMessage();
+			MimeMessageHelper mailHelper = new MimeMessageHelper(mail, true, "UTF-8");
+			
+			mailHelper.setFrom(from);
+	        mailHelper.setTo(to);
+	        mailHelper.setSubject(title);
+	        mailHelper.setText(content, true);       
+	        
+	        mailSender.send(mail);
+	        mailNum = Integer.toString(certifyCode);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			mailNum = "error";
+		}//try~catch end
+		
+		return mailNum;
+	}//mailCheck() end
 	
 	
 }//MemberController end

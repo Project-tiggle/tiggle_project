@@ -21,8 +21,27 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	
+	<!-- navermail설정 -->
+	<beans:bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<beans:property name="host" value="smtp.naver.com"/> <!-- 메이서버 호스트 -->
+		<beans:property name="port" value="587"/> <!-- 메이서버 포트번호 -->
+		<beans:property name="username" value="tiggle2024"/> <!-- 네이버 이메일 아이디 -->
+		<beans:property name="password" value="keepgoing!"/> <!-- 네이버 이메일 비밀번호 -->
+		<!-- 보안연결 SSL과 관련된 설정 -->
+		<beans:property name="javaMailProperties">
+			<beans:props>
+				<beans:prop key="mail.smtp.auth">true</beans:prop>
+				<beans:prop key="mail.smtp.starttls.enable">true</beans:prop>
+				<beans:prop key="mail.smtps.checkserveridentity">true</beans:prop>
+				<beans:prop key="mail.transport.protocol">smtp</beans:prop>
+				<beans:prop key="mail.smtps.ssl.trust">*</beans:prop>
+				<beans:prop key="mail.debug">true</beans:prop>
+				<beans:prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+	
 	<context:component-scan base-package="com.ex.tiggle" />
-	
-	
 	
 </beans:beans>

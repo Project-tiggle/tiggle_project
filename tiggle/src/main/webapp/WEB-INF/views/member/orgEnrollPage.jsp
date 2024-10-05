@@ -24,7 +24,7 @@
 		</div><!-- enroll_top end -->
 
 		<div class="enroll_wrap">
-			<form action="orgEnroll.do" method="post" onsubmit="return validate();">
+			<form action="orgEnroll.do" method="post" onsubmit="return validatePwd();">
 			<input type="hidden" name="marketingYN" value="${param.marketingYN}">
 				<div class="enroll_box">
 					<div class="enroll_list">
@@ -51,13 +51,14 @@
 					<div class="enroll_list">
 						<p>기관 이메일</p>
 						<input type="email" name="orgEmail" id="enroll_email" placeholder="tiggle@tiggle.com" required>
-						<input type="button" value="인증메일 발송">
+						<input type="button" id="mail_check_btn" value="인증메일 발송" onclick="return mailSend();">
 					</div>
 					
 					<div class="enroll_list">
-						<p>인증코드</p>
-						<input type="text" name="authcode" id="authcode" placeholder="인증코드 입력">
-						<input type="button" value="인증">
+						<p>인증번호</p>
+						<input type="text" id="mail_check_input" placeholder="인증번호 입력" required>
+						<input type="button" id="mail_certify_btn" value="인증" onclick="return mailValidate();">
+						<input type="hidden" id="email_double_check" name="email_double_check" value="false">
 					</div>
 
 					<div class="enroll_list">
