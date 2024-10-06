@@ -96,22 +96,28 @@ public class OrgRegistController {
             HttpServletRequest request,
             @RequestParam(name="photofile", required = false) MultipartFile mfile) {
     	
+    	
     	//***************  Session안에 loginMember 객체 정보를 orgRegist에 담음
     	Member loginMember = (Member) session.getAttribute("loginMember");
-    	orgRegist.seteUrl(loginMember.getUuid());
-    	orgRegist.setContactPoint(loginMember.getOrgTel());
-    	
-    	
-    	orgRegist.setTotalId("100");	//미완성, 라스트 번호를 불러와서 +1 올리는 방식 사용(게시판 참조)
-    	orgRegist.seteDescription("설명탭누락");	//미완성, jsp에 설명탭 누락
-    	orgRegist.setGenre("예정전시");	//미완성, 시작날짜 종료날짜를 토대로 if 값입력해야함
-    	
-    	
-    	orgRegist.setApprovalStatus("N");	// 등록시 관리자 확인전까지는 기본 설정값 'N' 값을 넣음
+    	if (loginMember != null) {
+	    	orgRegist.setUuid(loginMember.getUuid());
+	    	orgRegist.setContactPoint(loginMember.getOrgTel());
+	    	
+	    	
+	    	orgRegist.setTotalId("100");	//미완성, 라스트 번호를 불러와서 +1 올리는 방식 사용(게시판 참조)
+	    	orgRegist.seteDescription("설명탭누락");	//미완성, jsp에 설명탭 누락
+	    	orgRegist.setGenre("예정전시");	//미완성, 시작날짜 종료날짜를 토대로 if 값입력해야함
+	    	
+	    	
+	    	orgRegist.setApprovalStatus("N");	// 등록시 관리자 확인전까지는 기본 설정값 'N' 값을 넣음
+	    
+    	} else {
+    		logger.info("로그인 세션이 만료되었습니다");
+    		return "redirect:/login.do";
+    	}
     	// ************** orgRegist 셋팅 마무리
     	
-    	String detailEventSite = orgRegist.getDetailEventSite();
-    	logger.info("detailEventSite :" + detailEventSite);
+    	String detailEventSite = orgRegist.getDetailEventSite();	//API 쉽게 사용하기 위한 변수
     	logger.info("orgRegist.do : " + orgRegist);
     	
     	String savePath = request.getSession().getServletContext().getRealPath("resources/images/exhibit_files");
