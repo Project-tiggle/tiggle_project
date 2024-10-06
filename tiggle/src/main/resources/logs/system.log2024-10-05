@@ -1,0 +1,117 @@
+[00:44:55][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[00:44:56][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 479 ms
+[00:44:56][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[00:44:56][INFO ][FrameworkServlet.java: 547] - Completed initialization in 321 ms
+[00:45:30][INFO ][MemberController.java: 62] - 마케팅 동의 값 확인: Y
+[01:33:50][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[01:33:50][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 485 ms
+[01:33:50][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[01:33:51][INFO ][FrameworkServlet.java: 547] - Completed initialization in 322 ms
+[01:34:02][INFO ][MemberController.java: 62] - 마케팅 동의 값 확인: Y
+[01:38:03][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[01:38:03][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 485 ms
+[01:38:03][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[01:38:04][INFO ][FrameworkServlet.java: 547] - Completed initialization in 325 ms
+[01:38:10][INFO ][MemberController.java: 62] - 마케팅 동의 값 확인: Y
+[01:38:49][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[01:38:49][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 486 ms
+[01:38:49][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[01:38:50][INFO ][FrameworkServlet.java: 547] - Completed initialization in 327 ms
+[01:38:53][INFO ][MemberController.java: 62] - 마케팅 동의 값 확인: Y
+[01:41:46][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[01:41:46][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 486 ms
+[01:41:46][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[01:41:47][INFO ][FrameworkServlet.java: 547] - Completed initialization in 326 ms
+[01:41:53][INFO ][MemberController.java: 62] - 마케팅 동의 값 확인: Y
+[01:42:01][INFO ][MemberController.java: 62] - 마케팅 동의 값 확인: null
+[11:28:50][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[11:28:51][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 473 ms
+[11:28:51][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[11:28:51][INFO ][FrameworkServlet.java: 547] - Completed initialization in 322 ms
+[11:29:06][INFO ][MemberController.java: 62] - 마케팅 동의 값 확인: Y
+[13:18:39][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[13:18:39][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 479 ms
+[13:18:39][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[13:18:39][INFO ][FrameworkServlet.java: 547] - Completed initialization in 348 ms
+[13:18:49][INFO ][MemberController.java: 68] - 마케팅 동의 값 확인: Y
+[13:20:33][INFO ][MemberController.java: 68] - 마케팅 동의 값 확인: Y
+[13:24:20][INFO ][MemberController.java: 68] - 마케팅 동의 값 확인: Y
+[13:30:18][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[13:30:19][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 467 ms
+[13:30:19][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[13:30:19][INFO ][FrameworkServlet.java: 547] - Completed initialization in 352 ms
+[13:30:38][INFO ][MemberController.java: 68] - 마케팅 동의 값 확인: null
+[13:30:51][WARN ][AbstractHandlerExceptionResolver.java: 208] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'email' for method parameter type String is not present]
+[13:39:37][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[13:39:37][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 479 ms
+[13:39:37][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[13:39:38][INFO ][FrameworkServlet.java: 547] - Completed initialization in 338 ms
+[13:39:53][INFO ][MemberController.java: 68] - 마케팅 동의 값 확인: Y
+[13:41:56][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[13:41:56][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 471 ms
+[13:41:56][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[13:41:57][INFO ][FrameworkServlet.java: 547] - Completed initialization in 342 ms
+[13:42:00][INFO ][MemberController.java: 68] - 마케팅 동의 값 확인: Y
+[13:46:43][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[13:46:44][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 478 ms
+[13:46:44][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[13:46:44][INFO ][FrameworkServlet.java: 547] - Completed initialization in 353 ms
+[13:46:48][INFO ][MemberController.java: 68] - 마케팅 동의 값 확인: Y
+[13:47:57][INFO ][MemberController.java: 133] - enroll.do : Member [uuid=null, id=test07, pwd=test07, name=테스트07, phone=010-0000-0007, email=ljh1004im@naver.com, nickname=테스트07, address=null, gender=null, signtype=null, marketingYN=Y, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[13:47:57][INFO ][MemberController.java: 145] - after encode : $2a$10$KNRIZmInLLka76VzrdB8p.Jw7oDsy7kcrXGQUn6DTsGr59xRnLdIi, length : 60
+[13:47:57][INFO ][MemberController.java: 150] - uuid : 0c2aef5f-e535-4fdb-951c-c327da4219d7
+[13:48:46][INFO ][MemberController.java: 92] - login : Member [uuid=null, id=test07, pwd=test07, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[13:52:31][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[13:52:32][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 476 ms
+[13:52:32][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[13:52:32][INFO ][FrameworkServlet.java: 547] - Completed initialization in 343 ms
+[14:02:32][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:02:32][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 479 ms
+[14:02:32][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:02:33][INFO ][FrameworkServlet.java: 547] - Completed initialization in 337 ms
+[14:02:42][INFO ][MemberController.java: 68] - 마케팅 동의 값 확인: Y
+[14:03:32][INFO ][MemberController.java: 133] - enroll.do : Member [uuid=null, id=test08, pwd=test08, name=테스트08, phone=010-0000-0008, email=ljh1004im@naver.com, nickname=테스트08, address=null, gender=null, signtype=null, marketingYN=Y, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[14:03:32][INFO ][MemberController.java: 145] - after encode : $2a$10$ablkJq7GQkCs3t9OcZKOMerrpmm5xFc5awFLllaDLpHYr.qNkiYau, length : 60
+[14:03:32][INFO ][MemberController.java: 150] - uuid : 4bed4c4e-81e5-4685-a5f4-23ed37f7c78a
+[14:03:43][INFO ][MemberController.java: 79] - 마케팅 동의 값 확인: Y
+[14:05:40][INFO ][MemberController.java: 79] - 마케팅 동의 값 확인: Y
+[14:07:22][INFO ][MemberController.java: 79] - 마케팅 동의 값 확인: Y
+[14:07:58][INFO ][MemberController.java: 79] - 마케팅 동의 값 확인: Y
+[14:10:53][INFO ][MemberController.java: 79] - 마케팅 동의 값 확인: Y
+[14:10:57][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:10:58][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 471 ms
+[14:10:58][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:10:58][INFO ][FrameworkServlet.java: 547] - Completed initialization in 341 ms
+[14:11:02][INFO ][MemberController.java: 79] - 마케팅 동의 값 확인: Y
+[14:14:02][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:14:02][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 509 ms
+[14:14:02][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:14:03][INFO ][FrameworkServlet.java: 547] - Completed initialization in 359 ms
+[14:14:12][INFO ][MemberController.java: 68] - 마케팅 동의 값 확인: Y
+[14:24:25][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:24:26][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 479 ms
+[14:24:26][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:24:26][INFO ][FrameworkServlet.java: 547] - Completed initialization in 343 ms
+[14:24:42][INFO ][MemberController.java: 68] - 마케팅 동의 값 확인: Y
+[14:27:10][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:27:10][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 494 ms
+[14:27:11][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:27:11][INFO ][FrameworkServlet.java: 547] - Completed initialization in 353 ms
+[14:27:20][INFO ][MemberController.java: 68] - 마케팅 동의 값 확인: Y
+[14:29:06][INFO ][MemberController.java: 133] - enroll.do : Member [uuid=null, id=test09, pwd=test08, name=테스트08, phone=010-0000-0008, email=ljh1004im@naver.com, nickname=테스트08, address=null, gender=null, signtype=null, marketingYN=Y, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[14:29:06][INFO ][MemberController.java: 145] - after encode : $2a$10$GlWch4MEGaQKZ.tcbvtMvecGFZVN.XoTMRDkJnhby8LDxkQqngr/O, length : 60
+[14:29:06][INFO ][MemberController.java: 150] - uuid : 28bfc863-0882-421a-9ace-b6dd11725817
+[14:29:12][INFO ][MemberController.java: 92] - login : Member [uuid=null, id=test09, pwd=test09, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[14:29:20][INFO ][MemberController.java: 92] - login : Member [uuid=null, id=test09, pwd=test09, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[14:29:35][INFO ][MemberController.java: 92] - login : Member [uuid=null, id=test09, pwd=xptmxm09, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[14:30:12][INFO ][MemberController.java: 92] - login : Member [uuid=null, id=test09, pwd=xptmxm09, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[14:30:18][INFO ][MemberController.java: 68] - 마케팅 동의 값 확인: Y
+[14:30:53][INFO ][MemberController.java: 133] - enroll.do : Member [uuid=null, id=test09, pwd=test09, name=테스트09, phone=010-0000-0009, email=ljh1004im@naver.com, nickname=테스트09, address=null, gender=null, signtype=null, marketingYN=Y, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[14:30:53][INFO ][MemberController.java: 145] - after encode : $2a$10$U56hhYMn6gR2KNho7S9BHO0jWw/FhvPP8tIlNEFZmx/3WpJYWMWCu, length : 60
+[14:30:53][INFO ][MemberController.java: 150] - uuid : 66ed7c28-b227-447b-9d0d-7d3713fa85f4
+[14:30:59][INFO ][MemberController.java: 92] - login : Member [uuid=null, id=test09, pwd=test09, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[15:19:29][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:19:30][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 506 ms
+[15:19:30][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:19:30][INFO ][FrameworkServlet.java: 547] - Completed initialization in 357 ms
+[15:20:03][INFO ][MemberController.java: 68] - 마케팅 동의 값 확인: Y

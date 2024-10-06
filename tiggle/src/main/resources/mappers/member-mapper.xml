@@ -5,65 +5,68 @@
 <mapper namespace="memberMapper">
 <!-- namespace (이름공간) == 패키지와 같음 : 매퍼 영역에 이름을 붙여준 것으로 이해하면 됌 -->
 
-	<!-- select 조회한 결과 매핑 처리하는 용도의 엘리먼트임
-		 결과매핑 : select 한 행의 컬럼값을 한개씩 dto 객체의 필드에 옮겨 저장하는 것
-		 property 는 클래스의 필드명, column 은 데이터베이스 테이블의 컬럼명을 기술하면 됨
-	 -->
-	 
-	 <!-- tiggle member-mapper.xml ************************************************** -->
-	 <resultMap type="Member" id="resultMember">
-	 	<result property="uuid" column="UUID"/>
-	 	<result property="id" column="ID"/>
-	 	<result property="pwd" column="PWD"/>
-	 	<result property="name" column="NAME"/>
-	 	<result property="phone" column="PHONE"/>
-	 	<result property="email" column="EMAIL"/>
-	 	<result property="nickname" column="NICKNAME"/>
-	 	<result property="address" column="ADDRESS"/>
-	 	<result property="gender" column="GENDER"/>
-	 	<result property="signtype" column="SIGNTYPE"/>
-	 	<result property="marketingYN" column="MARKETING_YN"/>
-	 	<result property="orgName" column="ORG_NAME"/>
-	 	<result property="orgTel" column="ORG_TEL"/>
-	 	<result property="orgEmail" column="ORG_EMAIL"/>
-	 	<result property="mngDept" column="MNG_DEPT"/>
-	 	<result property="mngJobId" column="MNG_JOBID"/>
-	 	<result property="memberType" column="MEMBER_TYPE"/>
-	 	<result property="signUpAt" column="SIGNUP_AT"/>
-	 	<result property="updatedAt" column="UPDATED_AT"/>
-	 	<result property="loginOk" column="LOGIN_OK"/>
-	 	<result property="deletedYN" column="DELETED_YN"/>
-	 	<result property="deletedAt" column="DELETED_AT"/>
-	 	<result property="deletedReason" column="DELETED_REASON"/>
-	 </resultMap><!-- resultMember end -->
-	 
-	 <!-- 로그인용 쿼리 -->
-	 <select id="selectMember" parameterType="string" resultMap="resultMember">
+	<!-- select 조회한 결과 매핑 처리하는 용도의 엘리먼트임 결과매핑 : 
+		 select 한 행의 컬럼값을 한개씩 dto 객체의 필드에 옮겨 저장하는 것 
+		 property 는 클래스의 필드명, column 은 데이터베이스 테이블의 컬럼명을 기술하면 됨 -->
+
+	<!-- tiggle member-mapper.xml ************************************************** -->
+	<resultMap type="Member" id="resultMember">
+		<result property="uuid" column="UUID" />
+		<result property="id" column="ID" />
+		<result property="pwd" column="PWD" />
+		<result property="name" column="NAME" />
+		<result property="phone" column="PHONE" />
+		<result property="email" column="EMAIL" />
+		<result property="nickname" column="NICKNAME" />
+		<result property="address" column="ADDRESS" />
+		<result property="gender" column="GENDER" />
+		<result property="signtype" column="SIGNTYPE" />
+		<result property="marketingYN" column="MARKETING_YN" />
+		<result property="orgName" column="ORG_NAME" />
+		<result property="orgTel" column="ORG_TEL" />
+		<result property="orgEmail" column="ORG_EMAIL" />
+		<result property="mngDept" column="MNG_DEPT" />
+		<result property="mngJobId" column="MNG_JOBID" />
+		<result property="memberType" column="MEMBER_TYPE" />
+		<result property="signUpAt" column="SIGNUP_AT" />
+		<result property="updatedAt" column="UPDATED_AT" />
+		<result property="loginOk" column="LOGIN_OK" />
+		<result property="deletedYN" column="DELETED_YN" />
+		<result property="deletedAt" column="DELETED_AT" />
+		<result property="deletedReason" column="DELETED_REASON" />
+	</resultMap><!-- resultMember end -->
+
+	<!-- 로그인용 쿼리 -->
+	<select id="selectLogin" parameterType="string" resultMap="resultMember">
 		select * from tb_member where id = #{ id } and login_ok = 'Y'
-	 </select>
-	 
-	 <!-- 일반사용자 회원가입용 쿼리 -->
-	 <select id="insertMember" parameterType="Member">
-	 	insert into tb_member
-	 	values (#{uuid}, #{id}, #{pwd}, #{name}, #{phone}, #{email}, #{nickname}, 
-	 			null, null, default, #{marketingYN}, null, null, null, null, null, 
-	 			default, sysdate, sysdate, 'Y', null, null, null)
-	 </select>
-	 
-	 <!-- 전시관계자 회원가입용 쿼리 -->
-	 <select id="insertOrgMember" parameterType="Member">
-	 	insert into tb_member
-	 	values (#{uuid}, #{id}, #{pwd}, null, #{phone}, null, null, 
-	 			null, null, default, #{marketingYN}, #{orgName}, null, #{orgEmail}, null, null, 
-	 			'ORGANIZER', sysdate, sysdate, 'Y', null, null, null)
-	 </select>
-	 
-	 <!-- 회원 가입시 아이디 중복 검사용 쿼리 -->
-	<select id="selectCheckId" parameterType="string" resultType="_int">
-		select count(id) from tb_member 
-		where id = #{ id } 
 	</select>
-	 
+
+	<!-- 일반사용자 회원가입용 쿼리 -->
+	<select id="insertMember" parameterType="Member">
+		insert into tb_member
+		values (#{uuid}, #{id}, #{pwd}, #{name}, #{phone}, #{email}, #{nickname},
+		null, null, default, #{marketingYN}, null, null, null, null, null,
+		default, sysdate, sysdate, 'Y', null, null, null)
+	</select>
+
+	<!-- 전시관계자 회원가입용 쿼리 -->
+	<select id="insertOrgMember" parameterType="Member">
+		insert into tb_member
+		values (#{uuid}, #{id}, #{pwd}, null, #{phone}, null, null,
+		null, null, default, #{marketingYN}, #{orgName}, null, #{orgEmail}, null,
+		null, 'ORGANIZER', sysdate, sysdate, 'Y', null, null, null)
+	</select>
+
+	<!-- 회원 가입시 아이디 중복 검사용 쿼리 -->
+	<select id="selectCheckId" parameterType="string" resultType="_int">
+		select count(id) from tb_member where id = #{ id }
+	</select>
+	
+	<!-- 내정보 보기용 -->
+	<select id="selectMember" parameterType="string" resultMap="resultMember">
+		select * from tb_member where uuid = #{uuid} and login_ok = 'Y'
+	</select>
+	
 	 
 	 <!-- ************************************************** -->
 <!-- 	<resultMap id="resultUser" type="User">

@@ -69,7 +69,7 @@ public class MemberController {
 	    model.addAttribute("marketingYN", marketingYN);
 	    
 	    return "member/enrollPage";
-	}
+	}//moveEnrollPage() end
 	
 	
 	//전시관계자 회원가입 페이지 내보내기용
@@ -92,7 +92,7 @@ public class MemberController {
 		logger.info("login : " + member);
 		
 		//암호화 전
-		Member loginMember = memberService.selectMember(member); 
+		Member loginMember = memberService.selectLogin(member); 
 		
 		//로그인
 		if (loginMember != null && this.bcryptPasswordEncoder.matches(member.getPwd(), loginMember.getPwd())) { //로그인 성공시
@@ -258,4 +258,22 @@ public class MemberController {
 	}//mailCheck() end
 	
 	
+	//내정보 보기 페이지 처리용
+	@RequestMapping("myInfo.do")
+	public String moveMyInfoPage(@RequestParam("uuid") String uuid, Model model) {
+		logger.info("myInfo.do : " + uuid);
+		
+		Member member = memberService.selectMember(uuid);
+		
+		if(member != null) { //전송온 uuid로 회원조회 성공시
+			model.addAttribute("member", member);
+			return "member/myInfoPage";
+		}else {
+			model.addAttribute("message", "해당하는 회원이 없습니다. 다시 로그인 해주세요.");
+			return "common/error";
+		}
+
+	}// moveMyInfoPage() end
+
+		
 }//MemberController end

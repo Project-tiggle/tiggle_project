@@ -12,9 +12,9 @@ public class MemberDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	public Member selectMember(Member member) {
-		return sqlSessionTemplate.selectOne("memberMapper.selectMember", member);
-	}//암호화 전
+	public Member selectLogin(Member member) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectLogin", member);
+	}//로그인 처리용
 
 	public int insertMember(Member member) {
 		return sqlSessionTemplate.insert("memberMapper.insertMember", member);
@@ -27,5 +27,10 @@ public class MemberDao {
 	public int selectCheckId(String id) {
 		return sqlSessionTemplate.selectOne("memberMapper.selectCheckId", id);
 	}//아이디 중복 체크(ajax)
+
+	public Member selectMember(String uuid) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectMember", uuid);
+	}//내정보 보기용
+	
 
 }//MemberDao end

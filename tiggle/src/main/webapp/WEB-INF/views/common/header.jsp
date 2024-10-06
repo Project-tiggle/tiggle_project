@@ -35,7 +35,7 @@
                         	<li><a href="#" style="color: #333 !important; font-weight: normal !important; cursor: default !important;">${ sessionScope.loginMember.id } 님</a></li>
                     	</c:if>
                         <li><a href="logout.do">로그아웃</a></li>
-                        <li><a href="#">마이페이지</a></li>
+                        <li><a href="myInfo.do?uuid=${ sessionScope.loginMember.uuid }">마이페이지</a></li>
                     </ul><!-- lnb end -->
                 </nav>
             </div><!-- h_top end -->
@@ -81,6 +81,18 @@
                         <li class="close_btn"><span>&#10005;</span></li>
                     </ul><!-- m_lnb end -->
                 </div><!-- m_top end -->
+                
+                <div class="m_bt">
+	                <ul class="m_gnb">
+	                    <li><a href="#"><span>&middot;</span>전시회</a></li>
+	                    <li><a href="#"><span>&middot;</span>박람회</a></li>
+	                    <li><a href="nearbyMap.do"><span>&middot;</span>내 주변?</a></li>
+	                    <li><a href="#"><span>&middot;</span>공지사항</a></li>
+	                    <li><a href="orgRegistPage.do"><span>&middot;</span>전시등록</a></li>
+	                    <li><a href="#"><span>&middot;</span>고객센터</a></li>
+	                    <li><a href="loginPage.do"><span>&middot;</span>마이페이지</a></li>
+	                </ul><!-- m_gnb end -->
+	            </div><!-- m_bt end -->
             </c:if>
             <c:if test="${ !empty sessionScope.loginMember }"><%-- 로그인 함 --%>
                 <div class="m_top">
@@ -95,20 +107,19 @@
                         <li class="close_btn"><span>&#10005;</span></li>
                     </ul><!-- m_lnb end -->
                 </div><!-- m_top end -->
+
+	            <div class="m_bt">
+	                <ul class="m_gnb">
+	                    <li><a href="#"><span>&middot;</span>전시회</a></li>
+	                    <li><a href="#"><span>&middot;</span>박람회</a></li>
+	                    <li><a href="nearbyMap.do"><span>&middot;</span>내 주변?</a></li>
+	                    <li><a href="#"><span>&middot;</span>공지사항</a></li>
+	                    <li><a href="orgRegistPage.do"><span>&middot;</span>전시등록</a></li>
+	                    <li><a href="#"><span>&middot;</span>고객센터</a></li>
+	                    <li><a href="myInfo.do?uuid=${ sessionScope.loginMember.uuid }"><span>&middot;</span>마이페이지</a></li>
+	                </ul><!-- m_gnb end -->
+	            </div><!-- m_bt end -->
             </c:if>
-
-            <div class="m_bt">
-                <ul class="m_gnb">
-                    <li><a href="#"><span>&middot;</span>전시회</a></li>
-                    <li><a href="#"><span>&middot;</span>박람회</a></li>
-                    <li><a href="nearbyMap.do"><span>&middot;</span>내 주변?</a></li>
-                    <li><a href="#"><span>&middot;</span>공지사항</a></li>
-                    <li><a href="orgRegistPage.do"><span>&middot;</span>전시등록</a></li>
-                    <li><a href="#"><span>&middot;</span>고객센터</a></li>
-                    <li><a href="#"><span>&middot;</span>마이페이지</a></li>
-                </ul><!-- m_gnb end -->
-            </div><!-- m_bt end -->
-
         </div><!-- m_menu end -->
         
         <div class="m_search">

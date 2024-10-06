@@ -13,8 +13,8 @@ public class MemberServiceImpl implements MemberService {
 	private MemberDao memberDao;
 
 	@Override
-	public Member selectMember(Member member) {
-		return memberDao.selectMember(member);
+	public Member selectLogin(Member member) {
+		return memberDao.selectLogin(member);
 	}//암호화 전
 
 	@Override
@@ -31,6 +31,11 @@ public class MemberServiceImpl implements MemberService {
 	public int selectCheckId(String id) {
 		return memberDao.selectCheckId(id);
 	}//아이디 중복 체크(ajax)
-	
+
+	@Override
+	public Member selectMember(String uuid) {
+		return memberDao.selectMember(uuid);
+	}//내정보 보기용
+
 	
 }//MemberServiceImpl end
