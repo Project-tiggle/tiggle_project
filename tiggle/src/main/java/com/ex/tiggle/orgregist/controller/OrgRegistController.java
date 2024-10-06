@@ -96,7 +96,6 @@ public class OrgRegistController {
     	
     	String detailEventSite = orgRegist.getDetailEventSite();
     	logger.info("detailEventSite :" + detailEventSite);
-    	logger.info("Member : " + member);
     	logger.info("orgRegist.do : " + orgRegist);
     	
     	String savePath = request.getSession().getServletContext().getRealPath("resources/images/exhibit_files");
