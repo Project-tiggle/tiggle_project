@@ -1,9 +1,12 @@
 package com.ex.tiggle.orgregist.controller;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -12,10 +15,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.ex.tiggle.member.model.dto.Member;
 import com.ex.tiggle.orgregist.model.dto.OrgRegist;
 import com.ex.tiggle.orgregist.model.service.OrgRegistService;
 
@@ -81,15 +86,48 @@ public class OrgRegistController {
         }
     }
 
-    // 등록 처리 (POST 요청)
-    @PostMapping("registerOrgRegist.do")
+    //전시등록
+    @RequestMapping(value = "orgRegist.do", method = RequestMethod.POST)
     public String registerOrgRegist(
-            @ModelAttribute OrgRegist orgRegist, // DTO 자동 매핑
-            @RequestParam("detailEventSite") String detailEventSite, // 상세 주소
-            Model model) {
+            OrgRegist orgRegist,
+            Model model,
+            HttpServletRequest request,
+            @RequestParam(name="photofile", required = false) MultipartFile mfile) {
     	
-    	logger.info("orgRegist : " + orgRegist);
+    	String detailEventSite = orgRegist.getDetailEventSite();
     	logger.info("detailEventSite :" + detailEventSite);
+    	logger.info("Member : " + member);
+    	logger.info("orgRegist.do : " + orgRegist);
+    	
+    	String savePath = request.getSession().getServletContext().getRealPath("resources/images/exhibit_files");
+    	logger.info("savePath : " + savePath);
+    	
+    	// 첨부파일이 있다면
+		if (!mfile.isEmpty()) {
+			// 전송온 파일 이름 추출함
+			String fileName = mfile.getOriginalFilename();
+			// 여러 회원이 업로드한 사진파일명이 중복될 경우를 대비해서 저장파일명 이름바꾸기함
+			// 바꿀 파일이름은 개발자가 정함
+			// userId 가 기본키이므로 중복이 안됨 => userId_filename 저장형태로 정해봄
+			String renameFileName = orgRegist.getUuid() + "_" + fileName;
+
+			// 저장 폴더에 저장 처리
+			if (fileName != null && fileName.length() > 0) {
+				try {
+					// mfile.transferTo(new File(savePath + "\\" + fileName));
+					// 저장시 바뀐 이름으로 저장 처리함
+					mfile.transferTo(new File(savePath + "\\" + renameFileName));
+				} catch (Exception e) {
+					// 첨부파일 저장시 에러 발생
+					e.printStackTrace();
+					model.addAttribute("message", "첨부파일 업로드 실패!");
+					return "common/error";
+				}
+			}
+
+			// 파일 업로드 정상 처리되었다면
+			orgRegist.setFileUrl(renameFileName); // db 저장시에는 변경된 이름으로 기록함
+		} // 첨부파일이 있을 때
     	
         try {
             // 1. 상세 주소를 기반으로 좌표 데이터를 얻어오기
@@ -104,6 +142,8 @@ public class OrgRegistController {
                 // 2. DTO에 경도와 위도 값 설정
                 orgRegist.setLongitude(Double.parseDouble(xCoord));
                 orgRegist.setLatitude(Double.parseDouble(yCoord));
+                //경도위도 확인 로거
+                logger.info("x, y (check) : " + orgRegist);
             }
 
             // 3. 서비스 호출, 반환된 값에 따라 성공 여부를 판단

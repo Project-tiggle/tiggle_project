@@ -6,6 +6,7 @@ window.onload = function(){
     photofile.addEventListener('change', function(event){
         const files = event.currentTarget.files;
         const file = files[0];
+        console.log(file.name);
 
         const reader = new FileReader();  
         reader.onload = (e) => {  

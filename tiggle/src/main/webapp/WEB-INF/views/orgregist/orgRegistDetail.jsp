@@ -18,25 +18,25 @@
             <h2 id="title">전시 / 박람회 등록신청</h2>
             <!-- 분야 -->
             <label for="field">*분야:</label>
-            <select id="field" name="field">
-                <option value="exhibition">전시회</option>
-                <option value="fair">박람회</option>
+            <select id="field" name="eCategory">
+                <option value="1">전시회</option>
+                <option value="2">박람회</option>
             </select>
 
             <!-- 전시/박람회명 -->
             <label for="exhibitionName">*전시/박람회명:</label>
-            <input type="text" id="exhibitionName" name="exhibitionName" required>
+            <input type="text" id="exhibitionName" name="title" required>
 
             <!-- 행사 일정 -->
             <label for="eventStartDate">*행사 일정 (시작):</label>
-            <input type="date" id="eventStartDate" name="eventStartDate" required>
+            <input type="date" id="eventStartDate" name="startDate" required>
 
             <label for="eventEndDate">*행사 일정 (종료):</label>
-            <input type="date" id="eventEndDate" name="eventEndDate" required>
+            <input type="date" id="eventEndDate" name="endDate" required>
 
             <!-- 개최 장소 -->
             <label for="venue">*개최 장소:</label>
-            <select id="venue" name="venue">
+            <select id="venue" name="eventSite">
                 <option value="exco">대구엑스코(EXCO)</option>
                 <option value="bexco">벡스코(BEXCO)</option>
                 <option value="setec">세텍(SETEC)</option>
@@ -49,15 +49,15 @@
 
             <!-- 개최지 상세 주소 -->
             <label for="venueAddress">*개최지 상세 주소:</label>
-            <input type="text" id="venueAddress" name="venueAddress" required>
+            <input type="text" id="venueAddress" name="detailEventSite" required>
 
             <!-- 참가 기업명 -->
             <label for="companyName">*참가 기업명:</label>
-            <input type="text" id="companyName" name="companyName" required>
+            <input type="text" id="companyName" name="contributor" required>
 
             <!-- 홈페이지 -->
             <label for="website">홈페이지:</label>
-            <input type="url" id="website" name="website">
+            <input type="url" id="website" name="eUrl">
 
             <!-- 이미지 등록 -->
             <div id="outer">
@@ -74,16 +74,16 @@
             <!-- 신청자 정보 -->
             <h3 id="applicantInfoTitle">신청자 정보</h3>
             <label for="applicantName">*이름:</label>
-            <input type="text" id="applicantName" name="applicantName" required>
+            <input type="text" id="applicantName" name="name" required>
 
             <label for="department">부서:</label>
-            <input type="text" id="department" name="department">
+            <input type="text" id="department" name="mngDept">
 
             <label for="position">직책:</label>
-            <input type="text" id="position" name="position">
+            <input type="text" id="position" name="mngJobId">
 
             <label for="phoneNumber">*연락처:</label>
-            <input type="text" id="phoneNumber" name="phoneNumber" required>
+            <input type="text" id="phoneNumber" name="phone" required>
 
             <label for="email">*이메일:</label>
             <input type="email" id="email" name="email" required>

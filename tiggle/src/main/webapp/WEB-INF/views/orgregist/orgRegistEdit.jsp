@@ -11,33 +11,31 @@
 <body>
     <c:import url="/WEB-INF/views/common/header.jsp" />
 
-    <!-- 메인 컨테이너 -->
     <div id="container">
-        <!-- 수정 및 삭제 기능을 하나의 폼으로 합치기 -->
         <form id="exreg" action="updateOrgRegist.do" method="post" enctype="multipart/form-data">
             <h2 id="title">전시 / 박람회 수정</h2>
             
             <!-- 분야 -->
             <label for="field">*분야:</label>
-            <select id="field" name="field">
+            <select id="field" name="eCategory">
                 <option value="exhibition" <c:if test="${orgRegist.eCategory == 1}">selected</c:if>>전시회</option>
                 <option value="fair" <c:if test="${orgRegist.eCategory == 2}">selected</c:if>>박람회</option>
             </select>
 
             <!-- 전시/박람회명 -->
             <label for="exhibitionName">*전시/박람회명:</label>
-            <input type="text" id="exhibitionName" name="exhibitionName" value="${orgRegist.title}" required>
+            <input type="text" id="exhibitionName" name="title" value="${orgRegist.title}" required>
 
             <!-- 행사 일정 -->
             <label for="eventStartDate">*행사 일정 (시작):</label>
-            <input type="date" id="eventStartDate" name="eventStartDate" value="${orgRegist.startDate}" required>
+            <input type="date" id="eventStartDate" name="startDate" value="${orgRegist.startDate}" required>
 
             <label for="eventEndDate">*행사 일정 (종료):</label>
-            <input type="date" id="eventEndDate" name="eventEndDate" value="${orgRegist.endDate}" required>
+            <input type="date" id="eventEndDate" name="endDate" value="${orgRegist.endDate}" required>
 
             <!-- 개최 장소 -->
             <label for="venue">*개최 장소:</label>
-            <select id="venue" name="venue">
+            <select id="venue" name="eventSite">
                 <option value="exco" <c:if test="${orgRegist.eventSite == 'exco'}">selected</c:if>>대구엑스코(EXCO)</option>
                 <option value="bexco" <c:if test="${orgRegist.eventSite == 'bexco'}">selected</c:if>>벡스코(BEXCO)</option>
                 <option value="setec" <c:if test="${orgRegist.eventSite == 'setec'}">selected</c:if>>세텍(SETEC)</option>
@@ -57,15 +55,15 @@
 
             <!-- 개최지 상세 주소 -->
             <label for="venueAddress">*개최지 상세 주소:</label>
-            <input type="text" id="venueAddress" name="venueAddress" value="${orgRegist.detailEventSite}" required>
+            <input type="text" id="venueAddress" name="detailEventSite" value="${orgRegist.detailEventSite}" required>
 
             <!-- 참가 기업명 -->
             <label for="companyName">*참가 기업명:</label>
-            <input type="text" id="companyName" name="companyName" value="${orgRegist.contributor}" required>
+            <input type="text" id="companyName" name="contributor" value="${orgRegist.contributor}" required>
 
             <!-- 홈페이지 -->
             <label for="website">홈페이지:</label>
-            <input type="url" id="website" name="website" value="${orgRegist.eUrl}">
+            <input type="url" id="website" name="eUrl" value="${orgRegist.eUrl}">
 
             <!-- 이미지 등록 -->
             <div id="outer">
@@ -82,16 +80,16 @@
             <!-- 신청자 정보 -->
             <h3 id="applicantInfoTitle">신청자 정보</h3>
             <label for="applicantName">*이름:</label>
-            <input type="text" id="applicantName" name="applicantName" value="${orgRegist.name}" required>
+            <input type="text" id="applicantName" name="name" value="${orgRegist.name}" required>
 
             <label for="department">부서:</label>
-            <input type="text" id="department" name="department" value="${orgRegist.mngDept}">
+            <input type="text" id="department" name="mngDept" value="${orgRegist.mngDept}">
 
             <label for="position">직책:</label>
-            <input type="text" id="position" name="position" value="${orgRegist.mngJobId}">
+            <input type="text" id="position" name="mngJobId" value="${orgRegist.mngJobId}">
 
             <label for="phoneNumber">*연락처:</label>
-            <input type="text" id="phoneNumber" name="phoneNumber" value="${orgRegist.phone}" required>
+            <input type="text" id="phoneNumber" name="phone" value="${orgRegist.phone}" required>
 
             <label for="email">*이메일:</label>
             <input type="email" id="email" name="email" value="${orgRegist.email}" required>

@@ -19,7 +19,14 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="1" />
 	</beans:bean>
+	
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0" />
+	</beans:bean>
+	
+	<beans:bean class="net.sf.json.spring.web.servlet.view.JsonView" id="jsonView"></beans:bean> 
 	
 	
 	<!-- navermail설정 -->
@@ -43,5 +50,12 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.ex.tiggle" />
+	
+	<!-- 파일 업로드용 클래스 등록 : 업로드시 파일 용량 제한 설정도 함께 해야 함 (대략 10메가바이트) -->	
+	<beans:bean
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+		id="multipartResolver">
+		<beans:property name="maxUploadSize" value="10000000" />
+	</beans:bean>
 	
 </beans:beans>
