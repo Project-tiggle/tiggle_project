@@ -29,6 +29,27 @@
 	       <result property="phone" column="PHONE" />
 	       <result property="email" column="EMAIL" />
 	</resultMap>
+	
+	<!-- 전시/박람회 등록하기(insert & update) -->
+	<insert id="insertOrgRegist" parameterType="OrgRegist">
+		insert into tb_exhibition_fair
+		values (#{ uuid }, #{ totalId }, #{ title }, #{ contributor }, #{ eDescription },
+				#{ eventSite }, #{ detailEventSite }, #{ latitude }, #{ longitude }, #{ genre },
+				#{ contactPoint }, #{ viewCounter }, #{ eUrl }, #{ startDate }, #{ endDate },
+				#{ approvalStatus }, #{ eCategory }, #{ fileUrl })
+	</insert>
+	<update id="updateOrgRegist" parameterType="OrgRegist">			
+		update tb_member
+		set name = #{ name }, mng_dept = #{ mngDept }, mng_jobid = #{ mngJobId },
+			phone = #{ phone }, email = #{ email }
+		where uuid = #{ uuid }
+	</update>
+	
+	<!-- 전시/박람회 등록시 필요한 totalid + 1 작업용 -->
+	<select id="selectMaxTotalId" resultType="_int">
+		select max(to_number(total_id))
+		from tb_exhibition_fair
+	</select>
 	 
 	<!-- 전시/박람회 정보 불러오기 -->
     <select id="selectOrgRegistByUuid" parameterType="string" resultMap="resultOrgRegist">

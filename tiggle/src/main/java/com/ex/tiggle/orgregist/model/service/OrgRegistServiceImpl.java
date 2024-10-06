@@ -16,6 +16,11 @@ public class OrgRegistServiceImpl implements OrgRegistService {
 	public int insertOrgRegist(OrgRegist orgRegist) {
 		return orgRegistDao.insertOrgRegist(orgRegist);
 	}
+	
+	@Override
+	public int updateMember(OrgRegist orgRegist) {
+		return orgRegistDao.updateMember(orgRegist);
+	}
 
 	@Override
 	public OrgRegist selectOrgRegistByUuid(String uuid) {
@@ -30,6 +35,11 @@ public class OrgRegistServiceImpl implements OrgRegistService {
 	@Override
 	public int deleteOrgRegist(String uuid) {
 		return orgRegistDao.deleteOrgRegist(uuid);
+	}
+
+	@Override
+	public int selectMaxTotalId() {
+		return orgRegistDao.selectMaxTotalId();
 	}
 
 }

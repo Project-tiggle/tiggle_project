@@ -15,6 +15,10 @@ public class OrgRegistDao {
 		return sqlSessionTemplate.insert("orgRegistMapper.insertOrgRegist", orgRegist);
 	}
 	
+	public int updateMember(OrgRegist orgRegist) {
+		return sqlSessionTemplate.update("orgRegistMapper.updateOrgRegist", orgRegist);
+	}
+	
 	public OrgRegist selectOrgRegistByUuid(String uuid) {
         return sqlSessionTemplate.selectOne("selectOrgRegistByUuid", uuid);
     }
@@ -28,5 +32,9 @@ public class OrgRegistDao {
     public int deleteOrgRegist(String uuid) {
         return sqlSessionTemplate.delete("deleteOrgRegist", uuid);
     }
+
+	public int selectMaxTotalId() {
+		return sqlSessionTemplate.selectOne("selectMaxTotalId");
+	}
 
 }
