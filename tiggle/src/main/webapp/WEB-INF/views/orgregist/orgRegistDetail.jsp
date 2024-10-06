@@ -7,32 +7,6 @@
 <meta charset="UTF-8">
 <title>전시회 신청서</title>
 <link href="/tiggle/resources/css/orgRegist_style.css" rel="stylesheet"	type="text/css">
-<script type="text/javascript">
-    window.onload = function(){
-        var photofile = document.getElementById("photofile");
-        var myphoto = document.getElementById("photo");
-        var deleteBtn = document.getElementById("deleteBtn");
-
-        photofile.addEventListener('change', function(event){
-            const files = event.currentTarget.files;
-            const file = files[0];
-
-            const reader = new FileReader();  
-            reader.onload = (e) => {  
-                myphoto.setAttribute('src', e.target.result);
-                myphoto.setAttribute('data-file', file.name);
-            };
-            reader.readAsDataURL(file);  
-        });
-
-        // 삭제 버튼 클릭 시 파일 초기화 및 미리보기 삭제
-        deleteBtn.addEventListener('click', function() {
-            photofile.value = ''; // 파일 선택 필드 초기화
-            myphoto.setAttribute('src', ''); // 이미지 미리보기 초기화
-            myphoto.removeAttribute('data-file'); // data-file 속성 제거
-        });
-    };
-</script>
 </head>
 <body>
     <c:import url="/WEB-INF/views/common/header.jsp" />
@@ -121,5 +95,6 @@
     </div>
 
         <c:import url="/WEB-INF/views/common/footer.jsp" />
+  		<script src="/tiggle/resources/js/orgRegist_script.js"></script>
 </body>
 </html>
