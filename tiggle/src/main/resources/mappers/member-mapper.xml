@@ -52,7 +52,7 @@
 	<!-- 전시관계자 회원가입용 쿼리 -->
 	<select id="insertOrgMember" parameterType="Member">
 		insert into tb_member
-		values (#{uuid}, #{id}, #{pwd}, null, #{phone}, null, null,
+		values (#{uuid}, #{id}, #{pwd}, #{name}, #{phone}, null, null,
 		null, null, default, #{marketingYN}, #{orgName}, null, #{orgEmail}, null,
 		null, 'ORGANIZER', sysdate, sysdate, 'Y', null, null, null)
 	</select>

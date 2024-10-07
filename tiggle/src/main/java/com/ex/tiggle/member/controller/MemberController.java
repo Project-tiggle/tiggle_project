@@ -61,7 +61,7 @@ public class MemberController {
 	}//moveTOSPage() end
 	
 	
-	// 일반사용자 회원가입 페이지 내보내기용
+	//일반사용자 회원가입 페이지 내보내기용
 	@RequestMapping(value="enrollPage.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public String moveEnrollPage(
 			@RequestParam(name="marketingYN", required=false) String marketingYN, Model model) {
@@ -82,6 +82,26 @@ public class MemberController {
 		return "member/orgEnrollPage";
 	}//moveOrgEnrollPage() end
 	
+	
+	//회원탈퇴 페이지 내보내기용
+	@RequestMapping(value = "delMemPage.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String moveDeleteMemberPage(Member member, HttpSession session, Model model) {
+		logger.info("delMemPage.do : " + member);
+		
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		
+		if(loginMember != null) {
+			model.addAttribute("member", loginMember);
+			return "member/deleteMemberPage";
+		}else {
+			model.addAttribute("message", "로그인 세션이 존재하지 않습니다.<br> 로그인 후 다시 시도해주세요.");
+			return "common/error";
+		}
+		
+	}//moveDeleteMemberPage() end
+	
+	
+	//moveDeleteMemberPage() end
 	
 	
 	//요청 받아서 모델쪽 서비스로 넘기고 결과받는 메서드 --------------------------------------------------
@@ -234,7 +254,7 @@ public class MemberController {
 		String from = "tiggle2024@naver.com";
 		String to = email;
 		String title = "[인증번호] '티글' 회원가입시 필요한 인증번호 입니다.";
-		String content = "[인증번호] " + certifyCode + " 입니다.<br>인증번호 확인란에 기입해주십시오.";
+		String content = "[인증번호] " + certifyCode + " 입니다.<br> 인증번호 확인란에 기입해주십시오.";
 		String mailNum = "";
 		
 		try {
@@ -269,7 +289,7 @@ public class MemberController {
 			model.addAttribute("member", member);
 			return "member/myInfoPage";
 		}else {
-			model.addAttribute("message", "해당하는 회원이 없습니다. 다시 로그인 해주세요.");
+			model.addAttribute("message", "해당하는 회원이 없습니다.<br> 다시 로그인 해주세요.");
 			return "common/error";
 		}
 
@@ -293,7 +313,7 @@ public class MemberController {
 		if(memberService.updateMember(member) > 0) { //내정보 수정 성공시
 			return "member/myInfoPage";
 		}else {
-			model.addAttribute("message", "회원 정보 수정에 실패하였습니다. 확인 후 다시 수정해주세요.");
+			model.addAttribute("message", "회원 정보 수정에 실패하였습니다.<br> 확인 후 다시 수정해주세요.");
 			return "common/error";
 		}
 	}//memberUpdateMethod() end
@@ -316,7 +336,7 @@ public class MemberController {
 		if(memberService.updateOrgMember(member) > 0) { //내정보 수정 성공시
 			return "member/myInfoPage";
 		}else {
-			model.addAttribute("message", "회원 정보 수정에 실패하였습니다. 확인 후 다시 수정해주세요.");
+			model.addAttribute("message", "회원 정보 수정에 실패하였습니다.<br> 확인 후 다시 수정해주세요.");
 			return "common/error";
 		}
 	}//memberUpdateMethod() end

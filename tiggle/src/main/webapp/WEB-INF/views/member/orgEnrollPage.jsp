@@ -63,7 +63,7 @@
 
 					<div class="enroll_list">
 						<p>담당자 이름</p>
-						<input type="text" name="mngName" id="enroll_mngname" placeholder="닉네임 입력" required>
+						<input type="text" name="name" id="enroll_name" placeholder="이름" required>
 					</div>
 					
 					<div class="enroll_list">
