@@ -1,0 +1,129 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+* {margin: 0; padding: 0;}
+li {list-style: none;}
+a {text-decoration: none; color: inherit;}
+button {background: none; border: none; cursor: pointer;}
+
+html, body {background: #fff; color: #333; font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; font-size: 16px; overflow-x: hidden;}
+
+/* header.jsp */
+.header {width: 100%; border-bottom: 1px solid #ddd;}
+.h_top {width: 100%; max-width: 1280px; margin: 0 auto; height: 40px; display: flex; justify-content: flex-end; align-items: center;}
+
+.lnb {display: flex;}
+.lnb > li {margin-left: 20px;}
+.lnb > li:last-child {margin-right: 20px;}
+.lnb > li > a {font-size: 14px;}
+.lnb > li:hover > a {color: #ff5f2c; font-weight: bold;}
+
+.h_bt {width: 100%; max-width: 1280px; margin: 0 auto; height: 80px; display: flex; align-items: center; position: relative;}
+
+.logo > a {display: block; display: flex; align-items: center; font-size: 36px; font-weight: bold;}
+.logo img {width: 45px; display: block; margin-right: 15px;}
+
+.search_box {margin-left: 45px; background: #fff; border: 2px solid #ff5f2c; padding: 3px 10px 3px 20px; box-sizing: border-box; border-radius: 45px; width: 400px;}
+.search_box form {display: flex; align-items: center; justify-content: space-between;}
+.search_box form > input {width: 300px; height: 40px; border: none; outline: none;}
+.search_btn {cursor: pointer;}
+.search_box img {width: 30px; display: block; padding: 7px;}
+
+.h_bt > nav {position: absolute; right: 0;}
+.gnb {display: flex;}
+.gnb > li {margin: 0 10px; padding: 5px 10px;}
+.gnb > li > a {font-size: 18px; font-weight: bold; transition: all 0.2s;}
+.gnb > li:hover > a {color: #ff5f2c;}
+
+@media all and (max-width: 1599px) {
+    /* mobile size */
+    .h_top, .gnb, .logo span, .search_box {display: none;}
+    .h_bt {padding: 0 5%; box-sizing: border-box; justify-content: space-between;}
+    .m_btn {cursor: pointer;}
+    .m_btn img {display: block; width: 40px;}
+    
+    .m_menu {position: absolute; top: 0; right: -300px; z-index: 100; width: 300px; height: 100vh; background: #fff; box-sizing: border-box; border-left: 1px solid #ddd;}
+    .m_top {width: 100%;}
+    .m_lnb {width: 100%; display: flex; flex-wrap: wrap;}
+    .m_lnb > li {width: 40%; height: 40px; border-bottom: 1px solid #ddd; box-sizing: border-box;}
+    .m_lnb > li:last-child {width: 20%; cursor: pointer;}
+    .m_lnb > li > span {width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;}
+    .m_lnb > li > a {display: block; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; font-size: 14px;}
+    .m_lnb > li:hover > a {font-weight: bold; color: #ff5f2c;}
+    
+    .m_bt {width: 100%;}
+    .m_gnb {width: 100%;}
+    .m_gnb > li {width: 100%; box-sizing: border-box;}
+    .m_gnb > li span {margin-right: 20px;}
+    .m_gnb > li > a {display: block; width: 100%; height: 60px; padding: 0 35px; box-sizing: border-box; display: flex; align-items: center; border-bottom: 1px solid #ddd;}
+    .m_gnb > li:hover > a {font-weight: bold; color: #ff5f2c;}
+
+    .m_search {width: 100%; border-top: 1px solid #ddd;}
+    .m_search > form {display: flex; justify-content: space-between; width: 100%; max-width: 1280px; margin: 0 auto; height: 60px; padding: 0 5%; box-sizing: border-box;}
+    .m_search input {width: 80%; border: none; outline: none; font-size: 18px;}
+    .m_search_btn {display: flex; justify-content: center; align-items: center; cursor: pointer;}
+    .m_search_btn img {display: block; width: 40px;}
+}
+
+@media all and (min-width: 1600px) {
+    /* pc side */
+    .m_btn, .m_menu, .m_search {display: none;}
+}
+/* header.jsp end */
+
+
+
+/* footer.jsp */
+.footer {width: 100%; border-top: 1px solid #ddd; margin-bottom: 50px;}
+.f_top {width: 100%; max-width: 1280px; margin: 0 auto; box-sizing: border-box; padding: 0 20px;}
+.f_menu {width: 100%; height: 40px; display: flex; justify-content: space-between; align-items: center;}
+.f_menu a {color: #999;}
+.f_menu > li:hover > a {font-weight: bold; color: #ff5f2c;}
+
+.f_bt {border-top: 1px solid #ddd; width: 100%;}
+.f_info {width: 100%; max-width: 1280px; margin: 20px auto; display: flex; justify-content: space-between;}
+
+.f_left {line-height: 1.6; font-size: 14px;}
+.f_left > p:first-child {font-weight: bold; font-size: 16px; color: #ff5f2c;}
+
+.f_right {line-height: 1.6; position: relative; left: -115px; font-size: 14px;}
+.f_right > p:first-child {font-weight: bold; font-size: 16px;}
+.f_right a {width: 160px; height: 30px; background: #333; color: #fff; line-height: 30px; text-align: center; display: block; margin-top: 5px; border-radius: 30px; transition: all 0.2s;}
+.f_right a:hover {background: #ff5f2c;}
+
+.f_copy {width: 100%; max-width: 1280px; margin: 0 auto; font-size: 13px; color: #999;}
+
+@media all and (max-width: 1599px) {
+    /* mobile size */
+    .f_top {padding: 0; max-width: none; padding: 0;}
+    .f_top > nav {width: 100%;}
+    .f_menu{flex-direction: column; height: auto; align-items: flex-start; width: 100%;}
+    .f_menu > li {width: 100%; height: 40px; line-height: 40px; border-bottom: 1px solid #ddd;}
+    .f_menu > li > a {display: block; width: 1280px; margin: 0 auto; width: 100%; padding: 0 5%; box-sizing: border-box;}
+    
+    .f_bt {border-top: 0; box-sizing: border-box; padding: 0 5%;}
+    .f_info {justify-content: center; flex-direction: column;}
+
+    .f_right {position: static; left: 0; margin-top: 20px;}
+}
+
+@media all and (min-width: 1600px) {
+    /* pc side */
+}
+/* footer.jsp end */
+
+
+
+/* error.jsp */
+.error_wrap {width: 100%; max-width: 1280px; margin: 100px auto;}
+.err_top > p:first-child {font-size: 36px; margin-bottom: 15px; font-weight: bold;}
+.err_top > p {font-size: 20px; text-align: center;}
+
+.err_bt {margin-top: 60px; display: flex; justify-content: center;}
+.err_bt > a {display: block; padding: 10px 20px; border-radius: 20px; background: #eee; font-weight: bold; transition: all 0.3s; margin: 0 15px;}
+.err_bt > a:hover {background: #ff5f2c; color: #fff;}
+@media all and (max-width: 1599px) {
+    .error_wrap {box-sizing: border-box; padding: 0 5%;}
+}
+/* error.jsp end */
+
+.main {min-height: 300px;}
