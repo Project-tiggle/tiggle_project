@@ -17,7 +17,7 @@
         <form id="exreg" action="orgRegist.do" method="post" enctype="multipart/form-data">
             <h2 id="title">전시 / 박람회 등록신청</h2>
             <!-- 분야 -->
-            <label for="field">*분야:</label>
+            <label for="field">*분 야:</label>
             <select id="field" name="eCategory">
                 <option value="1">전시회</option>
                 <option value="2">박람회</option>
@@ -26,6 +26,14 @@
             <!-- 전시/박람회명 -->
             <label for="exhibitionName">*전시/박람회명:</label>
             <input type="text" id="exhibitionName" name="title" required>
+            
+            <!-- 장르 -->
+            <label for="genre">*장 르:</label>
+            <input type="text" id="genre" name=genre required>
+            
+            <!-- 전시/박람회 상세내용 -->
+            <label for="eDescription">*전시 소개:</label>
+            <input type="text" id="eDescription" name=eDescription required>
 
             <!-- 행사 일정 -->
             <label for="eventStartDate">*행사 일정 (시작):</label>
@@ -53,11 +61,15 @@
 
             <!-- 참가 기업명 -->
             <label for="companyName">*참가 기업명:</label>
-            <input type="text" id="companyName" name="contributor" required>
+            <input type="text" id="companyName" name="contributor" value="${ orgRegist.contributor }" required>
+            
+            <!-- 참가 기업 연락처 -->
+            <label for="contactPoint">*참가 기업 연락처:</label>
+            <input type="tel" id="contactPoint" name="contactPoint" value="${ orgRegist.contactPoint }" required>
 
             <!-- 홈페이지 -->
-            <label for="website">홈페이지:</label>
-            <input type="url" id="website" name="eUrl">
+            <label for="website">*홈페이지:</label>
+            <input type="url" id="website" name="eUrl" value="${ orgRegist.eUrl }">
 
             <!-- 이미지 등록 -->
             <div id="outer">
@@ -74,19 +86,19 @@
             <!-- 신청자 정보 -->
             <h3 id="applicantInfoTitle">신청자 정보</h3>
             <label for="applicantName">*이름:</label>
-            <input type="text" id="applicantName" name="name" required>
+            <input type="text" id="applicantName" name="name" value="${ orgRegist.name }" required>
 
             <label for="department">부서:</label>
-            <input type="text" id="department" name="mngDept">
+            <input type="text" id="department" name="mngDept" value="${ orgRegist.mngDept }">
 
             <label for="position">직책:</label>
-            <input type="text" id="position" name="mngJobId">
+            <input type="text" id="position" name="mngJobId" value="${ orgRegist.mngJobId }">
 
             <label for="phoneNumber">*연락처:</label>
-            <input type="text" id="phoneNumber" name="phone" required>
+            <input type="text" id="phoneNumber" name="phone" value="${ orgRegist.phone }" required>
 
             <label for="email">*이메일:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" value="${ orgRegist.email }" required>
 
             <!-- 버튼 -->
             <input type="submit" id="submitBtn" value="등록하기">

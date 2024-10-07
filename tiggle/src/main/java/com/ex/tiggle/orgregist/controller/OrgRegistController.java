@@ -1,10 +1,6 @@
 package com.ex.tiggle.orgregist.controller;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ex.tiggle.common.FileNameChange;
+import com.ex.tiggle.common.KakaoXY;
 import com.ex.tiggle.member.model.dto.Member;
 import com.ex.tiggle.orgregist.model.dto.OrgRegist;
 import com.ex.tiggle.orgregist.model.service.OrgRegistService;
@@ -32,9 +29,8 @@ public class OrgRegistController {
 	
 	@Autowired
     private OrgRegistService orgRegistService;
-    private static final String API_KEY = "83c9ede8284039881680b8405433b70e"; // 카카오 REST API 키
-
-    // 전시/박람회 페이지로 이동
+    
+    // 전시/박람회 메인 페이지로 이동
     @RequestMapping("orgRegistPage.do")
     public String moveOrgRegist() {
         return "orgregist/orgRegist";
@@ -42,7 +38,13 @@ public class OrgRegistController {
 
     // 전시/박람회 등록 상세 페이지로 이동
     @RequestMapping("orgRegDetail.do")
-    public String moveOrgRegistDetail() {
+    public String moveOrgRegistDetail(
+    		HttpSession session,
+    		Model model) {
+    	Member loginMember = (Member) session.getAttribute("loginMember");
+    	
+    	OrgRegist orgRegist = orgRegistService.selectOrgRegistByUuid(loginMember.getUuid());
+        model.addAttribute("orgRegist", orgRegist);
         return "orgregist/orgRegistDetail";
     }
     
@@ -58,7 +60,7 @@ public class OrgRegistController {
 
     // 수정 처리
     @RequestMapping("updateOrgRegist.do")
-    public String updateOrgRegist(@ModelAttribute OrgRegist orgRegist, Model model) {
+    public String updateOrgRegist(OrgRegist orgRegist, Model model) {
         int result = orgRegistService.updateOrgRegist(orgRegist); // 수정 처리 서비스 호출
 
         if (result > 0) {
@@ -102,13 +104,7 @@ public class OrgRegistController {
     	Member loginMember = (Member) session.getAttribute("loginMember");
     	
     	orgRegist.setUuid(loginMember.getUuid());
-    	orgRegist.setContactPoint(loginMember.getOrgTel());
-    	    	
-    	orgRegist.setGenre("예정전시");	//미완성, 장르란 누락
-    	orgRegist.seteDescription("설명탭누락");	//미완성, jsp에 설명란 누락
-    	orgRegist.setContactPoint("02-0000-0000");	//기관전화번호 입력란 누락
-    	    	
-    	orgRegist.setTotalId(String.valueOf(orgRegistService.selectMaxTotalId() + 1));	//라스트 번호를 불러와서 +1, varchar2형식으로 변환
+    	orgRegist.setTotalId(String.valueOf(orgRegistService.selectMaxTotalId() + 1));	//가장 큰 번호를 불러와서 +1, varchar2형식으로 변환
     	orgRegist.setApprovalStatus("N");	// 등록시 관리자 확인전까지는 기본 설정값 'N' 값을 넣음
     	// ************** orgRegist 셋팅 마무리
     	
@@ -146,8 +142,9 @@ public class OrgRegistController {
     	
         try {
             // 상세 주소를 기반으로 좌표 데이터를 얻어오기
-            String response = getCoordinateFromAddress(detailEventSite);
-
+            KakaoXY kakaoXy = new KakaoXY();
+            String response = kakaoXy.getCoordinateFromAddress(detailEventSite);
+            
             JSONObject jsonResponse = new JSONObject(response);
             if (jsonResponse.getJSONArray("documents").length() > 0) {
                 JSONObject addressInfo = jsonResponse.getJSONArray("documents").getJSONObject(0);
@@ -179,31 +176,4 @@ public class OrgRegistController {
         }
     }
 
-    // 주소에서 좌표를 가져오는 메서드 (카카오 API 호출)
-    public String getCoordinateFromAddress(String address) throws Exception {
-        String apiUrl = "https://dapi.kakao.com/v2/local/search/address.json?query=" + java.net.URLEncoder.encode(address, "UTF-8");
-        URL url = new URL(apiUrl);
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
-        conn.setRequestProperty("Authorization", "KakaoAK " + API_KEY);
-
-        int responseCode = conn.getResponseCode();
-        BufferedReader br;
-
-        if (responseCode == 200) {
-            br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        } else {
-            br = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
-        }
-
-        String inputLine;
-        StringBuffer response = new StringBuffer();
-
-        while ((inputLine = br.readLine()) != null) {
-            response.append(inputLine);
-        }
-        br.close();
-
-        return response.toString();
-    }
 }
