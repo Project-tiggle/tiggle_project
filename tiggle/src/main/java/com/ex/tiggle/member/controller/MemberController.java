@@ -85,10 +85,9 @@ public class MemberController {
 	
 	//회원탈퇴 페이지 내보내기용
 	@RequestMapping(value = "delMemPage.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String moveDeleteMemberPage(Member member, HttpSession session, Model model) {
-		logger.info("delMemPage.do : " + member);
-		
+	public String moveDeleteMemberPage(HttpSession session, Model model) {
 		Member loginMember = (Member)session.getAttribute("loginMember");
+		logger.info("delMemPage.do : " + loginMember);
 		
 		if(loginMember != null) {
 			model.addAttribute("member", loginMember);
@@ -97,11 +96,8 @@ public class MemberController {
 			model.addAttribute("message", "로그인 세션이 존재하지 않습니다.<br> 로그인 후 다시 시도해주세요.");
 			return "common/error";
 		}
-		
 	}//moveDeleteMemberPage() end
 	
-	
-	//moveDeleteMemberPage() end
 	
 	
 	//요청 받아서 모델쪽 서비스로 넘기고 결과받는 메서드 --------------------------------------------------

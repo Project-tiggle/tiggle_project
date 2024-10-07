@@ -199,3 +199,16 @@ function validatePwd2() {
   return true; //전송보냄
 }//validate() end
 //myInfoPage.jsp end
+
+
+
+//deleteMemberPage.jsp
+//체크박스 중 하나만 선택되도록 제어하는 함수
+function oneDelCheck(checkbox) {
+  const checkboxes = document.getElementsByName('delReason'); //id 속성이 같은 체크박스들을 가져옴
+  checkboxes.forEach((item) => {
+      item.checked = false;
+  });
+  checkbox.checked = true;
+}//oneDelCheck() end
+//deleteMemberPage.jsp end
