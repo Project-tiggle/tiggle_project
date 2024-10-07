@@ -38,7 +38,7 @@
 				#{ contactPoint }, #{ viewCounter }, #{ eUrl }, #{ startDate }, #{ endDate },
 				#{ approvalStatus }, #{ eCategory }, #{ fileUrl })
 	</insert>
-	<update id="updateOrgRegist" parameterType="OrgRegist">			
+	<update id="updateMember" parameterType="OrgRegist">			
 		update tb_member
 		set name = #{ name }, mng_dept = #{ mngDept }, mng_jobid = #{ mngJobId },
 			phone = #{ phone }, email = #{ email }
@@ -58,5 +58,16 @@
 		join tb_member using (uuid)
 		where uuid = #{ uuid } and rownum = '1'
     </select>
+    
+    <!-- 전시/박람회 정보 수정하기 -->
+    <update id="updateOrgRegist" parameterType="OrgRegist">
+    	update tb_exhibition_fair
+    	set TITLE = #{ title }, CONTRIBUTOR = #{ contributor }, E_DESCRIPTION = #{ eDescription },
+			EVENT_SITE = #{ eventSite }, DETAIL_EVENT_SITE = #{ detailEventSite }, LATITUDE = #{ latitude },
+			LONGITUDE = #{ longitude }, GENRE = #{ genre }, CONTACT_POINT = #{ contactPoint },
+			VIEW_COUNTER = #{ viewCounter }, E_URL = #{ eUrl }, START_DATE = #{ startDate }, END_DATE = #{ endDate },
+			APPROVAL_STATUS = #{ approvalStatus }, E_CATEGORY = #{ eCategory }, FILE_URL = #{ fileUrl }
+		where TOTAL_ID = #{ totalId }
+    </update>
 	
 </mapper>

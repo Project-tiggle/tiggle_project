@@ -16,7 +16,7 @@ public class OrgRegistDao {
 	}
 	
 	public int updateMember(OrgRegist orgRegist) {
-		return sqlSessionTemplate.update("orgRegistMapper.updateOrgRegist", orgRegist);
+		return sqlSessionTemplate.update("orgRegistMapper.updateMember", orgRegist);
 	}
 	
 	public OrgRegist selectOrgRegistByUuid(String uuid) {

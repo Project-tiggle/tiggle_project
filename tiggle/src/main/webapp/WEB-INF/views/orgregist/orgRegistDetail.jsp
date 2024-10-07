@@ -33,7 +33,7 @@
             
             <!-- 전시/박람회 상세내용 -->
             <label for="eDescription">*전시 소개:</label>
-            <input type="text" id="eDescription" name=eDescription required>
+            <input type="text" id="eDescription" name="eDescription" required>
 
             <!-- 행사 일정 -->
             <label for="eventStartDate">*행사 일정 (시작):</label>
@@ -50,6 +50,7 @@
                 <option value="setec">세텍(SETEC)</option>
                 <option value="songdo">송도컨벤시아(Songdo Convensia)</option>
                 <option value="messe">수원메쎄(SUWON MESSE)</option>
+                <option value="sac">예술의전당(Seoul Art Center)</option>
                 <option value="coex" selected>코엑스(COEX)</option>
                 <option value="kintex">킨텍스(KINTEX)</option>
                 <option value="etc">기타</option>
