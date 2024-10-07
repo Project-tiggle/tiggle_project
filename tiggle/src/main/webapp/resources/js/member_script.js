@@ -176,3 +176,26 @@ function mailValidate() {
 
 
 //enrollPage.jsp, orgEnrollPage.jsp end
+
+
+
+//myInfoPage.jsp
+function validatePwd2() {
+  //전송보내기 전에 입력값을 유효한 값인지 확인하는 하는 작업
+  
+  //암호와 암호확인이 일치하지 않는지 확인
+  var pwdValue = document.getElementById('myinfo_pwd').value;
+  var pwdValue2 = document.getElementById('myinfo_pwd2').value;
+  
+  if(pwdValue !== pwdValue2) {
+    alert('암호와 암호확인이 일치하지 않습니다. 다시 입력하세요.');
+    document.getElementById('myinfo_pwd').value = ''; //기록된 값 지우기
+    document.getElementById('myinfo_pwd2').value = ''; //기록된 값 지우기
+    document.getElementById('myinfo_pwd').focus(); //입력커서 지정함
+    
+    return false; //전송 취소함
+  }
+
+  return true; //전송보냄
+}//validate() end
+//myInfoPage.jsp end

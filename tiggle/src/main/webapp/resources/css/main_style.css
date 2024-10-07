@@ -126,6 +126,4 @@ html, body {background: #fff; color: #333; font-family: -apple-system, BlinkMacS
 }
 /* error.jsp end */
 
-
-
-.main{height: 300px;}
+.main {min-height: 300px;}

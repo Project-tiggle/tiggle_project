@@ -67,6 +67,21 @@
 		select * from tb_member where uuid = #{uuid} and login_ok = 'Y'
 	</select>
 	
+	<!-- 내정보 수정용 - USER -->
+	<update id="updateMember" parameterType="Member">
+		update tb_member
+		set nickname = #{nickname}, pwd = #{pwd}, email = #{email}, phone = #{phone}, address = #{address}
+		where uuid = #{uuid}
+	</update>
+	
+	<!-- 내정보 수정용 - ORGANIZER -->
+	<update id="updateOrgMember" parameterType="Member">
+		update tb_member
+		set pwd = #{pwd}, org_email = #{orgEmail}, org_tel = #{orgTel}, address = #{address}
+			, name = #{name}, phone = #{phone}, email = #{email}
+		where uuid = #{uuid}
+	</update>
+	
 	 
 	 <!-- ************************************************** -->
 <!-- 	<resultMap id="resultUser" type="User">
