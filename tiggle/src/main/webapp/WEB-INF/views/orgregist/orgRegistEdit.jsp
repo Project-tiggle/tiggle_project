@@ -21,8 +21,8 @@
             <!-- 분야 -->
             <label for="field">*분 야:</label>
             <select id="field" name="eCategory">
-                <option value="exhibition" <c:if test="${orgRegist.eCategory == 1}">selected</c:if>>전시회</option>
-                <option value="fair" <c:if test="${orgRegist.eCategory == 2}">selected</c:if>>박람회</option>
+                <option value="1" <c:if test="${orgRegist.eCategory == 1}">selected</c:if>>전시회</option>
+                <option value="2" <c:if test="${orgRegist.eCategory == 2}">selected</c:if>>박람회</option>
             </select>
 
             <!-- 전시/박람회명 -->
@@ -73,6 +73,10 @@
             <!-- 참가 기업명 -->
             <label for="companyName">*참가 기업명:</label>
             <input type="text" id="companyName" name="contributor" value="${orgRegist.contributor}" required>
+            
+            <!-- 참가 기업 연락처 -->
+            <label for="contactPoint">*참가 기업 연락처:</label>
+            <input type="tel" id="contactPoint" name="contactPoint" value="${ orgRegist.contactPoint }" required>
 
             <!-- 홈페이지 -->
             <label for="website">홈페이지:</label>

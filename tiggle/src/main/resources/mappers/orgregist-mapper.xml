@@ -55,7 +55,7 @@
     <select id="selectOrgRegistByUuid" parameterType="string" resultMap="resultOrgRegist">
         select *
 		from tb_exhibition_fair
-		join tb_member using (uuid)
+		right join tb_member using (uuid)
 		where uuid = #{ uuid } and rownum = '1'
     </select>
     

@@ -14,8 +14,8 @@ public class FileNameChange {
 		//현재 시스템으로 부터 날짜와 시간 정보를 가지고 와서 변경할 파일명을 만들기함
 		renameFileName = sdf.format(new java.sql.Date(System.currentTimeMillis()));
 		
-		//원본 파일의 확장자를 추출해서, 바꿀 파일명 뒤에 추가 연결함
-		renameFileName += "." + originalFileName.substring(originalFileName.indexOf(".") + 1);
+//		//원본 파일의 확장자를 추출해서, 바꿀 파일명 뒤에 추가 연결함
+//		renameFileName += "." + originalFileName.substring(originalFileName.indexOf(".") + 1);
 		
 		return renameFileName;
 	}

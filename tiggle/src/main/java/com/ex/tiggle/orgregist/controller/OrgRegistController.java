@@ -61,7 +61,7 @@ public class OrgRegistController {
     	String saveFilename = null;	// url에 저장되어있는 이름
     	if (orgRegist.getFileUrl() != null) {
     		saveFilename = orgRegist.getFileUrl();
-			originalFilename = orgRegist.getFileUrl().substring(0, orgRegist.getFileUrl().indexOf('_') - 1);
+			originalFilename = orgRegist.getFileUrl().substring(orgRegist.getFileUrl().indexOf('_') + 1);
 		}
     	    	
         model.addAttribute("totalId", totalId);
@@ -119,7 +119,7 @@ public class OrgRegistController {
 			// 이전 파일명과 새로 첨부된 파일명이 다른지 확인
 			if (!fileName.equals(originalFileName)) {
 
-				String renameFileName = fileName + "_" + (FileNameChange.change(fileName, "yyyyMMddHHmmss"));
+				String renameFileName = (FileNameChange.change(fileName, "yyyyMMddHHmmss")) + "_" + fileName;
 
 				// 저장 폴더에 저장 처리
 				if (fileName != null && fileName.length() > 0) {
@@ -209,7 +209,7 @@ public class OrgRegistController {
 			// 파일 이름바꾸기함 : 년월일시분초.확장자
 			if (fileName != null && fileName.length() > 0) {
 				// 바꿀 파일명에 대한 문자열 만들기
-				renameFileName = fileName + "_" + (FileNameChange.change(fileName, "yyyyMMddHHmmss"));
+				renameFileName = (FileNameChange.change(fileName, "yyyyMMddHHmmss")) + "_" + fileName;
 				// 바뀐 파일명 확인
 				logger.info("첨부파일명 확인 : " + renameFileName);
 
