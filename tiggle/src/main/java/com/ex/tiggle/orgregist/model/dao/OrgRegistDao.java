@@ -29,8 +29,8 @@ public class OrgRegistDao {
     }
 
     // 데이터를 삭제하는 메서드
-    public int deleteOrgRegist(String uuid) {
-        return sqlSessionTemplate.delete("deleteOrgRegist", uuid);
+    public int deleteOrgRegist(String totalId) {
+        return sqlSessionTemplate.delete("deleteOrgRegist", totalId);
     }
 
 	public int selectMaxTotalId() {

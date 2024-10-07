@@ -112,10 +112,10 @@
             <label for="email">*이메일:</label>
             <input type="email" id="email" name="email" value="${orgRegist.email}" required>
 
-            <!-- 수정하기 버튼 -->
+            
             <input type="submit" id="submitBtn" value="수정하기">
             <input type="submit" id="resetBtn" formaction="deleteOrgRegist.do" value="등록삭제하기">
-
+			<input type="button" id="goback" onclick="javascript:history.go(-1)" value="뒤로돌아가기">
         </form>
     </div>
 

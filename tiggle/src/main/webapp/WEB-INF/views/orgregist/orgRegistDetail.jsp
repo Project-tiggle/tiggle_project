@@ -104,6 +104,7 @@
             <!-- 버튼 -->
             <input type="submit" id="submitBtn" value="등록하기">
             <input type="reset" id="resetBtn" value="등록취소">
+            <input type="button" id="goback" onclick="javascript:history.go(-1)" value="돌아가기">
         </form>
     </div>
 

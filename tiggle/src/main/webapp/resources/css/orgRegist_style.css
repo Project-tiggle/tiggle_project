@@ -52,21 +52,30 @@
 }
 
 #submitBtn {
-    background-color: #ff5f2c;
-    color: white;
+    background-color: #eee;
+    color: #333;
 }
 
 #submitBtn:hover {
-    background-color: #e6551e;
+    background-color: #ff5f2c;
 }
 
 #resetBtn {
-    background-color: #777;
-    color: white;
+    background-color: #eee;
+    color: #333;
 }
 
 #resetBtn:hover {
     background-color: #555;
+}
+
+#goback {
+	background-color: #eee;
+	color: #333;
+}
+
+#goback:hover {
+	background-color: #555;
 }
 
 #ptPhoto {

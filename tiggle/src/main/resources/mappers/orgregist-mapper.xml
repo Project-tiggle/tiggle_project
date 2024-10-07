@@ -69,5 +69,10 @@
 			APPROVAL_STATUS = #{ approvalStatus }, E_CATEGORY = #{ eCategory }, FILE_URL = #{ fileUrl }
 		where TOTAL_ID = #{ totalId }
     </update>
+    
+    <delete id="deleteOrgRegist" parameterType="string">
+    	delete tb_exhibition_fair
+		where total_id = #{ totalId }
+    </delete>
 	
 </mapper>

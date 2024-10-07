@@ -33,8 +33,8 @@ public class OrgRegistServiceImpl implements OrgRegistService {
 	}
 
 	@Override
-	public int deleteOrgRegist(String uuid) {
-		return orgRegistDao.deleteOrgRegist(uuid);
+	public int deleteOrgRegist(String totalId) {
+		return orgRegistDao.deleteOrgRegist(totalId);
 	}
 
 	@Override
