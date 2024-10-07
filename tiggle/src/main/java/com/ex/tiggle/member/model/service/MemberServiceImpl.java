@@ -37,5 +37,14 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.selectMember(uuid);
 	}//내정보 보기용
 
+	@Override
+	public int updateMember(Member member) {
+		return memberDao.updateMember(member);
+	}//내정보 수정용 - USER
+	
+	@Override
+	public int updateOrgMember(Member member) {
+		return memberDao.updateOrgMember(member);
+	}//내정보 수정용 - ORGANIZER
 	
 }//MemberServiceImpl end

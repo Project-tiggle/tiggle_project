@@ -1,4 +1,9 @@
 @charset "utf-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+.bc_333 {border-color: #333 !important;}
+.bc_ddd {border-color: #ddd !important;}
+.bg_eee {background: #eee !important;}
+
 /* loginPage.jsp*/
 .container {width: 100%; max-width: 1280px; margin: 60px auto;}
 .l_title {width: 100%; display: flex; justify-content: center; position: relative; left: -10px;}
@@ -101,7 +106,7 @@
 .myinfo_section {width: 100%; max-width: 1280px; margin: 60px auto; display: flex;}
 
 .myinfo_aside {width: 25%; border-right: 1px solid #ddd; box-sizing: border-box;}
-.mypage_title {font-weight: bold; font-size: 36px; padding-top: 30px; margin-bottom: 30px; text-align: right; padding-right: 30px; box-sizing: border-box;}
+.mypage_title {font-weight: bold; font-size: 36px; padding-top: 20px; margin-bottom: 30px; text-align: right; padding-right: 30px; box-sizing: border-box;}
 
 .myinfo_aside > nav {width: 100%;}
 .left_menu {width: 100%; margin: 0 auto; box-sizing: border-box; padding: 0 30px; text-align: right;}
@@ -110,8 +115,39 @@
 .left_menu > li:hover > a {font-weight: bold; color: #ff5f2c;}
 /* myinfo_aside end */
 
-.myinfo_content {width: 75%; box-sizing: border-box; padding: 30px;}
-.myinfo_title {font-size: 36px; font-weight: bold; border-bottom: 1px solid #333;}
-.myinfo_title > p {margin-bottom: 30px;}
+.myinfo_content {width: 75%; box-sizing: border-box; padding: 20px;}
+.myinfo_title {border-bottom: 1px solid #333;}
+.myinfo_title > p {margin-bottom: 20px; font-size: 24px; font-weight: bold; color: #ff5f2c; padding-left: 10px;}
+
+.myinfo_list {display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid #ddd;}
+
+.myinfo_list > p {font-size: 18px; width: 130px; font-weight: bold; padding-left: 10px;}
+.myinfo_list > input {font-size: 15px; border: 0; outline: 0; border: 1px solid #ddd; padding: 8px; margin-right: 15px;}
+.myinfo_list span {font-size: 13px; color: #999;}
+
+/* myinfo_list 개별css */
+#myinfo_address {width: calc(75% - 150px);}
+
+.myinfo_btn {width: 100%; display: flex; align-items: center; justify-content: center; margin-top: 30px;}
+.myinfo_btn > input {width: 130px; height: 45px; line-height: 45px; font-size: 16px; font-weight: bold; border: 1px solid #ddd; text-align: center; margin: 0 10px; cursor: pointer; transition: all 0.2s; font-family: "Pretendard Variable" !important;}
+.myinfo_btn > input:hover {background: #ff5f2c; color: #fff; border-color: #ff5f2c;}
+
+@media all and (max-width: 1280px) {
+    .myinfo_section {flex-direction: column; margin-top: 10px;}
+    .myinfo_aside {border-right: 0; width: 100%;}
+    .mypage_title {text-align: center; padding-right: 0; margin-bottom: 30px;}
+
+    .left_menu {padding: 0; display: flex; text-align: center; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;}
+    .left_menu > li {width: 25%; border-right: 1px solid #ddd; border-bottom: 0; padding: 0;}
+    .left_menu > li:last-child {border-right: 0;}
+    .left_menu > li > a {padding: 15px 0; font-size: 16px; display: block; width: 100%; height: 100%;}
+    /* myinfo_aside end */
+
+    .myinfo_content {width: 100%; padding-top: 30px;}
+    .myinfo_list {flex-direction: column; align-items: flex-start; padding: 15px 10px;}
+    .myinfo_list > p {padding-left: 0;}
+    .myinfo_list > input {margin-top: 10px; margin-bottom: 10px; width: calc(100% - 20px);}
+    #myinfo_address {width: calc(100% - 20px);}
+}
 /* myinfo_content end */
 /* myInfoPage.jsp end */

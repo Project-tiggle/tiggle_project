@@ -31,6 +31,13 @@ public class MemberDao {
 	public Member selectMember(String uuid) {
 		return sqlSessionTemplate.selectOne("memberMapper.selectMember", uuid);
 	}//내정보 보기용
+
+	public int updateMember(Member member) {
+		return sqlSessionTemplate.update("memberMapper.updateMember", member);
+	}//내정보 수정용 - USER
 	
+	public int updateOrgMember(Member member) {
+		return sqlSessionTemplate.update("memberMapper.updateOrgMember", member);
+	}//내정보 수정용 - USER
 
 }//MemberDao end

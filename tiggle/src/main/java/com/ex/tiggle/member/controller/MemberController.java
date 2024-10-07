@@ -274,6 +274,52 @@ public class MemberController {
 		}
 
 	}// moveMyInfoPage() end
+	
+	
+	//내정보 수정 페이지 처리용 - USER
+	@RequestMapping(value="myupdate.do", method=RequestMethod.POST)
+	public String memberUpdateMethod(Member member, Model model,
+			@RequestParam("uuid") String uuid, 
+			@RequestParam("originalPwd") String originalPwd) {
+		logger.info("myupdate.do : " + member);
+		
+		if(member.getPwd() != null && member.getPwd().length() > 0) { //패스워드 변경시
+			member.setPwd(bcryptPasswordEncoder.encode(member.getPwd()));
+			logger.info("after encode : " + member.getPwd());			
+		}else { //암호 변경안됨
+			member.setPwd(originalPwd); //원래 패스워드로 기록저장
+		}
+		
+		if(memberService.updateMember(member) > 0) { //내정보 수정 성공시
+			return "member/myInfoPage";
+		}else {
+			model.addAttribute("message", "회원 정보 수정에 실패하였습니다. 확인 후 다시 수정해주세요.");
+			return "common/error";
+		}
+	}//memberUpdateMethod() end
+	
+	
+	//내정보 수정 페이지 처리용 - ORGANIZER
+	@RequestMapping(value="orgMyUpdate.do", method=RequestMethod.POST)
+	public String orgMemberUpdateMethod(Member member, Model model,
+			@RequestParam("uuid") String uuid, 
+			@RequestParam("originalPwd") String originalPwd) {
+		logger.info("orgMyUpdate.do : " + member);
+		
+		if(member.getPwd() != null && member.getPwd().length() > 0) { //패스워드 변경시
+			member.setPwd(bcryptPasswordEncoder.encode(member.getPwd()));
+			logger.info("after encode : " + member.getPwd());			
+		}else { //암호 변경안됨
+			member.setPwd(originalPwd); //원래 패스워드로 기록저장
+		}
+		
+		if(memberService.updateOrgMember(member) > 0) { //내정보 수정 성공시
+			return "member/myInfoPage";
+		}else {
+			model.addAttribute("message", "회원 정보 수정에 실패하였습니다. 확인 후 다시 수정해주세요.");
+			return "common/error";
+		}
+	}//memberUpdateMethod() end
 
 		
 }//MemberController end
