@@ -155,5 +155,26 @@
 
 
 /* deleteMemberPage.jsp */
+.myinfo_wrap {width: 100%; box-sizing: border-box; padding: 25px 0 15px;}
+.orginfo_top {margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid #333;}
+.orginfo_top > p {font-size: 16px; margin-bottom: 5px; box-sizing: border-box; padding-left: 15px;}
+.orginfo_top > p:nth-child(1), .orginfo_top > p:nth-child(2) {font-size: 24px;}
+.orginfo_top > p:nth-child(1) > span {color: #ff5f2c; font-weight: bold;}
+.orginfo_top > p:nth-child(2) {margin-bottom: 15px;}
+/* orginfo_top end */
 
+.orginfo_bt {box-sizing: border-box; padding: 0 15px;}
+.orginfo_bt > p {font-size: 18px; margin-bottom: 25px;}
+.del_reason_list {margin-bottom: 15px; display: flex; align-items: center;}
+.del_reason_list > input {width: 20px; height: 20px; margin-right: 10px;}
+.del_reason_list > span {font-size: 16px;}
+
+.del_agree {display: flex; align-items: center; margin-top: 50px;}
+.del_agree > input {width: 20px; height: 20px; margin-right: 10px;}
+.del_agree > span {font-size: 16px;}
+
+.del_btn_wrap {width: 100%; display: flex; align-items: center; justify-content: center; margin-top: 50px;}
+.del_btn_wrap > input {width: 130px; height: 45px; line-height: 45px; font-size: 16px; font-weight: bold; border: 1px solid #ddd; text-align: center;margin: 0 10px; cursor: pointer; transition: all 0.2s; font-family: "Pretendard Variable" !important;}
+.del_btn_wrap > input:hover {background: #ff5f2c; color: #fff; border-color: #ff5f2c;}
+/* orginfo_bt end */
 /* deleteMemberPage.jsp end */

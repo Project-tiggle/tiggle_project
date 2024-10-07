@@ -40,4 +40,14 @@ public class MemberDao {
 		return sqlSessionTemplate.update("memberMapper.updateOrgMember", member);
 	}//내정보 수정용 - USER
 
+	public int updateDeleteMember(Member member) {
+		return sqlSessionTemplate.update("memberMapper.updateDeleteMember", member);
+	}//회원탈퇴 처리용 - USER, ORGANIZER 모두 처리
+
+	public int updateUpdatedAt(Member member) {
+		return sqlSessionTemplate.update("memberMapper.updateUpdatedAt", member);
+	}//최근 접속일 업데이트
+
+	
+
 }//MemberDao end

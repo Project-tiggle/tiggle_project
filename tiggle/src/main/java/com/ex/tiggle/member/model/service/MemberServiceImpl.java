@@ -46,5 +46,16 @@ public class MemberServiceImpl implements MemberService {
 	public int updateOrgMember(Member member) {
 		return memberDao.updateOrgMember(member);
 	}//내정보 수정용 - ORGANIZER
+
+	@Override
+	public int updateDeleteMember(Member member) {
+		return memberDao.updateDeleteMember(member);
+	}//회원탈퇴 처리용 - USER, ORGANIZER 모두 처리
+
+	@Override
+	public int updateUpdatedAt(Member member) {
+		return memberDao.updateUpdatedAt(member);
+	}//최근 접속일 업데이트
+
 	
 }//MemberServiceImpl end

@@ -40,6 +40,13 @@
 	<select id="selectLogin" parameterType="string" resultMap="resultMember">
 		select * from tb_member where id = #{ id } and login_ok = 'Y'
 	</select>
+	
+	<!-- 로그인 시 최근접속일 업데이트용 -->
+	<update id="updateUpdatedAt" parameterType="Member">
+		update tb_member
+		set updated_at = sysdate
+		where uuid = #{uuid} 
+	</update>
 
 	<!-- 일반사용자 회원가입용 쿼리 -->
 	<select id="insertMember" parameterType="Member">
@@ -82,6 +89,14 @@
 		where uuid = #{uuid}
 	</update>
 	
+	<!-- 회원탈퇴용 - USER, ORGANIZER 모두 처리 -->
+	<update id="updateDeleteMember" parameterType="Member">
+		update tb_member
+		set login_ok = 'N', deleted_yn = 'Y', deleted_at = sysdate, deleted_reason = #{deletedReason}
+		where uuid = #{uuid}
+	</update>
+	
+
 	 
 	 <!-- ************************************************** -->
 <!-- 	<resultMap id="resultUser" type="User">

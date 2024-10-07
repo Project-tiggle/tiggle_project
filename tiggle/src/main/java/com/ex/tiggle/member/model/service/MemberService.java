@@ -11,6 +11,9 @@ public interface MemberService {
 	
 	
 	//DML **************************************************
+	//최근 접속일 업데이트
+	int updateUpdatedAt(Member member);
+	
 	//일반사용자 회원가입 처리용
 	int insertMember(Member member);
 	//전시관계자 회원가입 처리용
@@ -22,6 +25,8 @@ public interface MemberService {
 	int updateMember(Member member);
 	//내 정보 수정용 - ORGANIZER
 	int updateOrgMember(Member member);
-
+	//회원탈퇴 처리용 - USER, ORGANIZER 모두 처리
+	int updateDeleteMember(Member member);
+	
 	
 }//MemberService end

@@ -2,6 +2,8 @@ package com.ex.tiggle.member.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.UUID;
 
 import javax.mail.internet.MimeMessage;
@@ -107,14 +109,22 @@ public class MemberController {
 			Member member, HttpSession session, SessionStatus status, Model model) {
 		logger.info("login : " + member);
 		
-		//암호화 전
-		Member loginMember = memberService.selectLogin(member); 
+		Member loginMember = memberService.selectLogin(member);
 		
 		//로그인
 		if (loginMember != null && this.bcryptPasswordEncoder.matches(member.getPwd(), loginMember.getPwd())) { //로그인 성공시
 			session.setAttribute("loginMember", loginMember);
-			status.setComplete();
-			return "common/main";
+			
+			member.setUuid(loginMember.getUuid());
+			
+			if (memberService.updateUpdatedAt(member) > 0) { //최근 접속일 업데이트 성공시
+				status.setComplete();
+				return "common/main";
+			} else {
+				model.addAttribute("message", "로그인에 실패하였습니다.<br> 아이디 또는 패스워드를 다시 확인하세요.");
+				return "common/error";
+			}
+			
 		} else { //로그인 실패시
 			model.addAttribute("message", "로그인에 실패하였습니다.<br> 아이디 또는 패스워드를 다시 확인하세요.");
 			return "common/error";
@@ -337,5 +347,24 @@ public class MemberController {
 		}
 	}//memberUpdateMethod() end
 
+	
+	//회원탈퇴용(USER, ORGANIZER 모두 가능) - 실제 탈퇴X, 로그인 가능 여부를 X로 변경
+	@RequestMapping("deleteMember.do")
+	public String deleteMemberMethod(Member member,
+			@RequestParam("uuid") String uuid, 
+			@RequestParam("deletedReason") String deletedReason,
+			Model model) throws UnsupportedEncodingException {
+		logger.info("uuid :" + uuid + ", deletedReaon : " + deletedReason);
+		
+		member.setDeletedReason(deletedReason);
+		
+		if(memberService.updateDeleteMember(member) > 0) { //회원 탈퇴 요청시 자동 로그아웃 처리됨
+			return "redirect:logout.do";
+		}else {
+			model.addAttribute("message", "회원 탈퇴를 실패하였습니다.");
+			return "common/error";
+		}
+	}//deleteMemberMethod()
+	
 		
 }//MemberController end

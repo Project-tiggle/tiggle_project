@@ -205,7 +205,7 @@ function validatePwd2() {
 //deleteMemberPage.jsp
 //체크박스 중 하나만 선택되도록 제어하는 함수
 function oneDelCheck(checkbox) {
-  const checkboxes = document.getElementsByName('delReason'); //id 속성이 같은 체크박스들을 가져옴
+  const checkboxes = document.getElementsByName('deletedReason'); //name 속성이 같은 체크박스들을 가져옴
   checkboxes.forEach((item) => {
       item.checked = false;
   });

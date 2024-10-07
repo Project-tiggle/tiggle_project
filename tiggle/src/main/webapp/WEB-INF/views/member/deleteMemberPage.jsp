@@ -46,21 +46,22 @@
 
 				<div class="orginfo_bt">
 					<p>저희 서비스에서 불편사항이 있었나요?</p>
-					<form action="" method="post" id="del_reason_wrap">
+					<form action="deleteMember.do" method="post" id="del_reason_wrap">
+						<input type="hidden" name="uuid" value="${ requestScope.member.uuid }">
 						<div class="del_reason_list">
-							<input type="checkbox" name="delReason" id="del_reason_check" onclick="oneDelCheck(this);">
+							<input type="checkbox" name="deletedReason" id="del_reason_check1" value="기록 삭제 목적" onclick="oneDelCheck(this);">
 							<span>기록 삭제 목적</span>
 						</div>
 						<div class="del_reason_list">
-							<input type="checkbox" name="delReason" id="del_reason_check" onclick="oneDelCheck(this);">
+							<input type="checkbox" name="deletedReason" id="del_reason_check2" value="이용이 불편하고 장애가 많아서" onclick="oneDelCheck(this);">
 							<span>이용이 불편하고 장애가 많아서</span>
 						</div>
 						<div class="del_reason_list">
-							<input type="checkbox" name="delReason" id="del_reason_check" onclick="oneDelCheck(this);">
+							<input type="checkbox" name="deletedReason" id="del_reason_check3" value="다른 사이트가 더 좋아서" onclick="oneDelCheck(this);">
 							<span>다른 사이트가 더 좋아서</span>
 						</div>
 						<div class="del_reason_list">
-							<input type="checkbox" name="delReason" id="del_reason_check" onclick="oneDelCheck(this);">
+							<input type="checkbox" name="deletedReason" id="del_reason_check4" value="사용 빈도가 낮아서" onclick="oneDelCheck(this);">
 							<span>사용 빈도가 낮아서</span>
 						</div>
 
@@ -70,8 +71,8 @@
 						</div><!-- del_agree end -->
 
 						<div class="del_btn_wrap">
+							<input type="button" value="메 인">
 							<input type="submit" value="회원탈퇴">
-							<input type="button" value="탈퇴하지 않을래요">
 						</div><!-- del_btn_wrap end -->
 					</form>
 				</div><!-- orginfo_bt end -->
