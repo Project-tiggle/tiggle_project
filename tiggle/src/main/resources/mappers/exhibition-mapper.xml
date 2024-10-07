@@ -49,20 +49,20 @@
 	
 	<!-- 전시정보 조회용 쿼리 -->
 	<select id="selectExhibition" parameterType="string" resultMap="resultExhibition">
-		select * from member where totalId = #{ totalId } 
+		select * from TB_EXHIBITION_FAIR where totalId = #{ totalId } 
 	</select>
 	
 		
 	<!-- 전시정보 데이터 입력 -->
 	<insert id="insertExhibition" parameterType="Exhibition">
-		insert into TB_Exhibition
+		insert into TB_Exhibition_FAIR
 		values (#{totalId}, #{uuid}, #{title}, #{contributor}, #{description}, #{eventSite}, default, default, default, default, default, default, #{ url },
 		 #{period}, TOCHAR(SUBSTR(#{period}, 1, 10), yyyy-MM-dd), TOCHAR(SUBSTR(#{period}, 12, 21), yyyy-MM-dd), default, default, default)
 	</insert>
 	
 	<!-- 전시정보 삭제용 쿼리 -->
 	<delete id="deleteExhibition" parameterType="string">
-		delete from member where totalId = #{ totalId }
+		delete from TB_EXHIBITION_FAIR where totalId = #{ totalId }
 	</delete>
 	
 </mapper>

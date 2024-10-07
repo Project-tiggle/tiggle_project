@@ -1,5 +1,116 @@
 package com.ex.tiggle.review.model.dto;
 
-public class Review {
+import java.sql.Date;
 
+public class Review {
+	private String totalId;  	// TOTAL_ID	VARCHAR2(100 BYTE)
+	private String uuid; 		// UUID	VARCHAR2(36 BYTE)
+	private int rNum; 			// R_NUM	NUMBER
+	private String nickName;	// NICKNAME	VARCHAR2(50 BYTE)
+	private String rContents; 	// R_CONTENTS	VARCHAR2(500 BYTE)
+	private Date writeDate; 	// WRITE_DATE	DATE
+	private Date updateDate; 	// UPDATE_DATE	DATE
+	private String updateYN; 	// UPDATED_YN	CHAR(1 BYTE)
+	private Date deletedDate; 	// DELETE_AT	DATE
+	private String deleteYN; 	// DELETE_YN	CHAR(1 BYTE)
+	
+	
+	public String getTotalId() {
+		return totalId;
+	}
+	public void setTotalId(String totalId) {
+		this.totalId = totalId;
+	}
+	public String getUuid() {
+		return uuid;
+	}
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+	public int getrNum() {
+		return rNum;
+	}
+	public void setrNum(int rNum) {
+		this.rNum = rNum;
+	}
+	public String getNickName() {
+		return nickName;
+	}
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+	public String getrContents() {
+		return rContents;
+	}
+	public void setrContents(String rContents) {
+		this.rContents = rContents;
+	}
+	public Date getWriteDate() {
+		return writeDate;
+	}
+	public void setWriteDate(Date writeDate) {
+		this.writeDate = writeDate;
+	}
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+	public String getUpdateYN() {
+		return updateYN;
+	}
+	public void setUpdateYN(String updateYN) {
+		this.updateYN = updateYN;
+	}
+	public Date getDeletedDate() {
+		return deletedDate;
+	}
+	public void setDeletedDate(Date deletedDate) {
+		this.deletedDate = deletedDate;
+	}
+	public String getDeleteYN() {
+		return deleteYN;
+	}
+	public void setDeleteYN(String deleteYN) {
+		this.deleteYN = deleteYN;
+	}
+	
+	
+	public Review(String totalId, String uuid, int rNum, String nickName, String rContents, Date writeDate) {
+		super();
+		this.totalId = totalId;
+		this.uuid = uuid;
+		this.rNum = rNum;
+		this.nickName = nickName;
+		this.rContents = rContents;
+		this.writeDate = writeDate;
+	}
+	
+	
+	public Review(String totalId, String uuid, int rNum, String nickName, String rContents, Date writeDate,
+			Date updateDate, String updateYN, Date deletedDate, String deleteYN) {
+		super();
+		this.totalId = totalId;
+		this.uuid = uuid;
+		this.rNum = rNum;
+		this.nickName = nickName;
+		this.rContents = rContents;
+		this.writeDate = writeDate;
+		this.updateDate = updateDate;
+		this.updateYN = updateYN;
+		this.deletedDate = deletedDate;
+		this.deleteYN = deleteYN;
+	}
+	
+	@Override
+	public String toString() {
+		return "Review [totalId=" + totalId + ", uuid=" + uuid + ", rNum=" + rNum + ", nickName=" + nickName
+				+ ", rContents=" + rContents + ", writeDate=" + writeDate + ", updateDate=" + updateDate + ", updateYN="
+				+ updateYN + ", deletedDate=" + deletedDate + ", deleteYN=" + deleteYN + "]";
+	}
+	
+	
+	
+	
 }
