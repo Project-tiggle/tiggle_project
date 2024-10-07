@@ -28,6 +28,7 @@ public class Exhibition implements java.io.Serializable {
 	private String cotactPoint;		//contactPoint : String	
 	private int viewCounter;		// viewCounter : int	
 	private String url;				// url : String	
+	private String period;			// period : String
 	private java.sql.Date startDate;// startDate : date	
 	private java.sql.Date endDate;	// endDate : date	
 	private String approvalStatus;	// approvalStatus : String	
@@ -40,8 +41,8 @@ public class Exhibition implements java.io.Serializable {
 	
 	// Not null 조건 생성자
 	public Exhibition(String totalId, String uuid, String title, String contributor, String description,
-			String eventSite, double latitude, double longitude, String cotactPoint, String url, Date startDate,
-			Date endDate, int category) {
+			String eventSite, double latitude, double longitude, String cotactPoint, String url, String period,
+			Date startDate, Date endDate, int category) {
 		super();
 		this.totalId = totalId;
 		this.uuid = uuid;
@@ -53,6 +54,7 @@ public class Exhibition implements java.io.Serializable {
 		this.longitude = longitude;
 		this.cotactPoint = cotactPoint;
 		this.url = url;
+		this.period = period;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.category = category;
@@ -163,6 +165,14 @@ public class Exhibition implements java.io.Serializable {
 		this.url = url;
 	}
 
+	public String getPeriod() {
+		return period;
+	}
+	
+	public void setPeriod(String period) {
+		this.period = period;
+	}
+
 	public java.sql.Date getStartDate() {
 		return startDate;
 	}
@@ -210,10 +220,11 @@ public class Exhibition implements java.io.Serializable {
 		return "Exhibition [totalId=" + totalId + ", uuid=" + uuid + ", title=" + title + ", contributor=" + contributor
 				+ ", description=" + description + ", eventSite=" + eventSite + ", detailEventSite=" + detailEventSite
 				+ ", latitude=" + latitude + ", longitude=" + longitude + ", genre=" + genre + ", cotactPoint="
-				+ cotactPoint + ", viewCounter=" + viewCounter + ", url=" + url + ", startDate=" + startDate
+				+ cotactPoint + ", viewCounter=" + viewCounter + ", url=" + url + ", period=" + period + ", startDate=" + startDate
 				+ ", endDate=" + endDate + ", approvalStatus=" + approvalStatus + ", category=" + category
 				+ ", fileUrl=" + fileUrl + "]";
 	}
+
 	
 	
 	

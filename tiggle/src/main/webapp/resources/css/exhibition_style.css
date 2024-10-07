@@ -20,15 +20,33 @@ html, body {background: #fff; color: #333; font-family: -apple-system, BlinkMacS
   
 }
 
-img {
+#Emain {
 	    width: 100%; /* 포스터 크기를 div에 맞춤 */
 	   border-radius: 10px; /* 모서리 둥글게 */
       }
+      
+#Edetail{
+	width: 230px;
+	height: 310px;
+}
+
+      
+      
 div.poster {
 	 float: left;
 }
 		
+ul.navList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
+li.navitem {
+  margin: 0;
+  padding: 0;
+  float: left;
+}
 
 
 
