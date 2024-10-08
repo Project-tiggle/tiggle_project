@@ -11,7 +11,7 @@ public class Paging implements java.io.Serializable {
 	private int maxPage;		// 총 페이지 수	(마지막 페이지) (뷰 페이지에서 사용)
 	private int startPage;		// 현재 페이지가 속한 페이지 그룹의 시작값 (뷰 페이지에서 사용)
 	private int endPage;		// 현재 페이지가 속한 페이지 그룹의 끝값 (뷰 페이지에서 사용)
-	private String ulrMapping;	// 페이지 숫자 클릭시 요청할 url 저장용 (검색기능 사용시 요청할 url 이 달라서 필요함) (뷰 페이지에서 사용)
+	private String urlMapping;	// 페이지 숫자 클릭시 요청할 url 저장용 (검색기능 사용시 요청할 url 이 달라서 필요함) (뷰 페이지에서 사용)
 	
 	// 기본생성자 없음
 	
@@ -21,7 +21,7 @@ public class Paging implements java.io.Serializable {
 		this.listCount = listCount;
 		this.limit = limit;
 		this.currentPage = currentPage;
-		this.ulrMapping = ulrMapping;
+		this.urlMapping = ulrMapping;
 	}
 	
 	
@@ -92,11 +92,11 @@ public class Paging implements java.io.Serializable {
 	}
 	
 	public String getUlrMapping() {
-		return ulrMapping;
+		return urlMapping;
 	}
 	
 	public void setUlrMapping(String ulrMapping) {
-		this.ulrMapping = ulrMapping;
+		this.urlMapping = ulrMapping;
 	}
 	
 	public static long getSerialversionuid() {
@@ -137,7 +137,7 @@ public class Paging implements java.io.Serializable {
 	public String toString() {
 		return "Paging [startRow=" + startRow + ", endRow=" + endRow + ", listCount=" + listCount + ", limit=" + limit
 				+ ", currentPage=" + currentPage + ", maxPage=" + maxPage + ", startPage=" + startPage + ", endPage="
-				+ endPage + ", ulrMapping=" + ulrMapping + "]";
+				+ endPage + ", ulrMapping=" + urlMapping + "]";
 	}
 	
 }

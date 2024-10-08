@@ -4,7 +4,7 @@
 
 <%-- 페이지 표시에 사용될 값들을 변수 선언 --%>
 <c:set var="currentPage" value="${ requestScope.paging.currentPage }" />
-<c:set var="urlMapping" value="${ requestScope.paging.ulrMapping }"/>
+<c:set var="urlMapping" value="${ requestScope.paging.urlMapping }"/>
 <c:set var="startPage" value="${ requestScope.paging.startPage }"/>
 <c:set var="endPage" value="${ requestScope.paging.endPage }"/>
 <c:set var="maxPage" value="${ requestScope.paging.maxPage }"/>
@@ -31,7 +31,7 @@
 		[첫페이지로] &nbsp;
 	</c:if>
 	<c:if test="${ currnetPage gt 1 }">
-		<a href="/first/${ urlMapping }?page=1 }">[첫페이지로]</a> &nbsp;
+		<a href="/tiggle/${ urlMapping }?page=1 }">[첫페이지로]</a> &nbsp;
 	</c:if>
 	
 	

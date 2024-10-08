@@ -9,31 +9,26 @@
 		 결과매핑 : select 한 행의 컬럼값을 한개씩 dto 객체의 필드에 옮겨 저장하는 것
 		 property 는 클래스의 필드명, column 은 데이터베이스 테이블의 컬럼명을 기술하면 됨
 	 -->
-	<resultMap id="resultExhibition" type="Exhibition">
-		<result property="userId" column="USERID" />
-		<result property="userPwd" column="USERID" />
-		<result property="userName" column="USERNAME" />
-	</resultMap>
-	
-	<resultMap type="Exhibition" id="result2Exhibition">
-		<result property="totalId" column="totalId" />
+		
+	<resultMap type="Exhibition" id="resultExhibition">
+		<result property="totalId" column="total_Id" />
 		<result property="uuid" column="uuid" />
 		<result property="contributor" column="contributor" />
-		<result property="description" column="discription" />
-		<result property="eventSite" column="eventSite" />
-		<result property="detailEventSite" column="detailEventSite" />
+		<result property="description" column="E_discription" />
+		<result property="eventSite" column="event_Site" />
+		<result property="detailEventSite" column="detail_Event_Site" />
 		<result property="latitude" column="latitude" />
 		<result property="longitude" column="longitude" />
 		<result property="genre" column="genre" />
-		<result property="contactPoint" column="contactPoint" />
-		<result property="viewCounter" column="viewCounter" />
+		<result property="contactPoint" column="contact_0Point" />
+		<result property="viewCounter" column="view_Counter" />
 		<result property="url" column="url" />
 		<result property="period" column="period" />
-		<result property="startDate" column="startDate" />
-		<result property="endDate" column="endDate" />
-		<result property="approvalStatus" column="approvalStatus" />
-		<result property="category" column="category" />
-		<result property="fileUrl" column="fileUrl" />
+		<result property="startDate" column="start_Date" />
+		<result property="endDate" column="end_Date" />
+		<result property="approvalStatus" column="approval_Status" />
+		<result property="category" column="E_category" />
+		<result property="fileUrl" column="file_Url" />
 	</resultMap>
 	
 	<!-- dao 에서 사용되는 쿼리문(sql문)을 각 엘리멘트 안에 작성함 
@@ -49,9 +44,27 @@
 	
 	<!-- 전시정보 조회용 쿼리 -->
 	<select id="selectExhibition" parameterType="string" resultMap="resultExhibition">
-		select * from TB_EXHIBITION_FAIR where totalId = #{ totalId } 
+		select * from TB_EXHIBITION_FAIR  
+		order by TO_NUMBER(total_Id) asc
 	</select>
 	
+	<select id="selectList" resultMap="resultExhibition" parameterType="Paging">
+		select *
+			from (select rownum rnum, total_id, uuid, title, contributor,
+				E_description,
+				event_site, detail_event_site, latitude, longitude, genre, contact_point,
+				view_counter, E_url,
+				start_date, end_date, approval_status, E_category, file_url
+			from (select * from TB_EXHIBITION_FAIR
+			order by TO_NUMBER(total_id) asc))
+		where rnum between #{ startRow } and #{ endRow }
+	</select>
+
+		
+	<select id="selectListCount" resultType="_int">
+		select count(*)
+		from TB_EXHIBITION_FAIR
+	</select>		
 		
 	<!-- 전시정보 데이터 입력 -->
 	<insert id="insertExhibition" parameterType="Exhibition">

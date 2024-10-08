@@ -19,11 +19,11 @@
 
 	<div class="exhibition"  style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start; padding:20px;">
 		<table>
-			 <c:forEach var="poster" begin="0" end="20" step="1">
+			 <c:forEach var="p" items="${ list }">
        			 <div class="poster" style="flex-basis: calc(20% - 20px);">
-		            <a href="exhibitionDetail.do"><img id="Emain" src="/tiggle/resources/images/poster_sample.png" alt="포스터" ></a><br>
-		            전시 제목<br>
-		            전시 기간<br>
+		            <a href="exhibitionDetail.do"><img id="Emain" src="${ p.fileUrl }" ></a><br>
+		            전시 제목 : ${ p.title } <br>
+		            전시 기간 : ${ p.startDate } ~ ${ p.endDate } <br>
 		        </div>
 		    </c:forEach>
 		</table>
@@ -33,6 +33,7 @@
 	<!-- main section end -->
 
 
+	<c:import url="/WEB-INF/views/common/pagingView.jsp" />
 	<c:import url="/WEB-INF/views/common/footer.jsp" />
 
 	<script src="/tiggle/resources/js/jquery-3.7.1.min.js"></script>
