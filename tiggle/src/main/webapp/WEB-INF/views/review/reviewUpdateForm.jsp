@@ -10,10 +10,10 @@
 </head>
 <body>
 <hr>
-<h1 align="center">한줄평 등록 페이지</h1>
+<h1 align="center">한줄평 수정 페이지</h1>
 <br>
 <!-- form 에서 파일이 첨부되어서 전송이 될 경우에는 반드시 enctype = "multipart/form-data" 속성을 추가해야 함 -->
-<form action="rinsert.do" method="post">
+<form action="rupdate.do" method="post">
 <table id="outer" align="center" width="700" cellspacing="5" cellpadding="5">
 	<tr><th width="120">전시 제목</th>
 		<td>
@@ -30,8 +30,8 @@
 		</td></tr>
 	
 	<tr><th colspan="2">
-		<input type="submit" value="등록하기"> &nbsp;
-		<input type="reset" value="작성취소"> &nbsp;
+		<input type="submit" value="수정하기"> &nbsp;
+		<input type="reset" value="변경취소"> &nbsp;
 		<input type="button" value="목록" onclick="javascript:history.go(-1); return false;">
 	</th></tr>
 </table>

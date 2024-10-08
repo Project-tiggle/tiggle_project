@@ -129,6 +129,7 @@ function openPopup() {
 		<button onclick="openPopup()">등록</button>
 		<div>
 			한줄평 목록 출력
+			
 		</div>
 	</fieldset>
 </div>
