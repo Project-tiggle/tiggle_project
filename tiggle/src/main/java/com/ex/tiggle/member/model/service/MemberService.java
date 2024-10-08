@@ -1,5 +1,8 @@
 package com.ex.tiggle.member.model.service;
 
+import java.util.ArrayList;
+
+import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.member.model.dto.Member;
 
 public interface MemberService {
@@ -27,6 +30,24 @@ public interface MemberService {
 	int updateOrgMember(Member member);
 	//회원탈퇴 처리용 - USER, ORGANIZER 모두 처리
 	int updateDeleteMember(Member member);
+
+	
+	
+	//관리자용 **************************************************
+	//관리자페이지 내보내기용
+	//Member selectAdmin(String uuid);
+	//총 페이지 수 계산 - 삭제예정
+	int selectListCount();
+	//회원 목록 조회 후 결과받기 - 삭제예정
+	ArrayList<Member> selectList(Paging paging);
+	//USER 목록 조회 후 결과받기
+	ArrayList<Member> selectUserMembers(Paging paging);
+	//ORGANIZER 목록 조회 후 결과받기
+	ArrayList<Member> selectOrgMembers(Paging paging);
+	//USER 총 페이지 수 계산
+	int selectUserMembersCount();
+	//ORGANIZER 총 페이지 수 계산
+	int selectOrgMembersCount();
 	
 	
 }//MemberService end

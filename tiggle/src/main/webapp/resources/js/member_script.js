@@ -212,3 +212,9 @@ function oneDelCheck(checkbox) {
   checkbox.checked = true;
 }//oneDelCheck() end
 //deleteMemberPage.jsp end
+
+
+
+//memberListPage.jsp
+
+//memberListPage.jsp end

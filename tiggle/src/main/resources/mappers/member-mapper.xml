@@ -96,7 +96,56 @@
 		where uuid = #{uuid}
 	</update>
 	
-
+	
+	
+	
+	
+	<!-- 관리자페이지 내보내기용 -->
+	<!-- <select id="selectAdmin" parameterType="string" resultMap="resultMember">
+		select * from tb_member where uuid = #{uuid} and member_type = 'ADMIN'
+	</select> -->
+	<!-- 회원 전체 목록 카운트 조회용 : USER 인 회원만 조회(삭제예정) -->
+	<!-- <select id="selectListCount" resultType="_int">
+		select count(*) from tb_member where member_type != 'ADMIN'
+	</select> -->
+	 
+	<!-- 한 페이지에 출력할 목록 조회용 : USER 인 회원만 조회 -->
+	<select id="selectUserMembers" resultMap="resultMember" parameterType="Paging">
+		select *
+		from (select rownum rnum, UUID, ID, PWD, NAME, PHONE, EMAIL, NICKNAME, 
+		        ADDRESS, SIGNTYPE, MARKETING_YN, ORG_NAME, ORG_TEL, ORG_EMAIL,
+		        MNG_DEPT, MNG_JOBID, MEMBER_TYPE, SIGNUP_AT, UPDATED_AT,
+		        LOGIN_OK, DELETED_YN, DELETED_AT, DELETED_REASON
+		        from (select * from tb_member
+		                where member_type = 'USER'
+		                order by SIGNUP_AT desc))
+		where rnum between #{ startRow } and #{ endRow }
+	</select> 
+	 
+	<!-- 한 페이지에 출력할 목록 조회용 : ORGANIZER 인 회원만 조회 -->
+	<select id="selectOrgMembers" resultMap="resultMember" parameterType="Paging">
+		select *
+		from (select rownum rnum, UUID, ID, PWD, NAME, PHONE, EMAIL, NICKNAME, 
+		        ADDRESS, SIGNTYPE, MARKETING_YN, ORG_NAME, ORG_TEL, ORG_EMAIL,
+		        MNG_DEPT, MNG_JOBID, MEMBER_TYPE, SIGNUP_AT, UPDATED_AT,
+		        LOGIN_OK, DELETED_YN, DELETED_AT, DELETED_REASON
+		        from (select * from tb_member
+		                where member_type = 'ORGANIZER'
+		                order by SIGNUP_AT desc))
+		where rnum between #{ startRow } and #{ endRow }
+	</select> 
+	 
+	<!-- 회원 전체 목록 카운트 조회용 : USER 인 회원만 조회 -->
+	<select id="selectUserMembersCount" resultType="_int">
+		select count(*) from tb_member where member_type = 'USER'
+	</select>
+	 
+	<!-- 회원 전체 목록 카운트 조회용 : ORGANIZER 인 회원만 조회 -->
+	<select id="selectOrgMembersCount" resultType="_int">
+		select count(*) from tb_member where member_type = 'ORGANIZER'
+	</select>
+	 
+	 
 	 
 	 <!-- ************************************************** -->
 <!-- 	<resultMap id="resultUser" type="User">

@@ -3,7 +3,7 @@ package com.ex.tiggle.member.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.UUID;
 
 import javax.mail.internet.MimeMessage;
@@ -24,7 +24,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.member.model.dto.Member;
 import com.ex.tiggle.member.model.service.MemberService;
 
@@ -366,5 +368,210 @@ public class MemberController {
 		}
 	}//deleteMemberMethod()
 	
+	
+	
+	
+	
+	//관리자용 **************************************************
+	//관리자페이지 내보내기용
+	@RequestMapping("ulist.do")
+	public ModelAndView userListPage(ModelAndView mv,
+	        @RequestParam(name = "page", required = false) String page,
+	        @RequestParam(name = "limit", required = false) String slimit) {
+		// page: 출력할 페이지, limit: 한 페이지에 출력할 목록 갯수
+
+	    // 페이징 처리
+	    int currentPage = 1;
+	    if (page != null) {
+	        currentPage = Integer.parseInt(page);
+	    }
+
+	    // 한 페이지에 출력할 공지 갯수 10개로 지정
+	    int limit = 10;
+	    if (slimit != null) {
+	        limit = Integer.parseInt(slimit);
+	    }
+
+    	// 총 목록갯수 조회
+	    int listCount = memberService.selectUserMembersCount();
+    	
+    	// 페이지 관련 항목 계산 처리
+    	Paging paging = new Paging(listCount, limit, currentPage, "ulist.do");
+    	paging.calculate();
+    	
+        // 일반 사용자 목록 조회
+    	ArrayList<Member> list = memberService.selectUserMembers(paging);
+	    
+        if (list != null && list.size() > 0) {
+	        mv.addObject("memberList", list);
+	        mv.addObject("paging", paging);
+	        mv.addObject("currentPage", currentPage);
+	        mv.setViewName("member/userListPage");
+	    } else {
+	        mv.addObject("message", currentPage + " 페이지 회원 목록 조회 실패!");
+	        mv.setViewName("common/error");
+	    }
+
+	    return mv;
+	}//userListPage() end
+	
+	
+	@RequestMapping("olist.do")
+	public ModelAndView orgListPage(ModelAndView mv,
+			@RequestParam(name = "page", required = false) String page,
+			@RequestParam(name = "limit", required = false) String slimit) {
+		// page: 출력할 페이지, limit: 한 페이지에 출력할 목록 갯수
 		
+		// 페이징 처리
+		int currentPage = 1;
+		if (page != null) {
+			currentPage = Integer.parseInt(page);
+		}
+		
+		// 한 페이지에 출력할 공지 갯수 10개로 지정
+		int limit = 10;
+		if (slimit != null) {
+			limit = Integer.parseInt(slimit);
+		}
+		
+		// 총 목록갯수 조회
+		int listCount = memberService.selectOrgMembersCount();
+		
+		// 페이지 관련 항목 계산 처리
+		Paging paging = new Paging(listCount, limit, currentPage, "olist.do");
+		paging.calculate();
+		
+		// 일반 사용자 목록 조회
+		ArrayList<Member> list = memberService.selectOrgMembers(paging);
+		
+		if (list != null && list.size() > 0) {
+			mv.addObject("memberList", list);
+			mv.addObject("paging", paging);
+			mv.addObject("currentPage", currentPage);
+			mv.setViewName("member/orgListPage");
+		} else {
+			mv.addObject("message", currentPage + " 페이지 회원 목록 조회 실패!");
+			mv.setViewName("common/error");
+		}
+		
+		return mv;
+	}//orgListPage() end
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//하는중 **************************************************
+	@RequestMapping("mlist.do")
+	public ModelAndView moveAdminPageMethod(ModelAndView mv,
+	        @RequestParam(name = "page", required = false) String page,
+	        @RequestParam(name = "limit", required = false) String slimit) {
+	    // page: 출력할 페이지, limit: 한 페이지에 출력할 목록 갯수
+
+	    // 페이징 처리
+	    int currentPage = 1;
+	    if (page != null) {
+	        currentPage = Integer.parseInt(page);
+	    }
+
+	    // 한 페이지에 출력할 공지 갯수 10개로 지정
+	    int limit = 10;
+	    if (slimit != null) {
+	        limit = Integer.parseInt(slimit);
+	    }
+
+    	// 총 목록갯수 조회
+	    int listCount = memberService.selectUserMembersCount();
+    	
+    	// 페이지 관련 항목 계산 처리
+    	Paging paging = new Paging(listCount, limit, currentPage, "mlist.do");
+    	paging.calculate();
+    	
+        // 일반 사용자 목록 조회
+    	ArrayList<Member> list = memberService.selectUserMembers(paging);
+	    
+        if (list != null && list.size() > 0) {
+	        mv.addObject("memberList", list);
+	        mv.addObject("paging", paging);
+	        mv.addObject("currentPage", currentPage);
+	        mv.setViewName("member/memberListPage");
+	    } else {
+	        mv.addObject("message", currentPage + " 페이지 회원 목록 조회 실패!");
+	        mv.setViewName("common/error");
+	    }
+
+	    return mv;
+	}//memberListMethod()
+	
+	
+	//멤버유형벌 회원정보 보기
+	@RequestMapping("/mlist")
+	public ModelAndView memberListMethod(ModelAndView mv,
+			@RequestParam(name = "page", required = false) String page,
+			@RequestParam(name = "limit", required = false) String slimit,
+			@RequestParam(value = "action", required = false) String action,
+			@RequestParam(value = "keyword", required = false) String keyword) {
+		// page: 출력할 페이지, limit: 한 페이지에 출력할 목록 갯수
+		
+		// 페이징 처리
+		int currentPage = 1;
+		if (page != null) {
+			currentPage = Integer.parseInt(page);
+		}
+		
+		// 한 페이지에 출력할 공지 갯수 10개로 지정
+		int limit = 10;
+		if (slimit != null) {
+			limit = Integer.parseInt(slimit);
+		}
+		
+		Paging paging = null;
+		int listCount = 0;
+		
+		// 서비스로 목록 조회 요청하고 결과 받기
+		ArrayList<Member> list = null;
+		
+		if ("div".equals(action) && "USER".equals(keyword)) {
+			// 총 목록갯수 조회
+			listCount = memberService.selectUserMembersCount();
+			
+			// 페이지 관련 항목 계산 처리
+			paging = new Paging(listCount, limit, currentPage, "mlist.do");
+			paging.calculate();
+			
+			// 일반 사용자 목록 조회
+			list = memberService.selectUserMembers(paging);
+		}
+		
+		if ("div".equals(action) && "ORGANIZER".equals(keyword)) {
+			// 총 목록갯수 조회
+			listCount = memberService.selectOrgMembersCount();
+			
+			// 페이지 관련 항목 계산 처리
+			paging = new Paging(listCount, limit, currentPage, "mlist.do");
+			paging.calculate();
+			
+			// 전시관계자 목록 조회
+			list = memberService.selectOrgMembers(paging);
+		}
+		
+		if (list != null && list.size() > 0) {
+			mv.addObject("memberList", list);
+			mv.addObject("paging", paging);
+			mv.addObject("currentPage", currentPage);
+			mv.setViewName("member/memberListPage");
+		} else {
+			mv.addObject("message", currentPage + " 페이지 회원 목록 조회 실패!");
+			mv.setViewName("common/error");
+		}
+		
+		return mv;
+	}//memberListMethod()
+	
+	
 }//MemberController end

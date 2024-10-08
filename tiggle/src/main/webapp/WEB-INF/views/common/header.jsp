@@ -24,7 +24,7 @@
             </div><!-- h_top end -->
         </c:if>
         
-        <c:if test="${ !empty sessionScope.loginMember }"><%-- 로그인 함 --%>
+        <c:if test="${ !empty sessionScope.loginMember and sessionScope.loginMember.memberType ne 'ADMIN' }"><%-- 로그인 함 --%>
             <div class="h_top">
                 <nav>
                     <ul class="lnb">
@@ -36,6 +36,18 @@
                     	</c:if>
                         <li><a href="logout.do">로그아웃</a></li>
                         <li><a href="myInfo.do?uuid=${ sessionScope.loginMember.uuid }">마이페이지</a></li>
+                    </ul><!-- lnb end -->
+                </nav>
+            </div><!-- h_top end -->
+        </c:if>
+        
+        <c:if test="${ !empty sessionScope.loginMember and sessionScope.loginMember.memberType eq 'ADMIN' }"><%-- 관리자 로그인 --%>
+            <div class="h_top">
+                <nav>
+                    <ul class="lnb">
+                        <li><a href="#" style="color: #333 !important; font-weight: normal !important; cursor: default !important;">${ sessionScope.loginMember.name } 님</a></li>
+                        <li><a href="logout.do">로그아웃</a></li>
+                        <li><a href="ulist.do?page=1">관리자페이지</a></li>
                     </ul><!-- lnb end -->
                 </nav>
             </div><!-- h_top end -->
@@ -94,7 +106,7 @@
 	                </ul><!-- m_gnb end -->
 	            </div><!-- m_bt end -->
             </c:if>
-            <c:if test="${ !empty sessionScope.loginMember }"><%-- 로그인 함 --%>
+            <c:if test="${ !empty sessionScope.loginMember and sessionScope.loginMember.memberType ne 'ADMIN' }"><%-- 로그인 함 --%>
                 <div class="m_top">
                     <ul class="m_lnb">
                     	<c:if test="${ !empty sessionScope.loginMember.name  }">
@@ -117,6 +129,27 @@
 	                    <li><a href="orgRegistPage.do"><span>&middot;</span>전시등록</a></li>
 	                    <li><a href="#"><span>&middot;</span>고객센터</a></li>
 	                    <li><a href="myInfo.do?uuid=${ sessionScope.loginMember.uuid }"><span>&middot;</span>마이페이지</a></li>
+	                </ul><!-- m_gnb end -->
+	            </div><!-- m_bt end -->
+            </c:if>
+            <c:if test="${ !empty sessionScope.loginMember and sessionScope.loginMember.memberType eq 'ADMIN' }"><%-- 관리자 로그인 --%>
+                <div class="m_top">
+                    <ul class="m_lnb">
+                        <li><a href="#" style="color: #333 !important; font-weight: normal !important; cursor: default !important;">${ sessionScope.loginMember.name } 님</a></li>
+                        <li><a href="logout.do">로그아웃</a></li>
+                        <li class="close_btn"><span>&#10005;</span></li>
+                    </ul><!-- m_lnb end -->
+                </div><!-- m_top end -->
+
+	            <div class="m_bt">
+	                <ul class="m_gnb">
+	                    <li><a href="#"><span>&middot;</span>전시회</a></li>
+	                    <li><a href="#"><span>&middot;</span>박람회</a></li>
+	                    <li><a href="nearbyMap.do"><span>&middot;</span>내 주변?</a></li>
+	                    <li><a href="#"><span>&middot;</span>공지사항</a></li>
+	                    <li><a href="orgRegistPage.do"><span>&middot;</span>전시등록</a></li>
+	                    <li><a href="#"><span>&middot;</span>고객센터</a></li>
+	                    <li><a href="ulist.do?page=1"><span>&middot;</span>관리자페이지</a></li>
 	                </ul><!-- m_gnb end -->
 	            </div><!-- m_bt end -->
             </c:if>

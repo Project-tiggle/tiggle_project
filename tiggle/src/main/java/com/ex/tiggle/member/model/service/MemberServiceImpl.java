@@ -1,8 +1,11 @@
 package com.ex.tiggle.member.model.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.member.model.dao.MemberDao;
 import com.ex.tiggle.member.model.dto.Member;
 
@@ -56,6 +59,45 @@ public class MemberServiceImpl implements MemberService {
 	public int updateUpdatedAt(Member member) {
 		return memberDao.updateUpdatedAt(member);
 	}//최근 접속일 업데이트
+	
+	
+	
+	//관리자용 **************************************************
+	//관리자페이지 내보내기용	
+//	@Override
+//	public Member selectAdmin(String uuid) {
+//		return memberDao.selectAdmin(uuid);
+//	}
+	
+	@Override
+	public int selectListCount() {
+		return memberDao.selectListCount();
+	}//총 페이지 수 계산 - 삭제예정
 
+	@Override
+	public ArrayList<Member> selectList(Paging paging) {
+		return memberDao.selectList(paging);
+	}//회원 목록 조회 후 결과받기 - 삭제예정
+
+	@Override
+	public ArrayList<Member> selectUserMembers(Paging paging) {
+		return memberDao.selectUserMembers(paging);
+	}//USER 목록 조회
+
+	@Override
+	public ArrayList<Member> selectOrgMembers(Paging paging) {
+		return memberDao.selectOrgMembers(paging);
+	}//ORGANIZER 목록 조회
+
+	@Override
+	public int selectUserMembersCount() {
+		return memberDao.selectUserMembersCount();
+	}//USER 총 페이지 수 계산
+
+	@Override
+	public int selectOrgMembersCount() {
+		return memberDao.selectOrgMembersCount();
+	}//ORGANIZER 총 페이지 수 계산
+	
 	
 }//MemberServiceImpl end

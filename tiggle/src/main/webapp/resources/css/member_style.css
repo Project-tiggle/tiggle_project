@@ -140,7 +140,7 @@
     .left_menu {padding: 0; display: flex; text-align: center; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;}
     .left_menu > li {width: 25%; border-right: 1px solid #ddd; border-bottom: 0; padding: 0;}
     .left_menu > li:last-child {border-right: 0;}
-    .left_menu > li > a {padding: 15px 0; font-size: 16px; display: block; width: 100%; height: 100%;}
+    .left_menu > li > a {padding: 15px 0; font-size: 15px; display: block; width: 100%;}
     /* myinfo_aside end */
 
     .myinfo_content {width: 100%; padding-top: 30px;}
@@ -178,3 +178,28 @@
 .del_btn_wrap > input:hover {background: #ff5f2c; color: #fff; border-color: #ff5f2c;}
 /* orginfo_bt end */
 /* deleteMemberPage.jsp end */
+
+
+
+/* userListPage.jsp, orgListPage.jsp */
+.admin_wrap {width: 100%; box-sizing: border-box; padding: 25px 0 15px;}
+.m_select_btns {display: flex; align-items: center;}
+.m_select_btns > a {border: 1px solid #ddd; padding: 10px 20px; border-bottom: 0;}
+.m_select_btns > a:nth-child(1) {border-right: 0;}
+.m_select_btns > a:hover {background: #ff5f2c !important; color: #fff; border-color: #ff5f2c;}
+.m_select_active {background: #eee !important;}
+/* m_select_btns end */
+
+.m_list_wrap {width: 100%;}
+.member_list {width: 100%; border: 1px solid #ddd; border-spacing: 0; border-collapse: collapse;}
+.member_list tr td {padding: 10px 0; text-align: center; font-size: 13px; border-right: 1px solid #ddd;}
+.member_list tr:nth-of-type(1) td {background: #eee;}
+
+.mlist_up_btn {border: 1px solid #ddd; padding: 3px 8px; cursor: pointer;}
+.mlist_up_btn:hover {background: #eee;}
+.mlist_value_tr td {border-top: 1px solid #ddd;}
+.mlist_value_tr td:nth-of-type(1) p {width: 100px; margin: 0 auto; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+/* member_list end */
+
+
+/* userListPage.jsp, orgListPage.jsp end */
