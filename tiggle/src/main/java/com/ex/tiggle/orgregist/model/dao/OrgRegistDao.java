@@ -1,9 +1,14 @@
 package com.ex.tiggle.orgregist.model.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.orgregist.model.dto.OrgRegist;
 
 @Repository("orgregistDao")
@@ -20,21 +25,32 @@ public class OrgRegistDao {
 	}
 	
 	public OrgRegist selectOrgRegistByUuid(String uuid) {
-        return sqlSessionTemplate.selectOne("selectOrgRegistByUuid", uuid);
+        return sqlSessionTemplate.selectOne("orgRegistMapper.selectOrgRegistByUuid", uuid);
     }
 
-    // 데이터를 수정하는 메서드
     public int updateOrgRegist(OrgRegist orgRegist) {
-        return sqlSessionTemplate.update("updateOrgRegist", orgRegist);
+        return sqlSessionTemplate.update("orgRegistMapper.updateOrgRegist", orgRegist);
     }
 
-    // 데이터를 삭제하는 메서드
     public int deleteOrgRegist(String totalId) {
-        return sqlSessionTemplate.delete("deleteOrgRegist", totalId);
+        return sqlSessionTemplate.delete("orgRegistMapper.deleteOrgRegist", totalId);
     }
 
 	public int selectMaxTotalId() {
-		return sqlSessionTemplate.selectOne("selectMaxTotalId");
+		return sqlSessionTemplate.selectOne("orgRegistMapper.selectMaxTotalId");
+	}
+
+	public int selectListCount(String uuid) {
+		return sqlSessionTemplate.selectOne("orgRegistMapper.selectListCount", uuid);
+	}
+
+	public ArrayList<OrgRegist> selectList(Map<String, Object> uuidNpaging) {
+		List<OrgRegist> list = sqlSessionTemplate.selectList("orgRegistMapper.selectList", uuidNpaging);
+		return (ArrayList<OrgRegist>)list; 
+	}
+
+	public OrgRegist selectOrgTotalId(String num) {
+		return sqlSessionTemplate.selectOne("orgRegistMapper.selectOrgTotalId", num);
 	}
 
 }

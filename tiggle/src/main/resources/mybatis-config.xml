@@ -16,6 +16,7 @@
 		<typeAlias type="com.ex.tiggle.member.model.dto.Member" alias="Member" />
 		<typeAlias type="com.ex.tiggle.exhibition.model.dto.Exhibition" alias="Exhibition" />
 		<typeAlias type="com.ex.tiggle.orgregist.model.dto.OrgRegist" alias="OrgRegist" />
+		<typeAlias type="com.ex.tiggle.common.Paging" alias="Paging"/>
 		
 	<!-- *-mapper.xml 에서 dto 클래스명을 간단하게 사용하기 위해서 클래스명 줄임말 지정 -->
 		<!-- <typeAlias type="org.myweb.first.member.model.dto.User" alias="User" />

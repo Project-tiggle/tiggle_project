@@ -1,0 +1,20 @@
+[21:58:05][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[21:58:05][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 459 ms
+[21:58:05][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[21:58:05][INFO ][FrameworkServlet.java: 547] - Completed initialization in 333 ms
+[21:58:38][INFO ][MemberController.java: 108] - login : Member [uuid=null, id=orgtest05, pwd=orgtest05, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[22:05:31][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:05:32][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 463 ms
+[22:05:32][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:05:32][INFO ][FrameworkServlet.java: 547] - Completed initialization in 350 ms
+[22:05:57][INFO ][MemberController.java: 108] - login : Member [uuid=null, id=orgtest09, pwd=orgtest09, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[22:08:34][INFO ][MemberController.java: 108] - login : Member [uuid=null, id=orgtest03, pwd=orgtest03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[22:09:41][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:09:42][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 453 ms
+[22:09:42][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:09:42][INFO ][FrameworkServlet.java: 547] - Completed initialization in 353 ms
+[22:10:50][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:10:50][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 463 ms
+[22:10:50][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:10:51][INFO ][FrameworkServlet.java: 547] - Completed initialization in 367 ms
+[22:11:46][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=orgtest03, pwd=orgtest03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]

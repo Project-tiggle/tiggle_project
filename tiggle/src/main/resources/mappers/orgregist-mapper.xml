@@ -30,6 +30,24 @@
 	       <result property="email" column="EMAIL" />
 	</resultMap>
 	
+	<!-- 전시등록 총 갯수 조회용 쿼리 -->
+	<select id="selectListCount" resultType="_int" parameterType="string">
+		select count(*)
+		from tb_exhibition_fair
+		where uuid = #{ uuid }
+	</select>
+	
+	<!-- 요청한 페이지에 출력할 원글, 댓글, 대댓글 포함된 게시글 목록 조회용 쿼리 -->
+	<select id="selectList" resultMap="resultOrgRegist" parameterType="map">
+		select *
+		from (select rownum rnum, TITLE, NAME, START_DATE, END_DATE, TOTAL_ID
+		      from (select *
+		            from tb_exhibition_fair
+		            join tb_member using (uuid)
+		            where uuid = #{ uuid }))
+		where rnum between #{ paging.startRow } and #{ paging.endRow }
+	</select>
+	
 	<!-- 전시/박람회 등록하기(insert & update) -->
 	<insert id="insertOrgRegist" parameterType="OrgRegist">
 		insert into tb_exhibition_fair
@@ -56,7 +74,15 @@
         select *
 		from tb_exhibition_fair
 		right join tb_member using (uuid)
-		where uuid = #{ uuid } and rownum = '1'
+		where uuid = #{ uuid } and rownum = 1
+    </select>
+    
+    <!-- 전시/박람회 정보 수정하기 디테일페이지 -->
+    <select id="selectOrgTotalId" parameterType="string" resultMap="resultOrgRegist">
+        select *
+		from tb_exhibition_fair
+		join tb_member using (uuid)
+		where total_id = #{ totalId }
     </select>
     
     <!-- 전시/박람회 정보 수정하기 -->

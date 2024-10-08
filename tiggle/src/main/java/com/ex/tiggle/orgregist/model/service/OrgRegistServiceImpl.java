@@ -1,8 +1,12 @@
 package com.ex.tiggle.orgregist.model.service;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.orgregist.model.dao.OrgRegistDao;
 import com.ex.tiggle.orgregist.model.dto.OrgRegist;
 
@@ -40,6 +44,21 @@ public class OrgRegistServiceImpl implements OrgRegistService {
 	@Override
 	public int selectMaxTotalId() {
 		return orgRegistDao.selectMaxTotalId();
+	}
+
+	@Override
+	public int selectListCount(String uuid) {
+		return orgRegistDao.selectListCount(uuid);
+	}
+
+	@Override
+	public ArrayList<OrgRegist> selectList(Map<String, Object> uuidNpaging) {
+		return orgRegistDao.selectList(uuidNpaging);
+	}
+
+	@Override
+	public OrgRegist selectOrgTotalId(String num) {
+		return orgRegistDao.selectOrgTotalId(num);
 	}
 
 }

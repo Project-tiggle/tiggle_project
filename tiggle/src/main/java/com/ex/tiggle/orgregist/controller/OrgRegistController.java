@@ -1,6 +1,9 @@
 package com.ex.tiggle.orgregist.controller;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ex.tiggle.common.FileNameChange;
 import com.ex.tiggle.common.KakaoXY;
+import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.member.model.dto.Member;
 import com.ex.tiggle.orgregist.model.dto.OrgRegist;
 import com.ex.tiggle.orgregist.model.service.OrgRegistService;
@@ -29,13 +34,56 @@ public class OrgRegistController {
 	@Autowired
     private OrgRegistService orgRegistService;
     
-    // 전시/박람회 메인 페이지로 이동
+    // 전시/박람회 메인 페이지로 이동 : 전시관계자
     @RequestMapping("orgRegistPage.do")
-    public String moveOrgRegist() {
-        return "orgregist/orgRegist";
-    }
+    public ModelAndView moveOrgRegist(
+	    	ModelAndView mv, 
+	    	HttpSession session,
+	    	@RequestParam(name = "page", required = false) String page,
+			@RequestParam(name = "limit", required = false) String slimit) {
+		// page : 출력할 페이지, limit : 한 페이지에 출력할 목록 갯수
+    	
+    	Member loginMember = (Member) session.getAttribute("loginMember");
+		// 페이징 처리
+		int currentPage = 1;
+		if (page != null) {
+			currentPage = Integer.parseInt(page);
+		}
 
-    // 전시/박람회 등록 상세 페이지로 이동
+		// 한 페이지에 출력할 등록 목록 10개 지정
+		int limit = 10;
+		if (slimit != null) {
+			limit = Integer.parseInt(slimit);
+		}
+
+		// 총 목록갯수 조회해서 총 페이지 수 계산함
+		int listCount = orgRegistService.selectListCount(loginMember.getUuid());
+		// 페이지 관련 항목 계산 처리
+		Paging paging = new Paging(listCount, limit, currentPage, "orgRegistPage.do");
+		paging.calculate();
+		
+		Map<String, Object> uuidNpaging = new HashMap<>();
+		uuidNpaging.put("paging", paging);
+		uuidNpaging.put("uuid", loginMember.getUuid());
+
+		// 서비스롤 목록 조회 요청하고 결과 받기
+		ArrayList<OrgRegist> list = orgRegistService.selectList(uuidNpaging);
+
+		if (list != null && list.size() > 0) {
+			mv.addObject("list", list);
+			mv.addObject("paging", paging);
+			mv.addObject("currentPage", currentPage);
+
+			mv.setViewName("orgregist/orgRegist");
+		} else {
+			mv.addObject("message", "등록 신청한 전시/박람회가 없습니다.");
+			mv.setViewName("orgregist/orgRegist");
+		}
+
+		return mv;
+	}
+
+    // 전시/박람회 등록 상세 페이지로 이동 : 전시관계자
     @RequestMapping("orgRegDetail.do")
     public String moveOrgRegistDetail(
     		HttpSession session,
@@ -47,14 +95,13 @@ public class OrgRegistController {
         return "orgregist/orgRegistDetail";
     }
     
-    //수정 페이지로 이동
+    //수정 페이지로 이동 : 전시관계자
     @RequestMapping("orgRegEdit.do")
 	public String moveEditOrgRegist(
-			HttpSession session,
+			@RequestParam("num") String num,
     		Model model) {
     	
-    	Member loginMember = (Member) session.getAttribute("loginMember");
-    	OrgRegist orgRegist = orgRegistService.selectOrgRegistByUuid(loginMember.getUuid()); //uuid정보를 이용해서 orgRegist정보를 DB로부터 받아옴
+    	OrgRegist orgRegist = orgRegistService.selectOrgTotalId(num); //uuid정보를 이용해서 orgRegist정보를 DB로부터 받아옴
     	
     	String totalId = orgRegist.getTotalId();
     	String originalFilename = null;	// 유저가 파일을 올릴때의 원래 이름
@@ -75,7 +122,7 @@ public class OrgRegistController {
     /**************************************************************************************************************************************************/   
     
     
-    //전시등록
+    //전시등록 : 전시관계자
     @RequestMapping(value = "orgRegist.do", method = RequestMethod.POST)
     public String registerOrgRegist(
             OrgRegist orgRegist,
@@ -162,7 +209,7 @@ public class OrgRegistController {
     }
     
     
-    // 수정 처리
+    // 수정 처리 : 전시관계자
     @RequestMapping(value="orgRegistUpdate.do", method = RequestMethod.POST)
     public String orgRegistUpdate( OrgRegist orgRegist,
             Model model,
@@ -251,7 +298,7 @@ public class OrgRegistController {
     }
 
     
-    // 삭제 처리
+    // 삭제 처리 : 전시관계자
     @RequestMapping("deleteOrgRegist.do")
     public String deleteOrgRegist(
     		Model model, 
@@ -274,4 +321,7 @@ public class OrgRegistController {
 			return "common/error";
 		}
     }
+
+
+
 }
