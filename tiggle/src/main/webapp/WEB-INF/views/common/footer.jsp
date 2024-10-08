@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,15 @@
                     <li><a href="#">위치기반서비스 이용약관</a></li>
                     <li><a href="#">티켓판매안내</a></li>
                     <li><a href="#">고객센터</a></li>
-                    <li><a href="orgRegistPage.do">전시등록</a></li>
+                    <c:if test="${ !empty sessionScope.loginMember and sessionScope.loginMember.memberType eq 'ORGANIZER' }">
+                    	<li><a href="orgRegistPage.do">전시등록</a></li>
+                    </c:if>
+                    <c:if test="${ !empty sessionScope.loginMember and sessionScope.loginMember.memberType eq 'ADMIN' }">
+                    	<li><a href="orgRegistAd.do">전시등록</a></li>
+                    </c:if>
+                    <c:if test="${ empty sessionScope.loginMember or (!empty sessionScope.loginMember and sessionScope.loginMember.memberType eq 'USER') }">
+                    	<li><a href="#">전시등록</a></li>
+                    </c:if>
                 </ul><!-- f_menu end -->
             </nav>
         </div><!-- f_top end -->

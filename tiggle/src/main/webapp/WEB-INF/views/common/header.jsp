@@ -100,7 +100,7 @@
 	                    <li><a href="#"><span>&middot;</span>박람회</a></li>
 	                    <li><a href="nearbyMap.do"><span>&middot;</span>내 주변?</a></li>
 	                    <li><a href="#"><span>&middot;</span>공지사항</a></li>
-	                    <li><a href="orgRegistPage.do"><span>&middot;</span>전시등록</a></li>
+	                    <li><a href="#"><span>&middot;</span>전시등록</a></li>
 	                    <li><a href="#"><span>&middot;</span>고객센터</a></li>
 	                    <li><a href="loginPage.do"><span>&middot;</span>마이페이지</a></li>
 	                </ul><!-- m_gnb end -->
@@ -126,7 +126,12 @@
 	                    <li><a href="#"><span>&middot;</span>박람회</a></li>
 	                    <li><a href="nearbyMap.do"><span>&middot;</span>내 주변?</a></li>
 	                    <li><a href="#"><span>&middot;</span>공지사항</a></li>
-	                    <li><a href="orgRegistPage.do"><span>&middot;</span>전시등록</a></li>
+	                    <c:if test="${ !empty sessionScope.loginMember and sessionScope.loginMember.memberType eq 'ORGANIZER' }">
+	                    	<li><a href="orgRegistPage.do"><span>&middot;</span>전시등록</a></li>
+	                    </c:if>
+	                    <c:if test="${ sessionScope.loginMember.memberType ne 'ORGANIZER' }">
+	                    	<li><a href="#"><span>&middot;</span>전시등록</a></li>
+	                    </c:if>
 	                    <li><a href="#"><span>&middot;</span>고객센터</a></li>
 	                    <li><a href="myInfo.do?uuid=${ sessionScope.loginMember.uuid }"><span>&middot;</span>마이페이지</a></li>
 	                </ul><!-- m_gnb end -->
@@ -147,7 +152,7 @@
 	                    <li><a href="#"><span>&middot;</span>박람회</a></li>
 	                    <li><a href="nearbyMap.do"><span>&middot;</span>내 주변?</a></li>
 	                    <li><a href="#"><span>&middot;</span>공지사항</a></li>
-	                    <li><a href="orgRegistPage.do"><span>&middot;</span>전시등록</a></li>
+	                    <li><a href="orgRegistAd.do"><span>&middot;</span>전시등록</a></li>
 	                    <li><a href="#"><span>&middot;</span>고객센터</a></li>
 	                    <li><a href="ulist.do?page=1"><span>&middot;</span>관리자페이지</a></li>
 	                </ul><!-- m_gnb end -->
