@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="nowpage" value="1" />
+<c:if test="${ !empty requestScope.currentPage }">
+	<c:set var="nowpage" value="${ requestScope.currentPage }" />
+</c:if>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>마이페이지</title>
+<title>관리자페이지</title>
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/member_style.css">
 </head>
@@ -14,44 +21,50 @@
 
 
 
-	<!-- 마이페이지 회원정보 수정 -->
+	<!-- 관리자페이지 회원정보 수정 -->
 	<div class="myinfo_section">
 		<aside class="myinfo_aside">
 			<div class="mypage_title">
-				<p>마이페이지</p>
+				<p>관리자페이지</p>
 			</div><!-- mypage_title -->
 
 			<nav>
 				<ul class="left_menu">
-					<li><a href="myInfo.do?uuid=${ sessionScope.loginMember.uuid }">내정보 보기</a></li>
+					<!-- <li><a href="mlist.do?page=1">회원목록</a></li> -->
+					<li><a href="ulist.do?page=1">일반사용자 목록</a></li>
+					<li><a href="olist.do?page=1">전시관계자 목록</a></li>
 					<li><a href="#">예약확인 / 취소</a></li>
 					<li><a href="#">1:1 문의내역</a></li>
-					<li><a href="delMemPage.do">회원탈퇴</a></li>
 				</ul><!-- left_ menu end -->
 			</nav>
 		</aside><!-- myinfo_aside end -->
 
 		<div class="myinfo_content">
 			<div class="myinfo_title">
-				<p>내 정보 수정</p>
+				<p>회원정보 수정 (관리자용)</p>
 			</div><!-- myinfo_title end -->
 			
 			
 			
 			<div class="myinfo_wrap">
-				<c:if test="${ loginMember.memberType eq 'USER' }">
-					<form action="myUpdate.do" method="post" onsubmit="return validatePwd2();">
-						<input type="hidden" name="uuid" value="${ requestScope.member.uuid }">
+				<c:if test="${ member.memberType eq 'USER' }">
+					<form action="mEdit.do" method="post">
 						<input type="hidden" name="originalPwd" value="${ requestScope.member.pwd }">
+						<input type="hidden" name="memberType" value="${ requestScope.member.memberType }">
+						
+						<div class="myinfo_list">
+							<p>UUID</p>
+							<input type="text" name="uuid" id="myinfo_uuid" class="bg_eee" value="${ requestScope.member.uuid }" required>
+						</div><!-- myinfo_list end -->
 						
 						<div class="myinfo_list">
 							<p>이 름</p>
-							<input type="text" name="name" id="myinfo_name" class="bg_eee" value="${ requestScope.member.name }" readonly>
+							<input type="text" name="name" id="myinfo_name" value="${ requestScope.member.name }" required>
 						</div><!-- myinfo_list end -->
 	
 						<div class="myinfo_list">
 							<p>아이디</p>
-							<input type="text" name="id" id="myinfo_id" class="bg_eee" value="${ requestScope.member.id }" readonly>
+							<input type="text" name="id" id="myinfo_id" value="${ requestScope.member.id }" required>
 							<span>아이디는 변경할 수 없습니다</span>
 						</div><!-- myinfo_list end -->
 						
@@ -64,11 +77,6 @@
 							<p>비밀번호</p>
 							<input type="password" name="pwd" id="myinfo_pwd">
 							<span>8_20자 영문, 숫자, 특수문자 사용</span>
-						</div><!-- myinfo_list end -->
-	
-						<div class="myinfo_list bc_333">
-							<p>비밀번호 확인</p>
-							<input type="password" id="myinfo_pwd2">
 						</div><!-- myinfo_list end -->
 	
 						<div class="myinfo_list">
@@ -88,13 +96,48 @@
 						</div><!-- myinfo_list end -->
 						
 						<div class="myinfo_list myinfo_list_marketing">
-							<input type="checkbox" name="marketingYN" id="myinfo_marketingYN" value="Y"
-							<c:if test="${ requestScope.member.marketingYN == 'Y' }">checked</c:if>
-							>
+							<input type="checkbox" name="marketingYN" id="myinfo_marketingYN" value="Y">
 							<p>자사 마케팅 수집 및 이용 동의</p>
 						</div><!-- myinfo_list end -->
 						
+						<div class="myinfo_list">
+							<p>가입일</p>
+							<input type="date" name="signUpAt" id="myinfo_signUpAt" value="${ requestScope.member.signUpAt }" readonly>
+						</div><!-- myinfo_list end -->
+						
+						<div class="myinfo_list">
+							<p>최근 접속일</p>
+							<input type="date" name="updatedAt" id="myinfo_updatedAt" value="${ requestScope.member.updatedAt }" readonly>
+						</div><!-- myinfo_list end -->
+						
+						<div class="myinfo_list">
+							<p>로그인 가능 여부</p>
+							<input type="text" name="loginOk" id="myinfo_loginOk" value="${ requestScope.member.loginOk }">
+						</div><!-- myinfo_list end -->
+						
+						<div class="myinfo_list">
+							<p>회원탈퇴 여부</p>
+							<c:if test="${ !empty requestScope.member.deletedYN }">
+								<input type="text" name="deletedYN" id="myinfo_deletedYN" value="${ requestScope.member.deletedYN }" readonly>
+							</c:if>
+						</div><!-- myinfo_list end -->
+						
+						<div class="myinfo_list">
+							<p>회원탈퇴 날짜</p>
+							<c:if test="${ !empty requestScope.member.deletedAt }">
+								<input type="date" name="deletedAt" id="myinfo_deletedAt" value="${ requestScope.member.deletedAt }" readonly>
+							</c:if>
+						</div><!-- myinfo_list end -->
+						
+						<div class="myinfo_list">
+							<p>회원탈퇴 이유</p>
+							<c:if test="${ !empty requestScope.member.deletedReason }">
+								<input type="text" name="deletedReason" id="myinfo_deletedReason" value="${ requestScope.member.deletedReason }" readonly>
+							</c:if>
+						</div><!-- myinfo_list end -->
+						
 						<div class="myinfo_btn">
+							<input type="button" onclick="javascript:location.href='${ pageContext.servletContext.contextPath }/ulist.do?page=1';" value="목 록">
 							<input type="reset" value="초기화">
 							<input type="submit" value="수 정">
 						</div><!-- myinfo_btn end -->
@@ -103,10 +146,15 @@
 				
 				
 				
-				<c:if test="${ loginMember.memberType eq 'ORGANIZER' }">
-					<form action="orgMyUpdate.do" method="post" onsubmit="return validatePwd2();">
-						<input type="hidden" name="uuid" value="${ requestScope.member.uuid }">
-						<input type="hidden" name="originalPwd" value="${ requestScope.member.pwd }">
+				<c:if test="${ member.memberType eq 'ORGANIZER' }">
+					<form action="mEdit.do" method="post">
+						<input type="hidden" name="pwd" value="${ requestScope.member.pwd }">
+						<input type="hidden" name="memberType" value="${ requestScope.member.memberType }">
+						
+						<div class="myinfo_list">
+							<p>UUID</p>
+							<input type="text" name="uuid" id="myinfo_uuid" class="bg_eee" value="${ requestScope.member.uuid }" required>
+						</div><!-- myinfo_list end -->
 						
 						<div class="myinfo_list">
 							<p>아이디</p>
@@ -118,11 +166,6 @@
 							<p>비밀번호</p>
 							<input type="password" name="pwd" id="myinfo_pwd">
 							<span>8_20자 영문, 숫자, 특수문자 사용</span>
-						</div><!-- myinfo_list end -->
-						
-						<div class="myinfo_list bc_333">
-							<p>비밀번호 확인</p>
-							<input type="password" id="myinfo_pwd2">
 						</div><!-- myinfo_list end -->
 						
 						<div class="myinfo_list">
@@ -161,14 +204,53 @@
 							<input type="email" name="email" id="myinfo_email" value="${ requestScope.member.email }">
 						</div><!-- myinfo_list end -->
 						
+<%-- 						<div class="myinfo_list">
+							<p>담당자 부서</p>
+							<input type="text" name="mngDept" id="myinfo_mngDept" value="${ requestScope.member.mngDept }">
+						</div><!-- myinfo_list end -->
+						
+						<div class="myinfo_list">
+							<p>담당자 직급</p>
+							<input type="text" name="mngJobId" id="myinfo_mngJobId" value="${ requestScope.member.mngJobId }">
+						</div><!-- myinfo_list end --> --%>
+						
 						<div class="myinfo_list myinfo_list_marketing">
-							<input type="checkbox" name="marketingYN" id="myinfo_marketingYN" value="Y"
-							<c:if test="${ requestScope.member.marketingYN == 'Y' }">checked</c:if>
-							>
+							<input type="checkbox" name="marketingYN" id="myinfo_marketingYN" value="Y">
 							<p>자사 마케팅 수집 및 이용 동의</p>
 						</div><!-- myinfo_list end -->
 						
+<%-- 						<div class="myinfo_list">
+							<p>가입일</p>
+							<input type="text" name="signUpAt" id="myinfo_signUpAt" value="${ requestScope.member.signUpAt }" readonly>
+						</div><!-- myinfo_list end -->
+						
+						<div class="myinfo_list">
+							<p>최근 접속일</p>
+							<input type="text" name="updatedAt" id="myinfo_updatedAt" value="${ requestScope.member.updatedAt }" readonly>
+						</div><!-- myinfo_list end -->
+						
+						<div class="myinfo_list">
+							<p>로그인 가능 여부</p>
+							<input type="text" name="loginOk" id="myinfo_loginOk" value="${ requestScope.member.loginOk }">
+						</div><!-- myinfo_list end -->
+						
+						<div class="myinfo_list">
+							<p>회원탈퇴 여부</p>
+							<input type="text" name="deletedYN" id="myinfo_deletedYN" value="${ requestScope.member.deletedYN }" readonly>
+						</div><!-- myinfo_list end -->
+						
+						<div class="myinfo_list">
+							<p>회원탈퇴 날짜</p>
+							<input type="text" name="deletedAt" id="myinfo_deletedAt" value="${ requestScope.member.deletedAt }" readonly>
+						</div><!-- myinfo_list end -->
+						
+						<div class="myinfo_list">
+							<p>회원탈퇴 이유</p>
+							<input type="text" name="deletedReason" id="myinfo_deletedReason" value="${ requestScope.member.deletedReason }" readonly>
+						</div><!-- myinfo_list end --> --%>
+						
 						<div class="myinfo_btn">
+							<input type="button" onclick="javascript:location.href='${ pageContext.servletContext.contextPath }/olist.do?page=1';" value="목 록">
 							<input type="reset" value="초기화">
 							<input type="submit" value="수 정">
 						</div><!-- myinfo_btn end -->

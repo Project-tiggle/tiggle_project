@@ -3,6 +3,8 @@ package com.ex.tiggle.member.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -305,10 +307,11 @@ public class MemberController {
 	
 	
 	//내정보 수정 페이지 처리용 - USER
-	@RequestMapping(value="myupdate.do", method=RequestMethod.POST)
+	@RequestMapping(value="myUpdate.do", method=RequestMethod.POST)
 	public String memberUpdateMethod(Member member, Model model,
 			@RequestParam("uuid") String uuid, 
-			@RequestParam("originalPwd") String originalPwd) {
+			@RequestParam("originalPwd") String originalPwd,
+			@RequestParam(name="marketingYN", required=false) String marketingYN) {
 		logger.info("myupdate.do : " + member);
 		
 		if(member.getPwd() != null && member.getPwd().length() > 0) { //패스워드 변경시
@@ -317,6 +320,12 @@ public class MemberController {
 		}else { //암호 변경안됨
 			member.setPwd(originalPwd); //원래 패스워드로 기록저장
 		}
+		
+		// 마케팅 동의 처리
+	    if(marketingYN == null) {
+	        marketingYN = "N"; // 체크박스가 체크되지 않으면 "N"
+	    }
+	    member.setMarketingYN(marketingYN);
 		
 		if(memberService.updateMember(member) > 0) { //내정보 수정 성공시
 			return "member/myInfoPage";
@@ -331,7 +340,8 @@ public class MemberController {
 	@RequestMapping(value="orgMyUpdate.do", method=RequestMethod.POST)
 	public String orgMemberUpdateMethod(Member member, Model model,
 			@RequestParam("uuid") String uuid, 
-			@RequestParam("originalPwd") String originalPwd) {
+			@RequestParam("originalPwd") String originalPwd,
+			@RequestParam(name="marketingYN", required=false) String marketingYN) {
 		logger.info("orgMyUpdate.do : " + member);
 		
 		if(member.getPwd() != null && member.getPwd().length() > 0) { //패스워드 변경시
@@ -340,6 +350,12 @@ public class MemberController {
 		}else { //암호 변경안됨
 			member.setPwd(originalPwd); //원래 패스워드로 기록저장
 		}
+		
+		// 마케팅 동의 처리
+	    if(marketingYN == null) {
+	        marketingYN = "N"; // 체크박스가 체크되지 않으면 "N"
+	    }
+	    member.setMarketingYN(marketingYN);
 		
 		if(memberService.updateOrgMember(member) > 0) { //내정보 수정 성공시
 			return "member/myInfoPage";
@@ -456,6 +472,46 @@ public class MemberController {
 		
 		return mv;
 	}//orgListPage() end
+	
+	
+	//회원정보 수정페이지 내보내기용(관리자용) - 일반사용자, 전시관계자 모두 처리
+	@RequestMapping(value="mEditPage.do", method=RequestMethod.POST)
+	public String moveMemberEditPage(@RequestParam("uuid") String uuid, Model model) {
+		logger.info("mEditPage.do : " + uuid);
+		
+		Member member = memberService.selectMember(uuid);
+		
+		if(member != null) { //전송온 uuid로 회원조회 성공시
+			model.addAttribute("member", member);
+			return "member/memberListUpdatePage";
+		}else {
+			model.addAttribute("message", "해당하는 회원이 없습니다.<br> 다시 확인해주세요.");
+			return "common/error";
+		}
+		
+	}//moveMemberEditPage() end
+
+	
+	//회원 정보 수정 (관리자용) - 회원정보에서 필요한 부분 대부분 볼 수 있을 때
+	@RequestMapping(value="mEdit.do", method=RequestMethod.POST)
+	public String memberEditMethod(Member member, Model model,
+			@RequestParam("originalPwd") String originalPwd) {
+		logger.info("mEdit.do : " + member);
+		
+		if(member.getPwd() != null && member.getPwd().length() > 0) { //패스워드 변경시
+			member.setPwd(bcryptPasswordEncoder.encode(member.getPwd()));
+			logger.info("after encode : " + member.getPwd());			
+		}else { //암호 변경안됨
+			member.setPwd(originalPwd); //원래 패스워드로 기록저장
+		}
+		
+		if(memberService.updateMemberInfo(member) > 0) { //USER 정보 수정 성공시
+			return "member/memberListUpdatePage";
+		}else {
+			model.addAttribute("message", "회원 정보 수정에 실패하였습니다.<br> 확인 후 다시 수정해주세요.");
+			return "common/error";
+		}
+	}//memberEditMethod() end
 	
 	
 	

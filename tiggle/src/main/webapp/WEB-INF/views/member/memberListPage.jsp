@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="nowpage" value="1" />
-<c:if test="${ !empty requsetScope.currentPage }">
+<c:if test="${ !empty requestScope.currentPage }">
 	<c:set var="nowpage" value="${ requestScope.currentPage }" />
 </c:if>
 

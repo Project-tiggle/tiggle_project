@@ -86,6 +86,10 @@ public class MemberDao {
 	public int selectOrgMembersCount() {
 		return sqlSessionTemplate.selectOne("memberMapper.selectOrgMembersCount");
 	}//ORGANIZER 총 페이지 수 계산
-	
 
+	public int updateMemberInfo(Member member) {
+		return sqlSessionTemplate.update("memberMapper.updateMemberInfo", member);
+	}//회원정보 수정용
+	
+	
 }//MemberDao end

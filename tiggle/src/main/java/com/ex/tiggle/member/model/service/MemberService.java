@@ -48,6 +48,8 @@ public interface MemberService {
 	int selectUserMembersCount();
 	//ORGANIZER 총 페이지 수 계산
 	int selectOrgMembersCount();
+	//회원정보 수정용
+	int updateMemberInfo(Member member);
 	
 	
 }//MemberService end

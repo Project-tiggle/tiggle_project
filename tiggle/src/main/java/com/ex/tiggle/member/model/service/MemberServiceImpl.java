@@ -98,6 +98,10 @@ public class MemberServiceImpl implements MemberService {
 	public int selectOrgMembersCount() {
 		return memberDao.selectOrgMembersCount();
 	}//ORGANIZER 총 페이지 수 계산
-	
+
+	@Override
+	public int updateMemberInfo(Member member) {
+		return memberDao.updateMemberInfo(member);
+	}//회원정보 수정용
 	
 }//MemberServiceImpl end

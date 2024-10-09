@@ -77,7 +77,7 @@
 	<!-- 내정보 수정용 - USER -->
 	<update id="updateMember" parameterType="Member">
 		update tb_member
-		set nickname = #{nickname}, pwd = #{pwd}, email = #{email}, phone = #{phone}, address = #{address}
+		set nickname = #{nickname}, pwd = #{pwd}, email = #{email}, phone = #{phone}, address = #{address}, marketing_yn = #{marketingYN}
 		where uuid = #{uuid}
 	</update>
 	
@@ -85,7 +85,7 @@
 	<update id="updateOrgMember" parameterType="Member">
 		update tb_member
 		set pwd = #{pwd}, org_email = #{orgEmail}, org_tel = #{orgTel}, address = #{address}
-			, name = #{name}, phone = #{phone}, email = #{email}
+			, name = #{name}, phone = #{phone}, email = #{email}, marketing_yn = #{marketingYN}
 		where uuid = #{uuid}
 	</update>
 	
@@ -96,6 +96,16 @@
 		where uuid = #{uuid}
 	</update>
 	
+	<!-- 회원 정보 수정(관리자용) - USER, ORGANIZER 모두 처리 -->
+	<update id="updateMemberInfo" parameterType="Member">
+		update tb_member
+		set pwd = #{pwd}, name = #{name}, phone = #{phone}, email = #{email}, nickname = #{nickname},
+			address = #{address}, signtype = #{signtype}, marketing_yn = #{marketingYN},
+			org_name = #{orgName}, org_tel = #{orgTel}, org_email = #{orgEmail}, mng_dept = #{mngDept},
+			mng_jobid = #{mngJobId}, member_type = #{memberType}, signup_at = #{signUpAt}, updated_at = #{updatedAt},
+			login_ok = #{loginOk}, deleted_yn = #{deletedYN}, deleted_at = #{deletedAt}, deleted_reason = #{deletedReason}
+		where uuid = #{uuid}
+	</update>
 	
 	
 	
@@ -144,8 +154,15 @@
 	<select id="selectOrgMembersCount" resultType="_int">
 		select count(*) from tb_member where member_type = 'ORGANIZER'
 	</select>
+	
+	
+	
+	
+	
 	 
 	 
+	
+	
 	 
 	 <!-- ************************************************** -->
 <!-- 	<resultMap id="resultUser" type="User">

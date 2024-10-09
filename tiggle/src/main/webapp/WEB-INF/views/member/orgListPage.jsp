@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="nowpage" value="1" />
-<c:if test="${ !empty requsetScope.currentPage }">
+<c:if test="${ !empty requestScope.currentPage }">
 	<c:set var="nowpage" value="${ requestScope.currentPage }" />
 </c:if>
 
@@ -69,7 +69,7 @@
 								<td>${ m.orgEmail }</td>
 								<td>${ m.name }</td>
 								<td>${ m.phone }</td>
-								<td><button type="button" class="mlist_up_btn">수정</button></td>
+								<td><button type="button" class="mlist_up_btn" onclick="moveMEditPage('${ m.uuid }');">수정</button></td>
 							</tr>
 						</c:forEach>
 					</table><!-- member_list end -->
@@ -89,5 +89,23 @@
 	<script src="/tiggle/resources/js/jquery-3.7.1.min.js"></script>
 	<script src="/tiggle/resources/js/script.js"></script>
 	<script src="/tiggle/resources/js/member_script.js"></script>
+	<script type="text/javascript">
+	    function moveMEditPage(uuid) {
+	        console.log("UUID: " + uuid); // UUID 확인
+
+	        var form = document.createElement("form");
+	        form.setAttribute("method", "post");
+	        form.setAttribute("action", "mEditPage.do"); // 요청할 URL
+
+	        var uuidField = document.createElement("input");
+	        uuidField.setAttribute("type", "hidden");
+	        uuidField.setAttribute("name", "uuid");
+	        uuidField.setAttribute("value", uuid); // UUID 값 설정
+	        form.appendChild(uuidField); // form에 추가
+
+	        document.body.appendChild(form);
+	        form.submit(); // form 제출
+	    }
+	</script>
 </body>
 </html>

@@ -127,6 +127,8 @@
 
 /* myinfo_list 개별css */
 #myinfo_address {width: calc(75% - 150px);}
+.myinfo_list_marketing > input {width: 20px; height: 20px; margin-left: 10px;}
+.myinfo_list_marketing > p {width: auto; padding-left: 0;}
 
 .myinfo_btn {width: 100%; display: flex; align-items: center; justify-content: center; margin-top: 30px;}
 .myinfo_btn > input {width: 130px; height: 45px; line-height: 45px; font-size: 16px; font-weight: bold; border: 1px solid #ddd; text-align: center; margin: 0 10px; cursor: pointer; transition: all 0.2s; font-family: "Pretendard Variable" !important;}
@@ -148,6 +150,9 @@
     .myinfo_list > p {padding-left: 0;}
     .myinfo_list > input {margin-top: 10px; margin-bottom: 10px; width: calc(100% - 20px);}
     #myinfo_address {width: calc(100% - 20px);}
+
+    .myinfo_list_marketing {flex-direction: row;}
+    .myinfo_list_marketing > input {width: 20px; margin-top: 0; margin-bottom: 0; margin-left: 0;}
 }
 /* myinfo_content end */
 /* myInfoPage.jsp end */

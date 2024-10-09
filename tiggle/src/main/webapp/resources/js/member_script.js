@@ -215,6 +215,6 @@ function oneDelCheck(checkbox) {
 
 
 
-//memberListPage.jsp
+//userListPage.jsp, orgListPage.jsp
 
-//memberListPage.jsp end
+//userListPage.jsp, orgListPage.jsp end
