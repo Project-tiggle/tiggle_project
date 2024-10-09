@@ -61,4 +61,19 @@ public class OrgRegistServiceImpl implements OrgRegistService {
 		return orgRegistDao.selectOrgTotalId(num);
 	}
 
+	@Override
+	public int selectApCount() {
+		return orgRegistDao.selectApCount();
+	}
+
+	@Override
+	public ArrayList<OrgRegist> selectApList(Paging paging) {
+		return orgRegistDao.selectApList(paging);
+	}
+
+	@Override
+	public int apStatusYn(String totalId) {
+		return orgRegistDao.apStatusYn(totalId);
+	}
+
 }

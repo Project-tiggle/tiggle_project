@@ -3,6 +3,7 @@ package com.ex.tiggle.orgregist.model.service;
 import java.util.ArrayList;
 import java.util.Map;
 
+import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.orgregist.model.dto.OrgRegist;
 
 public interface OrgRegistService {
@@ -18,5 +19,10 @@ public interface OrgRegistService {
 	OrgRegist selectOrgTotalId(String num);			//수정페이지 내용 불러오기
 	int updateOrgRegist(OrgRegist orgRegist);		//전시 수정하기
 	int deleteOrgRegist(String totalId);			//전시 등록 삭제하기
+	
+	/* 관리자용 */
+	int selectApCount();							//approvalStatus에서 N값만 받아옴
+	ArrayList<OrgRegist> selectApList(Paging paging);	//N값 불러오기
+	int apStatusYn(String totalId); 				//전시등록 승인처리
 	
 }

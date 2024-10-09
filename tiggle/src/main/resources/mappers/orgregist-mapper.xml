@@ -30,6 +30,7 @@
 	       <result property="email" column="EMAIL" />
 	</resultMap>
 	
+	<!-- 기업용 쿼리 -->
 	<!-- 전시등록 총 갯수 조회용 쿼리 -->
 	<select id="selectListCount" resultType="_int" parameterType="string">
 		select count(*)
@@ -37,14 +38,15 @@
 		where uuid = #{ uuid }
 	</select>
 	
-	<!-- 요청한 페이지에 출력할 원글, 댓글, 대댓글 포함된 게시글 목록 조회용 쿼리 -->
+	<!-- 요청한 페이지에 출력할 게시글 리스트 조회용 쿼리 -->
 	<select id="selectList" resultMap="resultOrgRegist" parameterType="map">
 		select *
 		from (select rownum rnum, TITLE, NAME, START_DATE, END_DATE, TOTAL_ID
 		      from (select *
 		            from tb_exhibition_fair
 		            join tb_member using (uuid)
-		            where uuid = #{ uuid }))
+		            where uuid = #{ uuid })
+		      order by start_date)
 		where rnum between #{ paging.startRow } and #{ paging.endRow }
 	</select>
 	
@@ -96,9 +98,37 @@
 		where TOTAL_ID = #{ totalId }
     </update>
     
+    <!-- total_id(pk)로 전시등록 삭제하기 -->
     <delete id="deleteOrgRegist" parameterType="string">
     	delete tb_exhibition_fair
 		where total_id = #{ totalId }
     </delete>
+    
+    
+    <!-- 관리자용 쿼리 -->
+    <!-- 등록 신청 건 중 미승인 갯수 조회 -->
+    <select id="selectApCount" resultType="_int">
+    	select count(*)
+    	from tb_exhibition_fair
+    	where APPROVAL_STATUS = 'N'
+    </select>
+    
+    <!-- 요청한 페이지에 출력할 등록신청 미승인 리스트 조회용 쿼리 -->
+	<select id="selectApList" resultMap="resultOrgRegist" parameterType="Paging">
+		select *
+		from (select rownum rnum, TITLE, CONTRIBUTOR, START_DATE, END_DATE, TOTAL_ID, E_CATEGORY
+		      from (select *
+		            from tb_exhibition_fair
+		            join tb_member using (uuid)
+		            where APPROVAL_STATUS = 'N'
+		            order by e_category, start_date))
+		where rnum between #{ startRow } and #{ endRow }
+	</select>
 	
+	<!-- 등록상태 Y로 변경 -->
+	<update id="apStatusYn" parameterType="string">
+		update tb_exhibition_fair
+    	set APPROVAL_STATUS = 'Y'
+    	where TOTAL_ID = #{ totalId }
+	</update>
 </mapper>

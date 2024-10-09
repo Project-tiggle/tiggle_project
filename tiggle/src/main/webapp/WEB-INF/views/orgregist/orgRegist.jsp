@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +12,7 @@
 #orgContainer {
 	width: 80%;
 	max-width: 1280px;
-	margin: 0 auto;
+	margin: 50px auto 0;
 }
 
 #orgTitle {
@@ -182,7 +181,6 @@
 		                        <fmt:formatDate value="${ list.endDate }" pattern="yyyy-MM-dd" />
 		                    </td>
 		                    <td align="center">
-		                        <!-- 수정 버튼 클릭 시 상세 페이지로 이동 -->
 		                        <c:url var="editLink" value="orgRegEdit.do">
 		                            <c:param name="num" value="${ list.totalId }" />
 		                            <c:param name="page" value="${ currentPage }" />

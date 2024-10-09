@@ -53,4 +53,17 @@ public class OrgRegistDao {
 		return sqlSessionTemplate.selectOne("orgRegistMapper.selectOrgTotalId", num);
 	}
 
+	public int selectApCount() {
+		return sqlSessionTemplate.selectOne("orgRegistMapper.selectApCount");
+	}
+
+	public ArrayList<OrgRegist> selectApList(Paging paging) {
+		List<OrgRegist> list = sqlSessionTemplate.selectList("orgRegistMapper.selectApList", paging);
+		return (ArrayList<OrgRegist>)list;
+	}
+
+	public int apStatusYn(String totalId) {
+		return sqlSessionTemplate.update("orgRegistMapper.apStatusYn", totalId);
+	}
+
 }

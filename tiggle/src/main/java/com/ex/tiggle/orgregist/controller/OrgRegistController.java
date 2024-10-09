@@ -34,7 +34,9 @@ public class OrgRegistController {
 	@Autowired
     private OrgRegistService orgRegistService;
     
-    // 전시/박람회 메인 페이지로 이동 : 전시관계자
+    
+	/************************ orgRegist.jsp : 기업관계자 ************************/
+	// 전시/박람회 메인 페이지로 이동 : 전시관계자
     @RequestMapping("orgRegistPage.do")
     public ModelAndView moveOrgRegist(
 	    	ModelAndView mv, 
@@ -76,7 +78,6 @@ public class OrgRegistController {
 
 			mv.setViewName("orgregist/orgRegist");
 		} else {
-			mv.addObject("message", "등록 신청한 전시/박람회가 없습니다.");
 			mv.setViewName("orgregist/orgRegist");
 		}
 
@@ -101,7 +102,7 @@ public class OrgRegistController {
 			@RequestParam("num") String num,
     		Model model) {
     	
-    	OrgRegist orgRegist = orgRegistService.selectOrgTotalId(num); //uuid정보를 이용해서 orgRegist정보를 DB로부터 받아옴
+    	OrgRegist orgRegist = orgRegistService.selectOrgTotalId(num); //totalId정보를 이용해서 orgRegist정보를 DB로부터 받아옴
     	
     	String totalId = orgRegist.getTotalId();
     	String originalFilename = null;	// 유저가 파일을 올릴때의 원래 이름
@@ -118,10 +119,7 @@ public class OrgRegistController {
         return "orgregist/orgRegistEdit";
     }
     
-
-    /**************************************************************************************************************************************************/   
-    
-    
+	/************************ orgRegistDetail.jsp : 기업관계자 ************************/
     //전시등록 : 전시관계자
     @RequestMapping(value = "orgRegist.do", method = RequestMethod.POST)
     public String registerOrgRegist(
@@ -208,7 +206,7 @@ public class OrgRegistController {
         }
     }
     
-    
+    /************************ orgRegistEdit.jsp : 기업관계자 ************************/
     // 수정 처리 : 전시관계자
     @RequestMapping(value="orgRegistUpdate.do", method = RequestMethod.POST)
     public String orgRegistUpdate( OrgRegist orgRegist,
@@ -297,7 +295,6 @@ public class OrgRegistController {
         
     }
 
-    
     // 삭제 처리 : 전시관계자
     @RequestMapping("deleteOrgRegist.do")
     public String deleteOrgRegist(
@@ -322,6 +319,85 @@ public class OrgRegistController {
 		}
     }
 
+    /************************ adOrgRegist.jsp : 티글관리자 ************************/
+    //전시/박람회 메인 페이지로 이동 : 티글관리자
+    @RequestMapping("orgRegistAd.do")
+    public ModelAndView moveAdminRegist(
+    		OrgRegist orgRegist,
+	    	ModelAndView mv,
+	    	@RequestParam(name = "page", required = false) String page,
+			@RequestParam(name = "limit", required = false) String slimit) {
+		// page : 출력할 페이지, limit : 한 페이지에 출력할 목록 갯수
+    	
+		// 페이징 처리
+		int currentPage = 1;
+		if (page != null) {
+			currentPage = Integer.parseInt(page);
+		}
 
+		// 한 페이지에 출력할 등록 목록 10개 지정
+		int limit = 10;
+		if (slimit != null) {
+			limit = Integer.parseInt(slimit);
+		}
 
+		// 총 목록갯수 조회해서 총 페이지 수 계산함
+		int listCount = orgRegistService.selectApCount();
+		// 페이지 관련 항목 계산 처리
+		Paging paging = new Paging(listCount, limit, currentPage, "orgRegistAd.do");
+		paging.calculate();
+		
+		// 서비스롤 목록 조회 요청하고 결과 받기
+		ArrayList<OrgRegist> list = orgRegistService.selectApList(paging);
+
+		if (list != null && list.size() > 0) {
+			mv.addObject("list", list);
+			mv.addObject("paging", paging);
+			mv.addObject("currentPage", currentPage);
+
+			mv.setViewName("orgregist/adOrgRegist");
+		} else {
+			mv.setViewName("orgregist/adOrgRegist");
+		}
+
+		return mv;
+	}
+    
+    //전시/박람회 승인페이지로 이동 : 티글관리자
+    @RequestMapping("RegistDetailAd.do")
+    public String moveAdminRegistAp(
+			@RequestParam("num") String totalId,
+    		Model model) {
+    	
+    	OrgRegist orgRegist = orgRegistService.selectOrgTotalId(totalId); //전시관계자와 서비스 공동 사용
+    	
+    	String originalFilename = null;	// 유저가 파일을 올릴때의 원래 이름
+    	String saveFilename = null;	// url에 저장되어있는 이름
+    	if (orgRegist.getFileUrl() != null) {
+    		saveFilename = orgRegist.getFileUrl();
+			originalFilename = orgRegist.getFileUrl().substring(orgRegist.getFileUrl().indexOf('_') + 1);
+		}
+    	    	
+        model.addAttribute("totalId", totalId);
+    	model.addAttribute("orgRegist", orgRegist);
+        model.addAttribute("ofile", originalFilename);
+        model.addAttribute("sfile", saveFilename);
+        return "orgregist/adOrgRegistAp";
+    }
+    
+    //전시/박람회 승인처리 : 티글관리자
+    @RequestMapping(value="apStatusYn.do", method = RequestMethod.POST)
+    public String RegistYn(Model model,
+    		@RequestParam("totalId") String totalId) {
+    	
+    	int result = orgRegistService.apStatusYn(totalId);
+    	
+    	if (result > 0) {
+            model.addAttribute("message", "승인처리 완료");
+            return "common/success";
+        } else {
+            model.addAttribute("message", "승인처리 실패");
+            return "common/error";
+        }
+    }
 }
