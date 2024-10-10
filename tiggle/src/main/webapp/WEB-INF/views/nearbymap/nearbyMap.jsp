@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,19 +17,18 @@
 	<table>
 		<!-- 위치검색 -->
 		<tr>
-			<td colspan="5" class="search-container">
-				<input type="text"	placeholder="위치검색" id="location-search">
-				<button class="search-btn">검색</button>
-			</td>
+			<td colspan="5" class="search-container"><input type="text"
+				placeholder="위치검색" id="location-search">
+				<button class="search-btn">검색</button></td>
 		</tr>
-		
+
 		<!-- 지도 표시 -->
 		<tr>
 			<td colspan="5">
 				<div id="map"></div>
 			</td>
 		</tr>
-		
+
 		<!-- 정렬 기준(위치, 랭킹) -->
 		<tr>
 			<td colspan="2">위치순</td>
@@ -77,9 +76,11 @@
 	</div>
 
 	<script>
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		var lat01 = 0.0;
+		var lon01 = 0.0;
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 		mapOption = {
-			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+			center : new kakao.maps.LatLng(37.5663174209601, 126.977829174031), // 지도의 중심좌표
 			level : 5
 		// 지도의 확대 레벨
 		};
@@ -94,11 +95,17 @@
 				message = '<div style="padding:5px;">내 위치</div>'; // 인포윈도우에 표시될 내용
 
 				displayMarker(locPosition, message);
+				lat01 = lat;
+				lon01 = lon;
 			});
 		} else {
-			var locPosition = new kakao.maps.LatLng(33.450701, 126.570667), message = 'geolocation을 사용할수 없어요..';
+			var locPosition = new kakao.maps.LatLng(37.5663174209601, 126.977829174031), message = 'geolocation을 사용할수 없어요..';
 			displayMarker(locPosition, message);
+			lat01 = lat;
+			lon01 = lon;
 		}
+		
+		/* addExhibitionMarkers(lat01, lon01); */
 
 		function displayMarker(locPosition, message) {
 			var marker = new kakao.maps.Marker({
@@ -113,20 +120,18 @@
 			infowindow.open(map, marker);
 			map.setCenter(locPosition);
 		}
+		
 		// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-		var positions = [ {
-			content : '<div>카카오</div>',
-			latlng : new kakao.maps.LatLng(33.450705, 126.570677)
-		}, {
-			content : '<div>생태연못</div>',
-			latlng : new kakao.maps.LatLng(33.450936, 126.569477)
-		}, {
-			content : '<div>텃밭</div>',
-			latlng : new kakao.maps.LatLng(33.450879, 126.569940)
-		}, {
-			content : '<div>근린공원</div>',
-			latlng : new kakao.maps.LatLng(33.451393, 126.570738)
-		} ];
+		var positions = new Array();
+		
+		<c:forEach var="exhibit" items="${exList}" varStatus="status">
+	        positions.push({
+	            content: '<div>${ exhibit.title }</div>',
+	            latlng : new kakao.maps.LatLng(${ exhibit.latitude }, ${ exhibit.longitude }),
+	            poster: '${ exhibit.fileUrl }',
+	            summary: '${ exhibit.eDescription }'
+	        });
+  		</c:forEach>
 
 		for (var i = 0; i < positions.length; i++) {
 			// 마커를 생성합니다

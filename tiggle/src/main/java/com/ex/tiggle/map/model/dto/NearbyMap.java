@@ -5,16 +5,24 @@ import java.sql.Date;
 public class NearbyMap implements java.io.Serializable {
 	private static final long serialVersionUID = 6413124231248555348L;
 
-	private String uuid;				//고유식별자
-	private String eventSite;			//개최장소
-	private double latitude;			//위도
-	private double longitude;			//경도
-	private String genre;				//장르
-	private Date startDate;				//시작날짜
-	private Date endDate;				//종료날짜
-	private String approvalStatus;		//승인여부
-	private int eCategory;				//분류
-	private String fileURL;				//첨부파일(포스터)
+	private String uuid;			//	UUID	VARCHAR2(36 BYTE)
+	private String totalId;			//	TOTAL_ID	VARCHAR2(16 BYTE)
+	private String title;			//	TITLE	VARCHAR2(100 BYTE)
+	private String contributor;		//	CONTRIBUTOR	VARCHAR2(30 BYTE)
+	private String eDescription;	//	E_DESCRIPTION	VARCHAR2(2000 BYTE)
+	private String eventSite;		//	EVENT_SITE	VARCHAR2(300 BYTE)
+	private String detailEventSite;	//	DETAIL_EVENT_SITE	VARCHAR2(300 BYTE)
+	private double latitude;		//	LATITUDE	NUMBER
+	private double longitude;		//	LONGITUDE	NUMBER
+	private String genre;			//	GENRE	VARCHAR2(30 BYTE)
+	private String contactPoint;	//	CONTACT_POINT	VARCHAR2(30 BYTE)
+	private int viewCounter;		//	VIEW_COUNTER	NUMBER
+	private String eUrl;			//	E_URL	VARCHAR2(300 BYTE)
+	private Date startDate;//	START_DATE	DATE
+	private Date endDate;	//	END_DATE	DATE
+	private String approvalStatus;	//	APPROVAL_STATUS	CHAR(1 BYTE)
+	private int eCategory;			//	E_CATEGORY	NUMBER
+	private String fileUrl;			//	FILE_URL	VARCHAR2(300 BYTE)
 	
 	
 	public NearbyMap() {
@@ -22,19 +30,29 @@ public class NearbyMap implements java.io.Serializable {
 	}
 
 
-	public NearbyMap(String uuid, String eventSite, double latitude, double longitude, String genre, Date startDate,
-			Date endDate, String approvalStatus, int eCategory, String fileURL) {
+	public NearbyMap(String uuid, String totalId, String title, String contributor, String eDescription,
+			String eventSite, String detailEventSite, double latitude, double longitude, String genre,
+			String contactPoint, int viewCounter, String eUrl, Date startDate, Date endDate, String approvalStatus,
+			int eCategory, String fileUrl) {
 		super();
 		this.uuid = uuid;
+		this.totalId = totalId;
+		this.title = title;
+		this.contributor = contributor;
+		this.eDescription = eDescription;
 		this.eventSite = eventSite;
+		this.detailEventSite = detailEventSite;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.genre = genre;
+		this.contactPoint = contactPoint;
+		this.viewCounter = viewCounter;
+		this.eUrl = eUrl;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.approvalStatus = approvalStatus;
 		this.eCategory = eCategory;
-		this.fileURL = fileURL;
+		this.fileUrl = fileUrl;
 	}
 
 
@@ -48,6 +66,46 @@ public class NearbyMap implements java.io.Serializable {
 	}
 
 
+	public String getTotalId() {
+		return totalId;
+	}
+
+
+	public void setTotalId(String totalId) {
+		this.totalId = totalId;
+	}
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+	public String getContributor() {
+		return contributor;
+	}
+
+
+	public void setContributor(String contributor) {
+		this.contributor = contributor;
+	}
+
+
+	public String geteDescription() {
+		return eDescription;
+	}
+
+
+	public void seteDescription(String eDescription) {
+		this.eDescription = eDescription;
+	}
+
+
 	public String getEventSite() {
 		return eventSite;
 	}
@@ -55,6 +113,16 @@ public class NearbyMap implements java.io.Serializable {
 
 	public void setEventSite(String eventSite) {
 		this.eventSite = eventSite;
+	}
+
+
+	public String getDetailEventSite() {
+		return detailEventSite;
+	}
+
+
+	public void setDetailEventSite(String detailEventSite) {
+		this.detailEventSite = detailEventSite;
 	}
 
 
@@ -85,6 +153,36 @@ public class NearbyMap implements java.io.Serializable {
 
 	public void setGenre(String genre) {
 		this.genre = genre;
+	}
+
+
+	public String getContactPoint() {
+		return contactPoint;
+	}
+
+
+	public void setContactPoint(String contactPoint) {
+		this.contactPoint = contactPoint;
+	}
+
+
+	public int getViewCounter() {
+		return viewCounter;
+	}
+
+
+	public void setViewCounter(int viewCounter) {
+		this.viewCounter = viewCounter;
+	}
+
+
+	public String geteUrl() {
+		return eUrl;
+	}
+
+
+	public void seteUrl(String eUrl) {
+		this.eUrl = eUrl;
 	}
 
 
@@ -128,13 +226,13 @@ public class NearbyMap implements java.io.Serializable {
 	}
 
 
-	public String getFileURL() {
-		return fileURL;
+	public String getFileUrl() {
+		return fileUrl;
 	}
 
 
-	public void setFileURL(String fileURL) {
-		this.fileURL = fileURL;
+	public void setFileUrl(String fileUrl) {
+		this.fileUrl = fileUrl;
 	}
 
 
@@ -145,9 +243,14 @@ public class NearbyMap implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "NearbyMap [uuid=" + uuid + ", eventSite=" + eventSite + ", latitude=" + latitude + ", longitude="
-				+ longitude + ", genre=" + genre + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", approvalStatus=" + approvalStatus + ", eCategory=" + eCategory + ", fileURL=" + fileURL + "]";
+		return "NearbyMap [uuid=" + uuid + ", totalId=" + totalId + ", title=" + title + ", contributor=" + contributor
+				+ ", eDescription=" + eDescription + ", eventSite=" + eventSite + ", detailEventSite=" + detailEventSite
+				+ ", latitude=" + latitude + ", longitude=" + longitude + ", genre=" + genre + ", contactPoint="
+				+ contactPoint + ", viewCounter=" + viewCounter + ", eUrl=" + eUrl + ", startDate=" + startDate
+				+ ", endDate=" + endDate + ", approvalStatus=" + approvalStatus + ", eCategory=" + eCategory
+				+ ", fileUrl=" + fileUrl + "]";
 	}
+	
+	
 	
 }
