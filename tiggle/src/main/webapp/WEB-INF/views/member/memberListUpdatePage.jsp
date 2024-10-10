@@ -95,44 +95,61 @@
 							<input type="text" name="address" id="myinfo_address" value="${ requestScope.member.address }">
 						</div><!-- myinfo_list end -->
 						
-						<div class="myinfo_list myinfo_list_marketing">
-							<input type="checkbox" name="marketingYN" id="myinfo_marketingYN" value="Y">
+						<div class="myinfo_list myinfo_list_marketing bc_333">
+							<c:if test="${ requestScope.member.marketingYN eq 'Y' }">
+								<input type="checkbox" name="marketingYN" id="myinfo_marketingYN" value="Y" checked>
+							</c:if>
+							<c:if test="${ requestScope.member.marketingYN ne 'Y' }">
+								<input type="checkbox" name="marketingYN" id="myinfo_marketingYN" value="Y">
+							</c:if>
 							<p>자사 마케팅 수집 및 이용 동의</p>
 						</div><!-- myinfo_list end -->
 						
 						<div class="myinfo_list">
+							<p>가입타입</p>
+							<input type="text" name="signtype" id="myinfo_signtype" class="bg_eee" value="${ requestScope.member.signtype }" readonly>
+						</div><!-- myinfo_list end -->
+						
+						<div class="myinfo_list">
 							<p>가입일</p>
-							<input type="date" name="signUpAt" id="myinfo_signUpAt" value="${ requestScope.member.signUpAt }" readonly>
+							<input type="date" name="signUpAt" id="myinfo_signUpAt" class="bg_eee" value="${ requestScope.member.signUpAt }" readonly>
 						</div><!-- myinfo_list end -->
 						
 						<div class="myinfo_list">
 							<p>최근 접속일</p>
-							<input type="date" name="updatedAt" id="myinfo_updatedAt" value="${ requestScope.member.updatedAt }" readonly>
+							<input type="date" name="updatedAt" id="myinfo_updatedAt" class="bg_eee" value="${ requestScope.member.updatedAt }" readonly>
 						</div><!-- myinfo_list end -->
 						
-						<div class="myinfo_list">
+						<div class="myinfo_list myinfo_list_loginOk">
 							<p>로그인 가능 여부</p>
-							<input type="text" name="loginOk" id="myinfo_loginOk" value="${ requestScope.member.loginOk }">
+							<c:if test="${ requestScope.member.loginOk eq 'Y' }">
+								<input type="radio" name="loginOk" id="myinfo_loginOk1" value="Y" checked> 가능 &nbsp; &nbsp;
+								<input type="radio" name="loginOk" id="myinfo_loginOk2" value="N"> 제한
+							</c:if>
+							<c:if test="${ requestScope.member.loginOk eq 'N' }">
+								<input type="radio" name="loginOk" id="myinfo_loginOk1" value="Y"> 가능 &nbsp; &nbsp;
+								<input type="radio" name="loginOk" id="myinfo_loginOk2" value="N" checked> 제한
+							</c:if>
 						</div><!-- myinfo_list end -->
 						
 						<div class="myinfo_list">
 							<p>회원탈퇴 여부</p>
 							<c:if test="${ !empty requestScope.member.deletedYN }">
-								<input type="text" name="deletedYN" id="myinfo_deletedYN" value="${ requestScope.member.deletedYN }" readonly>
+								<input type="text" name="deletedYN" id="myinfo_deletedYN" class="bg_eee" value="${ requestScope.member.deletedYN }" readonly>
 							</c:if>
 						</div><!-- myinfo_list end -->
 						
 						<div class="myinfo_list">
 							<p>회원탈퇴 날짜</p>
 							<c:if test="${ !empty requestScope.member.deletedAt }">
-								<input type="date" name="deletedAt" id="myinfo_deletedAt" value="${ requestScope.member.deletedAt }" readonly>
+								<input type="date" name="deletedAt" id="myinfo_deletedAt" class="bg_eee" value="${ requestScope.member.deletedAt }" readonly>
 							</c:if>
 						</div><!-- myinfo_list end -->
 						
 						<div class="myinfo_list">
 							<p>회원탈퇴 이유</p>
 							<c:if test="${ !empty requestScope.member.deletedReason }">
-								<input type="text" name="deletedReason" id="myinfo_deletedReason" value="${ requestScope.member.deletedReason }" readonly>
+								<input type="text" name="deletedReason" id="myinfo_deletedReason" class="bg_eee" value="${ requestScope.member.deletedReason }" readonly>
 							</c:if>
 						</div><!-- myinfo_list end -->
 						
@@ -148,7 +165,7 @@
 				
 				<c:if test="${ member.memberType eq 'ORGANIZER' }">
 					<form action="mEdit.do" method="post">
-						<input type="hidden" name="pwd" value="${ requestScope.member.pwd }">
+						<input type="hidden" name="originalPwd" value="${ requestScope.member.pwd }">
 						<input type="hidden" name="memberType" value="${ requestScope.member.memberType }">
 						
 						<div class="myinfo_list">
@@ -204,7 +221,7 @@
 							<input type="email" name="email" id="myinfo_email" value="${ requestScope.member.email }">
 						</div><!-- myinfo_list end -->
 						
-<%-- 						<div class="myinfo_list">
+ 						<div class="myinfo_list">
 							<p>담당자 부서</p>
 							<input type="text" name="mngDept" id="myinfo_mngDept" value="${ requestScope.member.mngDept }">
 						</div><!-- myinfo_list end -->
@@ -212,42 +229,65 @@
 						<div class="myinfo_list">
 							<p>담당자 직급</p>
 							<input type="text" name="mngJobId" id="myinfo_mngJobId" value="${ requestScope.member.mngJobId }">
-						</div><!-- myinfo_list end --> --%>
+						</div><!-- myinfo_list end -->
 						
-						<div class="myinfo_list myinfo_list_marketing">
-							<input type="checkbox" name="marketingYN" id="myinfo_marketingYN" value="Y">
+						<div class="myinfo_list myinfo_list_marketing bc_333">
+							<c:if test="${ requestScope.member.marketingYN eq 'Y' }">
+								<input type="checkbox" name="marketingYN" id="myinfo_marketingYN" value="Y" checked>
+							</c:if>
+							<c:if test="${ requestScope.member.marketingYN ne 'Y' }">
+								<input type="checkbox" name="marketingYN" id="myinfo_marketingYN" value="Y">
+							</c:if>
 							<p>자사 마케팅 수집 및 이용 동의</p>
 						</div><!-- myinfo_list end -->
 						
-<%-- 						<div class="myinfo_list">
+						<div class="myinfo_list">
+							<p>가입타입</p>
+							<input type="text" name="signtype" id="myinfo_signtype" class="bg_eee" value="${ requestScope.member.signtype }" readonly>
+						</div><!-- myinfo_list end -->
+						
+						<div class="myinfo_list">
 							<p>가입일</p>
-							<input type="text" name="signUpAt" id="myinfo_signUpAt" value="${ requestScope.member.signUpAt }" readonly>
+							<input type="date" name="signUpAt" id="myinfo_signUpAt" class="bg_eee" value="${ requestScope.member.signUpAt }" readonly>
 						</div><!-- myinfo_list end -->
 						
 						<div class="myinfo_list">
 							<p>최근 접속일</p>
-							<input type="text" name="updatedAt" id="myinfo_updatedAt" value="${ requestScope.member.updatedAt }" readonly>
+							<input type="date" name="updatedAt" id="myinfo_updatedAt" class="bg_eee" value="${ requestScope.member.updatedAt }" readonly>
 						</div><!-- myinfo_list end -->
 						
-						<div class="myinfo_list">
+						<div class="myinfo_list myinfo_list_loginOk">
 							<p>로그인 가능 여부</p>
-							<input type="text" name="loginOk" id="myinfo_loginOk" value="${ requestScope.member.loginOk }">
+							<c:if test="${ requestScope.member.loginOk eq 'Y' }">
+								<input type="radio" name="loginOk" id="myinfo_loginOk1" value="Y" checked> 가능 &nbsp; &nbsp;
+								<input type="radio" name="loginOk" id="myinfo_loginOk2" value="N"> 제한
+							</c:if>
+							<c:if test="${ requestScope.member.loginOk eq 'N' }">
+								<input type="radio" name="loginOk" id="myinfo_loginOk1" value="Y"> 가능 &nbsp; &nbsp;
+								<input type="radio" name="loginOk" id="myinfo_loginOk2" value="N" checked> 제한
+							</c:if>
 						</div><!-- myinfo_list end -->
 						
 						<div class="myinfo_list">
 							<p>회원탈퇴 여부</p>
-							<input type="text" name="deletedYN" id="myinfo_deletedYN" value="${ requestScope.member.deletedYN }" readonly>
+							<c:if test="${ !empty requestScope.member.deletedYN }">
+								<input type="text" name="deletedYN" id="myinfo_deletedYN" class="bg_eee" value="${ requestScope.member.deletedYN }" readonly>
+							</c:if>
 						</div><!-- myinfo_list end -->
 						
 						<div class="myinfo_list">
 							<p>회원탈퇴 날짜</p>
-							<input type="text" name="deletedAt" id="myinfo_deletedAt" value="${ requestScope.member.deletedAt }" readonly>
+							<c:if test="${ !empty requestScope.member.deletedAt }">
+								<input type="date" name="deletedAt" id="myinfo_deletedAt" class="bg_eee" value="${ requestScope.member.deletedAt }" readonly>
+							</c:if>
 						</div><!-- myinfo_list end -->
 						
 						<div class="myinfo_list">
 							<p>회원탈퇴 이유</p>
-							<input type="text" name="deletedReason" id="myinfo_deletedReason" value="${ requestScope.member.deletedReason }" readonly>
-						</div><!-- myinfo_list end --> --%>
+							<c:if test="${ !empty requestScope.member.deletedReason }">
+								<input type="text" name="deletedReason" id="myinfo_deletedReason" class="bg_eee" value="${ requestScope.member.deletedReason }" readonly>
+							</c:if>
+						</div><!-- myinfo_list end -->
 						
 						<div class="myinfo_btn">
 							<input type="button" onclick="javascript:location.href='${ pageContext.servletContext.contextPath }/olist.do?page=1';" value="목 록">

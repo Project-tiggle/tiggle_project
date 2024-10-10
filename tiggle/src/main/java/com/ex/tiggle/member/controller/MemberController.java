@@ -3,8 +3,6 @@ package com.ex.tiggle.member.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -29,6 +27,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ex.tiggle.common.Paging;
+import com.ex.tiggle.common.Search;
 import com.ex.tiggle.member.model.dto.Member;
 import com.ex.tiggle.member.model.service.MemberService;
 
@@ -389,7 +388,7 @@ public class MemberController {
 	
 	
 	//관리자용 **************************************************
-	//관리자페이지 내보내기용
+	//관리자페이지 내보내기용 - 일반사용자 목록
 	@RequestMapping("ulist.do")
 	public ModelAndView userListPage(ModelAndView mv,
 	        @RequestParam(name = "page", required = false) String page,
@@ -432,6 +431,7 @@ public class MemberController {
 	}//userListPage() end
 	
 	
+	//관리자페이지 내보내기용 - 전시관계자 목록
 	@RequestMapping("olist.do")
 	public ModelAndView orgListPage(ModelAndView mv,
 			@RequestParam(name = "page", required = false) String page,
@@ -479,7 +479,7 @@ public class MemberController {
 	public String moveMemberEditPage(@RequestParam("uuid") String uuid, Model model) {
 		logger.info("mEditPage.do : " + uuid);
 		
-		Member member = memberService.selectMember(uuid);
+		Member member = memberService.selectAllMember(uuid);
 		
 		if(member != null) { //전송온 uuid로 회원조회 성공시
 			model.addAttribute("member", member);
@@ -512,6 +512,160 @@ public class MemberController {
 			return "common/error";
 		}
 	}//memberEditMethod() end
+	
+	
+	//USER 검색용(관리자용)
+	@RequestMapping(value="userSearch.do", method= {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView userSearchMethod(ModelAndView mv, HttpServletRequest request) {
+		String keyword = request.getParameter("keyword");
+		String sOption = request.getParameter("sOption");
+		Search search = new Search();
+		
+		if((sOption == null || sOption.trim().isEmpty()) && (keyword == null || keyword.trim().isEmpty())) {
+			mv.setViewName("redirect:ulist.do?page=1");
+			return mv;
+		}
+		
+		//검색 결과에 대한 페이징 처리
+		int currentPage = 1;
+		//페이지로 전송온 값이 있다면
+		if(request.getParameter("page") != null) {
+			currentPage = Integer.parseInt(request.getParameter("page"));
+		}
+		
+		//한 페이지에 출력할 목록 갯수 지정
+		int limit = 10;
+		//페이지로 전송온 값이 있다면
+		if(request.getParameter("limit") != null) {
+			limit = Integer.parseInt(request.getParameter("limit"));
+		}
+		
+		//총 페이지수 계산을 위해 겸색 결과가 적용된 총 목록 갯수 조회
+		int listCount = 0;
+		switch(sOption) {
+			case "id": 		listCount = memberService.selectSearchIdCount(keyword); break;
+			case "name": 	listCount = memberService.selectSearchNameCount(keyword); break;
+			case "nickname": listCount = memberService.selectSearchNicknameCount(keyword); break;
+			case "email":	 listCount = memberService.selectSearchEmailCount(keyword); break;
+			default: listCount = 0; break;
+		}
+		
+		//페이징 계산 처리
+		Paging paging = new Paging(listCount, limit, currentPage, "userSearch.do");
+		paging.calculate();
+		
+		//겸색별 목록 조회 요청
+		ArrayList<Member> list = null;
+		search.setStartRow(paging.getStartRow());
+		search.setEndRow(paging.getEndRow());
+		
+		switch(sOption) {
+			case "id": search.setKeyword(keyword);
+				list = memberService.selectSearchId(search); break;
+			case "name": search.setKeyword(keyword); 
+				list = memberService.selectSearchName(search); break;
+			case "nickname": search.setKeyword(keyword); 
+				list = memberService.selectSearchNickname(search); break;
+			case "email": search.setKeyword(keyword); 
+				list = memberService.selectSearchEmail(search); break;
+		}
+		
+		if(list != null && list.size() > 0) {
+			mv.addObject("memberList", list);
+			mv.addObject("paging", paging);
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("limit", limit);
+			mv.setViewName("member/userListPage");
+			
+			if (sOption !=null || keyword != null) {
+			    mv.addObject("sOption", sOption);
+			    mv.addObject("keyword", keyword);
+			}
+			
+		}else {
+			mv.addObject("message", "회원 검색 결과가 존재하지 않습니다.");
+			mv.setViewName("common/error");
+		}
+		
+		return mv;
+	}//USER 검색용
+	
+	
+	//ORGANIZER 검색용(관리자용)
+	@RequestMapping(value="orgSearch.do", method= {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView orgSearchMethod(ModelAndView mv, HttpServletRequest request) {
+		String keyword = request.getParameter("keyword");
+		String sOption = request.getParameter("sOption");
+		Search search = new Search();
+		
+		if((sOption == null || sOption.trim().isEmpty()) && (keyword == null || keyword.trim().isEmpty())) {
+			mv.setViewName("redirect:olist.do?page=1");
+			return mv;
+		}
+		
+		//검색 결과에 대한 페이징 처리
+		int currentPage = 1;
+		//페이지로 전송온 값이 있다면
+		if(request.getParameter("page") != null) {
+			currentPage = Integer.parseInt(request.getParameter("page"));
+		}
+		
+		//한 페이지에 출력할 목록 갯수 지정
+		int limit = 10;
+		//페이지로 전송온 값이 있다면
+		if(request.getParameter("limit") != null) {
+			limit = Integer.parseInt(request.getParameter("limit"));
+		}
+		
+		//총 페이지수 계산을 위해 겸색 결과가 적용된 총 목록 갯수 조회
+		int listCount = 0;
+		switch(sOption) {
+			case "id": 		listCount = memberService.selectOrgSearchIdCount(keyword); break;
+			case "orgName": 	listCount = memberService.selectOrgSearchOrgNameCount(keyword); break;
+			case "orgEmail": listCount = memberService.selectOrgSearchOrgEmailCount(keyword); break;
+			case "name":	 listCount = memberService.selectOrgSearchNameCount(keyword); break;
+			default: listCount = 0; break;
+		}
+		
+		//페이징 계산 처리
+		Paging paging = new Paging(listCount, limit, currentPage, "orgSearch.do");
+		paging.calculate();
+		
+		//겸색별 목록 조회 요청
+		ArrayList<Member> list = null;
+		search.setStartRow(paging.getStartRow());
+		search.setEndRow(paging.getEndRow());
+		
+		switch(sOption) {
+			case "id": search.setKeyword(keyword);
+			list = memberService.selectOrgSearchId(search); break;
+			case "orgName": search.setKeyword(keyword); 
+			list = memberService.selectOrgSearchOrgName(search); break;
+			case "orgEmail": search.setKeyword(keyword); 
+			list = memberService.selectOrgSearchOrgEmail(search); break;
+			case "name": search.setKeyword(keyword); 
+			list = memberService.selectOrgSearchName(search); break;
+		}
+		
+		if(list != null && list.size() > 0) {
+			mv.addObject("memberList", list);
+			mv.addObject("paging", paging);
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("limit", limit);
+			mv.setViewName("member/orgListPage");
+			
+			if (sOption !=null || keyword != null) {
+				mv.addObject("sOption", sOption);
+				mv.addObject("keyword", keyword);
+			}
+			
+		}else {
+			mv.addObject("message", "회원 검색 결과가 존재하지 않습니다.");
+			mv.setViewName("common/error");
+		}
+		
+		return mv;
+	}//ORGANIZER 검색용
 	
 	
 	
