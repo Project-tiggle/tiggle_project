@@ -53,10 +53,10 @@
 							<td>UUID</td>
 							<td>아이디</td>
 							<td>기관명</td>
-							<td>기관번호</td>
-							<td>기관이메일</td>
+							<td class="dn">기관번호</td>
+							<td class="dn">기관이메일</td>
 							<td>담당자 이름</td>
-							<td>담당자 연락처</td>
+							<td class="dn">담당자 연락처</td>
 							<td>수정</td>
 						</tr>
 						
@@ -65,10 +65,10 @@
 								<td><p>${ m.uuid }</p></td>
 								<td>${ m.id }</td>
 								<td>${ m.orgName }</td>
-								<td>${ m.orgTel }</td>
-								<td>${ m.orgEmail }</td>
+								<td class="dn">${ m.orgTel }</td>
+								<td class="dn">${ m.orgEmail }</td>
 								<td>${ m.name }</td>
-								<td>${ m.phone }</td>
+								<td class="dn">${ m.phone }</td>
 								<td><button type="button" class="mlist_up_btn" onclick="moveMEditPage('${ m.uuid }');">수정</button></td>
 							</tr>
 						</c:forEach>
@@ -77,7 +77,22 @@
 				</div><!-- m_list_wrap end -->
 			</div><!-- admin_wrap end -->
 			
-			<c:import url="/WEB-INF/views/common/pagingView.jsp" />
+			<div class="mlist_search">
+				<form action="orgSearch.do" method="get" class="m_search_form" id="m_search_form">
+					<select name="sOption" class="search_option">
+						<option value="">검색</option>
+						<option value="id">아이디</option>
+						<option value="orgName">기관명</option>
+						<option value="orgEmail">기관이메일</option>
+						<option value="name">담당자</option>
+					</select>
+
+					<input type="text" name="keyword" class="search_input">
+					<input type="submit" value="검색" class="search_btn">
+				</form>
+			</div><!-- mlist_search end -->
+			
+			<c:import url="/WEB-INF/views/common/pagingSOptionView.jsp" />
 		</div><!-- myinfo_content end -->
 	</div><!-- myinfo_section end -->
 	<!-- 관리자페이지 전시관계자 목록 end -->

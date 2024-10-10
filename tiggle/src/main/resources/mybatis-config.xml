@@ -18,6 +18,7 @@
 		<typeAlias type="com.ex.tiggle.orgregist.model.dto.OrgRegist" alias="OrgRegist" />
 		<typeAlias type="com.ex.tiggle.map.model.dto.NearbyMap" alias="NearbyMap" />
 		<typeAlias type="com.ex.tiggle.common.Paging" alias="Paging"/>
+		<typeAlias type="com.ex.tiggle.common.Search" alias="Search"/>
 		
 	</typeAliases>
 	

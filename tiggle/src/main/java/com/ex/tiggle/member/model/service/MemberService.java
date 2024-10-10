@@ -3,6 +3,7 @@ package com.ex.tiggle.member.model.service;
 import java.util.ArrayList;
 
 import com.ex.tiggle.common.Paging;
+import com.ex.tiggle.common.Search;
 import com.ex.tiggle.member.model.dto.Member;
 
 public interface MemberService {
@@ -48,8 +49,34 @@ public interface MemberService {
 	int selectUserMembersCount();
 	//ORGANIZER 총 페이지 수 계산
 	int selectOrgMembersCount();
+	
+	//회원정보 보기 처리용
+	Member selectAllMember(String uuid);
 	//회원정보 수정용
 	int updateMemberInfo(Member member);
+	
+	//(관리자) USER 회원 검색용
+	int selectSearchIdCount(String keyword);
+	int selectSearchNameCount(String keyword);
+	int selectSearchNicknameCount(String keyword);
+	int selectSearchEmailCount(String keyword);
+
+	ArrayList<Member> selectSearchId(Search search);
+	ArrayList<Member> selectSearchName(Search search);
+	ArrayList<Member> selectSearchNickname(Search search);
+	ArrayList<Member> selectSearchEmail(Search search);
+	
+	//(관리자) ORGANIZER 회원 검색용
+	int selectOrgSearchIdCount(String keyword);
+	int selectOrgSearchOrgNameCount(String keyword);
+	int selectOrgSearchOrgEmailCount(String keyword);
+	int selectOrgSearchNameCount(String keyword);
+
+	ArrayList<Member> selectOrgSearchId(Search search);
+	ArrayList<Member> selectOrgSearchOrgName(Search search);
+	ArrayList<Member> selectOrgSearchOrgEmail(Search search);
+	ArrayList<Member> selectOrgSearchName(Search search);
+	
 	
 	
 }//MemberService end

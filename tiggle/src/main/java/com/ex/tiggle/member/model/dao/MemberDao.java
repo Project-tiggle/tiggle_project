@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ex.tiggle.common.Paging;
+import com.ex.tiggle.common.Search;
 import com.ex.tiggle.member.model.dto.Member;
 
 @Repository("memeberDao")
@@ -87,9 +88,89 @@ public class MemberDao {
 		return sqlSessionTemplate.selectOne("memberMapper.selectOrgMembersCount");
 	}//ORGANIZER 총 페이지 수 계산
 
+	public Member selectAllMember(String uuid) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectAllMember", uuid);
+	}//회원정보 보기용
+	
 	public int updateMemberInfo(Member member) {
 		return sqlSessionTemplate.update("memberMapper.updateMemberInfo", member);
 	}//회원정보 수정용
+	
+	
+	//(관리자) USER 회원 검색용 ****************************************
+	public int selectSearchIdCount(String keyword) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectSearchIdCount", keyword);
+	}
+
+	public int selectSearchNameCount(String keyword) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectSearchNameCount", keyword);
+	}
+
+	public int selectSearchNicknameCount(String keyword) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectSearchNicknameCount", keyword);
+	}
+
+	public int selectSearchEmailCount(String keyword) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectSearchEmailCount", keyword);
+	}
+
+	public ArrayList<Member> selectSearchId(Search search) {
+		List<Member> list = sqlSessionTemplate.selectList("memberMapper.selectSearchId", search);
+		return (ArrayList<Member>)list;
+	}
+
+	public ArrayList<Member> selectSearchName(Search search) {
+		List<Member> list = sqlSessionTemplate.selectList("memberMapper.selectSearchName", search);
+		return (ArrayList<Member>)list;
+	}
+
+	public ArrayList<Member> selectSearchNickname(Search search) {
+		List<Member> list = sqlSessionTemplate.selectList("memberMapper.selectSearchNickname", search);
+		return (ArrayList<Member>)list;
+	}
+
+	public ArrayList<Member> selectSearchEmail(Search search) {
+		List<Member> list = sqlSessionTemplate.selectList("memberMapper.selectSearchEmail", search);
+		return (ArrayList<Member>)list;
+	}
+	
+	
+	//(관리자) ORGANIZER 회원 검색용 ****************************************
+	public int selectOrgSearchIdCount(String keyword) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectOrgSearchIdCount", keyword);
+	}
+
+	public int selectOrgSearchOrgNameCount(String keyword) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectOrgSearchOrgNameCount", keyword);
+	}
+
+	public int selectOrgSearchOrgEmailCount(String keyword) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectOrgSearchOrgEmailCount", keyword);
+	}
+
+	public int selectOrgSearchNameCount(String keyword) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectOrgSearchNameCount", keyword);
+	}
+
+	public ArrayList<Member> selectOrgSearchId(Search search) {
+		List<Member> list = sqlSessionTemplate.selectList("memberMapper.selectOrgSearchId", search);
+		return (ArrayList<Member>)list;
+	}
+
+	public ArrayList<Member> selectOrgSearchOrgName(Search search) {
+		List<Member> list = sqlSessionTemplate.selectList("memberMapper.selectOrgSearchOrgName", search);
+		return (ArrayList<Member>)list;
+	}
+
+	public ArrayList<Member> selectOrgSearchOrgEmail(Search search) {
+		List<Member> list = sqlSessionTemplate.selectList("memberMapper.selectOrgSearchOrgEmail", search);
+		return (ArrayList<Member>)list;
+	}
+
+	public ArrayList<Member> selectOrgSearchName(Search search) {
+		List<Member> list = sqlSessionTemplate.selectList("memberMapper.selectOrgSearchName", search);
+		return (ArrayList<Member>)list;
+	}
 	
 	
 }//MemberDao end

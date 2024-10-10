@@ -4,6 +4,12 @@
 .bc_ddd {border-color: #ddd !important;}
 .bg_eee {background: #eee !important;}
 
+@media all and (max-width: 1280px) {
+    .dn {display: none !important;}
+}
+
+input {font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;}
+
 /* loginPage.jsp*/
 .container {width: 100%; max-width: 1280px; margin: 60px auto;}
 .l_title {width: 100%; display: flex; justify-content: center; position: relative; left: -10px;}
@@ -121,7 +127,7 @@
 
 .myinfo_list {display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid #ddd;}
 
-.myinfo_list > p {font-size: 18px; width: 130px; font-weight: bold; padding-left: 10px;}
+.myinfo_list > p {font-size: 18px; width: 150px; font-weight: bold; padding-left: 10px;}
 .myinfo_list > input {font-size: 15px; border: 0; outline: 0; border: 1px solid #ddd; padding: 8px; margin-right: 15px;}
 .myinfo_list span {font-size: 13px; color: #999;}
 
@@ -153,6 +159,11 @@
 
     .myinfo_list_marketing {flex-direction: row;}
     .myinfo_list_marketing > input {width: 20px; margin-top: 0; margin-bottom: 0; margin-left: 0;}
+
+    .myinfo_list_loginOk {flex-direction: row; align-items: center;}
+    .myinfo_list_loginOk > input {width: auto;}
+
+    .myinfo_btn > input {width: 80px;}
 }
 /* myinfo_content end */
 /* myInfoPage.jsp end */
@@ -206,5 +217,9 @@
 .mlist_value_tr td:nth-of-type(1) p {width: 100px; margin: 0 auto; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
 /* member_list end */
 
-
+.mlist_search {margin: 10px 0 50px;}
+.m_search_form {display: flex; align-items: center;}
+.search_option {border: none; outline: none; border: 1px solid #ccc; height: 30px; width: 100px;}
+.search_input {height: 30px; box-sizing: border-box; border: none; outline: none; border: 1px solid #ccc; margin-left: 5px; padding-left: 5px;}
+.search_btn {width: 50px; height: 30px; border: none; outline: none; border: 1px solid #ccc; border-left: 0;}
 /* userListPage.jsp, orgListPage.jsp end */
