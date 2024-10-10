@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reserveMapper">
+<!-- namespace (이름공간) == 패키지와 같음 : 매퍼 영역에 이름을 붙여준 것으로 이해하면 됌 -->
+
+	<!-- select 조회한 결과 매핑 처리하는 용도의 엘리먼트임
+		 결과매핑 : select 한 행의 컬럼값을 한개씩 dto 객체의 필드에 옮겨 저장하는 것
+		 property 는 클래스의 필드명, column 은 데이터베이스 테이블의 컬럼명을 기술하면 됨
+	 -->
+		
+	<resultMap type="Reserve" id="resultReserve">
+		<result property="uuid" column="UUID" />
+		<result property="uuid" column="TOTAL_ID" />
+		<result property="contributor" column="R_ID" />
+		<result property="description" column="VIEW_DATE" />
+		<result property="eventSite" column="TICKET_COUNT" />
+		<result property="detailEventSite" column="CANCEL_ABLE_DATE" />
+		<result property="latitude" column="RESERVE_STATUS" />
+		<result property="longitude" column="TICKET_METHOD" />
+		<result property="genre" column="TICKET_PRICE" />
+		<result property="contactPoint" column="BASIC_PRICE" />
+		<result property="viewCounter" column="DISCOUNT_PRICE" />
+		<result property="url" column="RESERVE_FEE" />
+		<result property="period" column="SHIPPING_FEE" />
+		<result property="startDate" column="PAY_METHOD" />
+		<result property="endDate" column="PAY_CARDNAME" />
+		<result property="approvalStatus" column="PAY_AMOUNT" />
+		<result property="category" column="PAY_DATE" />
+		<result property="fileUrl" column="CANCEL_PENALTY" />
+		<result property="fileUrl" column="CANCEL_DATE" />
+		<result property="fileUrl" column="REFUND_AMOUNT" />
+	</resultMap>
+	
+	<!-- dao 에서 사용되는 쿼리문(sql문)을 각 엘리멘트 안에 작성함 
+		 마이바티스는 기본 PreparedStatement 를 사용함
+		 ? 를 #{변수명 | 필드명} 필드명을 사용하면 자동으로 getter 가 작동됨
+		 resultType 은 반환되는 자료형 표기하면 됨
+		 resultMap 은 결과를 매핑할 경우 사용할 resultMap 의 id 명을 표기함
+		 단, resultType 과 resultMap 은 둘 중 하나만 사용해야 함
+	-->
+
+	
+	
+</mapper>

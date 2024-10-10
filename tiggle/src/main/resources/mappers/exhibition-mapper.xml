@@ -66,6 +66,7 @@
 		from TB_EXHIBITION_FAIR
 	</select>		
 	
+	<!-- PK 전달을 위해 total_id를 추출해주는 쿼리 -->
 	<select id="selectListOne" parameterType="string" resultMap="resultExhibition">
 		select * from TB_EXHIBITION_FAIR
 		where total_id = #{ no }

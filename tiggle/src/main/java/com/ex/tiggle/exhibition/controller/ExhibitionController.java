@@ -76,7 +76,6 @@ public class ExhibitionController {
 		if (exhibition != null) {
 			mv.addObject("exhibition", exhibition);
 			mv.setViewName("exhibition/exhibitionDetail");
-			
 			}
 		
 		
