@@ -3,8 +3,6 @@ package com.ex.tiggle.member.model.dto;
 import java.sql.Date;
 
 public class Member {
-	//서로 다른 파일 작업 후 머지 테스트
-	
 	//Field
 	private String uuid; 		//고유식별자
 	private String id; 			//아이디
