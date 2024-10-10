@@ -26,6 +26,11 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 	public ArrayList<Exhibition> selectList(Paging paging) {
 		return exhibitionDao.selectList(paging);
 	}
+
+	@Override
+	public Exhibition selectListOne(String totalId) {
+		return exhibitionDao.selectListOne(totalId);
+	}
 	
 	
 }// ExhibitionService end

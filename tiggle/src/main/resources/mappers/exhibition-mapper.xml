@@ -14,7 +14,7 @@
 		<result property="totalId" column="total_Id" />
 		<result property="uuid" column="uuid" />
 		<result property="contributor" column="contributor" />
-		<result property="description" column="E_discription" />
+		<result property="description" column="E_description" />
 		<result property="eventSite" column="event_Site" />
 		<result property="detailEventSite" column="detail_Event_Site" />
 		<result property="latitude" column="latitude" />
@@ -51,7 +51,7 @@
 	<select id="selectList" resultMap="resultExhibition" parameterType="Paging">
 		select *
 			from (select rownum rnum, total_id, uuid, title, contributor,
-				E_description,
+				E_DESCRIPTION,
 				event_site, detail_event_site, latitude, longitude, genre, contact_point,
 				view_counter, E_url,
 				start_date, end_date, approval_status, E_category, file_url
@@ -65,6 +65,11 @@
 		select count(*)
 		from TB_EXHIBITION_FAIR
 	</select>		
+	
+	<select id="selectListOne" parameterType="string" resultMap="resultExhibition">
+		select * from TB_EXHIBITION_FAIR
+		where total_id = #{ no }
+	</select>
 		
 	<!-- 전시정보 데이터 입력 -->
 	<insert id="insertExhibition" parameterType="Exhibition">

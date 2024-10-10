@@ -40,6 +40,7 @@ div.sdiv {
 <script type="text/javascript">
 $(function(){
 	$('.navLink').eq(0).css('display', 'block');
+	$('.sdiv').eq(0).css('display', 'block');
 });// document.ready
 
 function showdiv(tag){
@@ -58,6 +59,8 @@ function showdiv(tag){
 		$('.sdiv').eq(1).css('display', 'none'); 
 		$('.sdiv').eq(2).css('display', 'block');
 	}
+	
+	
 
 }
 
@@ -84,11 +87,10 @@ function openPopup() {
 	<div class="main">
 	<section>	
 		<div class="detail">
-			<img id="Edtail" width="200" height="400" src="/tiggle/resources/images/poster_sample.png">		
+			<img id="Edtail" width="200" height="400" src="${ exhibition.fileUrl }">		
 			<div style="width:1280px; align: center; border: 1px solid gray">
-				<h1>전시 제목 : ${ exhibition.title }</h1>
-				<p>기간 : ${ exhibition.period }</p>
-				<p>내용 : ${ exhibition.description }</p>
+				<h1>전시 제목 : ${ exhibition.title } </h1><br>
+				<p>기간 : ${ exhibition.startDate } ~ ${ exhibition.endDate }</p><br>
 				<button onclick="#">예매하기</button>
 			</div>
 			
@@ -110,20 +112,21 @@ function openPopup() {
 		</div>
 	<br style="clear: both;">
 <%-- 검색 항목별 값 입력 전송용 폼 만들기 --%>
-<%-- 제목 검색용 폼 --%>
-<div id="titlediv" class="sdiv" >
-	<input type="hidden" name="action" value="title">
+<%-- 상세정보 클릭시 출력될 폼 --%>
+<div id="contentdiv" class="sdiv" >
+	<input type="hidden" name="action" value="content">
 	<fieldset>
 		<h2>상세보기</h2>
 		<div>
-			<img src="/tiggle/resources/images/poster_sample.png">
+		<hr>
+		소개 :  ${ exhibition.description }
 		</div>
 	</fieldset>
 </div>
 
-<%-- 내용 검색용 폼 --%>
-<div id="contentdiv" class="sdiv">
-	<input type="hidden" name="action" value="content">
+<%-- 한줄평 클릭시 출력될 폼 --%>
+<div id="reviewdiv" class="sdiv">
+	<input type="hidden" name="action" value="review">
 	<fieldset>
 		<h2>한줄평</h2>
 		<button onclick="openPopup()">등록</button>
@@ -134,8 +137,8 @@ function openPopup() {
 	</fieldset>
 </div>
 
-<%-- 등록날짜 검색용 폼 --%>
-<div  id="datediv" class="sdiv">
+<%-- 오시는길 클릭시 출력될 폼 --%>
+<div  id="mapdiv" class="sdiv">
 	<input type="hidden" name="action" value="date">
 	<fieldset>
 		<h2>오시는 길</h2>

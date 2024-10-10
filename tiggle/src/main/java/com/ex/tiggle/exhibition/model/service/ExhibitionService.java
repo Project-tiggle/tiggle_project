@@ -11,4 +11,6 @@ public interface ExhibitionService {
 	
 	ArrayList<Exhibition> selectList(Paging paging);
 
+	Exhibition selectListOne(String totalId);
+
 }

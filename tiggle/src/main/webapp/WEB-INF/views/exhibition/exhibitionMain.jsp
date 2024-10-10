@@ -21,7 +21,7 @@
 		<table>
 			 <c:forEach var="p" items="${ list }">
        			 <div class="poster" style="flex-basis: calc(20% - 20px);">
-		            <a href="exhibitionDetail.do"><img id="Emain" src="${ p.fileUrl }" ></a><br>
+		            <a href="exhibitionDetail.do?no=${ p.totalId }"><img id="Emain" src="${ p.fileUrl }" ></a><br>
 		            전시 제목 : ${ p.title } <br>
 		            전시 기간 : ${ p.startDate } ~ ${ p.endDate } <br>
 		        </div>

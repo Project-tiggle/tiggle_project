@@ -1,256 +1,63 @@
-[09:45:24][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[09:45:25][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 534 ms
-[09:45:25][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[09:45:25][INFO ][FrameworkServlet.java: 547] - Completed initialization in 371 ms
-[09:46:17][INFO ][MemberController.java: 70] - 마케팅 동의 값 확인: Y
-[09:47:20][INFO ][MemberController.java: 159] - enroll.do : Member [uuid=null, id=test11, pwd=test11, name=이름11, phone=010-0000-0011, email=ljh1004im@naver.com, nickname=닉네임11, address=null, gender=null, signtype=null, marketingYN=Y, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[09:47:21][INFO ][MemberController.java: 171] - after encode : $2a$10$1sUjwrMh1oQtP5gDbH.uOuhDmFdvLJR1AvIXxCjUzCHNuHeCAsCXi, length : 60
-[09:47:21][INFO ][MemberController.java: 176] - uuid : 32d970fa-ef31-4e20-94b9-79f38fe9e113
-[09:48:01][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=test11, pwd=test11, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[09:48:36][INFO ][MemberController.java: 70] - 마케팅 동의 값 확인: Y
-[09:49:45][INFO ][MemberController.java: 70] - 마케팅 동의 값 확인: Y
-[10:01:36][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[10:01:37][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 476 ms
-[10:01:37][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[10:01:37][INFO ][FrameworkServlet.java: 547] - Completed initialization in 386 ms
-[10:01:59][INFO ][MemberController.java: 70] - 마케팅 동의 값 확인: Y
-[10:03:43][INFO ][MemberController.java: 159] - enroll.do : Member [uuid=null, id=admin03, pwd=admin03, name=관리자03, phone=010-3333-3333, email=ljh1004im@naver.com, nickname=관리자03, address=null, gender=null, signtype=null, marketingYN=Y, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:03:43][INFO ][MemberController.java: 171] - after encode : $2a$10$R2AHKgjNUORMqvkAHnNoOuyamz.HR91UDkiPLol626kZeK5WHfNKW, length : 60
-[10:03:43][INFO ][MemberController.java: 176] - uuid : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[10:03:50][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:04:07][INFO ][MemberController.java: 290] - myInfo.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[10:04:11][INFO ][MemberController.java: 290] - myInfo.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[10:04:12][INFO ][MemberController.java: 92] - delMemPage.do : Member [uuid=8dbc2cd1-7cda-49ce-ac8c-21e23da31751, id=admin03, pwd=$2a$10$R2AHKgjNUORMqvkAHnNoOuyamz.HR91UDkiPLol626kZeK5WHfNKW, name=관리자03, phone=010-3333-3333, email=ljh1004im@naver.com, nickname=관리자03, address=null, gender=null, signtype=TIGGLE, marketingYN=Y, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=USER, signUpAt=2024-10-08, updatedAt=2024-10-08, loginOk=Y, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:09:37][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[10:09:38][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 472 ms
-[10:09:38][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[10:09:38][INFO ][FrameworkServlet.java: 547] - Completed initialization in 373 ms
-[10:09:47][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=ADMIN03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:09:58][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=ADMIN03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:10:37][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:11:48][INFO ][MemberController.java: 290] - myInfo.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[10:12:42][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=test11, pwd=test11, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:12:45][INFO ][MemberController.java: 290] - myInfo.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
-[10:13:34][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=ADMIN03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:13:43][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:25:40][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[10:25:40][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 470 ms
-[10:25:40][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[10:25:41][INFO ][FrameworkServlet.java: 547] - Completed initialization in 355 ms
-[10:25:50][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:26:27][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[10:26:28][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 469 ms
-[10:26:28][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[10:26:28][INFO ][FrameworkServlet.java: 547] - Completed initialization in 360 ms
-[10:26:33][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:26:45][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=test11, pwd=test11, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:26:53][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:27:03][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/adminPage.do
-[10:46:12][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[10:46:12][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 467 ms
-[10:46:12][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[10:46:13][INFO ][FrameworkServlet.java: 547] - Completed initialization in 363 ms
-[10:46:16][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:46:29][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:46:31][WARN ][AbstractHandlerExceptionResolver.java: 208] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-[10:48:13][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[10:48:13][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 497 ms
-[10:48:13][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[10:48:14][INFO ][FrameworkServlet.java: 547] - Completed initialization in 367 ms
-[10:48:18][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:48:20][INFO ][MemberController.java: 377] - adminPage.do : Member [uuid=null, id=null, pwd=null, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:52:40][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[10:52:41][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 472 ms
-[10:52:41][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[10:52:41][INFO ][FrameworkServlet.java: 547] - Completed initialization in 362 ms
-[10:52:45][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:52:49][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[10:53:03][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=test11, pwd=test11, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:53:05][INFO ][MemberController.java: 290] - myInfo.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
-[10:53:16][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[10:53:17][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[12:32:55][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[12:32:56][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 473 ms
-[12:32:56][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[12:32:56][INFO ][FrameworkServlet.java: 547] - Completed initialization in 360 ms
-[13:02:06][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[13:02:06][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 476 ms
-[13:02:06][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[13:02:07][INFO ][FrameworkServlet.java: 547] - Completed initialization in 360 ms
-[13:02:15][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[13:02:28][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[13:02:32][INFO ][MemberController.java: 290] - myInfo.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[13:06:33][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[13:06:34][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 471 ms
-[13:06:34][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[13:06:34][INFO ][FrameworkServlet.java: 547] - Completed initialization in 360 ms
-[13:06:53][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=test11, pwd=test11, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[13:06:57][INFO ][MemberController.java: 290] - myInfo.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
-[13:07:07][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[13:07:11][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[13:08:16][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[13:08:17][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 487 ms
-[13:08:17][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[13:08:17][INFO ][FrameworkServlet.java: 547] - Completed initialization in 363 ms
-[13:08:29][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=test11, pwd=test11, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[13:08:46][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=orgtest01, pwd=orgtest01, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[13:08:52][INFO ][MemberController.java: 290] - myInfo.do : 5686eb8d-7c8b-41ec-a7bc-55e8c7535659
-[13:09:07][INFO ][MemberController.java: 92] - delMemPage.do : Member [uuid=5686eb8d-7c8b-41ec-a7bc-55e8c7535659, id=orgtest01, pwd=$2a$10$WN.2j4.ytw3VtoG8BITBPeSZao2YSxNXwYx9cO9/uejrLEYfSux1C, name=김정철, phone=010-9797-8585, email=kjc12@test.com, nickname=null, address=null, gender=null, signtype=TIGGLE, marketingYN=Y, orgName=테스트기관, orgTel=null, orgEmail=orgtest01@test.org, mngDept=영업팀, mngJobId=과장, memberType=ORGANIZER, signUpAt=2024-10-03, updatedAt=2024-10-03, loginOk=Y, deletedYN=null, deletedAt=null, deletedReason=null]
-[13:09:58][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[13:10:05][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[13:13:10][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[13:13:11][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[13:13:15][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[13:13:15][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 478 ms
-[13:13:16][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[13:13:16][INFO ][FrameworkServlet.java: 547] - Completed initialization in 361 ms
-[13:13:21][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[13:13:23][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[13:13:24][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[13:14:40][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[13:15:00][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[13:15:02][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[13:16:06][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[13:16:07][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 481 ms
-[13:16:07][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[13:16:07][INFO ][FrameworkServlet.java: 547] - Completed initialization in 377 ms
-[13:16:23][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=ADMIN03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[13:16:34][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[13:16:37][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:35:40][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[14:35:41][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 475 ms
-[14:35:41][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[14:35:41][INFO ][FrameworkServlet.java: 547] - Completed initialization in 374 ms
-[14:35:51][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[14:35:52][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 516 ms
-[14:35:52][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[14:35:52][INFO ][FrameworkServlet.java: 547] - Completed initialization in 393 ms
-[14:36:03][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:36:14][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[14:36:18][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:37:17][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:37:18][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:40:29][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:40:55][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:42:31][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[14:42:31][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 487 ms
-[14:42:31][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[14:42:32][INFO ][FrameworkServlet.java: 547] - Completed initialization in 391 ms
-[14:42:35][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:42:52][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:43:15][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:43:35][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:43:50][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:44:28][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:45:06][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:46:03][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:46:30][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:46:30][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:46:39][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:47:00][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:47:11][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:47:12][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:47:31][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:48:13][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:48:30][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:48:43][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:49:15][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[14:49:25][INFO ][MemberController.java: 377] - adminPage.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[15:26:07][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[15:26:07][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 473 ms
-[15:26:07][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[15:26:08][INFO ][FrameworkServlet.java: 547] - Completed initialization in 364 ms
-[15:26:13][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/adminPage.do
-[15:27:48][INFO ][MemberController.java: 111] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[16:06:05][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[16:06:06][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 474 ms
-[16:06:06][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[16:06:06][INFO ][FrameworkServlet.java: 547] - Completed initialization in 365 ms
-[16:06:16][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[16:06:53][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[16:06:53][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 490 ms
-[16:06:53][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[16:06:54][INFO ][FrameworkServlet.java: 547] - Completed initialization in 385 ms
-[16:06:59][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[16:07:23][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[16:07:23][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 492 ms
-[16:07:23][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[16:07:24][INFO ][FrameworkServlet.java: 547] - Completed initialization in 370 ms
-[16:07:33][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[16:07:59][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[16:08:00][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 496 ms
-[16:08:00][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[16:08:00][INFO ][FrameworkServlet.java: 547] - Completed initialization in 357 ms
-[16:44:57][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=test11, pwd=test11, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[16:44:59][INFO ][MemberController.java: 292] - myInfo.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
-[16:45:03][INFO ][MemberController.java: 94] - delMemPage.do : Member [uuid=32d970fa-ef31-4e20-94b9-79f38fe9e113, id=test11, pwd=$2a$10$1sUjwrMh1oQtP5gDbH.uOuhDmFdvLJR1AvIXxCjUzCHNuHeCAsCXi, name=이름11, phone=010-0000-0011, email=ljh1004im@naver.com, nickname=닉네임11, address=null, gender=null, signtype=TIGGLE, marketingYN=Y, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=USER, signUpAt=2024-10-08, updatedAt=2024-10-08, loginOk=Y, deletedYN=null, deletedAt=null, deletedReason=null]
-[16:45:33][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=orgtest10, pwd=orgtest10, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[16:45:37][INFO ][MemberController.java: 292] - myInfo.do : 1b682924-b4fd-424c-800c-f47839f8ee72
-[16:45:49][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[16:48:02][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[16:48:02][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 471 ms
-[16:48:02][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[16:48:03][INFO ][FrameworkServlet.java: 547] - Completed initialization in 373 ms
-[16:48:16][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[16:51:41][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[16:51:42][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 487 ms
-[16:51:42][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[16:51:42][INFO ][FrameworkServlet.java: 547] - Completed initialization in 382 ms
-[16:52:00][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[17:04:29][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[17:04:30][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 484 ms
-[17:04:30][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[17:04:30][INFO ][FrameworkServlet.java: 547] - Completed initialization in 373 ms
-[17:04:45][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[17:06:09][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[17:06:10][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 488 ms
-[17:06:10][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[17:06:10][INFO ][FrameworkServlet.java: 547] - Completed initialization in 373 ms
-[17:06:19][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[17:21:15][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[17:21:16][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 499 ms
-[17:21:16][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[17:21:16][INFO ][FrameworkServlet.java: 547] - Completed initialization in 394 ms
-[17:50:07][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[17:50:08][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 476 ms
-[17:50:08][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[17:50:08][INFO ][FrameworkServlet.java: 547] - Completed initialization in 368 ms
-[17:50:22][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=ADMIN03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[17:50:31][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[17:54:42][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[17:54:42][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 476 ms
-[17:54:42][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[17:54:43][INFO ][FrameworkServlet.java: 547] - Completed initialization in 367 ms
-[17:54:55][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[17:56:32][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[17:58:10][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[18:07:37][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[18:07:37][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 483 ms
-[18:07:37][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[18:07:38][INFO ][FrameworkServlet.java: 547] - Completed initialization in 365 ms
-[18:08:06][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=orgtest10, pwd=orgtest10, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[18:08:22][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=orgtest09, pwd=orgtest09, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[18:12:02][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[18:56:44][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[18:56:45][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 472 ms
-[18:56:45][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[18:56:45][INFO ][FrameworkServlet.java: 547] - Completed initialization in 358 ms
-[18:57:01][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[18:57:03][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/mlist.do
-[18:58:53][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[18:58:53][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 481 ms
-[18:58:53][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[18:58:54][INFO ][FrameworkServlet.java: 547] - Completed initialization in 365 ms
-[18:58:58][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[19:00:25][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[19:00:25][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 473 ms
-[19:00:26][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[19:00:26][INFO ][FrameworkServlet.java: 547] - Completed initialization in 360 ms
-[19:00:47][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[19:49:04][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[19:49:04][WARN ][AbstractApplicationContext.java: 591] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
-[19:49:04][ERROR][ContextLoader.java: 313] - Context initialization failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
+[09:27:05][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[09:27:06][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 491 ms
+[09:27:06][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[09:27:06][INFO ][FrameworkServlet.java: 547] - Completed initialization in 357 ms
+[09:27:39][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[09:27:39][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 474 ms
+[09:27:39][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[09:27:40][INFO ][FrameworkServlet.java: 547] - Completed initialization in 371 ms
+[09:27:46][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[09:27:46][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 485 ms
+[09:27:46][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[09:27:46][INFO ][FrameworkServlet.java: 547] - Completed initialization in 363 ms
+[09:28:28][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=user02, pwd=user02, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[09:28:29][WARN ][BCryptPasswordEncoder.java: 130] - Encoded password does not look like BCrypt
+[09:28:43][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=user02, pwd=pass02, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[09:28:43][WARN ][BCryptPasswordEncoder.java: 130] - Encoded password does not look like BCrypt
+[09:28:49][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=user02, pwd=pass02, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[09:28:49][WARN ][BCryptPasswordEncoder.java: 130] - Encoded password does not look like BCrypt
+[09:28:57][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=user02, pwd=pass02, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[09:28:57][WARN ][BCryptPasswordEncoder.java: 130] - Encoded password does not look like BCrypt
+[09:36:16][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=user08, pwd=pass08, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[09:36:16][WARN ][BCryptPasswordEncoder.java: 126] - Empty encoded password
+[09:36:25][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=user09, pwd=pass09, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[09:36:41][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=test08, pwd=test08, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[09:36:57][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=test07, pwd=test07, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[09:59:39][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[09:59:39][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 469 ms
+[09:59:39][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[09:59:40][INFO ][FrameworkServlet.java: 547] - Completed initialization in 363 ms
+[10:01:24][INFO ][MemberController.java: 70] - 마케팅 동의 값 확인: Y
+[10:03:10][INFO ][MemberController.java: 159] - enroll.do : Member [uuid=null, id=admin01, pwd=admin01, name=관리자01, phone=010-9999-9999, email=kgo9229@naver.com, nickname=멋진관리자, address=null, gender=null, signtype=null, marketingYN=Y, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:03:10][INFO ][MemberController.java: 171] - after encode : $2a$10$tVni30GFdZmlZ/HvBwXriu/tK2aS/NrbW6yNO7mPgDHE.0N6q51B6, length : 60
+[10:03:10][INFO ][MemberController.java: 176] - uuid : ae8248d5-c48f-4c31-b2e9-e14226925c0b
+[10:03:20][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin01, pwd=admin01, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:03:24][INFO ][MemberController.java: 290] - myInfo.do : ae8248d5-c48f-4c31-b2e9-e14226925c0b
+[10:07:32][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin01, pwd=admin01, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:07:35][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin01, pwd=admin01, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:07:40][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin01, pwd=admin01, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:07:41][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin01, pwd=admin01, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:07:54][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin01, pwd=admin01, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:08:08][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin01, pwd=admin01, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:08:30][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:08:31][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 492 ms
+[10:08:31][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:08:31][INFO ][FrameworkServlet.java: 547] - Completed initialization in 382 ms
+[10:08:37][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin01, pwd=admin01, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:08:42][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin01, pwd=admin01, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:09:10][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=admin01, pwd=admin01, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:38:39][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:38:40][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 472 ms
+[10:38:40][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:38:40][INFO ][FrameworkServlet.java: 547] - Completed initialization in 367 ms
+[10:42:58][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:42:58][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 479 ms
+[10:42:58][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:42:59][INFO ][FrameworkServlet.java: 547] - Completed initialization in 372 ms
+[11:19:11][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[11:19:12][WARN ][AbstractApplicationContext.java: 591] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/exhibition-mapper.xml'. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for exhibitionMapper.resultExhibition
+[11:19:12][ERROR][ContextLoader.java: 313] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/exhibition-mapper.xml'. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for exhibitionMapper.resultExhibition
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
@@ -294,37 +101,38 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/exhibition-mapper.xml'. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for exhibitionMapper.resultExhibition
 	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:590)
 	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:491)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
 	... 42 more
-Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/exhibition-mapper.xml'. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for exhibitionMapper.resultExhibition
 	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:122)
 	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:99)
 	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:587)
 	... 45 more
-Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/exhibition-mapper.xml'. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for exhibitionMapper.resultExhibition
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:123)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:95)
 	at org.apache.ibatis.builder.xml.XMLConfigBuilder.mapperElement(XMLConfigBuilder.java:377)
 	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:120)
 	... 47 more
-Caused by: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
+Caused by: java.lang.IllegalArgumentException: Result Maps collection already contains value for exhibitionMapper.resultExhibition
 	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:1014)
 	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:970)
-	at org.apache.ibatis.session.Configuration.addMappedStatement(Configuration.java:768)
-	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:297)
-	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113)
-	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:138)
-	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:131)
-	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:121)
+	at org.apache.ibatis.session.Configuration.addResultMap(Configuration.java:726)
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addResultMap(MapperBuilderAssistant.java:209)
+	at org.apache.ibatis.builder.ResultMapResolver.resolve(ResultMapResolver.java:47)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:289)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:254)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:246)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:119)
 	... 50 more
-[19:49:58][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[19:49:59][WARN ][AbstractApplicationContext.java: 591] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
-[19:49:59][ERROR][ContextLoader.java: 313] - Context initialization failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
+[12:04:43][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[12:04:44][WARN ][AbstractApplicationContext.java: 591] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/exhibition-mapper.xml'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'Paging'.  Cause: java.lang.ClassNotFoundException: Cannot find class: Paging
+[12:04:44][ERROR][ContextLoader.java: 313] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/exhibition-mapper.xml'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'Paging'.  Cause: java.lang.ClassNotFoundException: Cannot find class: Paging
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
@@ -368,52 +176,110 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/exhibition-mapper.xml'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'Paging'.  Cause: java.lang.ClassNotFoundException: Cannot find class: Paging
 	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:590)
 	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:491)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
 	... 42 more
-Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/exhibition-mapper.xml'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'Paging'.  Cause: java.lang.ClassNotFoundException: Cannot find class: Paging
 	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:122)
 	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:99)
 	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:587)
 	... 45 more
-Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/exhibition-mapper.xml'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'Paging'.  Cause: java.lang.ClassNotFoundException: Cannot find class: Paging
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:123)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:95)
 	at org.apache.ibatis.builder.xml.XMLConfigBuilder.mapperElement(XMLConfigBuilder.java:377)
 	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:120)
 	... 47 more
-Caused by: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
-	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:1014)
-	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:970)
-	at org.apache.ibatis.session.Configuration.addMappedStatement(Configuration.java:768)
-	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:297)
-	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113)
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'Paging'.  Cause: java.lang.ClassNotFoundException: Cannot find class: Paging
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:76)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:138)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:131)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:121)
 	... 50 more
-[19:50:45][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[19:50:45][WARN ][AbstractApplicationContext.java: 591] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
-[19:50:45][ERROR][ContextLoader.java: 313] - Context initialization failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'Paging'.  Cause: java.lang.ClassNotFoundException: Cannot find class: Paging
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 54 more
+Caused by: java.lang.ClassNotFoundException: Cannot find class: Paging
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:196)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 56 more
+[12:33:05][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[12:33:06][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 646 ms
+[12:33:06][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[12:33:06][INFO ][FrameworkServlet.java: 547] - Completed initialization in 356 ms
+[12:34:22][INFO ][MemberController.java: 81] - 마케팅 동의 값 확인: null
+[12:36:08][INFO ][MemberController.java: 191] - enroll.do : Member [uuid=null, id=dudwn, pwd=dudwn, name=김인경, phone=010-8703-2256, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=, orgName=인경컴퍼니, orgTel=null, orgEmail=oasis8658@naver.com, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[12:36:09][INFO ][MemberController.java: 203] - after encode : $2a$10$r8m.DLcu53Wa9VbdUHtj1u5xKO.dK0pwpMBmvr9ckS/vU3XMf.aZa, length : 60
+[12:36:09][INFO ][MemberController.java: 208] - uuid : 855c174d-f38c-4505-bea4-50bafa1e53f7
+[12:36:19][INFO ][MemberController.java: 110] - login : Member [uuid=null, id=dudwn, pwd=dudwn, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[12:36:22][INFO ][MemberController.java: 290] - myInfo.do : 855c174d-f38c-4505-bea4-50bafa1e53f7
+[13:09:50][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[13:09:50][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 474 ms
+[13:09:50][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[13:09:51][INFO ][FrameworkServlet.java: 547] - Completed initialization in 364 ms
+[13:10:48][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[13:10:48][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 472 ms
+[13:10:48][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[13:10:48][INFO ][FrameworkServlet.java: 547] - Completed initialization in 365 ms
+[13:15:16][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[13:15:17][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 488 ms
+[13:15:17][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[13:15:17][INFO ][FrameworkServlet.java: 547] - Completed initialization in 380 ms
+[14:16:13][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:16:13][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 481 ms
+[14:16:13][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:16:14][INFO ][FrameworkServlet.java: 547] - Completed initialization in 370 ms
+[14:16:49][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:16:49][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 491 ms
+[14:16:49][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:16:49][INFO ][FrameworkServlet.java: 547] - Completed initialization in 373 ms
+[14:35:32][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:35:32][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 486 ms
+[14:35:32][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:35:33][INFO ][FrameworkServlet.java: 547] - Completed initialization in 363 ms
+[14:40:39][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:40:39][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 479 ms
+[14:40:39][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:40:39][WARN ][AbstractApplicationContext.java: 591] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'exhibitionController' defined in file [D:\tiggle_workspace\tiggle\target\classes\com\ex\tiggle\exhibition\controller\ExhibitionController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ex.tiggle.exhibition.controller.ExhibitionController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "enum Identifier" to complete EnumHeader
+	Syntax error, insert "EnumBody" to complete EnumDeclaration
+
+[14:40:39][ERROR][FrameworkServlet.java: 534] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'exhibitionController' defined in file [D:\tiggle_workspace\tiggle\target\classes\com\ex\tiggle\exhibition\controller\ExhibitionController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ex.tiggle.exhibition.controller.ExhibitionController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "enum Identifier" to complete EnumHeader
+	Syntax error, insert "EnumBody" to complete EnumDeclaration
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:934)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953)
 	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
 	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
-	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:401)
-	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:292)
-	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4007)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4448)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:702)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:668)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:716)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:591)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:530)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:170)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:143)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:984)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:941)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:838)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4182)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4482)
 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
 	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
 	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
@@ -442,75 +308,141 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
 	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
-Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
-	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:590)
-	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:491)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
-	... 42 more
-Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
-	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:122)
-	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:99)
-	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:587)
-	... 45 more
-Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
-	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:123)
-	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:95)
-	at org.apache.ibatis.builder.xml.XMLConfigBuilder.mapperElement(XMLConfigBuilder.java:377)
-	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:120)
-	... 47 more
-Caused by: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for memberMapper.selectListCount. please check mappers/member-mapper.xml and mappers/member-mapper.xml
-	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:1014)
-	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:970)
-	at org.apache.ibatis.session.Configuration.addMappedStatement(Configuration.java:768)
-	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:297)
-	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113)
-	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:138)
-	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:131)
-	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:121)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ex.tiggle.exhibition.controller.ExhibitionController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "enum Identifier" to complete EnumHeader
+	Syntax error, insert "EnumBody" to complete EnumDeclaration
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:224)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1326)
 	... 50 more
-[19:52:42][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[19:52:42][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 500 ms
-[19:52:42][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[19:52:43][INFO ][FrameworkServlet.java: 547] - Completed initialization in 359 ms
-[19:53:01][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[19:57:14][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[19:57:14][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 477 ms
-[19:57:14][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[19:57:15][INFO ][FrameworkServlet.java: 547] - Completed initialization in 364 ms
-[19:57:32][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[19:59:36][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[19:59:37][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 484 ms
-[19:59:37][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[19:59:37][INFO ][FrameworkServlet.java: 547] - Completed initialization in 359 ms
-[19:59:46][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[20:23:31][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[20:23:32][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 486 ms
-[20:23:32][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[20:23:32][INFO ][FrameworkServlet.java: 547] - Completed initialization in 367 ms
-[20:23:54][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[20:24:33][INFO ][MemberController.java: 94] - delMemPage.do : Member [uuid=8dbc2cd1-7cda-49ce-ac8c-21e23da31751, id=admin03, pwd=$2a$10$R2AHKgjNUORMqvkAHnNoOuyamz.HR91UDkiPLol626kZeK5WHfNKW, name=관리자03, phone=010-3333-3333, email=ljh1004im@naver.com, nickname=관리자03, address=null, gender=null, signtype=TIGGLE, marketingYN=Y, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=ADMIN, signUpAt=2024-10-08, updatedAt=2024-10-08, loginOk=Y, deletedYN=null, deletedAt=null, deletedReason=null]
-[20:24:34][INFO ][MemberController.java: 292] - myInfo.do : 8dbc2cd1-7cda-49ce-ac8c-21e23da31751
-[20:26:10][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[20:26:11][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 477 ms
-[20:26:11][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[20:26:11][INFO ][FrameworkServlet.java: 547] - Completed initialization in 362 ms
-[20:26:22][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[20:31:05][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[20:31:05][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 483 ms
-[20:31:05][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[20:31:06][INFO ][FrameworkServlet.java: 547] - Completed initialization in 374 ms
-[20:32:39][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[20:33:53][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
-[20:33:54][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 519 ms
-[20:33:54][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
-[20:33:54][INFO ][FrameworkServlet.java: 547] - Completed initialization in 367 ms
-[20:41:23][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[20:45:10][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=test11, pwd=test11, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[20:45:13][INFO ][MemberController.java: 292] - myInfo.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
-[20:48:07][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[21:33:23][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=orgtest09, pwd=orgtest09, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
-[21:38:44][INFO ][MemberController.java: 72] - 마케팅 동의 값 확인: null
-[21:38:52][INFO ][MemberController.java: 83] - 마케팅 동의 값 확인: null
-[21:41:04][INFO ][MemberController.java: 83] - 마케팅 동의 값 확인: Y
-[21:49:31][INFO ][MemberController.java: 112] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "enum Identifier" to complete EnumHeader
+	Syntax error, insert "EnumBody" to complete EnumDeclaration
+
+	at com.ex.tiggle.exhibition.controller.ExhibitionController.<init>(ExhibitionController.java:83)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:211)
+	... 52 more
+[14:40:42][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:40:42][WARN ][AbstractApplicationContext.java: 591] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'exhibitionController' defined in file [D:\tiggle_workspace\tiggle\target\classes\com\ex\tiggle\exhibition\controller\ExhibitionController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ex.tiggle.exhibition.controller.ExhibitionController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "enum Identifier" to complete EnumHeader
+	Syntax error, insert "EnumBody" to complete EnumDeclaration
+
+[14:40:42][ERROR][FrameworkServlet.java: 534] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'exhibitionController' defined in file [D:\tiggle_workspace\tiggle\target\classes\com\ex\tiggle\exhibition\controller\ExhibitionController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ex.tiggle.exhibition.controller.ExhibitionController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "enum Identifier" to complete EnumHeader
+	Syntax error, insert "EnumBody" to complete EnumDeclaration
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:702)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:668)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:716)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:591)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:530)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:170)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:143)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:984)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:941)
+	at org.apache.catalina.core.StandardWrapper.allocate(StandardWrapper.java:659)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:116)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ex.tiggle.exhibition.controller.ExhibitionController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "enum Identifier" to complete EnumHeader
+	Syntax error, insert "EnumBody" to complete EnumDeclaration
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:224)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1326)
+	... 37 more
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "enum Identifier" to complete EnumHeader
+	Syntax error, insert "EnumBody" to complete EnumDeclaration
+
+	at com.ex.tiggle.exhibition.controller.ExhibitionController.<init>(ExhibitionController.java:83)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:211)
+	... 39 more
+[14:44:04][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:44:04][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 478 ms
+[14:44:04][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:44:05][INFO ][FrameworkServlet.java: 547] - Completed initialization in 367 ms
+[14:44:31][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:44:32][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 487 ms
+[14:44:32][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:44:32][INFO ][FrameworkServlet.java: 547] - Completed initialization in 368 ms
+[14:46:17][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:46:17][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 478 ms
+[14:46:17][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:46:18][INFO ][FrameworkServlet.java: 547] - Completed initialization in 364 ms
+[14:47:29][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:47:30][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 501 ms
+[14:47:30][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:47:30][INFO ][FrameworkServlet.java: 547] - Completed initialization in 377 ms
+[14:47:34][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/elist.do
+[14:47:38][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/elist.do
+[14:47:41][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/elist.do
+[14:50:28][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:50:28][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 497 ms
+[14:50:28][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:50:29][INFO ][FrameworkServlet.java: 547] - Completed initialization in 375 ms
+[14:51:10][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:51:11][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 481 ms
+[14:51:11][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:51:11][INFO ][FrameworkServlet.java: 547] - Completed initialization in 373 ms
+[14:51:42][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:51:43][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 482 ms
+[14:51:43][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:51:43][INFO ][FrameworkServlet.java: 547] - Completed initialization in 357 ms
+[14:52:12][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:52:13][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 483 ms
+[14:52:13][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:52:13][INFO ][FrameworkServlet.java: 547] - Completed initialization in 370 ms
+[14:56:37][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/elist.do
+[14:58:16][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:58:16][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 498 ms
+[14:58:16][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:58:17][INFO ][FrameworkServlet.java: 547] - Completed initialization in 375 ms
+[14:58:19][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/elist.do
+[14:58:55][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:58:56][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 477 ms
+[14:58:56][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:58:56][INFO ][FrameworkServlet.java: 547] - Completed initialization in 388 ms
+[14:58:58][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/elist.do
+[14:59:03][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/elist.do
+[15:01:43][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/elist.do
+[15:03:12][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:03:12][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 489 ms
+[15:03:12][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:03:13][INFO ][FrameworkServlet.java: 547] - Completed initialization in 371 ms

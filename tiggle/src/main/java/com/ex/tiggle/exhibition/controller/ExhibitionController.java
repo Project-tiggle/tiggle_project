@@ -2,6 +2,8 @@ package com.ex.tiggle.exhibition.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -65,10 +67,20 @@ public class ExhibitionController {
 	
 	
 
-	// 전시 상세 페이지로 이동
-	@RequestMapping(value = "exhibitionDetail.do", method = RequestMethod.GET)
-	public String moveExhibitionDeteailPage(Exhibition exhibition) {
-		return "exhibition/exhibitionDetail";
+	// 클릭한 포스터와 같은 전시의 내용을 담은 상세 정보 페이지로 이동
+	@RequestMapping(value = "exhibitionDetail.do")
+	public ModelAndView exhibitionDetailMethod(@RequestParam("no") String totalId , ModelAndView mv) {
+		
+		Exhibition exhibition = exhibitionService.selectListOne(totalId);
+		
+		if (exhibition != null) {
+			mv.addObject("exhibition", exhibition);
+			mv.setViewName("exhibition/exhibitionDetail");
+			
+			}
+		
+		
+		return mv;
 	}
 
 	// 상세보기 탭 출력
