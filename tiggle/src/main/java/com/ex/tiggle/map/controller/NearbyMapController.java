@@ -24,9 +24,11 @@ public class NearbyMapController {
 				
 		int totalCount = nearbyMapService.selectTotalCount();
 		ArrayList<NearbyMap> exhibitList = nearbyMapService.selectLocList();
+		String ak = "https://dapi.kakao.com/v2/maps/sdk.js?appkey=e1972ed25349a231bccee750d03753b3";
 		
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("exList", exhibitList);
+		model.addAttribute("link", ak);
 		return "nearbymap/nearbyMap";
 	}
 }
