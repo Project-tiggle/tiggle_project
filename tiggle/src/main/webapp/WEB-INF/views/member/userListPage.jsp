@@ -55,8 +55,8 @@
 							<td>이름</td>
 							<td>닉네임</td>
 							<td>이메일</td>
-							<td>연락처</td>
-							<td>가입유형</td>
+							<td class="dn">연락처</td>
+							<td class="dn">가입유형</td>
 							<td>수정</td>
 						</tr>
 						
@@ -67,8 +67,8 @@
 								<td>${ m.name }</td>
 								<td>${ m.nickname }</td>
 								<td>${ m.email }</td>
-								<td>${ m.phone }</td>
-								<td>${ m.signtype }</td>
+								<td class="dn">${ m.phone }</td>
+								<td class="dn">${ m.signtype }</td>
 								<td><button type="button" class="mlist_up_btn" onclick="moveMEditPage('${ m.uuid }');">수정</button></td>
 							</tr>
 						</c:forEach>
@@ -76,7 +76,22 @@
 				</div><!-- m_list_wrap end -->
 			</div><!-- admin_wrap end -->
 			
-			<c:import url="/WEB-INF/views/common/pagingView.jsp" />
+			<div class="mlist_search">
+				<form action="userSearch.do" method="get" class="m_search_form" id="m_search_form">
+					<select name="sOption" class="search_option">
+						<option value="">검색</option>
+						<option value="id">아이디</option>
+						<option value="name">이름</option>
+						<option value="nickname">닉네임</option>
+						<option value="email">이메일</option>
+					</select>
+
+					<input type="text" name="keyword" class="search_input">
+					<input type="submit" value="검색" class="search_btn">
+				</form>
+			</div><!-- mlist_search end -->
+			
+			<c:import url="/WEB-INF/views/common/pagingSOptionView.jsp" />
 		</div><!-- myinfo_content end -->
 	</div><!-- myinfo_section end -->
 	<!-- 마이페이지 회원정보 수정 end -->

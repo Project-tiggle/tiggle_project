@@ -16,24 +16,17 @@
 		<typeAlias type="com.ex.tiggle.member.model.dto.Member" alias="Member" />
 		<typeAlias type="com.ex.tiggle.exhibition.model.dto.Exhibition" alias="Exhibition" />
 		<typeAlias type="com.ex.tiggle.orgregist.model.dto.OrgRegist" alias="OrgRegist" />
+		<typeAlias type="com.ex.tiggle.map.model.dto.NearbyMap" alias="NearbyMap" />
 		<typeAlias type="com.ex.tiggle.common.Paging" alias="Paging"/>
+		<typeAlias type="com.ex.tiggle.common.Search" alias="Search"/>
 		
-	<!-- *-mapper.xml 에서 dto 클래스명을 간단하게 사용하기 위해서 클래스명 줄임말 지정 -->
-		<!-- <typeAlias type="org.myweb.first.member.model.dto.User" alias="User" />
-		<typeAlias type="org.myweb.first.member.model.dto.Member" alias="Member" />
-		<typeAlias type="org.myweb.first.test.model.dto.Test" alias="Test"/>
-		<typeAlias type="org.myweb.first.notice.model.dto.Notice" alias="Notice"/>
-		<typeAlias type="org.myweb.first.board.model.dto.Board" alias="Board"/> -->
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mappers/member-mapper.xml" />
 		<mapper resource="mappers/exhibition-mapper.xml" />
 		<mapper resource="mappers/orgregist-mapper.xml" />
+		<mapper resource="mappers/map-mapper.xml" />
 		
-		<!-- <mapper resource="mappers/member-mapper.xml" />
-		<mapper resource="mappers/test-mapper.xml" />
-		<mapper resource="mappers/notice-mapper.xml" />
-		<mapper resource="mappers/board-mapper.xml" /> -->
 	</mappers>
 </configuration>

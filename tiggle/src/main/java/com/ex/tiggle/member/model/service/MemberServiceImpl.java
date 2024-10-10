@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ex.tiggle.common.Paging;
+import com.ex.tiggle.common.Search;
 import com.ex.tiggle.member.model.dao.MemberDao;
 import com.ex.tiggle.member.model.dto.Member;
 
@@ -100,8 +101,97 @@ public class MemberServiceImpl implements MemberService {
 	}//ORGANIZER 총 페이지 수 계산
 
 	@Override
+	public Member selectAllMember(String uuid) {
+		return memberDao.selectAllMember(uuid);
+	}//회원정보 보기용
+	
+	@Override
 	public int updateMemberInfo(Member member) {
 		return memberDao.updateMemberInfo(member);
 	}//회원정보 수정용
+
+	//(관리자) USER 회원 검색용 ********************
+	@Override
+	public int selectSearchIdCount(String keyword) {
+		return memberDao.selectSearchIdCount(keyword);
+	}
+
+	@Override
+	public int selectSearchNameCount(String keyword) {
+		return memberDao.selectSearchNameCount(keyword);
+	}
+
+	@Override
+	public int selectSearchNicknameCount(String keyword) {
+		return memberDao.selectSearchNicknameCount(keyword);
+	}
+
+	@Override
+	public int selectSearchEmailCount(String keyword) {
+		return memberDao.selectSearchEmailCount(keyword);
+	}
+
+	@Override
+	public ArrayList<Member> selectSearchId(Search search) {
+		return memberDao.selectSearchId(search);
+	}
+
+	@Override
+	public ArrayList<Member> selectSearchName(Search search) {
+		return memberDao.selectSearchName(search);
+	}
+
+	@Override
+	public ArrayList<Member> selectSearchNickname(Search search) {
+		return memberDao.selectSearchNickname(search);
+	}
+
+	@Override
+	public ArrayList<Member> selectSearchEmail(Search search) {
+		return memberDao.selectSearchEmail(search);
+	}
+	
+	//(관리자) ORGANIZER 회원 검색용 ********************
+	@Override
+	public int selectOrgSearchIdCount(String keyword) {
+		return memberDao.selectOrgSearchIdCount(keyword);
+	}
+
+	@Override
+	public int selectOrgSearchOrgNameCount(String keyword) {
+		return memberDao.selectOrgSearchOrgNameCount(keyword);
+	}
+
+	@Override
+	public int selectOrgSearchOrgEmailCount(String keyword) {
+		return memberDao.selectOrgSearchOrgEmailCount(keyword);
+	}
+
+	@Override
+	public int selectOrgSearchNameCount(String keyword) {
+		return memberDao.selectOrgSearchNameCount(keyword);
+	}
+
+	@Override
+	public ArrayList<Member> selectOrgSearchId(Search search) {
+		return memberDao.selectOrgSearchId(search);
+	}
+
+	@Override
+	public ArrayList<Member> selectOrgSearchOrgName(Search search) {
+		return memberDao.selectOrgSearchOrgName(search);
+	}
+
+	@Override
+	public ArrayList<Member> selectOrgSearchOrgEmail(Search search) {
+		return memberDao.selectOrgSearchOrgEmail(search);
+	}
+
+	@Override
+	public ArrayList<Member> selectOrgSearchName(Search search) {
+		return memberDao.selectOrgSearchName(search);
+	}
+	
+	
 	
 }//MemberServiceImpl end
