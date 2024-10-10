@@ -16,13 +16,13 @@ public class ReviewController {
 	private ReviewService reviewService;
 	
 	// 한줄평 등록 팝업 띄우는 메소드
-	@RequestMapping("rmove.do")
+	@RequestMapping("rvmove.do")
 	public String moveReviewPage() {
 		return "review/reviewWriteForm";
 	}
 	
 	// 한줄평 수정 팝업 띄우는 메소드 
-	@RequestMapping("rmoveup.do")
+	@RequestMapping("rvmoveup.do")
 	public ModelAndView moveUpdatePage(@RequestParam("no") int reivewNo, ModelAndView mv) {
 		// 수정페이지에서 출력할 공지글 조회해 봄
 		Review reivew = reviewService.selectReivew(reivewNo);

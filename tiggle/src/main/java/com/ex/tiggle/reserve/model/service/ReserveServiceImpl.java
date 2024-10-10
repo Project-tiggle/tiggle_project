@@ -9,4 +9,6 @@ import com.ex.tiggle.reserve.model.dao.ReserveDao;
 public class ReserveServiceImpl implements ReserveService {
 	@Autowired
 	private ReserveDao reserveDao;
+	
+	
 }// ReserveService end

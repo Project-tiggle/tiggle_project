@@ -32,4 +32,10 @@ public class ExhibitionDao {
 	public int selectListCount() {
 		return sqlSessionTemplate.selectOne("exhibitionMapper.selectListCount");
 	}
+
+	public Exhibition selectListOne(String totalId) {
+		return sqlSessionTemplate.selectOne("exhibitionMapper.selectListOne", totalId);
+	}
+
+	
 }

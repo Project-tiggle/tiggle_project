@@ -10,6 +10,29 @@
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/exhibition_style.css">
+
+<style>
+
+
+.poster > a {
+	display: block;
+	width: 100%;
+	height: 400px;
+}
+
+.poster > a > img {
+	display: block;
+	width: 100%;
+	height: 90%;
+	object-fit: cover;
+}
+.poster_p {
+	position: relative;
+	top: -25px;
+}
+
+</style>
+
 </head>
 <body>
 	<c:import url="/WEB-INF/views/common/header.jsp" />
@@ -21,9 +44,12 @@
 		<table>
 			 <c:forEach var="p" items="${ list }">
        			 <div class="poster" style="flex-basis: calc(20% - 20px);">
-		            <a href="exhibitionDetail.do"><img id="Emain" src="${ p.fileUrl }" ></a><br>
-		            전시 제목 : ${ p.title } <br>
-		            전시 기간 : ${ p.startDate } ~ ${ p.endDate } <br>
+		            <a href="exhibitionDetail.do?no=${ p.totalId }" ><img id="Emain" src="${ p.fileUrl }" ></a>
+		            <div class="poster_p">
+		            	${ p.title }<br>
+			            기간 : <br>
+			            ${ p.startDate } ~ ${ p.endDate } <br>
+		            </div>
 		        </div>
 		    </c:forEach>
 		</table>

@@ -2,7 +2,10 @@ package com.ex.tiggle.review.model.dto;
 
 import java.sql.Date;
 
-public class Review {
+public class Review implements java.io.Serializable {
+	private static final long serialVersionUID = 5943858491540436837L;
+	
+	
 	private String totalId;  	// TOTAL_ID	VARCHAR2(100 BYTE)
 	private String uuid; 		// UUID	VARCHAR2(36 BYTE)
 	private int rNum; 			// R_NUM	NUMBER

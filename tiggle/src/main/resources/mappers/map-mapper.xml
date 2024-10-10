@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapMapper">
+
+		
+	<resultMap id="resultNearbyMap" type="NearbyMap">
+	       <result property="uuid" column="UUID" />
+	       <result property="totalId" column="TOTAL_ID" />
+	       <result property="title" column="TITLE" />
+	       <result property="contributor" column="CONTRIBUTOR" />
+	       <result property="eDescription" column="E_DESCRIPTION" />
+	       <result property="eventSite" column="EVENT_SITE" />
+	       <result property="detailEventSite" column="DETAIL_EVENT_SITE" />
+	       <result property="latitude" column="LATITUDE" />
+	       <result property="longitude" column="LONGITUDE" />
+	       <result property="genre" column="GENRE" />
+	       <result property="contactPoint" column="CONTACT_POINT" />
+	       <result property="viewCounter" column="VIEW_COUNTER" />
+	       <result property="eUrl" column="E_URL" />
+	       <result property="startDate" column="START_DATE" />
+	       <result property="endDate" column="END_DATE" />
+	       <result property="approvalStatus" column="APPROVAL_STATUS" />
+	       <result property="eCategory" column="E_CATEGORY" />
+	       <result property="fileUrl" column="FILE_URL" />
+	</resultMap>
+	
+	<!-- 전시정보 조회용 쿼리 -->
+	<select id="selectTotalCount" resultType="_int">
+		select count(*)
+		from TB_EXHIBITION_FAIR  
+		where approval_Status = 'Y'
+	</select>
+	
+	<select id="selectLocList" resultMap="resultNearbyMap" parameterType="list">
+		select *
+		from tb_exhibition_fair
+		where approval_Status = 'Y'
+	</select>
+	
+</mapper>

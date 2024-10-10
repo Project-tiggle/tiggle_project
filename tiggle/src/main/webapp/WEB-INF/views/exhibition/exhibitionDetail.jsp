@@ -11,27 +11,80 @@
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/exhibition_style.css">
 
-
-
 <style type="text/css">
+button{
+	font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+.esection{
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.navList{
+	display: flex;
+	width: 100%;
+}
+
 #exhibitionDetailMenu nav ul li{
-	width: 150px;
-	background: yellow;
+	width: 250px;
+	font-size: 16pt;
 	float: left;
+	font-weight: bold;
+	text-align: center;
+}
+
+#exhibitionDetailMenu nav ul li a:hover{
+	width: 250px;
+	font-size: 16pt;
+	float: left;
+	text-align: center;
+	font-weight: bolder;
+	background: lightgray;
 }
 
 #titlediv {
 	display: block;
 }
 
+.detail {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin: 60px auto;
+}
+
+.detailc{
+	/* display: inline-block; */
+	width: 500px;
+}
+
 div.sdiv {
 	border: 3px black;
 	background: lightgray;
-	width: 550x;
-	position: relative;
+	width: 200x;
+	width-max: 1280px;
 	left: 450px;
+	margin: 10px 0 0 0; 
 	display: none;	/* 기본적으로 안 보이게 함*/
 }
+
+#Edtail {
+	width: 300px;
+	margin: 0 auto;
+	display: block;
+	object-fit: cover;
+}
+		
+#reserve_b{
+	width: 100px;
+	height: 50px;
+	font-size: 16pt;
+	border: 0.5px solid lightgray; 
+	font-weight: bold;
+}
+
+
 
 </style>
 
@@ -40,6 +93,7 @@ div.sdiv {
 <script type="text/javascript">
 $(function(){
 	$('.navLink').eq(0).css('display', 'block');
+	$('.sdiv').eq(0).css('display', 'block');
 });// document.ready
 
 function showdiv(tag){
@@ -58,18 +112,28 @@ function showdiv(tag){
 		$('.sdiv').eq(1).css('display', 'none'); 
 		$('.sdiv').eq(2).css('display', 'block');
 	}
+	
+	
 
 }
 
-function openPopup() {
+function rvPopupOpen() {
 	  // 팝업을 띄울 페이지 URL
-	  var popupURL = "rmove.do";
+	  var popupURL = "rvmove.do";
 	  // 팝업 창의 속성
 	  var popupProperties = "width=600,height=400,scrollbars=no,left=600,top=200,location=no";
 	  // 팝업 열기
 	  window.open(popupURL, "Popup", popupProperties);
 	}
 
+function rePopupOpen() {
+	  // 팝업을 띄울 페이지 URL
+	  var popupURL = "remove.do";
+	  // 팝업 창의 속성
+	  var popupProperties = "width=600,height=400,scrollbars=no,left=600,top=200,location=no";
+	  // 팝업 열기
+	  window.open(popupURL, "Popup", popupProperties);
+	}
 
 </script>
 
@@ -81,17 +145,22 @@ function openPopup() {
 	
 	<!-- main section start -->
 
-	<div class="main">
-	<section>	
-		<div class="detail">
-			<img id="Edtail" width="200" height="400" src="/tiggle/resources/images/poster_sample.png">		
-			<div style="width:1280px; align: center; border: 1px solid gray">
-				<h1>전시 제목 : ${ exhibition.title }</h1>
-				<p>기간 : ${ exhibition.period }</p>
-				<p>내용 : ${ exhibition.description }</p>
-				<button onclick="#">예매하기</button>
+	<div class="main" >
+	<section class="esection">	
+		<div class="detail"> 
+			<div class="detailc">
+				<img id="Edtail" src="${ exhibition.fileUrl }">
+			</div>		
+			<div class="detailc" >
+				<h1> ${ exhibition.title } </h1><br>
+				<p>기간 :<br>
+				 ${ exhibition.startDate } ~ ${ exhibition.endDate }<br><br>
+				 장소 : <br>
+				 ${ exhibition.contributor }
+				 </p><br>
+				 
+				<button id="reserve_b" onclick="rePopupOpen()">예매하기</button>
 			</div>
-			
 		</div>
 		<div id="exhibitionDetailMenu">
 			<nav class="nav" >
@@ -109,24 +178,25 @@ function openPopup() {
 			</nav>
 		</div>
 	<br style="clear: both;">
-<%-- 검색 항목별 값 입력 전송용 폼 만들기 --%>
-<%-- 제목 검색용 폼 --%>
-<div id="titlediv" class="sdiv" >
-	<input type="hidden" name="action" value="title">
+
+<%-- 상세정보 클릭시 출력될 폼 --%>
+<div id="contentdiv" class="sdiv" >
+	<input type="hidden" name="action" value="content">
 	<fieldset>
 		<h2>상세보기</h2>
 		<div>
-			<img src="/tiggle/resources/images/poster_sample.png">
+		<hr>
+		소개 :  ${ exhibition.description }
 		</div>
 	</fieldset>
 </div>
 
-<%-- 내용 검색용 폼 --%>
-<div id="contentdiv" class="sdiv">
-	<input type="hidden" name="action" value="content">
+<%-- 한줄평 클릭시 출력될 폼 --%>
+<div id="reviewdiv" class="sdiv">
+	<input type="hidden" name="action" value="review">
 	<fieldset>
 		<h2>한줄평</h2>
-		<button onclick="openPopup()">등록</button>
+		<button  onclick="rvPopupOpen()">등록</button>
 		<div>
 			한줄평 목록 출력
 			
@@ -134,8 +204,8 @@ function openPopup() {
 	</fieldset>
 </div>
 
-<%-- 등록날짜 검색용 폼 --%>
-<div  id="datediv" class="sdiv">
+<%-- 오시는길 클릭시 출력될 폼 --%>
+<div  id="mapdiv" class="sdiv">
 	<input type="hidden" name="action" value="date">
 	<fieldset>
 		<h2>오시는 길</h2>
@@ -156,23 +226,5 @@ function openPopup() {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
