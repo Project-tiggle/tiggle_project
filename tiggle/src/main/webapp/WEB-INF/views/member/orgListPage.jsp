@@ -87,8 +87,8 @@
 						<option value="name">담당자</option>
 					</select>
 
-					<input type="text" name="keyword" class="search_input">
-					<input type="submit" value="검색" class="search_btn">
+					<input type="text" name="keyword" class="m_search_input">
+					<input type="submit" value="검색" class="m_search_btn">
 				</form>
 			</div><!-- mlist_search end -->
 			
