@@ -41,8 +41,8 @@ html, body {background: #fff; color: #333; font-family: -apple-system, BlinkMacS
 .nlist_search {margin: 10px 0 50px;}
 .n_search_form {display: flex; align-items: center;}
 .search_option {border: none; outline: none; border: 1px solid #ccc; height: 30px; width: 100px;}
-.search_input {height: 30px; box-sizing: border-box; border: none; outline: none; border: 1px solid #ccc; margin-left: 5px; padding-left: 5px;}
-.search_btn {width: 50px; height: 30px; border: none; outline: none; border: 1px solid #ccc; border-left: 0;}
+.n_search_input {height: 30px; box-sizing: border-box; border: none; outline: none; border: 1px solid #ccc; margin-left: 5px; padding-left: 5px;}
+.n_search_btn {width: 50px; height: 30px; border: none; outline: none; border: 1px solid #ccc; border-left: 0;}
 
 .n_write_btn {display: block; width: 130px; height: 45px; line-height: 45px; text-align: center; font-size: 16px; font-weight: bold; border: 1px solid #ddd; cursor: pointer; transition: all 0.2s; font-family: "Pretendard Variable" !important;}
 .n_write_btn:hover {background: #ff5f2c; color: #fff; border-color: #ff5f2c;}
@@ -58,6 +58,9 @@ html, body {background: #fff; color: #333; font-family: -apple-system, BlinkMacS
     .notice_list tr td {font-size: 13px;}
     .notice_list tr td:nth-child(2) {width: 40%;}
     .notice_list tr td:nth-child(4) {width: 15%;}
+
+    .n_search_input {width: 130px;}
+    .n_write_btn {height: 30px; line-height: 30px; width: 110px; margin-top: 10px;}
 }
 /* noticeListView.jsp end */
 

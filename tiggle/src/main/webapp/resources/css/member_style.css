@@ -220,6 +220,6 @@ input {font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "P
 .mlist_search {margin: 10px 0 50px;}
 .m_search_form {display: flex; align-items: center;}
 .search_option {border: none; outline: none; border: 1px solid #ccc; height: 30px; width: 100px;}
-.search_input {height: 30px; box-sizing: border-box; border: none; outline: none; border: 1px solid #ccc; margin-left: 5px; padding-left: 5px;}
-.search_btn {width: 50px; height: 30px; border: none; outline: none; border: 1px solid #ccc; border-left: 0;}
+.m_search_input {height: 30px; box-sizing: border-box; border: none; outline: none; border: 1px solid #ccc; margin-left: 5px; padding-left: 5px;}
+.m_search_btn {width: 50px; height: 30px; border: none; outline: none; border: 1px solid #ccc; border-left: 0;}
 /* userListPage.jsp, orgListPage.jsp end */

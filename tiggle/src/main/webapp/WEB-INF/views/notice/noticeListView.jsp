@@ -70,8 +70,8 @@
 							<option value="nWriter">작성자</option>
 						</select>
 	
-						<input type="text" name="keyword" class="search_input">
-						<input type="submit" value="검색" class="search_btn">
+						<input type="text" name="keyword" class="n_search_input">
+						<input type="submit" value="검색" class="n_search_btn">
 					</form>
 				</div><!-- mlist_search end -->
 
