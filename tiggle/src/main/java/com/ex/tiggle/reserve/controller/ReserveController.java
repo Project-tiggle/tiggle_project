@@ -19,7 +19,7 @@ public class ReserveController {
 	// 한줄평 등록 팝업 띄우는 메소드
 	@RequestMapping("remove.do")
 	public String moveReservePage() {
-		return "reserve/reserveForm";
+		return "reserve/reserveMain";
 	}
 	
 	// 현재 열려있는 페이지의 정보를 가져와서 예매창에 출력

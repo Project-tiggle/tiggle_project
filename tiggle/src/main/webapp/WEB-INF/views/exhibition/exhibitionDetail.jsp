@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -27,20 +28,61 @@ button{
 }
 
 #exhibitionDetailMenu nav ul li{
-	width: 250px;
+	width: 150px;
 	font-size: 16pt;
 	float: left;
 	font-weight: bold;
 	text-align: center;
 }
 
-#exhibitionDetailMenu nav ul li a:hover{
-	width: 250px;
-	font-size: 16pt;
-	float: left;
-	text-align: center;
-	font-weight: bolder;
-	background: lightgray;
+#exhibitionDetailMenu nav ul li a{
+font-weight: bold;
+  font-size: 30px;
+  text-decoration: none;
+  margin-right: 10px;
+  color: #000;
+  position: relative;
+}
+
+#exhibitionDetailMenu nav ul li a::before{
+  content: "";
+  height: 5px;
+  width: 0;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: 0.3s;
+  position: absolute;
+  bottom: -4px;
+  left: 48%;
+}
+
+#exhibitionDetailMenu nav ul li a:hover::before {
+  width: 50%;
+  background-color: #ff5f2c;
+}
+
+#exhibitionDetailMenu nav ul li a:hover {
+  color: #ff5f2c;
+}
+
+#exhibitionDetailMenu nav ul li a::after {
+  content: "";
+  height: 5px;
+  width: 0;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: 0.3s;
+  position: absolute;
+  bottom: -4px;
+  right: 48%;
+}
+#exhibitionDetailMenu nav ul li a:hover::after {
+  width: 50%;
+  background-color: #ff5f2c;
+}
+#exhibitionDetailMenu nav ul li a:focus {
+  width: 100%;
+  color: #ff5f2c;
 }
 
 #titlediv {
@@ -56,13 +98,13 @@ button{
 
 .detailc{
 	/* display: inline-block; */
-	width: 500px;
+	width: 600px;
 }
 
 div.sdiv {
 	border: 3px black;
 	background: lightgray;
-	width: 200x;
+	width: 150x;
 	width-max: 1280px;
 	left: 450px;
 	margin: 10px 0 0 0; 
@@ -82,6 +124,8 @@ div.sdiv {
 	font-size: 16pt;
 	border: 0.5px solid lightgray; 
 	font-weight: bold;
+	color: white;
+	background-color: #ff5f2c;
 }
 
 
@@ -92,7 +136,6 @@ div.sdiv {
 <script src="/tiggle/resources/js/script.js"></script>
 <script type="text/javascript">
 $(function(){
-	$('.navLink').eq(0).css('display', 'block');
 	$('.sdiv').eq(0).css('display', 'block');
 });// document.ready
 
@@ -153,13 +196,13 @@ function rePopupOpen() {
 			</div>		
 			<div class="detailc" >
 				<h1> ${ exhibition.title } </h1><br>
-				<p>기간 :<br>
+				<p><h3>기간 :</h3>
 				 ${ exhibition.startDate } ~ ${ exhibition.endDate }<br><br>
-				 장소 : <br>
+				 <h3>장소 :</h3>
 				 ${ exhibition.contributor }
 				 </p><br>
 				 
-				<button id="reserve_b" onclick="rePopupOpen()">예매하기</button>
+				<button id="reserve_b" onclick="remove.do?no=${ exhibition.totalId }" >예매하기</button>
 			</div>
 		</div>
 		<div id="exhibitionDetailMenu">
@@ -196,10 +239,27 @@ function rePopupOpen() {
 	<input type="hidden" name="action" value="review">
 	<fieldset>
 		<h2>한줄평</h2>
-		<button  onclick="rvPopupOpen()">등록</button>
+		<button onclick="rvPopupOpen()">등록</button>
 		<div>
-			한줄평 목록 출력
-			
+		<table align="center" width="650" border="1" cellspacing="0" cellpadding="0">
+			<tr>
+				<th>번호</th>
+				<th>작성자</th>
+				<th>내용</th>
+				<th>날짜</th>
+			</tr>
+		<c:forEach items="${ list }" var="rv">
+		<c:set var="i" value="${ i + 1 }"/>
+			<tr>
+				<td align="center">${ i }</td>
+				<td align="center">${ rv.nickName }</td>
+				<td align="left"> &nbsp; ${ rv.rContents }</td>
+				<td align="center">
+					<fmt:formatDate value="${rv.writeDate }" pattern="yyyy-MM-dd"/>
+				</td>
+			</tr>
+		</c:forEach>
+</table>
 		</div>
 	</fieldset>
 </div>

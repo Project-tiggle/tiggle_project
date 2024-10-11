@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,13 +16,22 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.exhibition.model.dto.Exhibition;
 import com.ex.tiggle.exhibition.model.service.ExhibitionService;
+import com.ex.tiggle.member.controller.MemberController;
+import com.ex.tiggle.review.model.dto.Review;
+import com.ex.tiggle.review.model.dto.ReviewPaging;
+import com.ex.tiggle.review.model.service.ReviewService;
 
 @Controller
 public class ExhibitionController {
-	
+	private static final Logger logger = LoggerFactory.getLogger(ExhibitionController.class);
 	@Autowired
 	private ExhibitionService exhibitionService;
-
+	
+	@Autowired
+	private ReviewService reviewService;
+	
+	
+	
 	// 전시 페이지 관련 컨트롤러
 	// 전시 페이지로 이동
 	@RequestMapping("exhibitionMain.do")
@@ -72,9 +83,28 @@ public class ExhibitionController {
 	public ModelAndView exhibitionDetailMethod(@RequestParam("no") String totalId , ModelAndView mv) {
 		
 		Exhibition exhibition = exhibitionService.selectListOne(totalId);
+		// 같은 totalId 를 갖는 한줄평 조회
+
+		int currentPage = 1;
+		// 한 페이지에 출력할 공지 갯수 10개로 지정
+		int limit = 10;
+		// 총 목록갯수 조회해서 총 페이지 수 계산
+		int listCount = reviewService.selectListCount(totalId);
+		
+		Paging paging = new Paging(listCount, limit, currentPage, "reviewList.do");
+		paging.calculate();
+		
+		ReviewPaging reviewPaging = new ReviewPaging();
+		reviewPaging.setTotalId(totalId);
+		reviewPaging.setStartRow(paging.getStartRow());
+		reviewPaging.setEndRow(paging.getEndRow());
+		// logger.info("a" + reviewPaging);
+		
+		ArrayList<Review> list = reviewService.selectList(reviewPaging);
 		
 		if (exhibition != null) {
 			mv.addObject("exhibition", exhibition);
+			mv.addObject("list", list);
 			mv.setViewName("exhibition/exhibitionDetail");
 			}
 		

@@ -14,8 +14,9 @@ public class Review implements java.io.Serializable {
 	private Date writeDate; 	// WRITE_DATE	DATE
 	private Date updateDate; 	// UPDATE_DATE	DATE
 	private String updateYN; 	// UPDATED_YN	CHAR(1 BYTE)
-	private Date deletedDate; 	// DELETE_AT	DATE
+	private Date deleteDate; 	// DELETE_AT	DATE
 	private String deleteYN; 	// DELETE_YN	CHAR(1 BYTE)
+	
 	
 	
 	public String getTotalId() {
@@ -67,10 +68,10 @@ public class Review implements java.io.Serializable {
 		this.updateYN = updateYN;
 	}
 	public Date getDeletedDate() {
-		return deletedDate;
+		return deleteDate;
 	}
 	public void setDeletedDate(Date deletedDate) {
-		this.deletedDate = deletedDate;
+		this.deleteDate = deletedDate;
 	}
 	public String getDeleteYN() {
 		return deleteYN;
@@ -79,6 +80,10 @@ public class Review implements java.io.Serializable {
 		this.deleteYN = deleteYN;
 	}
 	
+	
+	
+	public Review() {
+	}
 	
 	public Review(String totalId, String uuid, int rNum, String nickName, String rContents, Date writeDate) {
 		super();
@@ -102,7 +107,7 @@ public class Review implements java.io.Serializable {
 		this.writeDate = writeDate;
 		this.updateDate = updateDate;
 		this.updateYN = updateYN;
-		this.deletedDate = deletedDate;
+		this.deleteDate = deletedDate;
 		this.deleteYN = deleteYN;
 	}
 	
@@ -110,7 +115,7 @@ public class Review implements java.io.Serializable {
 	public String toString() {
 		return "Review [totalId=" + totalId + ", uuid=" + uuid + ", rNum=" + rNum + ", nickName=" + nickName
 				+ ", rContents=" + rContents + ", writeDate=" + writeDate + ", updateDate=" + updateDate + ", updateYN="
-				+ updateYN + ", deletedDate=" + deletedDate + ", deleteYN=" + deleteYN + "]";
+				+ updateYN + ", deletedDate=" + deleteDate + ", deleteYN=" + deleteYN + "]";
 	}
 	
 	

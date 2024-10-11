@@ -20,6 +20,8 @@
 		<typeAlias type="com.ex.tiggle.common.Paging" alias="Paging"/>
 		<typeAlias type="com.ex.tiggle.common.Search" alias="Search"/>
 		<typeAlias type="com.ex.tiggle.notice.model.dto.Notice" alias="Notice"/>
+		<typeAlias type="com.ex.tiggle.review.model.dto.Review" alias="Review"/>
+		<typeAlias type="com.ex.tiggle.review.model.dto.ReviewPaging" alias="ReviewPaging"/>
 		
 	</typeAliases>
 	
@@ -29,6 +31,7 @@
 		<mapper resource="mappers/orgregist-mapper.xml" />
 		<mapper resource="mappers/notice-mapper.xml" />
 		<mapper resource="mappers/map-mapper.xml" />
+		<mapper resource="mappers/review-mapper.xml" />
 		
 	</mappers>
 </configuration>
