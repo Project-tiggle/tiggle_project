@@ -17,12 +17,12 @@
 <table id="outer" align="center" width="700" cellspacing="5" cellpadding="5">
 	<tr><th width="120">전시 제목</th>
 		<td>
-			<input type="text" name="exhibitionTitle" size="50" >
+			<input type="text" name="exhibitionTitle" readonly value="test" >
 		</td>
 	</tr>
 	<tr><th width="120">작성자</th>
 		<td>
-			<input type="text" name="reviewWriter" readonly value="${ sessionScope.loginUser.userId }">
+			<input type="text" name="reviewWriter" readonly value="${ sessionScope.loginMember.id }">
 		</td>
 	</tr>
 	<tr><th>내 용</th>

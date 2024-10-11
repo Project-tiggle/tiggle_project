@@ -94,6 +94,7 @@ public class ExhibitionController {
 		Paging paging = new Paging(listCount, limit, currentPage, "reviewList.do");
 		paging.calculate();
 		
+				
 		ReviewPaging reviewPaging = new ReviewPaging();
 		reviewPaging.setTotalId(totalId);
 		reviewPaging.setStartRow(paging.getStartRow());

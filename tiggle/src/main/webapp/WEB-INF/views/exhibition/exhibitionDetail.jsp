@@ -162,7 +162,7 @@ function showdiv(tag){
 
 function rvPopupOpen() {
 	  // 팝업을 띄울 페이지 URL
-	  var popupURL = "rvmove.do";
+	  var popupURL = "rvmove.do?no=${ exhibition.totalId }";
 	  // 팝업 창의 속성
 	  var popupProperties = "width=600,height=400,scrollbars=no,left=600,top=200,location=no";
 	  // 팝업 열기
@@ -171,7 +171,7 @@ function rvPopupOpen() {
 
 function rePopupOpen() {
 	  // 팝업을 띄울 페이지 URL
-	  var popupURL = "remove.do";
+	  var popupURL = "remove.do?no=${ exhibition.totalId }";
 	  // 팝업 창의 속성
 	  var popupProperties = "width=600,height=400,scrollbars=no,left=600,top=200,location=no";
 	  // 팝업 열기
@@ -202,7 +202,7 @@ function rePopupOpen() {
 				 ${ exhibition.contributor }
 				 </p><br>
 				 
-				<button id="reserve_b" onclick="remove.do?no=${ exhibition.totalId }" >예매하기</button>
+				<button id="reserve_b"><a href="remove.do?no=${ exhibition.totalId }" >예매하기</a></button>
 			</div>
 		</div>
 		<div id="exhibitionDetailMenu">
@@ -237,9 +237,10 @@ function rePopupOpen() {
 <%-- 한줄평 클릭시 출력될 폼 --%>
 <div id="reviewdiv" class="sdiv">
 	<input type="hidden" name="action" value="review">
+			<c:if test="${ !empty sessionScope.loginMember }">
+				<button onclick="rvPopupOpen()">등록</button>
+			</c:if>
 	<fieldset>
-		<h2>한줄평</h2>
-		<button onclick="rvPopupOpen()">등록</button>
 		<div>
 		<table align="center" width="650" border="1" cellspacing="0" cellpadding="0">
 			<tr>
