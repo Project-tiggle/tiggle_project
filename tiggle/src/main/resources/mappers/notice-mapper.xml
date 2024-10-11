@@ -23,7 +23,7 @@
 	
 	<!-- 공지사항 총 목록갯수 -->
 	<select id="selectNoticeListCount" resultType="_int">
-		select count(*) from tb_notice
+		select count(*) from tb_notice where n_yn = 'Y'
 	</select>
 
 	<!-- 공지사항 총 목록 -->
@@ -31,11 +31,102 @@
 		select *
 		from (select rownum rnum, N_NO, N_WRITER, N_TITLE, N_DATE, N_CONTENT, N_FILE_URL, 
 		        N_ORIGINAL_FILEPATH, N_RENAME_FILEPATH, N_UPDATED_AT, N_DELETED_AT, N_YN, N_READCOUNT
-		        from (select * from tb_notice
+		        from (select * from tb_notice 
+		        		where n_yn = 'Y'
 		                order by N_DATE desc, N_NO desc))
 		where rnum between #{startRow} and #{endRow}
 	</select>
 	
+	
+	<!-- 공지사항 상세 내용보기 -->
+	<select id="selectNotice" parameterType="_int" resultMap="resultNotice">
+		select * from tb_notice
+		where n_no = #{ nNo }
+	</select>
+	
+	<!-- 조회수 1증가 처리 -->
+	<update id="updateAddReadCount" parameterType="_int">
+		update tb_notice
+		set n_readcount = n_readcount + 1
+		where n_no = #{ nNo }
+	</update>
+	
+	
+	<!-- 새 공지글 등록 -->
+	<insert id="insertNotice" parameterType="Notice">
+		insert into tb_notice
+		values ((select max(n_no) + 1 from tb_notice), #{nWriter}, #{nTitle}, sysdate, 
+				#{nContent}, null, #{nOriginalFilePath}, #{nRenameFilePath}, null,
+				null, 'Y', default)
+	</insert>
+	
+	<!-- 공지글 수정 -->
+	<update id="updateNotice" parameterType="Notice">
+		update tb_notice
+		<if test="nOriginalFilePath == null">
+			set n_title = #{nTitle}, n_writer = #{nWriter}, n_content = #{nContent},
+				N_ORIGINAL_FILEPATH = null, N_RENAME_FILEPATH = null, N_UPDATED_AT = sysdate
+		</if>
+		<if test="nOriginalFilePath != null">
+			set n_title = #{nTitle}, n_writer = #{nWriter}, n_content = #{nContent},
+				N_ORIGINAL_FILEPATH = #{nOriginalFilePath}, N_RENAME_FILEPATH = #{nRenameFilePath}, 
+				N_UPDATED_AT = sysdate
+		</if>
+		where n_no = #{ nNo }
+	</update>
+		
+	<!-- 공지글 삭제 -->
+	<update id="updateDeleteNotice" parameterType="_int">
+		update tb_notice
+		set n_yn = 'N'
+		where n_no = #{ nNo }
+	</update>
+
+
+	<!-- 공지글 검색용 -->
+	<select id="selectSearchNNoCount" resultType="_int" parameterType="string">
+		select count(*) from tb_notice
+		where n_no like '%' || #{ keyword } || '%'
+	</select>
+	<select id="selectSearchNTitleCount" resultType="_int" parameterType="string">
+		select count(*) from tb_notice
+		where n_title like '%' || #{ keyword } || '%'
+	</select>
+	<select id="selectSearchNWriterCount" resultType="_int" parameterType="string">
+		select count(*) from tb_notice
+		where n_writer like '%' || #{ keyword } || '%'
+	</select>
+	
+	<select id="selectSearchNNo" resultMap="resultNotice" parameterType="Search">
+		select *
+		from (select rownum rnum, N_NO, N_WRITER, N_TITLE, N_DATE, N_CONTENT,
+		                N_FILE_URL, N_ORIGINAL_FILEPATH, N_RENAME_FILEPATH, N_UPDATED_AT, 
+		                N_DELETED_AT, N_YN, N_READCOUNT
+		        from (select * from tb_notice
+		        		where n_no like '%' || #{ keyword } || '%'
+		                order by N_DATE desc, N_NO desc))
+		where rnum between #{startRow} and #{endRow}
+	</select>
+	<select id="selectSearchNTitle" resultMap="resultNotice" parameterType="Search">
+		select *
+		from (select rownum rnum, N_NO, N_WRITER, N_TITLE, N_DATE, N_CONTENT,
+		                N_FILE_URL, N_ORIGINAL_FILEPATH, N_RENAME_FILEPATH, N_UPDATED_AT, 
+		                N_DELETED_AT, N_YN, N_READCOUNT
+		        from (select * from tb_notice
+		        		where n_title like '%' || #{ keyword } || '%'
+		                order by N_DATE desc, N_NO desc))
+		where rnum between #{startRow} and #{endRow}
+	</select>
+	<select id="selectSearchNWriter" resultMap="resultNotice" parameterType="Search">
+		select *
+		from (select rownum rnum, N_NO, N_WRITER, N_TITLE, N_DATE, N_CONTENT,
+		                N_FILE_URL, N_ORIGINAL_FILEPATH, N_RENAME_FILEPATH, N_UPDATED_AT, 
+		                N_DELETED_AT, N_YN, N_READCOUNT
+		        from (select * from tb_notice
+		        		where n_writer like '%' || #{ keyword } || '%'
+		                order by N_DATE desc, N_NO desc))
+		where rnum between #{startRow} and #{endRow}
+	</select>
 	
 	
 	
