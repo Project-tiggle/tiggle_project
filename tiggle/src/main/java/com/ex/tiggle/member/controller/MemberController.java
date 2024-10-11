@@ -517,7 +517,7 @@ public class MemberController {
 	//USER 검색용(관리자용)
 	@RequestMapping(value="userSearch.do", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView userSearchMethod(ModelAndView mv, HttpServletRequest request) {
-		String keyword = request.getParameter("keyword");
+		String keyword = request.getParameter("keyword").trim();
 		String sOption = request.getParameter("sOption");
 		Search search = new Search();
 		
@@ -594,7 +594,7 @@ public class MemberController {
 	//ORGANIZER 검색용(관리자용)
 	@RequestMapping(value="orgSearch.do", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView orgSearchMethod(ModelAndView mv, HttpServletRequest request) {
-		String keyword = request.getParameter("keyword");
+		String keyword = request.getParameter("keyword").trim();
 		String sOption = request.getParameter("sOption");
 		Search search = new Search();
 		

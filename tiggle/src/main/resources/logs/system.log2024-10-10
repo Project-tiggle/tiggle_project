@@ -1,0 +1,381 @@
+[09:57:07][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[09:57:07][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 524 ms
+[09:57:07][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[09:57:07][INFO ][FrameworkServlet.java: 547] - Completed initialization in 352 ms
+[09:57:24][INFO ][MemberController.java: 114] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[09:58:31][INFO ][MemberController.java: 480] - mEditPage.do : b19c0db5-28c3-472d-aedc-0c974c5a70cf
+[09:58:37][INFO ][MemberController.java: 499] - mEdit.do : Member [uuid=b19c0db5-28c3-472d-aedc-0c974c5a70cf, id=test10, pwd=, name=테스트10, phone=010-0000-0010, email=ljh1004im@naver.com, nickname=텐텐, address=서울시 서초구 서초대로77길 41, 10층, gender=null, signtype=null, marketingYN=Y, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=USER, signUpAt=2024-10-07, updatedAt=2024-10-07, loginOk=Y, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:00:11][INFO ][MemberController.java: 480] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:01:18][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:01:19][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 480 ms
+[10:01:19][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:01:19][INFO ][FrameworkServlet.java: 547] - Completed initialization in 362 ms
+[10:01:27][INFO ][MemberController.java: 480] - mEditPage.do : 66ed7c28-b227-447b-9d0d-7d3713fa85f4
+[10:01:32][INFO ][MemberController.java: 480] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:01:47][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:01:47][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 479 ms
+[10:01:47][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:01:48][INFO ][FrameworkServlet.java: 547] - Completed initialization in 371 ms
+[10:01:54][INFO ][MemberController.java: 480] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:01:59][INFO ][MemberController.java: 499] - mEdit.do : Member [uuid=32d970fa-ef31-4e20-94b9-79f38fe9e113, id=test11, pwd=, name=이름11, phone=010-0000-0011, email=ljh1004im@naver.com, nickname=닉닉11, address=, gender=null, signtype=TIGGLE, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=USER, signUpAt=2024-10-08, updatedAt=2024-10-09, loginOk=Y, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:02:06][INFO ][MemberController.java: 480] - mEditPage.do : b19c0db5-28c3-472d-aedc-0c974c5a70cf
+[10:02:10][INFO ][MemberController.java: 499] - mEdit.do : Member [uuid=b19c0db5-28c3-472d-aedc-0c974c5a70cf, id=test10, pwd=, name=테스트10, phone=010-0000-0010, email=ljh1004im@naver.com, nickname=텐텐, address=서울시 서초구 서초대로77길 41, 10층, gender=null, signtype=TIGGLE, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=USER, signUpAt=2024-10-07, updatedAt=2024-10-07, loginOk=Y, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:02:27][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:02:27][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 474 ms
+[10:02:27][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:02:27][INFO ][FrameworkServlet.java: 547] - Completed initialization in 357 ms
+[10:04:45][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:04:45][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 473 ms
+[10:04:45][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:04:45][INFO ][FrameworkServlet.java: 547] - Completed initialization in 364 ms
+[10:04:59][INFO ][MemberController.java: 480] - mEditPage.do : d6f52974-87ed-45f4-ac17-83f2be659f8e
+[10:05:21][INFO ][MemberController.java: 480] - mEditPage.do : 1b682924-b4fd-424c-800c-f47839f8ee72
+[10:05:29][INFO ][MemberController.java: 499] - mEdit.do : Member [uuid=1b682924-b4fd-424c-800c-f47839f8ee72, id=orgtest10, pwd=, name=이수진, phone=010-0010-0010, email=yesorno@test.org, nickname=null, address= 서울시 서초구 서초대로77길 41, 48층, gender=null, signtype=TIGGLE, marketingYN=Y, orgName=테스트기관10, orgTel=02-858-1234, orgEmail=ljh1004im@naver.com, mngDept=, mngJobId=, memberType=ORGANIZER, signUpAt=2024-10-07, updatedAt=2024-10-09, loginOk=Y, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:05:59][INFO ][MemberController.java: 480] - mEditPage.do : 1b682924-b4fd-424c-800c-f47839f8ee72
+[10:06:48][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:06:49][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 472 ms
+[10:06:49][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:06:49][INFO ][FrameworkServlet.java: 547] - Completed initialization in 360 ms
+[10:08:18][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:08:19][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 474 ms
+[10:08:19][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:08:19][INFO ][FrameworkServlet.java: 547] - Completed initialization in 357 ms
+[10:08:22][INFO ][MemberController.java: 480] - mEditPage.do : 1b682924-b4fd-424c-800c-f47839f8ee72
+[10:08:55][INFO ][MemberController.java: 480] - mEditPage.do : d6f52974-87ed-45f4-ac17-83f2be659f8e
+[10:09:26][INFO ][MemberController.java: 480] - mEditPage.do : 5b6c7d8e-9f0g-1h2i-3j4k-5l6m7n8o9p0u
+[10:09:41][INFO ][MemberController.java: 480] - mEditPage.do : 5b6c7d8e-9f0g-1h2i-3j4k-5l6m7n8o9p0u
+[10:14:48][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:14:48][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 470 ms
+[10:14:49][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:14:49][INFO ][FrameworkServlet.java: 547] - Completed initialization in 369 ms
+[10:15:04][INFO ][MemberController.java: 481] - mEditPage.do : 5b6c7d8e-9f0g-1h2i-3j4k-5l6m7n8o9p0u
+[10:15:39][INFO ][MemberController.java: 500] - mEdit.do : Member [uuid=5b6c7d8e-9f0g-1h2i-3j4k-5l6m7n8o9p0u, id=org05, pwd=, name=유진, phone=010-5678-9012, email=, nickname=null, address=, gender=null, signtype=TIGGLE, marketingYN=null, orgName=대구미술관, orgTel=02-5678-9012, orgEmail=dgm@daegu.go.kr, mngDept=미래기획팀, mngJobId=부장, memberType=ORGANIZER, signUpAt=2024-09-30, updatedAt=2024-09-30, loginOk=N, deletedYN=Y, deletedAt=2024-09-30, deletedReason=폐업]
+[10:19:12][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:19:27][INFO ][MemberController.java: 481] - mEditPage.do : 66ed7c28-b227-447b-9d0d-7d3713fa85f4
+[10:21:40][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:21:40][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 483 ms
+[10:21:40][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:21:41][INFO ][FrameworkServlet.java: 547] - Completed initialization in 364 ms
+[10:21:46][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:22:06][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:23:11][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:23:12][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 471 ms
+[10:23:12][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:23:12][INFO ][FrameworkServlet.java: 547] - Completed initialization in 368 ms
+[10:23:17][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:23:34][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:23:40][INFO ][MemberController.java: 481] - mEditPage.do : 7c02b5ae-2cbe-445f-929c-8af873f86e3f
+[10:33:46][INFO ][MemberController.java: 481] - mEditPage.do : a2f028c1-f6e6-40c4-a984-26f6ce88e95f
+[10:34:35][INFO ][MemberController.java: 481] - mEditPage.do : 1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p
+[10:34:42][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:34:45][INFO ][MemberController.java: 500] - mEdit.do : Member [uuid=32d970fa-ef31-4e20-94b9-79f38fe9e113, id=test11, pwd=, name=이름11, phone=010-0000-0011, email=ljh1004im@naver.com, nickname=닉닉11, address=, gender=null, signtype=TIGGLE, marketingYN=Y, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=USER, signUpAt=2024-10-08, updatedAt=2024-10-09, loginOk=Y, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:34:49][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:34:52][INFO ][MemberController.java: 500] - mEdit.do : Member [uuid=32d970fa-ef31-4e20-94b9-79f38fe9e113, id=test11, pwd=, name=이름11, phone=010-0000-0011, email=ljh1004im@naver.com, nickname=닉닉11, address=, gender=null, signtype=TIGGLE, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=USER, signUpAt=2024-10-08, updatedAt=2024-10-09, loginOk=Y, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:34:56][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:39:46][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:39:47][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 472 ms
+[10:39:47][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:39:47][INFO ][FrameworkServlet.java: 547] - Completed initialization in 362 ms
+[10:39:54][INFO ][MemberController.java: 481] - mEditPage.do : b19c0db5-28c3-472d-aedc-0c974c5a70cf
+[10:40:31][INFO ][MemberController.java: 481] - mEditPage.do : b19c0db5-28c3-472d-aedc-0c974c5a70cf
+[10:41:13][INFO ][MemberController.java: 481] - mEditPage.do : b19c0db5-28c3-472d-aedc-0c974c5a70cf
+[10:43:14][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:43:15][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 485 ms
+[10:43:15][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:43:15][INFO ][FrameworkServlet.java: 547] - Completed initialization in 374 ms
+[10:43:18][INFO ][MemberController.java: 481] - mEditPage.do : b19c0db5-28c3-472d-aedc-0c974c5a70cf
+[10:43:21][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:44:00][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:44:36][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:44:37][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 490 ms
+[10:44:37][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:44:37][INFO ][FrameworkServlet.java: 547] - Completed initialization in 370 ms
+[10:44:42][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:46:03][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:46:09][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:46:10][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 500 ms
+[10:46:10][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:46:10][INFO ][FrameworkServlet.java: 547] - Completed initialization in 394 ms
+[10:46:30][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:46:31][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 471 ms
+[10:46:31][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:46:31][INFO ][FrameworkServlet.java: 547] - Completed initialization in 361 ms
+[10:46:34][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:46:55][INFO ][MemberController.java: 114] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:46:59][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:48:18][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:48:18][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 483 ms
+[10:48:18][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:48:18][INFO ][FrameworkServlet.java: 547] - Completed initialization in 370 ms
+[10:48:29][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:48:36][INFO ][MemberController.java: 500] - mEdit.do : Member [uuid=32d970fa-ef31-4e20-94b9-79f38fe9e113, id=test11, pwd=, name=이름11, phone=010-0000-0011, email=ljh1004im@naver.com, nickname=닉닉11, address=, gender=null, signtype=TIGGLE, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=USER, signUpAt=2024-10-08, updatedAt=2024-10-09, loginOk=N, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:48:47][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:48:51][INFO ][MemberController.java: 500] - mEdit.do : Member [uuid=32d970fa-ef31-4e20-94b9-79f38fe9e113, id=test11, pwd=, name=이름11, phone=010-0000-0011, email=ljh1004im@naver.com, nickname=닉닉11, address=, gender=null, signtype=TIGGLE, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=USER, signUpAt=2024-10-08, updatedAt=2024-10-09, loginOk=Y, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:49:05][INFO ][MemberController.java: 500] - mEdit.do : Member [uuid=32d970fa-ef31-4e20-94b9-79f38fe9e113, id=test11, pwd=, name=이름11, phone=010-0000-0011, email=ljh1004im@naver.com, nickname=닉닉11, address=, gender=null, signtype=TIGGLE, marketingYN=Y, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=USER, signUpAt=2024-10-08, updatedAt=2024-10-09, loginOk=Y, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:49:55][INFO ][MemberController.java: 500] - mEdit.do : Member [uuid=32d970fa-ef31-4e20-94b9-79f38fe9e113, id=test11, pwd=, name=이름11, phone=010-0000-0011, email=ljh1004im@naver.com, nickname=닉닉11, address=, gender=null, signtype=TIGGLE, marketingYN=Y, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=USER, signUpAt=2024-10-08, updatedAt=2024-10-09, loginOk=Y, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:51:22][INFO ][MemberController.java: 500] - mEdit.do : Member [uuid=32d970fa-ef31-4e20-94b9-79f38fe9e113, id=test11, pwd=, name=이름11, phone=010-0000-0011, email=ljh1004im@naver.com, nickname=닉닉11, address=, gender=null, signtype=TIGGLE, marketingYN=Y, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=USER, signUpAt=2024-10-08, updatedAt=2024-10-09, loginOk=Y, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:51:42][INFO ][MemberController.java: 114] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[10:51:47][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[10:52:13][INFO ][MemberController.java: 481] - mEditPage.do : d6f52974-87ed-45f4-ac17-83f2be659f8e
+[10:53:39][INFO ][MemberController.java: 481] - mEditPage.do : d6f52974-87ed-45f4-ac17-83f2be659f8e
+[11:04:54][INFO ][MemberController.java: 481] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[11:20:19][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[11:20:20][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 494 ms
+[11:20:20][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[11:20:20][INFO ][FrameworkServlet.java: 547] - Completed initialization in 374 ms
+[13:04:56][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[13:04:57][WARN ][AbstractApplicationContext.java: 591] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'Search'.  Cause: java.lang.ClassNotFoundException: Cannot find class: Search
+[13:04:57][ERROR][ContextLoader.java: 313] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'Search'.  Cause: java.lang.ClassNotFoundException: Cannot find class: Search
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:934)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:401)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:292)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4007)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4448)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:721)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:211)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:415)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:878)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:735)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'Search'.  Cause: java.lang.ClassNotFoundException: Cannot find class: Search
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:590)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:491)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 42 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'Search'.  Cause: java.lang.ClassNotFoundException: Cannot find class: Search
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:122)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:99)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:587)
+	... 45 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/member-mapper.xml'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'Search'.  Cause: java.lang.ClassNotFoundException: Cannot find class: Search
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:123)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:95)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.mapperElement(XMLConfigBuilder.java:377)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:120)
+	... 47 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'Search'.  Cause: java.lang.ClassNotFoundException: Cannot find class: Search
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:76)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:138)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:131)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:121)
+	... 50 more
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'Search'.  Cause: java.lang.ClassNotFoundException: Cannot find class: Search
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 54 more
+Caused by: java.lang.ClassNotFoundException: Cannot find class: Search
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:196)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 56 more
+[13:06:24][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[13:06:24][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 479 ms
+[13:06:24][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[13:06:25][INFO ][FrameworkServlet.java: 547] - Completed initialization in 364 ms
+[13:06:38][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[13:07:29][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/msearch.do
+[13:09:31][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[13:09:32][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 478 ms
+[13:09:32][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[13:09:32][INFO ][FrameworkServlet.java: 547] - Completed initialization in 365 ms
+[13:09:39][WARN ][AbstractHandlerExceptionResolver.java: 208] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+[13:10:48][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[13:10:48][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 490 ms
+[13:10:48][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[13:10:48][INFO ][FrameworkServlet.java: 547] - Completed initialization in 363 ms
+[14:18:03][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:18:04][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 568 ms
+[14:18:04][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:18:04][INFO ][FrameworkServlet.java: 547] - Completed initialization in 367 ms
+[14:33:17][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:33:17][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 473 ms
+[14:33:17][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:33:17][INFO ][FrameworkServlet.java: 547] - Completed initialization in 375 ms
+[14:44:05][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:44:06][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 482 ms
+[14:44:06][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:44:06][INFO ][FrameworkServlet.java: 547] - Completed initialization in 365 ms
+[14:44:27][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[14:53:51][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:53:52][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 484 ms
+[14:53:52][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:53:52][INFO ][FrameworkServlet.java: 547] - Completed initialization in 375 ms
+[14:57:08][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:57:09][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 477 ms
+[14:57:09][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:57:09][INFO ][FrameworkServlet.java: 547] - Completed initialization in 369 ms
+[14:59:45][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:59:46][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 493 ms
+[14:59:46][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:59:46][INFO ][FrameworkServlet.java: 547] - Completed initialization in 373 ms
+[15:02:28][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:02:28][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 483 ms
+[15:02:28][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:02:28][INFO ][FrameworkServlet.java: 547] - Completed initialization in 369 ms
+[15:07:22][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:07:22][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 481 ms
+[15:07:22][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:07:22][INFO ][FrameworkServlet.java: 547] - Completed initialization in 364 ms
+[15:08:15][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:08:15][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 476 ms
+[15:08:15][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:08:16][INFO ][FrameworkServlet.java: 547] - Completed initialization in 367 ms
+[15:08:49][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:08:49][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 484 ms
+[15:08:49][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:08:50][INFO ][FrameworkServlet.java: 547] - Completed initialization in 367 ms
+[15:10:43][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:10:44][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 494 ms
+[15:10:44][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:10:44][INFO ][FrameworkServlet.java: 547] - Completed initialization in 362 ms
+[15:27:41][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:27:41][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 505 ms
+[15:27:41][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:27:42][INFO ][FrameworkServlet.java: 547] - Completed initialization in 366 ms
+[15:28:39][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:28:40][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 479 ms
+[15:28:40][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:28:40][INFO ][FrameworkServlet.java: 547] - Completed initialization in 362 ms
+[15:29:32][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:29:33][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 485 ms
+[15:29:33][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:29:33][INFO ][FrameworkServlet.java: 547] - Completed initialization in 366 ms
+[15:30:32][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:30:32][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 493 ms
+[15:30:32][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:30:33][INFO ][FrameworkServlet.java: 547] - Completed initialization in 366 ms
+[15:33:56][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:33:57][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 482 ms
+[15:33:57][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:33:57][INFO ][FrameworkServlet.java: 547] - Completed initialization in 366 ms
+[15:35:34][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:35:35][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 480 ms
+[15:35:35][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:35:35][INFO ][FrameworkServlet.java: 547] - Completed initialization in 370 ms
+[15:35:45][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[15:36:40][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:36:40][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 481 ms
+[15:36:40][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:36:40][INFO ][FrameworkServlet.java: 547] - Completed initialization in 381 ms
+[15:36:49][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[15:39:21][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:39:21][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 481 ms
+[15:39:21][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:39:22][INFO ][FrameworkServlet.java: 547] - Completed initialization in 377 ms
+[15:40:25][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:40:25][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 482 ms
+[15:40:25][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:40:26][INFO ][FrameworkServlet.java: 547] - Completed initialization in 372 ms
+[15:42:08][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:42:09][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 481 ms
+[15:42:09][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:42:09][INFO ][FrameworkServlet.java: 547] - Completed initialization in 361 ms
+[15:58:03][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:58:03][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 499 ms
+[15:58:03][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:58:04][INFO ][FrameworkServlet.java: 547] - Completed initialization in 378 ms
+[16:00:26][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[16:01:48][INFO ][MemberController.java: 480] - mEditPage.do : 32d970fa-ef31-4e20-94b9-79f38fe9e113
+[16:44:49][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:44:49][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 484 ms
+[16:44:49][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:44:50][INFO ][FrameworkServlet.java: 547] - Completed initialization in 386 ms
+[16:57:19][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:57:20][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 508 ms
+[16:57:20][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:57:20][INFO ][FrameworkServlet.java: 547] - Completed initialization in 466 ms
+[16:57:26][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[16:59:07][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:59:07][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 501 ms
+[16:59:07][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:59:08][INFO ][FrameworkServlet.java: 547] - Completed initialization in 378 ms
+[17:36:20][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[17:36:21][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 527 ms
+[17:36:21][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[17:36:21][INFO ][FrameworkServlet.java: 547] - Completed initialization in 379 ms
+[17:36:26][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[17:36:27][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 482 ms
+[17:36:27][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[17:36:27][INFO ][FrameworkServlet.java: 547] - Completed initialization in 386 ms
+[18:09:59][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:09:59][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 485 ms
+[18:09:59][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:09:59][INFO ][FrameworkServlet.java: 547] - Completed initialization in 390 ms
+[18:14:04][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:14:04][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 494 ms
+[18:14:04][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:14:05][INFO ][FrameworkServlet.java: 547] - Completed initialization in 380 ms
+[18:15:51][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:15:52][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 482 ms
+[18:15:52][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:15:52][INFO ][FrameworkServlet.java: 547] - Completed initialization in 366 ms
+[18:16:03][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[18:20:00][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:20:01][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 481 ms
+[18:20:01][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:20:01][INFO ][FrameworkServlet.java: 547] - Completed initialization in 369 ms
+[18:20:54][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:20:55][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 490 ms
+[18:20:55][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:20:55][INFO ][FrameworkServlet.java: 547] - Completed initialization in 366 ms
+[18:21:05][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[18:24:39][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:24:39][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 488 ms
+[18:24:39][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:24:40][INFO ][FrameworkServlet.java: 547] - Completed initialization in 362 ms
+[18:26:04][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:26:04][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 505 ms
+[18:26:04][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:26:05][INFO ][FrameworkServlet.java: 547] - Completed initialization in 378 ms
+[18:26:28][INFO ][MemberController.java: 480] - mEditPage.do : 83cf0280-ba55-4d6c-94ac-ca2cdb49234d
+[18:26:39][INFO ][MemberController.java: 73] - 마케팅 동의 값 확인: Y
+[22:17:26][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:17:27][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 491 ms
+[22:17:27][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:17:27][INFO ][FrameworkServlet.java: 547] - Completed initialization in 365 ms
+[22:19:37][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[22:52:32][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:52:33][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 488 ms
+[22:52:33][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:52:33][INFO ][FrameworkServlet.java: 547] - Completed initialization in 375 ms
+[22:57:56][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:57:56][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 496 ms
+[22:57:56][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:57:57][INFO ][FrameworkServlet.java: 547] - Completed initialization in 387 ms
