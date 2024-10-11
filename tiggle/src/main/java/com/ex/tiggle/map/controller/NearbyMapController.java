@@ -28,6 +28,7 @@ public class NearbyMapController {
 		ArrayList<NearbyMap> exhibitList = nearbyMapService.selectLocList();
 		String ak = "https://dapi.kakao.com/v2/maps/sdk.js?appkey=e1972ed25349a231bccee750d03753b3";
 		
+		// 검색 값이 있을때만 작동-------------------------------------------------------------------
 		if (keyword != null && keyword.length() > 0) {
 			try {
 	            // 상세 주소를 기반으로 좌표 데이터를 얻어오기
@@ -49,7 +50,7 @@ public class NearbyMapController {
 	        	model.addAttribute("message", "주소를 정확히 입력해주세요");
 	        	return "common/error";
 	        }
-		}
+		} // 검색 값이 있을때만 작동------------------------------------------------------------------
 		
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("exList", exhibitList);

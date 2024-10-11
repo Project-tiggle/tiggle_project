@@ -33,22 +33,20 @@
 	  	</c:forEach>
   	</script>
   	<div id="mapOuter">
-	  	<h2 id="mapTitle">내 주변 전시</h2>	
-		<table>
+	  	<table>
+	  		<tr>
+	  			<td><h2 id="mapTitle">내 주변 전시</h2></td>
+	  		</tr>
 			<tr>
 				<td colspan="5" class="search-container">
 					<form action="nearbyMap.do" id="titleform" class="sform" method="get">
-						<input type="hidden" name="action" value="title">
-						<fieldset>
-						<legend>주소로 검색하기</legend>
-							<input type="search" name="keyword" size="50"> &nbsp;
-							<input type="submit" value="검색">
-						</fieldset>
+						<input type="search" name="keyword" size="50">
+						<input type="submit" value="Search">
 					</form>
 				</td>
 			</tr>
 	
-			<tr>
+			<tr id="mapOuter">
 				<td colspan="5">
 					<div id="map"><!-- 카카오 지도 표시 --></div>
 				</td>
