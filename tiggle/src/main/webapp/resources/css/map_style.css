@@ -13,65 +13,20 @@ td, th {
 	text-align: center; /* 셀 안의 텍스트 가운데 정렬 */
 }
 
+#mapOuter{
+	margin: 50px 0 20px;
+}
+
 #map {
 	width: 100%;
-	height: 350px;
+	height: 450px;
 }
 
-.exhibit-grid {
-	display: flex; /* 플렉스 박스로 배치, 가로로 배치되며 쉽게 정렬할 수 있게함 */
-	flex-wrap: wrap; /* 플렉스 항목이 화면을 다 채우면 다음줄에 정렬 */
-	justify-content: space-between; /* 자식 요소를 양끝으로 배치하고, 요소들 간의 간격을 균등 설정 */
-	max-width: 1280px;
-	width: 80%;
-	margin: auto; /* 가운데 정렬 */
-}
-
-/* 전시 항목 설정 */
-.exhibit-container {
-	width: 48%; /* 2개씩 배치하기 위해 48%로 설정 */
+#mapTitle {
+	color: #ff5f2c;
+	font-size: 24px;
 	margin-bottom: 20px;
-	display: flex; /* 포스터와 상세 정보를 가로로 나란히 배치 */
-	border: 1px solid #ccc; /* 연한 회색 */
-	padding: 10px;
-	box-sizing: border-box; /* width, padding, border 가 포함된 상태로 크기 설정 */
-}
-
-/* 포스터 설정 (왼쪽에 배치) */
-.poster {
-	width: 40%;
-	height: 200px;
-	background-color: #eee;
-	margin-right: 10px; /* 포스터와 요약 정보 사이에 10px의 간격 추가 */
-}
-
-/* 요약 정보 및 상세보기 설정 (오른쪽에 배치) */
-.summary-details {
-	width: 60%; /* 나머지 60%는 요약 정보와 상세보기 버튼 */
-	display: flex;
-	flex-direction: column; /* 플렉스 항목을 위에서 아래로 세로로 배치 */
-	justify-content: space-between; /* 요약 정보와 상세보기 버튼이 위아래로 간격을 두고 배치 */
-}
-
-.summary {
-	width: 100%;
-	height: 100px;
-	margin-bottom: 10px;
-	text-align: left;
-}
-
-.details-btn {
-	padding: 5px 10px;
-	background-color: #ddd;
-	text-decoration: none; /* 텍스트 아래의 밑줄 없앰 */
-	border: none;
-	width: 100%;
-	text-align: center; /* 버튼안의 텍스트 가운데 정렬 */
-	cursor: pointer; /* 손모양 커서 */
-}
-
-.details-btn:hover {
-	background-color: #bbb;
+	text-align: center;
 }
 
 .search-container {
@@ -81,4 +36,76 @@ td, th {
 
 .search-btn {
 	cursor: pointer;
+}
+
+/* 전시회 목록 전체를 담을 컨테이너 */
+.exhibit-grid {
+    display: flex;
+    flex-wrap: wrap; /* 전시 항목이 화면을 다 채우면 다음줄에 정렬 */
+    justify-content: space-between; /* 항목 간의 간격을 자동 조정 */
+    max-width: 1280px;
+    width: 80%;
+    margin: 30px auto; /* 전체 컨테이너를 가운데 정렬 */
+}
+
+/* 전시 항목을 담는 컨테이너 */
+.exhibition-item {
+    display: flex; /* 포스터와 요약 정보를 가로로 나란히 배치 */
+    width: 48%; /* 2개씩 배치하기 위해 각 항목을 48%로 설정 */
+    margin-bottom: 20px;
+    border: 1px solid #ccc; /* 연한 회색 테두리 */
+    padding: 10px;
+    box-sizing: border-box; /* padding과 border를 포함한 박스 크기 설정 */
+}
+
+.exhibition-item .summary-details {
+	width: 40%
+}
+
+/* 포스터 설정 (왼쪽) */
+.exhibition-poster {
+	margin: 0 auto;
+    width: 225px;
+    height: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+
+.exhibition-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 요약 정보 및 상세보기 버튼 설정 (오른쪽) */
+.exhibition-details {
+    width: 60%; /* 요약 정보와 버튼이 나머지 60% 차지 */
+    display: flex;
+    flex-direction: column; /* 요약 정보와 상세보기 버튼을 세로로 배치 */
+    justify-content: space-between; /* 위아래로 균등 배치 */
+}
+
+/* 요약 정보 스타일 */
+.exhibition-summary {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* 상세보기 버튼 스타일 */
+.exhibition-btn {
+    padding: 10px;
+    background-color: #ddd;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.exhibition-btn:hover {
+    background-color: #bbb;
 }
