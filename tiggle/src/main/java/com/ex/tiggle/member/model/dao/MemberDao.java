@@ -204,6 +204,14 @@ public class MemberDao {
 	public Member selectFindOrganizer(Member member) {
 		return sqlSessionTemplate.selectOne("memberMapper.selectFindOrganizer", member);
 	}//ORGANIZER 찾기(아이디,기관명,이메일)
+
+	public Member selectSocialLogin(String email) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectSocialLogin", email);
+	}//이메일로 소셜로그인
+
+	public int insertSocialMember(Member member) {
+		return sqlSessionTemplate.insert("memberMapper.insertSocialMember", member);
+	}//소셜 회원가입
 	
 	
 	

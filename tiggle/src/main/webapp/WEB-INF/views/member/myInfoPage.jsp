@@ -62,18 +62,35 @@
 	
 						<div class="myinfo_list">
 							<p>비밀번호</p>
-							<input type="password" name="pwd" id="myinfo_pwd">
-							<span>8_20자 영문, 숫자, 특수문자 사용</span>
+							<c:if test="${ requestScope.member.signtype eq 'TIGGLE' }">
+								<input type="password" name="pwd" id="myinfo_pwd">
+								<span>8_20자 영문, 숫자, 특수문자 사용</span>
+							</c:if>
+							<c:if test="${ requestScope.member.signtype ne 'TIGGLE' }">
+								<input type="password" name="pwd" id="myinfo_pwd" class="bg_eee" readonly>
+								<span>소셜로그인 회원은 변경할 수 없습니다</span>
+							</c:if>
 						</div><!-- myinfo_list end -->
 	
 						<div class="myinfo_list bc_333">
 							<p>비밀번호 확인</p>
-							<input type="password" id="myinfo_pwd2">
+							<c:if test="${ requestScope.member.signtype eq 'TIGGLE' }">
+								<input type="password" id="myinfo_pwd2">
+							</c:if>
+							<c:if test="${ requestScope.member.signtype ne 'TIGGLE' }">
+								<input type="password" id="myinfo_pwd2" class="bg_eee" readonly>
+							</c:if>
 						</div><!-- myinfo_list end -->
 	
 						<div class="myinfo_list">
 							<p>이메일</p>
-							<input type="email" name="email" id="myinfo_email" value="${ requestScope.member.email }" required>
+							<c:if test="${ requestScope.member.signtype eq 'TIGGLE' }">
+								<input type="email" name="email" id="myinfo_email" value="${ requestScope.member.email }" required>							
+							</c:if>
+							<c:if test="${ requestScope.member.signtype ne 'TIGGLE' }">
+								<input type="email" name="email" id="myinfo_email" class="bg_eee" value="${ requestScope.member.email }" readonly>							
+								<span>소셜로그인 회원은 변경할 수 없습니다</span>
+							</c:if>
 						</div><!-- myinfo_list end -->
 	
 						<div class="myinfo_list">

@@ -228,6 +228,16 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.selectFindOrganizer(member);
 	}//ORGANIZER 찾기(아이디,기관명,이메일)
 
+	@Override
+	public Member selectSocialLogin(String email) {
+		return memberDao.selectSocialLogin(email);
+	}//이메일로 소셜로그인
+
+	@Override
+	public int insertSocialMember(Member member) {
+		return memberDao.insertSocialMember(member);
+	}//소셜 회원가입
+
 	
 	
 	
