@@ -155,13 +155,13 @@ function mailSend() {
 };//mailSend() end
 
 function mailValidate() {
-  if ($('#mail_check_input').val() == '') {
+  if ($('#mail_check_input').val().trim() == '') {
     alert('인증번호를 입력해 주세요.');
     $('#mail_check_input').focus();
     return false;
   }
 
-   if($('#mail_check_input').val() == certifyCode) {
+   if($('#mail_check_input').val().trim() == certifyCode) {
       alert('인증번호가 일치합니다.');
       $('#email_double_check').val('true');
       $('#mail_check_input').attr('disabled', true);
@@ -176,6 +176,12 @@ function mailValidate() {
 
 
 //enrollPage.jsp, orgEnrollPage.jsp end
+
+
+
+//findIdPage.jsp
+
+//findIdPage.jsp end
 
 
 

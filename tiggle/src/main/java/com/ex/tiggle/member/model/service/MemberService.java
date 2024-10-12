@@ -55,6 +55,23 @@ public interface MemberService {
 	//회원정보 수정용
 	int updateMemberInfo(Member member);
 	
+	//이메일로 아이디 찾기 - USER
+	Member selectIdByEmail(Member member);
+	//전화번호로 아이디 찾기 - USER
+	Member selectIdByPhone(Member member);
+	//이메일로 아이디 찾기 - ORGANIZER
+	Member selectOrgIdByEmail(Member member);
+	//담당자 전화번호로 아이디 찾기 - ORGANIZER
+	Member selectOrgIdByPhone(Member member);
+	
+	//USER 찾기(아이디,이름,이메일)
+	Member selectFindUser(Member member);
+	//임시비밀번호 설정
+	int updateTempPwd(Member member);
+	//ORGANIZER 찾기(아이디,기관명,이메일)
+	Member selectFindOrganizer(Member member);
+	
+	
 	//(관리자) USER 회원 검색용
 	int selectSearchIdCount(String keyword);
 	int selectSearchNameCount(String keyword);
@@ -76,7 +93,7 @@ public interface MemberService {
 	ArrayList<Member> selectOrgSearchOrgName(Search search);
 	ArrayList<Member> selectOrgSearchOrgEmail(Search search);
 	ArrayList<Member> selectOrgSearchName(Search search);
-	
-	
-	
+
+
+			
 }//MemberService end

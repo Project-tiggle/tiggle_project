@@ -97,6 +97,51 @@
 	</update>
 	
 	
+	<!-- 이메일로 아이디 찾기 - USER -->
+	<select id="selectIdByEmail" parameterType="Member" resultMap="resultMember">
+		select * from tb_member 
+		where name = #{name} and email = #{email} and member_type = 'USER'
+	</select>
+	
+	<!-- 전화번호로 아이디 찾기 - USER -->
+	<select id="selectIdByPhone" parameterType="Member" resultMap="resultMember">
+		select * from tb_member 
+		where name = #{name} and phone = #{phone} and member_type = 'USER'
+	</select>
+	
+	<!-- 기관 이메일로 아이디 찾기 - ORGANIZER -->
+	<select id="selectOrgIdByEmail" parameterType="Member" resultMap="resultMember">
+		select * from tb_member 
+		where org_name = #{orgName} and org_email = #{orgEmail} and member_type = 'ORGANIZER'
+	</select>
+	
+	<!-- 담당자 전화번호로 아이디 찾기 - ORGANIZER -->
+	<select id="selectOrgIdByPhone" parameterType="Member" resultMap="resultMember">
+		select * from tb_member 
+		where org_name = #{orgName} and phone = #{phone} and member_type = 'ORGANIZER'
+	</select>
+	
+	<!-- USER 찾기 (아이디, 이름, 이메일) -->
+	<select id="selectFindUser" parameterType="Member" resultMap="resultMember">
+		select * from tb_member 
+		where id = #{id} and name = #{name} and email = #{email} and member_type = 'USER'
+	</select>
+	
+	<!-- 임시비밀번호 설정 -->
+	<update id="updateTempPwd">
+		update tb_member
+		set pwd = #{pwd}
+		where uuid = #{uuid}
+	</update>
+	
+	<!-- ORGANIZER 찾기 (아이디, 이름, 이메일) -->
+	<select id="selectFindOrganizer" parameterType="Member" resultMap="resultMember">
+		select * from tb_member 
+		where id = #{id} and org_name = #{orgName} and org_email = #{orgEmail} and member_type = 'ORGANIZER'
+	</select>
+	
+	
+	
 	
 	<!-- 관리자용 ************************************************** -->
 	<!-- 내정보 보기용 -->

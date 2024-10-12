@@ -1,0 +1,1371 @@
+[09:32:50][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[09:32:51][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 570 ms
+[09:32:51][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[09:32:51][INFO ][FrameworkServlet.java: 547] - Completed initialization in 503 ms
+[09:40:36][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[09:40:36][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 480 ms
+[09:40:36][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[09:40:36][INFO ][FrameworkServlet.java: 547] - Completed initialization in 362 ms
+[09:42:52][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[09:42:53][WARN ][AbstractApplicationContext.java: 591] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mappers/map-mapper.xml
+[09:42:53][ERROR][ContextLoader.java: 313] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mappers/map-mapper.xml
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:934)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:401)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:292)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4007)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4448)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:721)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:211)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:415)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:878)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:735)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mappers/map-mapper.xml
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:590)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:491)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 42 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mappers/map-mapper.xml
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:122)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:99)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:587)
+	... 45 more
+Caused by: java.io.IOException: Could not find resource mappers/map-mapper.xml
+	at org.apache.ibatis.io.Resources.getResourceAsStream(Resources.java:114)
+	at org.apache.ibatis.io.Resources.getResourceAsStream(Resources.java:100)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.mapperElement(XMLConfigBuilder.java:375)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:120)
+	... 47 more
+[09:43:29][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[09:43:29][WARN ][AbstractApplicationContext.java: 591] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mappers/map-mapper.xml
+[09:43:29][ERROR][ContextLoader.java: 313] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mappers/map-mapper.xml
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:934)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:401)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:292)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4007)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4448)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:721)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:211)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:415)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:878)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:735)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mappers/map-mapper.xml
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:590)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:491)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 42 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mappers/map-mapper.xml
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:122)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:99)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:587)
+	... 45 more
+Caused by: java.io.IOException: Could not find resource mappers/map-mapper.xml
+	at org.apache.ibatis.io.Resources.getResourceAsStream(Resources.java:114)
+	at org.apache.ibatis.io.Resources.getResourceAsStream(Resources.java:100)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.mapperElement(XMLConfigBuilder.java:375)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:120)
+	... 47 more
+[09:43:45][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[09:43:45][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 491 ms
+[09:43:45][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[09:43:46][INFO ][FrameworkServlet.java: 547] - Completed initialization in 378 ms
+[11:48:29][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[11:48:30][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 510 ms
+[11:48:30][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[11:48:30][INFO ][FrameworkServlet.java: 547] - Completed initialization in 383 ms
+[11:48:36][INFO ][NoticeController.java: 77] - ndetail.do
+[11:49:03][INFO ][NoticeController.java: 77] - ndetail.do
+[11:52:10][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[11:52:11][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 495 ms
+[11:52:11][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[11:52:11][INFO ][FrameworkServlet.java: 547] - Completed initialization in 374 ms
+[11:52:19][INFO ][NoticeController.java: 77] - ndetail.do12
+[11:56:47][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[11:56:48][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 514 ms
+[11:56:48][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[11:56:48][INFO ][FrameworkServlet.java: 547] - Completed initialization in 410 ms
+[11:56:56][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[11:57:42][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[11:57:43][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 493 ms
+[11:57:43][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[11:57:43][INFO ][FrameworkServlet.java: 547] - Completed initialization in 383 ms
+[11:57:49][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[11:59:56][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[11:59:58][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:00:46][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:00:46][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:00:58][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:01:26][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:02:13][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:02:37][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:02:43][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:02:51][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:03:22][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:04:07][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:04:33][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:04:44][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:04:59][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:05:12][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:06:21][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:07:24][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:07:41][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:07:53][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:08:19][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:08:27][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:08:33][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:08:47][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:09:29][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:09:40][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:10:55][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:11:06][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:11:23][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:13:06][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:13:38][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:13:39][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:13:39][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:13:58][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:13:59][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:14:45][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[12:14:46][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 497 ms
+[12:14:46][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[12:14:46][INFO ][FrameworkServlet.java: 547] - Completed initialization in 372 ms
+[12:14:48][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:15:29][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:15:35][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:15:59][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:16:00][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:16:12][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:16:13][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:16:45][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:17:07][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:17:21][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:17:40][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:17:45][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:20:25][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:20:35][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:20:46][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:20:53][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:20:58][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:22:03][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:22:20][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:22:26][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:22:40][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:22:45][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:22:50][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:23:06][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:23:18][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:23:38][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:24:59][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:25:50][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:26:25][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:26:41][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:27:27][INFO ][NoticeController.java: 77] - ndetail.do : 8
+[12:27:31][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:31:01][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[12:31:04][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:32:04][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[12:32:04][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 496 ms
+[12:32:04][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[12:32:05][INFO ][FrameworkServlet.java: 547] - Completed initialization in 380 ms
+[12:32:15][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[12:32:18][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:32:49][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:33:42][INFO ][NoticeController.java: 77] - ndetail.do : 12
+[12:52:29][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[12:52:29][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 488 ms
+[12:52:29][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[12:52:30][INFO ][FrameworkServlet.java: 547] - Completed initialization in 370 ms
+[12:52:41][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[13:04:23][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[13:04:24][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 650 ms
+[13:04:24][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[13:04:24][INFO ][FrameworkServlet.java: 547] - Completed initialization in 374 ms
+[13:07:44][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[14:18:07][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[14:18:13][INFO ][NoticeController.java: 87] - ndetail.do : 12
+[15:00:09][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:00:10][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 492 ms
+[15:00:10][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:00:10][INFO ][FrameworkServlet.java: 547] - Completed initialization in 368 ms
+[15:03:17][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:03:18][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 505 ms
+[15:03:18][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:03:18][INFO ][FrameworkServlet.java: 547] - Completed initialization in 364 ms
+[15:03:25][INFO ][NoticeController.java: 87] - ndetail.do : 12
+[15:04:12][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:04:13][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 490 ms
+[15:04:13][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:04:13][INFO ][FrameworkServlet.java: 547] - Completed initialization in 377 ms
+[15:04:14][INFO ][NoticeController.java: 87] - ndetail.do : 12
+[15:05:09][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[15:05:13][INFO ][NoticeController.java: 87] - ndetail.do : 12
+[15:06:12][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:06:13][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 490 ms
+[15:06:13][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:06:13][INFO ][FrameworkServlet.java: 547] - Completed initialization in 370 ms
+[15:06:22][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[15:06:26][INFO ][NoticeController.java: 87] - ndetail.do : 12
+[15:44:47][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:44:48][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 490 ms
+[15:44:48][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:44:48][INFO ][FrameworkServlet.java: 547] - Completed initialization in 370 ms
+[15:45:02][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[15:45:46][INFO ][NoticeController.java: 147] - ninsert.do : Notice [nNo=0, nWriter=관리자03, nTitle=공지 테스트1, nDate=null, nContent=성공할 것인가.. 실패할 것인가... 제발!!!, nFileUrl=null, nOriginalFilePath=null, nRenameFilePath=null, nUpdatedAt=null, nDeletedAt=null, nYN=null, nReadCount=0]
+[15:45:46][ERROR][Slf4jSpyLogDelegator.java: 120] - 5. PreparedStatement.execute() insert into tb_notice
+		value ((select max(n_no) + 1 from tb_notice), '관리자03', '공지 테스트1', sysdate, 
+				'성공할 것인가.. 실패할 것인가... 제발!!!', null, NULL, NULL, null,
+				null, 'Y', default);
+java.sql.SQLSyntaxErrorException: ORA-00907: 누락된 우괄호
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1052)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:537)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:255)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:610)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:253)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:86)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:928)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1136)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3640)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1384)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3752)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1079)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at com.sun.proxy.$Proxy9.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
+	at com.ex.tiggle.notice.model.dao.NoticeDao.insertNotice(NoticeDao.java:36)
+	at com.ex.tiggle.notice.model.service.NoticeServiceImpl.insertNotice(NoticeServiceImpl.java:39)
+	at com.ex.tiggle.notice.controller.NoticeController.noticeInsertMethod(NoticeController.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: Error : 907, Position : 68, Sql = insert into tb_notice
+		value ((select max(n_no) + 1 from tb_notice), :1 , :2 , sysdate, 
+				:3 , null, :4 , :5 , null,
+				null, 'Y', default);, OriginalSql = insert into tb_notice
+		value ((select max(n_no) + 1 from tb_notice), ?, ?, sysdate, 
+				?, null, ?, ?, null,
+				null, 'Y', default);, Error Msg = ORA-00907: 누락된 우괄호
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	... 75 more
+[15:45:46][ERROR][Slf4jSpyLogDelegator.java: 139] - 5. PreparedStatement.execute() FAILED! insert into tb_notice
+		value ((select max(n_no) + 1 from tb_notice), '관리자03', '공지 테스트1', sysdate, 
+				'성공할 것인가.. 실패할 것인가... 제발!!!', null, NULL, NULL, null,
+				null, 'Y', default); {FAILED after 10 msec}
+java.sql.SQLSyntaxErrorException: ORA-00907: 누락된 우괄호
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1052)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:537)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:255)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:610)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:253)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:86)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:928)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1136)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3640)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1384)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3752)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1079)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at com.sun.proxy.$Proxy9.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
+	at com.ex.tiggle.notice.model.dao.NoticeDao.insertNotice(NoticeDao.java:36)
+	at com.ex.tiggle.notice.model.service.NoticeServiceImpl.insertNotice(NoticeServiceImpl.java:39)
+	at com.ex.tiggle.notice.controller.NoticeController.noticeInsertMethod(NoticeController.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: Error : 907, Position : 68, Sql = insert into tb_notice
+		value ((select max(n_no) + 1 from tb_notice), :1 , :2 , sysdate, 
+				:3 , null, :4 , :5 , null,
+				null, 'Y', default);, OriginalSql = insert into tb_notice
+		value ((select max(n_no) + 1 from tb_notice), ?, ?, sysdate, 
+				?, null, ?, ?, null,
+				null, 'Y', default);, Error Msg = ORA-00907: 누락된 우괄호
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	... 75 more
+[15:45:58][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:45:59][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 499 ms
+[15:45:59][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:45:59][INFO ][FrameworkServlet.java: 547] - Completed initialization in 366 ms
+[15:46:04][INFO ][NoticeController.java: 147] - ninsert.do : Notice [nNo=0, nWriter=관리자03, nTitle=공지 테스트1, nDate=null, nContent=성공할 것인가.. 실패할 것인가... 제발!!!, nFileUrl=null, nOriginalFilePath=null, nRenameFilePath=null, nUpdatedAt=null, nDeletedAt=null, nYN=null, nReadCount=0]
+[15:46:04][ERROR][Slf4jSpyLogDelegator.java: 120] - 1. PreparedStatement.execute() insert into tb_notice
+		value ((select max(n_no) + 1 from tb_notice), '관리자03', '공지 테스트1', sysdate, 
+				'성공할 것인가.. 실패할 것인가... 제발!!!', null, NULL, NULL, null,
+				null, 'Y', default)
+java.sql.SQLSyntaxErrorException: ORA-00907: 누락된 우괄호
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1052)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:537)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:255)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:610)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:253)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:86)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:928)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1136)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3640)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1384)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3752)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1079)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at com.sun.proxy.$Proxy9.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
+	at com.ex.tiggle.notice.model.dao.NoticeDao.insertNotice(NoticeDao.java:36)
+	at com.ex.tiggle.notice.model.service.NoticeServiceImpl.insertNotice(NoticeServiceImpl.java:39)
+	at com.ex.tiggle.notice.controller.NoticeController.noticeInsertMethod(NoticeController.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: Error : 907, Position : 68, Sql = insert into tb_notice
+		value ((select max(n_no) + 1 from tb_notice), :1 , :2 , sysdate, 
+				:3 , null, :4 , :5 , null,
+				null, 'Y', default), OriginalSql = insert into tb_notice
+		value ((select max(n_no) + 1 from tb_notice), ?, ?, sysdate, 
+				?, null, ?, ?, null,
+				null, 'Y', default), Error Msg = ORA-00907: 누락된 우괄호
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	... 75 more
+[15:46:04][ERROR][Slf4jSpyLogDelegator.java: 139] - 1. PreparedStatement.execute() FAILED! insert into tb_notice
+		value ((select max(n_no) + 1 from tb_notice), '관리자03', '공지 테스트1', sysdate, 
+				'성공할 것인가.. 실패할 것인가... 제발!!!', null, NULL, NULL, null,
+				null, 'Y', default) {FAILED after 14 msec}
+java.sql.SQLSyntaxErrorException: ORA-00907: 누락된 우괄호
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1052)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:537)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:255)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:610)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:253)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:86)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:928)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1136)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3640)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1384)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3752)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1079)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at com.sun.proxy.$Proxy9.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
+	at com.ex.tiggle.notice.model.dao.NoticeDao.insertNotice(NoticeDao.java:36)
+	at com.ex.tiggle.notice.model.service.NoticeServiceImpl.insertNotice(NoticeServiceImpl.java:39)
+	at com.ex.tiggle.notice.controller.NoticeController.noticeInsertMethod(NoticeController.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: Error : 907, Position : 68, Sql = insert into tb_notice
+		value ((select max(n_no) + 1 from tb_notice), :1 , :2 , sysdate, 
+				:3 , null, :4 , :5 , null,
+				null, 'Y', default), OriginalSql = insert into tb_notice
+		value ((select max(n_no) + 1 from tb_notice), ?, ?, sysdate, 
+				?, null, ?, ?, null,
+				null, 'Y', default), Error Msg = ORA-00907: 누락된 우괄호
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	... 75 more
+[15:47:39][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:47:39][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 494 ms
+[15:47:39][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:47:40][INFO ][FrameworkServlet.java: 547] - Completed initialization in 366 ms
+[15:47:43][INFO ][NoticeController.java: 147] - ninsert.do : Notice [nNo=0, nWriter=관리자03, nTitle=공지 테스트1, nDate=null, nContent=성공할 것인가.. 실패할 것인가... 제발!!!, nFileUrl=null, nOriginalFilePath=null, nRenameFilePath=null, nUpdatedAt=null, nDeletedAt=null, nYN=null, nReadCount=0]
+[15:48:08][INFO ][NoticeController.java: 91] - ndetail.do : 13
+[15:48:21][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[15:48:30][INFO ][NoticeController.java: 91] - ndetail.do : 8
+[15:49:02][INFO ][NoticeController.java: 147] - ninsert.do : Notice [nNo=0, nWriter=관리자03, nTitle=공지 테스트2, nDate=null, nContent=안녕하세요
+감사해요
+잘 있어요
+다시 만나세요, nFileUrl=null, nOriginalFilePath=null, nRenameFilePath=null, nUpdatedAt=null, nDeletedAt=null, nYN=null, nReadCount=0]
+[15:49:04][INFO ][NoticeController.java: 91] - ndetail.do : 14
+[15:50:57][INFO ][NoticeController.java: 91] - ndetail.do : 14
+[15:50:59][INFO ][NoticeController.java: 91] - ndetail.do : 14
+[15:51:04][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:51:04][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 500 ms
+[15:51:04][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:51:05][INFO ][FrameworkServlet.java: 547] - Completed initialization in 372 ms
+[15:51:07][INFO ][NoticeController.java: 91] - ndetail.do : 14
+[15:53:39][INFO ][NoticeController.java: 91] - ndetail.do : 14
+[15:53:53][INFO ][NoticeController.java: 91] - ndetail.do : 14
+[15:54:13][INFO ][NoticeController.java: 91] - ndetail.do : 14
+[15:54:47][INFO ][NoticeController.java: 91] - ndetail.do : 14
+[15:56:16][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:56:17][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 525 ms
+[15:56:17][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:56:17][INFO ][FrameworkServlet.java: 547] - Completed initialization in 377 ms
+[15:57:07][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:57:08][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 495 ms
+[15:57:08][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:57:08][INFO ][FrameworkServlet.java: 547] - Completed initialization in 370 ms
+[15:57:18][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[15:58:09][INFO ][NoticeController.java: 147] - ninsert.do : Notice [nNo=0, nWriter=관리자03, nTitle=공지 테스트3, nDate=null, nContent=이젠 
+진짜로 
+입력 
+제대로 
+되어라 
+얍!, nFileUrl=null, nOriginalFilePath=null, nRenameFilePath=null, nUpdatedAt=null, nDeletedAt=null, nYN=null, nReadCount=0]
+[15:58:10][INFO ][NoticeController.java: 91] - ndetail.do : 15
+[15:58:20][INFO ][NoticeController.java: 91] - ndetail.do : 15
+[15:58:27][INFO ][NoticeController.java: 91] - ndetail.do : 15
+[15:59:09][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:59:09][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 506 ms
+[15:59:09][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:59:10][INFO ][FrameworkServlet.java: 547] - Completed initialization in 385 ms
+[15:59:10][INFO ][NoticeController.java: 91] - ndetail.do : 15
+[15:59:18][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[15:59:44][INFO ][NoticeController.java: 147] - ninsert.do : Notice [nNo=0, nWriter=관리자03, nTitle=공지 테스트4, nDate=null, nContent=띄어쓰기                                  야무져~
+진짜          잘                될             것
+인
+가, nFileUrl=null, nOriginalFilePath=null, nRenameFilePath=null, nUpdatedAt=null, nDeletedAt=null, nYN=null, nReadCount=0]
+[15:59:45][INFO ][NoticeController.java: 91] - ndetail.do : 16
+[15:59:51][INFO ][NoticeController.java: 91] - ndetail.do : 16
+[16:00:21][INFO ][NoticeController.java: 147] - ninsert.do : Notice [nNo=0, nWriter=관리자03, nTitle=공지 테스트 5 - 파일첨부, nDate=null, nContent=귀엽쥬?, nFileUrl=null, nOriginalFilePath=null, nRenameFilePath=null, nUpdatedAt=null, nDeletedAt=null, nYN=null, nReadCount=0]
+[16:00:21][INFO ][NoticeController.java: 164] - 첨부파일명 확인 : 20241011160021
+[16:00:22][INFO ][NoticeController.java: 91] - ndetail.do : 17
+[16:02:36][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:02:37][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 497 ms
+[16:02:37][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:02:37][INFO ][FrameworkServlet.java: 547] - Completed initialization in 370 ms
+[16:02:42][INFO ][NoticeController.java: 91] - ndetail.do : 17
+[16:02:55][INFO ][NoticeController.java: 91] - ndetail.do : 17
+[16:03:59][INFO ][NoticeController.java: 91] - ndetail.do : 17
+[16:04:21][INFO ][NoticeController.java: 91] - ndetail.do : 17
+[16:06:53][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:06:54][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 564 ms
+[16:06:54][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:06:54][INFO ][FrameworkServlet.java: 547] - Completed initialization in 379 ms
+[16:07:06][INFO ][NoticeController.java: 91] - ndetail.do : 17
+[16:09:39][INFO ][NoticeController.java: 91] - ndetail.do : 17
+[16:10:36][INFO ][NoticeController.java: 91] - ndetail.do : 17
+[16:12:47][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:12:48][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 494 ms
+[16:12:48][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:12:48][INFO ][FrameworkServlet.java: 547] - Completed initialization in 374 ms
+[16:12:51][INFO ][NoticeController.java: 91] - ndetail.do : 17
+[16:15:44][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:15:44][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 502 ms
+[16:15:44][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:15:45][INFO ][FrameworkServlet.java: 547] - Completed initialization in 379 ms
+[16:16:39][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:16:39][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 505 ms
+[16:16:39][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:16:39][INFO ][FrameworkServlet.java: 547] - Completed initialization in 391 ms
+[16:16:46][INFO ][NoticeController.java: 91] - ndetail.do : 17
+[16:17:27][INFO ][NoticeController.java: 91] - ndetail.do : 12
+[16:41:00][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:41:00][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 487 ms
+[16:41:00][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:41:01][INFO ][FrameworkServlet.java: 547] - Completed initialization in 372 ms
+[16:41:05][INFO ][NoticeController.java: 91] - ndetail.do : 12
+[16:41:11][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[16:41:15][INFO ][NoticeController.java: 91] - ndetail.do : 16
+[16:41:59][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:41:59][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 508 ms
+[16:41:59][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:41:59][INFO ][FrameworkServlet.java: 547] - Completed initialization in 379 ms
+[16:42:07][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[16:42:09][INFO ][NoticeController.java: 91] - ndetail.do : 15
+[16:42:17][INFO ][NoticeController.java: 91] - ndetail.do : 15
+[16:42:19][INFO ][NoticeController.java: 91] - ndetail.do : 17
+[16:42:22][INFO ][NoticeController.java: 91] - ndetail.do : 17
+[16:42:25][INFO ][NoticeController.java: 91] - ndetail.do : 13
+[16:43:39][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:43:40][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 483 ms
+[16:43:40][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:43:40][INFO ][FrameworkServlet.java: 547] - Completed initialization in 371 ms
+[16:43:42][INFO ][NoticeController.java: 91] - ndetail.do : 13
+[16:44:15][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:44:16][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 519 ms
+[16:44:16][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:44:16][INFO ][FrameworkServlet.java: 547] - Completed initialization in 375 ms
+[16:44:17][INFO ][NoticeController.java: 91] - ndetail.do : 13
+[16:45:23][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:45:24][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 505 ms
+[16:45:24][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:45:24][INFO ][FrameworkServlet.java: 547] - Completed initialization in 386 ms
+[16:45:26][INFO ][NoticeController.java: 91] - ndetail.do : 13
+[16:45:45][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:45:45][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 493 ms
+[16:45:45][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:45:45][INFO ][FrameworkServlet.java: 547] - Completed initialization in 368 ms
+[16:45:47][INFO ][NoticeController.java: 91] - ndetail.do : 13
+[16:45:55][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[16:45:57][INFO ][NoticeController.java: 91] - ndetail.do : 14
+[16:46:02][INFO ][NoticeController.java: 91] - ndetail.do : 14
+[16:46:17][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[16:46:23][INFO ][NoticeController.java: 91] - ndetail.do : 14
+[16:46:41][INFO ][NoticeController.java: 91] - ndetail.do : 17
+[16:46:44][INFO ][NoticeController.java: 91] - ndetail.do : 13
+[16:46:47][INFO ][NoticeController.java: 91] - ndetail.do : 16
+[16:46:54][INFO ][NoticeController.java: 91] - ndetail.do : 16
+[16:47:03][INFO ][NoticeController.java: 91] - ndetail.do : 16
+[16:47:09][INFO ][NoticeController.java: 91] - ndetail.do : 15
+[16:47:11][INFO ][NoticeController.java: 91] - ndetail.do : 17
+[16:47:14][INFO ][NoticeController.java: 91] - ndetail.do : 14
+[16:47:22][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[16:47:28][INFO ][NoticeController.java: 91] - ndetail.do : 15
+[16:49:20][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:49:20][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 498 ms
+[16:49:20][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:49:21][INFO ][FrameworkServlet.java: 547] - Completed initialization in 374 ms
+[16:49:30][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[16:49:35][INFO ][NoticeController.java: 91] - ndetail.do : 15
+[16:49:39][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/moveNUpdatePage.do
+[16:50:18][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:50:19][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 491 ms
+[16:50:19][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:50:19][INFO ][FrameworkServlet.java: 547] - Completed initialization in 376 ms
+[16:50:22][INFO ][NoticeController.java: 91] - ndetail.do : 15
+[16:50:31][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[16:50:35][INFO ][NoticeController.java: 91] - ndetail.do : 15
+[16:50:37][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/moveNUpdatePage.do
+[16:57:10][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:57:10][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 508 ms
+[16:57:10][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:57:11][INFO ][FrameworkServlet.java: 547] - Completed initialization in 378 ms
+[16:57:20][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[16:57:25][INFO ][NoticeController.java: 91] - ndetail.do : 14
+[16:57:26][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/moveNUpdatePage.do
+[16:59:44][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:59:45][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 510 ms
+[16:59:45][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:59:45][INFO ][FrameworkServlet.java: 547] - Completed initialization in 372 ms
+[16:59:47][INFO ][NoticeController.java: 91] - ndetail.do : 14
+[16:59:56][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[16:59:59][INFO ][NoticeController.java: 91] - ndetail.do : 15
+[17:00:01][WARN ][AbstractHandlerExceptionResolver.java: 208] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+[17:00:45][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[17:00:45][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 491 ms
+[17:00:45][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[17:00:46][INFO ][FrameworkServlet.java: 547] - Completed initialization in 374 ms
+[17:00:48][INFO ][NoticeController.java: 91] - ndetail.do : 15
+[17:00:57][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[17:01:01][INFO ][NoticeController.java: 91] - ndetail.do : 15
+[17:01:03][INFO ][NoticeController.java: 200] - nupdate.do : Notice [nNo=0, nWriter=null, nTitle=null, nDate=null, nContent=null, nFileUrl=null, nOriginalFilePath=null, nRenameFilePath=null, nUpdatedAt=null, nDeletedAt=null, nYN=null, nReadCount=0]
+[17:11:13][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[17:11:13][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 492 ms
+[17:11:13][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[17:11:14][INFO ][FrameworkServlet.java: 547] - Completed initialization in 381 ms
+[17:11:17][INFO ][NoticeController.java: 109] - ndetail.do : 15
+[17:11:24][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[17:11:32][INFO ][NoticeController.java: 109] - ndetail.do : 15
+[17:14:39][INFO ][NoticeController.java: 218] - nupdate.do : Notice [nNo=15, nWriter=관리자03, nTitle=공지 테스트3, nDate=null, nContent=이젠 
+진짜로 
+입력 
+제대로 
+되어라 
+얍!
+-수정, nFileUrl=null, nOriginalFilePath=, nRenameFilePath=, nUpdatedAt=null, nDeletedAt=null, nYN=null, nReadCount=0]
+[17:14:39][INFO ][NoticeController.java: 248] - 첨부파일명 확인 : 20241011171439
+[17:14:39][ERROR][Slf4jSpyLogDelegator.java: 120] - 13. PreparedStatement.execute() update tb_notice
+		 
+		 
+			set n_title = '공지 테스트3', n_writer = '관리자03', n_content = '이젠 
+진짜로 
+입력 
+제대로 
+되어라 
+얍!
+-수정',
+				N_ORIGINAL_FILEPATH = '박강현.jpg', '20241011171439', N_UPDATED_AT = sysdate
+		 
+		where n_no = 15
+java.sql.SQLSyntaxErrorException: ORA-01747: 열명을 올바르게 지정해 주십시오
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1052)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:537)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:255)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:610)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:253)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:86)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:928)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1136)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3640)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1384)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3752)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1079)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at com.sun.proxy.$Proxy9.update(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:288)
+	at com.ex.tiggle.notice.model.dao.NoticeDao.updateNotice(NoticeDao.java:40)
+	at com.ex.tiggle.notice.model.service.NoticeServiceImpl.updateNotice(NoticeServiceImpl.java:44)
+	at com.ex.tiggle.notice.controller.NoticeController.noticeUpdateMethod(NoticeController.java:270)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: Error : 1747, Position : 111, Sql = update tb_notice
+		 
+		 
+			set n_title = :1 , n_writer = :2 , n_content = :3 ,
+				N_ORIGINAL_FILEPATH = :4 , :5 , N_UPDATED_AT = sysdate
+		 
+		where n_no = :6 , OriginalSql = update tb_notice
+		 
+		 
+			set n_title = ?, n_writer = ?, n_content = ?,
+				N_ORIGINAL_FILEPATH = ?, ?, N_UPDATED_AT = sysdate
+		 
+		where n_no = ?, Error Msg = ORA-01747: 열명을 올바르게 지정해 주십시오
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	... 74 more
+[17:14:39][ERROR][Slf4jSpyLogDelegator.java: 139] - 13. PreparedStatement.execute() FAILED! update tb_notice
+		 
+		 
+			set n_title = '공지 테스트3', n_writer = '관리자03', n_content = '이젠 
+진짜로 
+입력 
+제대로 
+되어라 
+얍!
+-수정',
+				N_ORIGINAL_FILEPATH = '박강현.jpg', '20241011171439', N_UPDATED_AT = sysdate
+		 
+		where n_no = 15 {FAILED after 15 msec}
+java.sql.SQLSyntaxErrorException: ORA-01747: 열명을 올바르게 지정해 주십시오
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1052)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:537)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:255)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:610)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:253)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:86)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:928)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1136)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3640)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1384)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3752)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1079)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at com.sun.proxy.$Proxy9.update(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:288)
+	at com.ex.tiggle.notice.model.dao.NoticeDao.updateNotice(NoticeDao.java:40)
+	at com.ex.tiggle.notice.model.service.NoticeServiceImpl.updateNotice(NoticeServiceImpl.java:44)
+	at com.ex.tiggle.notice.controller.NoticeController.noticeUpdateMethod(NoticeController.java:270)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: Error : 1747, Position : 111, Sql = update tb_notice
+		 
+		 
+			set n_title = :1 , n_writer = :2 , n_content = :3 ,
+				N_ORIGINAL_FILEPATH = :4 , :5 , N_UPDATED_AT = sysdate
+		 
+		where n_no = :6 , OriginalSql = update tb_notice
+		 
+		 
+			set n_title = ?, n_writer = ?, n_content = ?,
+				N_ORIGINAL_FILEPATH = ?, ?, N_UPDATED_AT = sysdate
+		 
+		where n_no = ?, Error Msg = ORA-01747: 열명을 올바르게 지정해 주십시오
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	... 74 more
+[17:17:10][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[17:17:11][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 493 ms
+[17:17:11][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[17:17:11][INFO ][FrameworkServlet.java: 547] - Completed initialization in 372 ms
+[17:17:24][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[17:17:29][INFO ][NoticeController.java: 109] - ndetail.do : 15
+[17:17:43][INFO ][NoticeController.java: 218] - nupdate.do : Notice [nNo=15, nWriter=관리자03, nTitle=공지 테스트3, nDate=null, nContent=이젠 
+진짜로 
+입력 
+제대로 
+되어라 
+얍!
+- 수정, nFileUrl=null, nOriginalFilePath=, nRenameFilePath=, nUpdatedAt=null, nDeletedAt=null, nYN=null, nReadCount=0]
+[17:17:43][INFO ][NoticeController.java: 248] - 첨부파일명 확인 : 20241011171743
+[17:17:43][INFO ][NoticeController.java: 109] - ndetail.do : 15
+[17:17:49][INFO ][NoticeController.java: 109] - ndetail.do : 15
+[17:21:55][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[17:21:56][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 492 ms
+[17:21:56][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[17:21:56][INFO ][FrameworkServlet.java: 547] - Completed initialization in 370 ms
+[17:22:11][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[17:22:15][INFO ][NoticeController.java: 109] - ndetail.do : 15
+[17:22:39][INFO ][NoticeController.java: 218] - nupdate.do : Notice [nNo=15, nWriter=관리자03, nTitle=공지 테스트3 - 수정, nDate=null, nContent=이젠 
+진짜로 
+입력 
+제대로 
+되어라 
+얍!
+- 수정, nFileUrl=null, nOriginalFilePath=박강현.jpg, nRenameFilePath=20241011171743, nUpdatedAt=null, nDeletedAt=null, nYN=null, nReadCount=0]
+[17:22:39][INFO ][NoticeController.java: 109] - ndetail.do : 15
+[17:22:46][INFO ][NoticeController.java: 109] - ndetail.do : 14
+[17:23:00][INFO ][NoticeController.java: 218] - nupdate.do : Notice [nNo=14, nWriter=관리자03, nTitle=공지 테스트2, nDate=null, nContent=안녕하세요
+감사해요
+잘 있어요
+다시 만나세요
+-수정, nFileUrl=null, nOriginalFilePath=, nRenameFilePath=, nUpdatedAt=null, nDeletedAt=null, nYN=null, nReadCount=0]
+[17:23:00][INFO ][NoticeController.java: 248] - 첨부파일명 확인 : 20241011172300
+[17:23:00][INFO ][NoticeController.java: 109] - ndetail.do : 14
+[17:32:35][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[17:32:35][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 495 ms
+[17:32:35][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[17:32:36][INFO ][FrameworkServlet.java: 547] - Completed initialization in 373 ms
+[17:32:47][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[17:32:56][INFO ][NoticeController.java: 109] - ndetail.do : 13
+[17:32:58][ERROR][Slf4jSpyLogDelegator.java: 120] - 9. PreparedStatement.execute() update tb_notice
+		set n_yn = 'N'
+		where n_no = # { nNo }
+java.sql.SQLException: 해당 위치에 지원되지 않는 SQL92 토큰: 53
+	at oracle.jdbc.driver.OracleSql.handleODBC(OracleSql.java:1430)
+	at oracle.jdbc.driver.OracleSql.parse(OracleSql.java:1324)
+	at oracle.jdbc.driver.OracleSql.getSql(OracleSql.java:306)
+	at oracle.jdbc.driver.OracleSql.getSqlBytes(OracleSql.java:809)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:255)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:86)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:928)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1136)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3640)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1384)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3752)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1079)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at com.sun.proxy.$Proxy9.update(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:288)
+	at com.ex.tiggle.notice.model.dao.NoticeDao.updateDeleteNotice(NoticeDao.java:44)
+	at com.ex.tiggle.notice.model.service.NoticeServiceImpl.updateDeleteNotice(NoticeServiceImpl.java:49)
+	at com.ex.tiggle.notice.controller.NoticeController.noticeDelete(NoticeController.java:287)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[17:32:58][ERROR][Slf4jSpyLogDelegator.java: 139] - 9. PreparedStatement.execute() FAILED! update tb_notice
+		set n_yn = 'N'
+		where n_no = # { nNo } {FAILED after 1 msec}
+java.sql.SQLException: 해당 위치에 지원되지 않는 SQL92 토큰: 53
+	at oracle.jdbc.driver.OracleSql.handleODBC(OracleSql.java:1430)
+	at oracle.jdbc.driver.OracleSql.parse(OracleSql.java:1324)
+	at oracle.jdbc.driver.OracleSql.getSql(OracleSql.java:306)
+	at oracle.jdbc.driver.OracleSql.getSqlBytes(OracleSql.java:809)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:255)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:86)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:928)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1136)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3640)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1384)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3752)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1079)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at com.sun.proxy.$Proxy9.update(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:288)
+	at com.ex.tiggle.notice.model.dao.NoticeDao.updateDeleteNotice(NoticeDao.java:44)
+	at com.ex.tiggle.notice.model.service.NoticeServiceImpl.updateDeleteNotice(NoticeServiceImpl.java:49)
+	at com.ex.tiggle.notice.controller.NoticeController.noticeDelete(NoticeController.java:287)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[17:35:24][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[17:35:25][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 505 ms
+[17:35:25][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[17:35:25][INFO ][FrameworkServlet.java: 547] - Completed initialization in 379 ms
+[17:35:29][INFO ][NoticeController.java: 109] - ndetail.do : 13
+[17:35:35][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[17:35:43][INFO ][NoticeController.java: 109] - ndetail.do : 13
+[18:12:00][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:12:00][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 492 ms
+[18:12:00][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:12:01][INFO ][FrameworkServlet.java: 547] - Completed initialization in 366 ms
+[18:12:45][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:12:45][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 499 ms
+[18:12:45][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:12:46][INFO ][FrameworkServlet.java: 547] - Completed initialization in 388 ms
+[18:14:53][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:14:54][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 500 ms
+[18:14:54][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:14:54][INFO ][FrameworkServlet.java: 547] - Completed initialization in 372 ms
+[18:15:59][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:15:59][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 495 ms
+[18:15:59][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:15:59][INFO ][FrameworkServlet.java: 547] - Completed initialization in 373 ms
+[18:45:51][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:45:52][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 502 ms
+[18:45:52][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:45:52][INFO ][FrameworkServlet.java: 547] - Completed initialization in 371 ms
+[18:48:48][INFO ][NoticeController.java: 110] - ndetail.do : 17
+[18:50:20][INFO ][NoticeController.java: 110] - ndetail.do : 17
+[18:52:16][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:52:16][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 489 ms
+[18:52:16][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:52:17][INFO ][FrameworkServlet.java: 547] - Completed initialization in 364 ms
+[18:53:10][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[18:55:46][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:55:47][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 505 ms
+[18:55:47][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:55:47][INFO ][FrameworkServlet.java: 547] - Completed initialization in 386 ms
+[18:55:59][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[19:02:47][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[19:02:47][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 515 ms
+[19:02:47][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[19:02:47][INFO ][FrameworkServlet.java: 547] - Completed initialization in 394 ms
+[19:04:11][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[19:10:19][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[19:10:19][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 492 ms
+[19:10:19][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[19:10:19][INFO ][FrameworkServlet.java: 547] - Completed initialization in 377 ms
+[19:15:48][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[19:15:49][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 500 ms
+[19:15:49][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[19:15:49][INFO ][FrameworkServlet.java: 547] - Completed initialization in 377 ms
+[19:16:12][INFO ][MemberController.java: 113] - login : Member [uuid=null, id=admin03, pwd=admin03, name=null, phone=null, email=null, nickname=null, address=null, gender=null, signtype=null, marketingYN=null, orgName=null, orgTel=null, orgEmail=null, mngDept=null, mngJobId=null, memberType=null, signUpAt=null, updatedAt=null, loginOk=null, deletedYN=null, deletedAt=null, deletedReason=null]
+[20:23:56][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[20:23:56][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 491 ms
+[20:23:56][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[20:23:56][INFO ][FrameworkServlet.java: 547] - Completed initialization in 372 ms
+[20:36:02][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[20:36:02][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 488 ms
+[20:36:02][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[20:36:03][INFO ][FrameworkServlet.java: 547] - Completed initialization in 376 ms
+[20:41:14][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[20:41:14][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 491 ms
+[20:41:14][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[20:41:14][INFO ][FrameworkServlet.java: 547] - Completed initialization in 368 ms
+[20:47:04][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[20:47:04][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 502 ms
+[20:47:04][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[20:47:04][INFO ][FrameworkServlet.java: 547] - Completed initialization in 383 ms
+[20:51:08][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[20:51:08][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 491 ms
+[20:51:08][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[20:51:09][INFO ][FrameworkServlet.java: 547] - Completed initialization in 369 ms
+[20:51:12][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /tiggle/findid.do
+[20:59:53][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[20:59:54][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 507 ms
+[20:59:54][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[20:59:54][INFO ][FrameworkServlet.java: 547] - Completed initialization in 374 ms
+[21:14:19][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[21:14:20][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 539 ms
+[21:14:20][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[21:14:20][INFO ][FrameworkServlet.java: 547] - Completed initialization in 377 ms
+[21:56:14][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[21:56:15][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 484 ms
+[21:56:15][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[21:56:15][INFO ][FrameworkServlet.java: 547] - Completed initialization in 368 ms
+[22:07:09][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:07:09][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 498 ms
+[22:07:09][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:07:09][INFO ][FrameworkServlet.java: 547] - Completed initialization in 378 ms
+[22:32:05][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:32:06][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 507 ms
+[22:32:06][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:32:06][INFO ][FrameworkServlet.java: 547] - Completed initialization in 401 ms
+[22:32:12][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:32:13][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 493 ms
+[22:32:13][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:32:13][INFO ][FrameworkServlet.java: 547] - Completed initialization in 384 ms
+[22:42:30][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:42:30][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 525 ms
+[22:42:30][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:42:31][INFO ][FrameworkServlet.java: 547] - Completed initialization in 401 ms
+[22:43:55][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:43:56][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 533 ms
+[22:43:56][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:43:56][INFO ][FrameworkServlet.java: 547] - Completed initialization in 384 ms
+[22:46:48][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:46:49][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 573 ms
+[22:46:49][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:46:49][INFO ][FrameworkServlet.java: 547] - Completed initialization in 405 ms
+[22:53:47][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:53:48][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 550 ms
+[22:53:48][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:53:48][INFO ][FrameworkServlet.java: 547] - Completed initialization in 391 ms

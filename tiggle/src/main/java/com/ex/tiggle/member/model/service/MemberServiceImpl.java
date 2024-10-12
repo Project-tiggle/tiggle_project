@@ -193,5 +193,42 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	
+	@Override
+	public Member selectIdByEmail(Member member) {
+		return memberDao.selectIdByEmail(member);
+	}//이메일로 아이디 찾기 - USER
+
+	@Override
+	public Member selectIdByPhone(Member member) {
+		return memberDao.selectIdByPhone(member);
+	}//전화번호로 아이디 찾기 - USER
+
+	@Override
+	public Member selectOrgIdByEmail(Member member) {
+		return memberDao.selectOrgIdByEmail(member);
+	}//이메일로 아이디 찾기 - ORGANIZER
+
+	@Override
+	public Member selectOrgIdByPhone(Member member) {
+		return memberDao.selectOrgIdByPhone(member);
+	}//담당자 전화번호로 아이디 찾기 - ORGANIZER
+
+	@Override
+	public Member selectFindUser(Member member) {
+		return memberDao.selectFindUser(member);
+	}//USER 찾기(아이디,이름,이메일)
+
+	@Override
+	public int updateTempPwd(Member member) {
+		return memberDao.updateTempPwd(member);
+	}//임시비밀번호 설정
+
+	@Override
+	public Member selectFindOrganizer(Member member) {
+		return memberDao.selectFindOrganizer(member);
+	}//ORGANIZER 찾기(아이디,기관명,이메일)
+
+	
+	
 	
 }//MemberServiceImpl end

@@ -4,6 +4,9 @@
 .bc_ddd {border-color: #ddd !important;}
 .bg_eee {background: #eee !important;}
 
+.d_none {display: none;} /* findIdPage 에서 필요 */
+button {font-family: "Pretendard Variable" !important;}
+
 @media all and (max-width: 1280px) {
     .dn {display: none !important;}
 }
@@ -105,6 +108,59 @@ input {font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "P
 .e_success_btn {width: 100%; height: 45px; text-align: center; line-height: 45px; font-size: 16px; cursor: default; background: #ff5f2c; color: #fff; font-weight: bold; cursor: pointer; transition: all 0.3s; margin-top: 25px;}
 .e_success_btn:disabled {opacity: 0.2; font-weight: normal; cursor: not-allowed;}
 /* enrollPage.jsp end */
+
+
+
+/* findIdPage.jsp */
+.select_findid {width: 400px; margin: 30px auto; display: flex; box-sizing: border-box;}
+.select_findid > li {width: 50%; height: 45px; line-height: 45px; text-align: center; cursor: pointer; border: 1px solid #ddd;}
+.select_findid > li:nth-child(1) {border-right: 0;}
+.s_fid {background: #ff5f2c; font-weight: bold; color: #fff;}
+/* select_findid end */
+
+.find_id_wrap {width: 400px; margin: 30px auto;}
+.find_orgid_wrap {width: 400px; margin: 30px auto;}
+.find_id {display: flex; flex-direction: column;}
+.find_id > input {width: 100%; height: 45px; border: 0; outline: 0; border: 1px solid #ddd; box-sizing: border-box; padding: 0 10px; font-size: 16px;}
+.find_id > input:nth-child(1) {border-bottom: 0;}
+.find_id_btn {width: 100%; display: block; border: 0; outline: 0; height: 45px; margin-top: 15px; background: #eee; cursor: pointer; font-weight: bold; font-size: 18px; transition: all 0.2s;}
+.find_id_btn:hover {background: #ff5f2c; color: #fff;}
+/* findIdPage.jsp end */
+
+/* findPwdPage.jsp */
+.select_findpwd {width: 400px; margin: 30px auto; display: flex; box-sizing: border-box;}
+.select_findpwd > li {width: 50%; height: 45px; line-height: 45px; text-align: center; cursor: pointer; border: 1px solid #ddd;}
+.select_findpwd > li:nth-child(1) {border-right: 0;}
+.s_fpwd {background: #ff5f2c; font-weight: bold; color: #fff;}
+/* select_findid end */
+
+.find_pwd_wrap {width: 400px; margin: 30px auto;}
+.find_orgpwd_wrap {width: 400px; margin: 30px auto;}
+.find_pwd {display: flex; flex-direction: column;}
+.find_pwd > input {width: 100%; height: 45px; border: 0; outline: 0; border: 1px solid #ddd; box-sizing: border-box; padding: 0 10px; font-size: 16px;}
+.find_pwd > input:nth-child(1) ~ input {border-top: 0;}
+.find_pwd_btn {width: 100%; display: block; border: 0; outline: 0; height: 45px; margin-top: 15px; background: #eee; cursor: pointer; font-weight: bold; font-size: 18px; transition: all 0.2s;}
+.find_pwd_btn:hover {background: #ff5f2c; color: #fff;}
+/* findPwdPage.jsp end */
+
+
+
+/* printIdPage.jsp */
+.print_id_wrap {width: 400px; margin: 60px auto; text-align: center;}
+.print_id_wrap > p {font-weight: bold; font-size: 20px; margin-bottom: 15px;}
+.print_id_box > p:nth-child(1) {font-weight: bold; font-size: 24px; color: #ff5f2c; border: 1px solid #ddd; padding: 10px 0; margin-bottom: 15px;}
+.print_id_box > p:nth-child(2) {font-size: 14px;}
+
+.print_bt_btns {display: flex; align-items: center; justify-content: center; margin-top: 30px;}
+.print_bt_btns > button {width: 130px; height: 45px; background: #eee; display: block; margin: 0 10px; font-size: 16px; font-weight: bold; transition: all 0.2s;}
+.print_bt_btns > button:hover {background: #ff5f2c; color: #fff;}
+/* printIdPage.jsp end */
+
+/* printPwdPage.jsp */
+.print_pwd_wrap {width: 400px; margin: 60px auto;}
+.print_pwd_wrap > p {text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 5px;}
+.print_pwd_wrap span {color: #ff5f2c;}
+/* printPwdPage.jsp end */
 
 
 
@@ -220,6 +276,6 @@ input {font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "P
 .mlist_search {margin: 10px 0 50px;}
 .m_search_form {display: flex; align-items: center;}
 .search_option {border: none; outline: none; border: 1px solid #ccc; height: 30px; width: 100px;}
-.m_search_input {height: 30px; box-sizing: border-box; border: none; outline: none; border: 1px solid #ccc; margin-left: 5px; padding-left: 5px;}
-.m_search_btn {width: 50px; height: 30px; border: none; outline: none; border: 1px solid #ccc; border-left: 0;}
+.mlist_search_input {height: 30px; box-sizing: border-box; border: none; outline: none; border: 1px solid #ccc; margin-left: 5px; padding-left: 5px;}
+.mlist_search_btn {width: 50px; height: 30px; border: none; outline: none; border: 1px solid #ccc; border-left: 0;}
 /* userListPage.jsp, orgListPage.jsp end */
