@@ -40,6 +40,12 @@
 			<button class="enroll_btn">
 				<a href="TOSPage.do">회원가입</a>
 			</button>
+
+			<div class="social_login_wrap">
+				<a href="${ naverurl }">
+					<img src="${ pageContext.servletContext.contextPath }/resources/images/naver_login_icon.png" alt="네이버로그인">
+				</a>
+			</div><!-- social_login_wrap end -->
 		</div><!-- login_wrap end -->
 	</section><!-- container end -->
 
@@ -48,5 +54,6 @@
 
 	<script src="/tiggle/resources/js/jquery-3.7.1.min.js"></script>
 	<script src="/tiggle/resources/js/script.js"></script>
+	<script src="/tiggle/resources/js/naveridlogin_js_sdk_2.0.2.js"></script>
 </body>
 </html>

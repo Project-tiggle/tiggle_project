@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +32,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.common.Search;
 import com.ex.tiggle.member.model.dto.Member;
+import com.ex.tiggle.member.model.dto.NaverLoginAuth;
 import com.ex.tiggle.member.model.service.MemberService;
+import com.github.scribejava.core.model.OAuth2AccessToken;
 
 @Controller
 public class MemberController {
@@ -45,6 +49,89 @@ public class MemberController {
 	@Autowired
     private JavaMailSender mailSender; //회원가입 이메일 인증
 	
+	//소셜로그인
+	@Autowired
+	private NaverLoginAuth naverloginAuth; //네이버 소셜 로그인
+	
+	public MemberController() {
+		super();
+	}
+	
+	public MemberController(NaverLoginAuth naverLoginAuth) {
+		this.naverloginAuth = naverLoginAuth;
+	}//네이버 소셜 로그인
+	
+	private void addAuthURLsMethod(Model model, HttpSession session) {
+		String naverAuthURL = naverloginAuth.getAuthorizationUrl(session);
+		
+		model.addAttribute("naverurl", naverAuthURL);
+	}
+	
+	//소셜로그인 **************************************************
+	//네이버 소셜 로그인
+	@RequestMapping(value="naverLogin.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String naverLogin(@RequestParam("code") String code, @RequestParam("state") String state, Model model,
+			HttpSession session, SessionStatus status) throws Exception {
+		logger.info("naverLogin.do 접근");
+
+		logger.info("Code: {}\nState: {}\nSession : {}", code, state, session);
+		// 1. 코드, 세션 및 상태를 사용하여 getAccessToken을 호출합니다.
+		OAuth2AccessToken node = naverloginAuth.getAccessToken(session, code, state);
+		logger.info("node : " + node);
+		// 이제 accessToken을 사용하여 사용자 정보를 가져와서 JsonObject를 만들거나 다른 작업을 수행할 수 있습니다.
+		
+		if(node != null) {
+			// 2. accessToken에 사용자의 로그인한 모든 정보가 들어있음
+			String apiResult = naverloginAuth.getUserProfile(node);
+			
+			// 3. String형식인 apiResult를 json형태로 바꿈
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(apiResult);
+			JSONObject jsonObj = (JSONObject) obj;
+			
+			// 4. 데이터 파싱
+			// Top레벨 단계 _response 파싱
+			JSONObject response_obj = (JSONObject) jsonObj.get("response");
+			String name = (String) response_obj.get("name");
+			String nickname = (String) response_obj.get("nickname");
+			String email = (String) response_obj.get("email");
+			String phone = (String) response_obj.get("mobile");
+			
+			//Member 테이블에서 회원정보 조회해오기
+			Member member = new Member();
+			
+			if (memberService.selectSocialLogin(email) == null) { //회원가입 안한 유저
+				member.setUuid(UUID.randomUUID().toString());
+				member.setName(name);
+				member.setNickname(nickname);
+				member.setEmail(email);
+				member.setPhone(phone);
+				member.setSigntype("NAVER");
+				
+				if (memberService.insertSocialMember(member) > 0) { //소셜 회원가입 성공시
+					session.setAttribute("loginMember", member);
+					status.setComplete();
+					return "redirect:main.do";
+				}else { //소셜 회원가입 실패시
+					model.addAttribute("message", "소셜 회원가입에 실패하였습니다.<br> 다시 시도해주세요.");
+					return "common/error";
+				}
+				
+			} else { //이미 회원가입 한 유저
+				member = memberService.selectSocialLogin(email);
+				session.setAttribute("loginMember", member);
+				status.setComplete();
+				return "redirect:main.do";				
+					
+			}//회원가입 이미 한
+			
+		}else {
+			model.addAttribute("message", "Naver Token Error<br> 브라우저 캐시를 지우고 다시 시도해주세요.");
+			return "common/error";
+		}
+	}//naverLogin() end
+	
+	
 	//뷰페이지 내보내기용 메서드 --------------------------------------------------
 	//메인 페이지 내보내기용
 	@RequestMapping(value="main.do", method=RequestMethod.POST)
@@ -55,7 +142,9 @@ public class MemberController {
 	
 	//로그인 페이지 내보내기용
 	@RequestMapping(value="loginPage.do", method= {RequestMethod.GET, RequestMethod.POST})
-	public String moveLoginPage() {
+	public String moveLoginPage(Member member, HttpSession session, SessionStatus status, HttpServletRequest request,
+			Model model) {
+		addAuthURLsMethod(model, session);
 		return "member/loginPage";
 	}//moveLoginPage() end
 	
@@ -865,10 +954,7 @@ public class MemberController {
 		
 		return mv;
 	}//ORGANIZER 검색용
-	
-	
-	
-	
+
 	
 	
 	
