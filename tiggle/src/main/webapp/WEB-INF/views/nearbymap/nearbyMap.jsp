@@ -21,15 +21,31 @@
 		var positions = new Array();
 		
 		<c:forEach var="exhibit" items="${exList}" varStatus="status">
-	        positions.push({
-	        	totalId: '${ exhibit.totalId }',
-	            content: '<div>${ exhibit.title }</div>',
-	            latitude: ${ exhibit.latitude},
-	            longitude: ${ exhibit.longitude },
-	            latlng : new kakao.maps.LatLng(${ exhibit.latitude }, ${ exhibit.longitude }),
-	            poster: '${ exhibit.fileUrl }',
-	            summary: '${ exhibit.eDescription }'
-	        });
+	        
+			<c:if test="${exhibit.fileUrl.toUpperCase().startsWith('H')}">
+				positions.push({
+		        	totalId: '${ exhibit.totalId }',
+		            content: '<div>${ exhibit.title }</div>',
+		            latitude: ${ exhibit.latitude},
+		            longitude: ${ exhibit.longitude },
+		            latlng : new kakao.maps.LatLng(${ exhibit.latitude }, ${ exhibit.longitude }),
+		            poster: '${ exhibit.fileUrl }',
+		            summary: '${ exhibit.eDescription }'
+		            });
+			</c:if>
+			
+			<c:if test="${!exhibit.fileUrl.toUpperCase().startsWith('H')}">
+				positions.push({
+		        	totalId: '${ exhibit.totalId }',
+		            content: '<div>${ exhibit.title }</div>',
+		            latitude: ${ exhibit.latitude},
+		            longitude: ${ exhibit.longitude },
+		            latlng : new kakao.maps.LatLng(${ exhibit.latitude }, ${ exhibit.longitude }),
+		            poster: '${pageContext.request.contextPath}/resources/images/exhibit_files/${exhibit.fileUrl}',
+		            summary: '${ exhibit.eDescription }'
+	            });
+			</c:if>
+				
 	  	</c:forEach>
   	</script>
   	<div id="mapOuter">
@@ -40,7 +56,7 @@
 			<tr>
 				<td colspan="5" class="search-container">
 					<form action="nearbyMap.do" id="titleform" class="sform" method="get">
-						<input type="search" name="keyword" size="50">
+						<input type="search" name="keyword" size="50" placeholder="검색한 주소의 주변 전시가 보여집니다">
 						<input type="submit" value="Search">
 					</form>
 				</td>

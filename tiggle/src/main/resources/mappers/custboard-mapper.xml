@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="custBoardMapper">
+
+	<resultMap id="resultCustBoard" type="CustBoard">
+	       <result property="uuid" column="UUID" />
+	       <result property="cId" column="C_ID" />
+	       <result property="cCategory" column="C_CATEGORY" />
+	       <result property="title" column="TITLE" />
+	       <result property="cContent" column="C_CONTENT" />
+	       <result property="createdAt" column="CREATED_AT" />
+	       <result property="updatedAt" column="UPDATED_AT" />
+	       <result property="updatedYn" column="UPDATED_YN" />
+	       <result property="deletedAt" column="DELETED_AT" />
+	       <result property="deleteYn" column="DELETED_YN" />
+	       <result property="cLev" column="C_LEVEL" />
+	       <result property="refNo" column="REFNO" />
+	       <result property="fileUrl" column="FILE_URL" />
+	</resultMap>
+	
+	<!-- 관리자용 보드 리스트 총갯수 조회용 -->
+	<select id="selectCustListCount" resultType="_int">
+		select count(*)
+		from tb_cust_board
+	</select>
+	
+	<select id="selectCustList" parameterType="Paging" resultMap="resultCustBoard">
+		select *
+		from (select rownum rnum, uuid, c_id, c_category, title, 
+		            c_content, created_at,
+		            updated_at, updated_yn, deleted_at, deleted_yn,
+		            c_level, refno, file_url
+		      from (select *
+		      		from tb_cust_board
+		            order by refno desc, c_level asc))
+		where rnum between #{ startRow } and #{ endRow }
+	</select>
+	
+</mapper>

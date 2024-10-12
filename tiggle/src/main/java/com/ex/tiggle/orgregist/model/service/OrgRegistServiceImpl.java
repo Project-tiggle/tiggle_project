@@ -10,7 +10,7 @@ import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.orgregist.model.dao.OrgRegistDao;
 import com.ex.tiggle.orgregist.model.dto.OrgRegist;
 
-@Service
+@Service("orgRegistService")
 public class OrgRegistServiceImpl implements OrgRegistService {
 
     @Autowired

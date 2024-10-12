@@ -94,6 +94,12 @@ public interface MemberService {
 	ArrayList<Member> selectOrgSearchOrgEmail(Search search);
 	ArrayList<Member> selectOrgSearchName(Search search);
 
+	
+	//이메일로 소셜로그인
+	Member selectSocialLogin(String email);
+	//소셜 회원가입
+	int insertSocialMember(Member member);
+
 
 			
 }//MemberService end

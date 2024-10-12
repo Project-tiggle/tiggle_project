@@ -36,6 +36,20 @@
 		<result property="deletedReason" column="DELETED_REASON" />
 	</resultMap><!-- resultMember end -->
 
+	<!-- 이메일로 소셜로그인 -->
+	<select id="selectSocialLogin" parameterType="string" resultMap="resultMember">
+		select * from tb_member where email = #{ email } and login_ok = 'Y'
+	</select>
+
+	<!-- 소셜 회원가입용 쿼리 -->
+	<select id="insertSocialMember" parameterType="Member">
+		insert into tb_member
+		values (#{uuid}, #{id}, #{pwd}, #{name}, #{phone}, #{email}, #{nickname},
+		null, null, #{signtype}, #{marketingYN}, null, null, null, null, null,
+		default, sysdate, sysdate, 'Y', null, null, null)
+	</select>
+
+
 	<!-- 로그인용 쿼리 -->
 	<select id="selectLogin" parameterType="string" resultMap="resultMember">
 		select * from tb_member where id = #{ id } and login_ok = 'Y'
@@ -100,31 +114,31 @@
 	<!-- 이메일로 아이디 찾기 - USER -->
 	<select id="selectIdByEmail" parameterType="Member" resultMap="resultMember">
 		select * from tb_member 
-		where name = #{name} and email = #{email} and member_type = 'USER'
+		where name = #{name} and email = #{email} and member_type = 'USER' and signtype = 'TIGGLE'
 	</select>
 	
 	<!-- 전화번호로 아이디 찾기 - USER -->
 	<select id="selectIdByPhone" parameterType="Member" resultMap="resultMember">
 		select * from tb_member 
-		where name = #{name} and phone = #{phone} and member_type = 'USER'
+		where name = #{name} and phone = #{phone} and member_type = 'USER' and signtype = 'TIGGLE'
 	</select>
 	
 	<!-- 기관 이메일로 아이디 찾기 - ORGANIZER -->
 	<select id="selectOrgIdByEmail" parameterType="Member" resultMap="resultMember">
 		select * from tb_member 
-		where org_name = #{orgName} and org_email = #{orgEmail} and member_type = 'ORGANIZER'
+		where org_name = #{orgName} and org_email = #{orgEmail} and member_type = 'ORGANIZER' and signtype = 'TIGGLE'
 	</select>
 	
 	<!-- 담당자 전화번호로 아이디 찾기 - ORGANIZER -->
 	<select id="selectOrgIdByPhone" parameterType="Member" resultMap="resultMember">
 		select * from tb_member 
-		where org_name = #{orgName} and phone = #{phone} and member_type = 'ORGANIZER'
+		where org_name = #{orgName} and phone = #{phone} and member_type = 'ORGANIZER' and signtype = 'TIGGLE'
 	</select>
 	
 	<!-- USER 찾기 (아이디, 이름, 이메일) -->
 	<select id="selectFindUser" parameterType="Member" resultMap="resultMember">
 		select * from tb_member 
-		where id = #{id} and name = #{name} and email = #{email} and member_type = 'USER'
+		where id = #{id} and name = #{name} and email = #{email} and member_type = 'USER' and signtype = 'TIGGLE'
 	</select>
 	
 	<!-- 임시비밀번호 설정 -->

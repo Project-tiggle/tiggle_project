@@ -41,6 +41,10 @@ input {font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "P
 .enroll_btn {display: block; width: 100%; box-sizing: border-box; height: 50px; border: none; margin: 25px 0; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; background: #eee;}
 .enroll_btn:hover {background: #ff5f2c; color: #fff;}
 /* enroll_btn end */
+
+.social_login_wrap {width: 100%; display: flex; justify-content: center; align-items: center;}
+.social_login_wrap > a {display: block; margin: 0 10px;}
+.social_login_wrap > a > img {width: 35px;}
 /* loginPage.jsp end */
 
 
