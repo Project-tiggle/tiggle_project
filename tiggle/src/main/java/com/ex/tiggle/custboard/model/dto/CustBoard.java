@@ -5,19 +5,19 @@ import java.sql.Date;
 public class CustBoard implements java.io.Serializable {
 	private static final long serialVersionUID = -2990091985037992554L;
 
-	private String uuid;		//UUID	VARCHAR2(36 BYTE)	No		1	고유식별자
-	private int cId;			//C_ID	NUMBER	No		2	글번호
-	private String cCategory;	//C_CATEGORY	CHAR(1 BYTE)	No		3	카테고리
-	private String title;		//TITLE	VARCHAR2(300 BYTE)	No		4	제목
-	private String cContent;	//C_CONTENT	VARCHAR2(2000 BYTE)	No		5	내용
-	private Date createdAt;		//CREATED_AT	DATE	No	SYSDATE 	6	작성일자
-	private Date updatedAt;		//UPDATED_AT	DATE	Yes		7	수정일자
-	private String updatedYn;	//UPDATED_YN	CHAR(1 BYTE)	Yes	'Y'	8	수정활성화여부
-	private Date deletedAt;		//DELETED_AT	DATE	Yes		9	삭제일자
-	private String deleteYn;	//DELETED_YN	CHAR(1 BYTE)	Yes	'Y'	10	삭제활성화여부
-	private int cLev;			//C_LEVEL	NUMBER	Yes		11	분류레벨
-	private int refNo;			//REFNO	NUMBER	Yes		12	참조원글번호
-	private String fileUrl;		//FILE_URL	VARCHAR2(300 BYTE)	Yes		13	첨부파일 URL
+	private String uuid;		//UUID			VARCHAR2(36 BYTE)	No				1	고유식별자
+	private int cId;			//C_ID			NUMBER				No				2	글번호
+	private String cCategory;	//C_CATEGORY	CHAR(1 BYTE)		No				3	카테고리
+	private String title;		//TITLE			VARCHAR2(300 BYTE)	No				4	제목
+	private String cContent;	//C_CONTENT		VARCHAR2(2000 BYTE)	No				5	내용
+	private Date createdAt;		//CREATED_AT	DATE				No	SYSDATE 	6	작성일자
+	private Date updatedAt;		//UPDATED_AT	DATE				Yes				7	수정일자
+	private String updatedYn;	//UPDATED_YN	CHAR(1 BYTE)		Yes	'Y'			8	수정활성화여부
+	private Date deletedAt;		//DELETED_AT	DATE				Yes				9	삭제일자
+	private String deleteYn;	//DELETED_YN	CHAR(1 BYTE)		Yes	'Y'			10	삭제활성화여부
+	private int cLev;			//C_LEVEL		NUMBER				Yes				11	분류레벨
+	private int refNo;			//REFNO			NUMBER				Yes				12	참조원글번호
+	private String fileUrl;		//FILE_URL		VARCHAR2(300 BYTE)	Yes				13	첨부파일 URL
 	
 	public CustBoard() {
 		super();

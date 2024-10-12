@@ -29,12 +29,12 @@
 	<select id="selectCustList" parameterType="Paging" resultMap="resultCustBoard">
 		select *
 		from (select rownum rnum, uuid, c_id, c_category, title, 
-		             c_content, created_at,
-		             updated_at, updated_yn, deleted_at, deleted_yn,
-		             c_level, refno, file_url
-      		from (select *
-      			  from tb_cust_board
-            	  order by c_id desc, refno desc, c_level))
+		            c_content, created_at,
+		            updated_at, updated_yn, deleted_at, deleted_yn,
+		            c_level, refno, file_url
+		      from (select *
+		      		from tb_cust_board
+		            order by refno desc, c_level asc))
 		where rnum between #{ startRow } and #{ endRow }
 	</select>
 	

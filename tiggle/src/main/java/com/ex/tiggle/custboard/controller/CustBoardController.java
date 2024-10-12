@@ -24,6 +24,7 @@ public class CustBoardController {
 	@RequestMapping("adminCustBoard.do")
 	public ModelAndView moveAdCustBoard(
 			ModelAndView mv,
+			CustBoard custBoard,
 	    	@RequestParam(name = "page", required = false) String page,
 			@RequestParam(name = "limit", required = false) String slimit) {
 		// page : 출력할 페이지, limit : 한 페이지에 출력할 목록 갯수
