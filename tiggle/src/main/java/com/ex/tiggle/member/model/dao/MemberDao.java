@@ -173,4 +173,38 @@ public class MemberDao {
 	}
 	
 	
+	//이메일로 아이디 찾기 - USER
+	public Member selectIdByEmail(Member member) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectIdByEmail", member);
+	}
+	
+	//전화번호로 아이디 찾기 - USER
+	public Member selectIdByPhone(Member member) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectIdByPhone", member);
+	}
+	
+	//이메일로 아이디 찾기 - ORGANIZER
+	public Member selectOrgIdByEmail(Member member) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectOrgIdByEmail", member);
+	}
+	
+	//담당자 전화번호로 아이디 찾기 - ORGANIZER
+	public Member selectOrgIdByPhone(Member member) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectOrgIdByPhone", member);
+	}
+
+	public Member selectFindUser(Member member) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectFindUser", member);
+	}//USER 찾기(아이디,이름,이메일)
+
+	public int updateTempPwd(Member member) {
+		return sqlSessionTemplate.update("memberMapper.updateTempPwd", member);
+	}//임시 비밀번호 설정 - USER
+
+	public Member selectFindOrganizer(Member member) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectFindOrganizer", member);
+	}//ORGANIZER 찾기(아이디,기관명,이메일)
+	
+	
+	
 }//MemberDao end

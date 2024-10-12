@@ -294,6 +294,13 @@
 		    <version>${org.springframework-version}</version>
 		</dependency>
 		<!-- 회원가입 이메일 인증 API - SEOI end-->
+		
+		<!-- 소셜로그인 - SEOI -->
+		<!-- naver 로그인 연동 -->
+		
+		
+		<!-- naver 로그인 연동 end -->
+		<!-- 소셜로그인 연동 - SEOI end -->
 			
 			
 			

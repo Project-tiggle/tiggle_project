@@ -86,8 +86,8 @@
 						<option value="email">이메일</option>
 					</select>
 
-					<input type="text" name="keyword" class="m_search_input">
-					<input type="submit" value="검색" class="m_search_btn">
+					<input type="text" name="keyword" class="mlist_search_input">
+					<input type="submit" value="검색" class="mlist_search_btn">
 				</form>
 			</div><!-- mlist_search end -->
 			

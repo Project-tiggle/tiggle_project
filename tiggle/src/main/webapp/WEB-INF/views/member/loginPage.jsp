@@ -32,9 +32,9 @@
 			</div><!-- loginform end -->
 
 			<ul class="find_wrap">
-				<li><a href="#">아이디 찾기</a></li>
+				<li><a href="findIdPage.do">아이디 찾기</a></li>
 				<li>&#10072;</li>
-				<li><a href="#">비밀번호 찾기</a></li>
+				<li><a href="findPwdPage.do">비밀번호 찾기</a></li>
 			</ul><!-- find_wrap end -->
 
 			<button class="enroll_btn">

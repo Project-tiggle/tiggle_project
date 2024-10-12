@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.UUID;
 
 import javax.mail.internet.MimeMessage;
@@ -102,6 +103,22 @@ public class MemberController {
 			return "common/error";
 		}
 	}//moveDeleteMemberPage() end
+	
+	
+	//아이디 찾기 내보내기용
+	@RequestMapping(value = "findIdPage.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String moveFindIdPage() {
+		return "member/findIdPage";
+	}//moveFindIdPage()
+	
+	
+	//비밀번호 찾기 내보내기용
+	@RequestMapping(value = "findPwdPage.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String moveFindPwdPage() {
+		return "member/findPwdPage";
+	}//moveFindIdPage()
+	
+	
 	
 	
 	
@@ -285,6 +302,188 @@ public class MemberController {
 		
 		return mailNum;
 	}//mailCheck() end
+
+	
+	
+	//아이디 찾기 **************************************************
+	@RequestMapping(value="findide.do", method=RequestMethod.POST)
+	public String findIdByEmail(Model model, Member member) {
+		Member findId = memberService.selectIdByEmail(member);
+		
+		if(findId != null) {
+			model.addAttribute("member", findId);
+			return "member/printIdPage";
+		}else {
+			model.addAttribute("message", "이름과 이메일이 일치하는 계정을 찾을 수 없습니다.");
+            return "common/error";
+		}
+	}//findIdByEmail() end
+	
+	@RequestMapping(value="findidp.do", method=RequestMethod.POST)
+	public String findIdByPhone(Model model, Member member) {
+		Member findId = memberService.selectIdByPhone(member);
+		
+		if(findId != null) {
+			model.addAttribute("member", findId);
+			return "member/printIdPage";
+		}else {
+			model.addAttribute("message", "이름과 전화번호가 일치하는 계정을 찾을 수 없습니다.");
+            return "common/error";
+		}
+	}//findIdByPhone() end
+	
+	@RequestMapping(value="findOrgIde.do", method=RequestMethod.POST)
+	public String findOrgIdByEmail(Model model, Member member) {
+		Member findId = memberService.selectOrgIdByEmail(member);
+		
+		if(findId != null) {
+			model.addAttribute("member", findId);
+			return "member/printIdPage";
+		}else {
+			model.addAttribute("message", "기관명과 이메일이 일치하는 계정을 찾을 수 없습니다.");
+			return "common/error";
+		}
+	}//findOrgIdByEmail() end
+	
+	@RequestMapping(value="findOrgIdp.do", method=RequestMethod.POST)
+	public String findOrgIdByPhone(Model model, Member member) {
+		Member findId = memberService.selectOrgIdByPhone(member);
+		
+		if(findId != null) {
+			model.addAttribute("member", findId);
+			return "member/printIdPage";
+		}else {
+			model.addAttribute("message", "기관명과 담당자 전화번호가 일치하는 계정을 찾을 수 없습니다.");
+			return "common/error";
+		}
+	}//findOrgIdByPhone() end
+	
+	
+	//임시비밀번호 설정 **************************************************
+	@RequestMapping(value="tempPwde.do", method=RequestMethod.POST)
+	public String tempPwdByEmail(Member member, Model model) {
+		member.setId(member.getId().trim());
+		member.setName(member.getName().trim());
+		member.setEmail(member.getEmail().trim());
+		
+		member = memberService.selectFindUser(member);//일반회원 찾기
+		logger.info("member : " + member);
+		
+		if(member != null) {
+			StringBuilder sb = new StringBuilder();
+			Random rd = new Random();
+			String tempPwd = null;
+			
+			for (int i = 0; i < 20; i++) {
+				if (rd.nextBoolean()) {
+					sb.append(rd.nextInt(10));
+				}else {
+					sb.append((char)(rd.nextInt(26)+65));
+				}
+			}
+			
+			tempPwd = sb.toString(); //임시 비밀번호 생성 (20자리 영문+숫자)
+			System.out.println("tempPwd : " + tempPwd);
+			member.setPwd(bcryptPasswordEncoder.encode(tempPwd));
+			
+			
+			if(memberService.updateTempPwd(member) > 0) {
+				String from = "tiggle2024@naver.com";
+				String to = member.getEmail();
+				String title = "[임시비밀번호] '티글' 로그인시 필요한 임시비밀번호 입니다.";
+				String content = "[임시비밀번호] " + tempPwd + " 입니다.<br> 임시 비밀번호로 로그인 한 후 반드시 비밀번호 변경하세요.";
+				String mailNum = null;
+				
+				try {
+					MimeMessage mail = mailSender.createMimeMessage();
+					MimeMessageHelper mailHelper = new MimeMessageHelper(mail, true, "UTF-8");
+					
+					mailHelper.setFrom(from);
+			        mailHelper.setTo(to);
+			        mailHelper.setSubject(title);
+			        mailHelper.setText(content, true);       
+			        
+			        mailSender.send(mail);
+			        mailNum = tempPwd;
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+					mailNum = "error";
+				}//try~catch end
+				
+				return "member/printPwdPage";
+			}else {
+				model.addAttribute("message", "임시 비밀번호 설정에 실패하였습니다.<br> 다시 시도해주세요.");
+	            return "common/error";
+			}
+		}else { //찾는 계정이 없을 때
+			model.addAttribute("message", "일치하는 계정을 찾을 수 없습니다.<br> 다시 시도해주세요.");
+            return "common/error";
+		}
+	}//findPwdByEmail() end
+	
+	@RequestMapping(value="tempOrgPwde.do", method=RequestMethod.POST)
+	public String tempOrgPwdByEmail(Member member, Model model) {
+		member.setId(member.getId().trim());
+		member.setOrgName(member.getOrgName().trim());
+		member.setOrgEmail(member.getOrgEmail().trim());
+		
+		member = memberService.selectFindOrganizer(member);//전시관계자 찾기
+		logger.info("member : " + member);
+		
+		if(member != null) {
+			StringBuilder sb = new StringBuilder();
+			Random rd = new Random();
+			String tempPwd = null;
+			
+			for (int i = 0; i < 20; i++) {
+				if (rd.nextBoolean()) {
+					sb.append(rd.nextInt(10));
+				}else {
+					sb.append((char)(rd.nextInt(26)+65));
+				}
+			}
+			
+			tempPwd = sb.toString(); //임시 비밀번호 생성 (20자리 영문+숫자)
+			System.out.println("tempPwd : " + tempPwd);
+			member.setPwd(bcryptPasswordEncoder.encode(tempPwd));
+			
+			
+			if(memberService.updateTempPwd(member) > 0) {
+				String from = "tiggle2024@naver.com";
+				String to = member.getOrgEmail();
+				String title = "[임시비밀번호] '티글' 로그인시 필요한 임시비밀번호 입니다.";
+				String content = "[임시비밀번호] " + tempPwd + " 입니다.<br> 임시 비밀번호로 로그인 한 후 반드시 비밀번호 변경하세요.";
+				String mailNum = null;
+				
+				try {
+					MimeMessage mail = mailSender.createMimeMessage();
+					MimeMessageHelper mailHelper = new MimeMessageHelper(mail, true, "UTF-8");
+					
+					mailHelper.setFrom(from);
+					mailHelper.setTo(to);
+					mailHelper.setSubject(title);
+					mailHelper.setText(content, true);       
+					
+					mailSender.send(mail);
+					mailNum = tempPwd;
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+					mailNum = "error";
+				}//try~catch end
+				
+				return "member/printPwdPage";
+			}else {
+				model.addAttribute("message", "임시 비밀번호 설정에 실패하였습니다.<br> 다시 시도해주세요.");
+				return "common/error";
+			}
+		}else { //찾는 계정이 없을 때
+			model.addAttribute("message", "일치하는 계정을 찾을 수 없습니다.<br> 다시 시도해주세요.");
+			return "common/error";
+		}
+	}//findOrgPwdByEmail() end
+
 	
 	
 	//내정보 보기 페이지 처리용
