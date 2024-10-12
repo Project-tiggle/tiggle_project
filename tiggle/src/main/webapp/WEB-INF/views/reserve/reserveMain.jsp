@@ -59,9 +59,18 @@ div.resC {
 		<tr><th>배송지</th>
 			<td><input type="text" id="delivery" name="reserveDelivery">
 				<script>
-					if(deliveryCheck.checked == true){
-						delivery.value="${ sessionScope.loginMember.address }"	
-					}
+				  const deliveryCheck = document.getElementById("deliveryCheck");
+				    const deliveryInput = document.getElementById("delivery");
+
+				    deliveryCheck.addEventListener("change", function() {
+				        if (this.checked) {
+				            deliveryInput.value = "${ sessionScope.loginMember.address }";
+				            deliveryInput.setAttribute("readonly", true);  // 읽기 전용 설정
+				        } else {
+				            deliveryInput.value = "";  // 체크 해제 시 값 초기화
+				            deliveryInput.removeAttribute("readonly");  // 읽기 전용 해제
+				        }
+				    });
 				</script>
 			</td></tr>
 		<tr><th colspan="2">
