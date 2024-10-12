@@ -34,7 +34,7 @@
 					<li><a href="ulist.do?page=1">일반사용자 목록</a></li>
 					<li><a href="olist.do?page=1">전시관계자 목록</a></li>
 					<li><a href="#">예약확인 / 취소</a></li>
-					<li><a href="#">1:1 문의내역</a></li>
+					<li><a href="adminCustBoard.do?page=1">1:1 문의내역</a></li>
 				</ul><!-- left_ menu end -->
 			</nav>
 		</aside><!-- myinfo_aside end -->

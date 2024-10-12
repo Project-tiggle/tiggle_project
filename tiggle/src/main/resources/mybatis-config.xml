@@ -22,6 +22,7 @@
 		<typeAlias type="com.ex.tiggle.notice.model.dto.Notice" alias="Notice"/>
 		<typeAlias type="com.ex.tiggle.review.model.dto.Review" alias="Review"/>
 		<typeAlias type="com.ex.tiggle.review.model.dto.ReviewPaging" alias="ReviewPaging"/>
+		<typeAlias type="com.ex.tiggle.custboard.model.dto.CustBoard" alias="CustBoard"/>
 		
 	</typeAliases>
 	
@@ -32,6 +33,7 @@
 		<mapper resource="mappers/notice-mapper.xml" />
 		<mapper resource="mappers/map-mapper.xml" />
 		<mapper resource="mappers/review-mapper.xml" />
+		<mapper resource="mappers/custboard-mapper.xml" />
 		
 	</mappers>
 </configuration>

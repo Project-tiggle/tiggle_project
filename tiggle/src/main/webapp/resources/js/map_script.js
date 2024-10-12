@@ -20,7 +20,7 @@ if (navigator.geolocation) {
 		}
 		
 		var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치
-		message = '<div style="padding:5px;">내 위치</div>'; // 인포윈도우에 표시될 내용
+		message = '<div style="padding:5px;">기준 위치</div>'; // 인포윈도우에 표시될 내용
 
 		displayMarker(locPosition, message);
 
@@ -106,7 +106,7 @@ function displayExhibitions() {
             // 포스터 추가
             var posterDiv = document.createElement("div");
             posterDiv.classList.add("exhibition-poster");
-            posterDiv.innerHTML = '<img src="' + positions[i].poster + '" alt="포스터">'; // 포스터 이미지 삽입
+            posterDiv.innerHTML = '<img src="' + positions[i].poster + '" alt="등록된 포스터가 없습니다">'; // 포스터 이미지 삽입
 
             // 요약 정보 추가
             var summaryDetailsDiv = document.createElement("div");
