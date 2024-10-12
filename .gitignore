@@ -40,3 +40,4 @@
 /tiggle/.factorypath
 tiggle/src/main/webapp/META-INF/MANIFEST.MF
 tiggle/src/main/webapp/META-INF/maven/com.ex/tiggle/pom.properties
+tiggle/src/main/resources/logs/system.log2024-10-11
