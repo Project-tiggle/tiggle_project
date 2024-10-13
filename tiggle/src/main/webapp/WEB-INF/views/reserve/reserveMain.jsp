@@ -124,11 +124,11 @@ div.resC {
 			    </script>
 		</th></tr>
 		<tr><th colspan="2">
-			<input type="button" value="결제하기" id="payButton">
-		  <script src="https://js.tosspayments.com/v1"></script>
+			<input type="button" value="결제하기" id="payButton"><a href="payment.do?no=1">결제하기</a>
+		  <!-- <script src="https://js.tosspayments.com/v1"></script> -->
 			<script>
 			
-			  document.getElementById('payButton').addEventListener('click', function() {
+			<%--   document.getElementById('payButton').addEventListener('click', function() {
 		            // 결제 요청 정보
 		            const amount = document.getElementById('totalPrice').innerText;
 		            const orderId = 'ORDER_' + new Date().getTime();  // 고유 주문번호 생성 (예시)
@@ -151,9 +151,9 @@ div.resC {
 			  
 			function onPaymentSuccess(paymentKey, orderId, amount) {
 			        fetch('/process-payment', {
-			            method: 'POST',
-			            headers: {
-			                'Content-Type': 'application/x-www-form-urlencoded'
+		            method: 'POST',
+		            headers: {
+		                'Content-Type': 'application/x-www-form-urlencoded'
 			            },
 			            body: `paymentKey=${paymentKey}&orderId=${orderId}&amount=${amount}`
 			        })
@@ -165,7 +165,7 @@ div.resC {
 			        .catch(error => {
 			            console.error("결제 처리 중 오류 발생:", error);
 			        });
-			    }
+			    } --%>
 			</script>
 			 &nbsp;
 			<input type="button" value="취소" onclick="javascript:history.go(-1); return false;">

@@ -13,8 +13,8 @@ import com.ex.tiggle.reserve.model.service.KakaoPayService;
 
 
 
-@Controller
-public class KakaoPayController {
+//@Controller
+//public class KakaoPayController {
 //	private static final Logger logger = LoggerFactory.getLogger(KakaoPayController.class);
 //   @Autowired
 //    private KakaoPayService kakaoPay;
@@ -36,4 +36,4 @@ public class KakaoPayController {
 //        logger.info("kakaoPay Success get................");
 //        logger.info("kakaoPaySuccess pg_token : " + pg_token);
 //    }
-}
+//}
