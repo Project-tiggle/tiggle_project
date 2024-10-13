@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 
@@ -31,6 +32,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.common.Search;
+import com.ex.tiggle.member.model.dto.KakaoLoginAuth;
 import com.ex.tiggle.member.model.dto.Member;
 import com.ex.tiggle.member.model.dto.NaverLoginAuth;
 import com.ex.tiggle.member.model.service.MemberService;
@@ -130,6 +132,48 @@ public class MemberController {
 			return "common/error";
 		}
 	}//naverLogin() end
+	
+	
+	//카카오 소셜 로그인
+	@RequestMapping(value = "kakaoLogin.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String kakaoLogin(@RequestParam String code, HttpSession session, SessionStatus status, Model model)
+			throws IOException {
+		logger.info("code : " + code);
+		
+		// 접속토큰 get
+		String kakaoToken = memberService.getReturnAccessToken(code);
+		
+		// 접속자 정보 get
+		Map<String, Object> result = memberService.getMemberInfo(kakaoToken);
+		logger.info("result : " + result);
+		String nickname = (String) result.get("nickname");
+		String email = (String) result.get("email");
+		
+		//Member 테이블에서 회원정보 조회해오기
+		Member member = new Member();
+		
+		if (memberService.selectSocialLogin(email) == null) { //회원가입 안한 유저
+			member.setUuid(UUID.randomUUID().toString());
+			member.setNickname(nickname);
+			member.setEmail(email);
+			member.setSigntype("KAKAO");
+			
+			if (memberService.insertSocialMember(member) > 0) { //소셜 회원가입 성공시
+				session.setAttribute("loginMember", member);
+				status.setComplete();
+				return "redirect:main.do";
+			}else { //소셜 회원가입 실패시
+				model.addAttribute("message", "소셜 회원가입에 실패하였습니다.<br> 다시 시도해주세요.");
+				return "common/error";
+			}
+		} else { //이미 회원가입 한 유저
+			member = memberService.selectSocialLogin(email);
+			session.setAttribute("loginMember", member);
+			status.setComplete();
+			return "redirect:main.do";				
+		}//회원가입 이미 한
+		
+	}//kakaoLogin() end
 	
 	
 	//뷰페이지 내보내기용 메서드 --------------------------------------------------

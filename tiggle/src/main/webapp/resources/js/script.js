@@ -1,5 +1,5 @@
 //m_menu slide
-$(function(){
+/* $(function(){
     $('.m_btn').on('click', function(){
         $('.m_menu').animate({right: 0}, 300);
     });
@@ -8,4 +8,5 @@ $(function(){
         $('.m_menu').animate({right : '-300px'}, 300);
     });
 
-});//m_menu slide end
+}); */
+//m_menu slide end

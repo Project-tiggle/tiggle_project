@@ -312,12 +312,35 @@
 		<!-- naver 로그인 연동 end -->
 		
 		<!-- kakao 로그인 연동 -->
+		<!-- 카카오 로그인 api 연동 -->
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore -->
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpcore</artifactId>
+		    <version>4.4.14</version>
+		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		    <version>4.5.13</version>
+		</dependency>
 		
-		
+		<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>jackson-mapper-asl</artifactId>
+		    <version>1.9.13</version>
+		</dependency>
 		<!-- kakao 로그인 연동 end -->
 		
+		<!-- google 로그인 연동 -->
 		
+		
+		
+		
+		
+		<!-- google 로그인 연동 end -->
 		<!-- 소셜로그인 연동 - SEOI end -->
 			
 			

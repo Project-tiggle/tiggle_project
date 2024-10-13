@@ -31,7 +31,10 @@
                     	<c:if test="${ !empty sessionScope.loginMember.name  }">
                         	<li><a href="#" style="color: #333 !important; font-weight: normal !important; cursor: default !important;">${ sessionScope.loginMember.name } 님</a></li>
                     	</c:if>
-                    	<c:if test="${ empty sessionScope.loginMember.name  }">
+                    	<c:if test="${ empty sessionScope.loginMember.name && !empty sessionScope.loginMember.nickname  }">
+                        	<li><a href="#" style="color: #333 !important; font-weight: normal !important; cursor: default !important;">${ sessionScope.loginMember.nickname } 님</a></li>
+                    	</c:if>
+                    	<c:if test="${ empty sessionScope.loginMember.name && empty sessionScope.loginMember.nickname  }">
                         	<li><a href="#" style="color: #333 !important; font-weight: normal !important; cursor: default !important;">${ sessionScope.loginMember.id } 님</a></li>
                     	</c:if>
                         <li><a href="logout.do">로그아웃</a></li>
@@ -171,6 +174,18 @@
     </header>
 
     <script src="/tiggle/resources/js/jquery-3.7.1.min.js"></script>
-    <script src="/tiggle/resources/js/script.js"></script>
+    <script type="text/javascript">
+	 	//m_menu slide
+	    $(function(){
+	        $('.m_btn').on('click', function(){
+	            $('.m_menu').animate({right: 0}, 300);
+	        });
+	
+	        $('.close_btn').on('click', function(){
+	            $('.m_menu').animate({right : '-300px'}, 300);
+	        });
+	
+	    });//m_menu slide end
+    </script>
 </body>
 </html>
