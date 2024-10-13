@@ -38,7 +38,15 @@
 			
 			<div class="myinfo_wrap">
 				<div class="orginfo_top">
-					<p><span>${ requestScope.member.id }</span> 님</p>
+					<c:if test="${ !empty sessionScope.loginMember.id  }">
+						<p><span>${ requestScope.member.id }</span> 님</p>
+					</c:if>
+					<c:if test="${ empty sessionScope.loginMember.id && !empty sessionScope.loginMember.name  }">
+						<p><span>${ requestScope.member.name }</span> 님</p>
+					</c:if>
+					<c:if test="${ empty sessionScope.loginMember.id && empty sessionScope.loginMember.name  }">
+						<p><span>${ requestScope.member.nickname }</span> 님</p>
+					</c:if>
 					<p>정말 탈퇴하시겠어요?</p>
 					<p>계정을 삭제하면 한줄평, 예약정보 등 모든 정보가 삭제됩니다.</p>
 					<p>계정 삭제 후 7일간 다시 가입하지 못해요.</p>

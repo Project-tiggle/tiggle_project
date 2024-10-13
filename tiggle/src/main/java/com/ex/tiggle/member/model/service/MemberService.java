@@ -1,6 +1,7 @@
 package com.ex.tiggle.member.model.service;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.common.Search;
@@ -95,11 +96,16 @@ public interface MemberService {
 	ArrayList<Member> selectOrgSearchName(Search search);
 
 	
-	//이메일로 소셜로그인
+	//이메일로 소셜로그인 **************************************************
 	Member selectSocialLogin(String email);
 	//소셜 회원가입
 	int insertSocialMember(Member member);
-
+	
+	//카카오 접속토큰 get
+	String getReturnAccessToken(String code);
+	//카카오 접속자 정보 get
+	Map<String, Object> getMemberInfo(String kakaoToken);
+	
 
 			
 }//MemberService end
