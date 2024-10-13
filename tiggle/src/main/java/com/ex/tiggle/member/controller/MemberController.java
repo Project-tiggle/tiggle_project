@@ -32,7 +32,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.common.Search;
-import com.ex.tiggle.member.model.dto.KakaoLoginAuth;
+import com.ex.tiggle.member.model.dto.GoogleLoginAuth;
 import com.ex.tiggle.member.model.dto.Member;
 import com.ex.tiggle.member.model.dto.NaverLoginAuth;
 import com.ex.tiggle.member.model.service.MemberService;
@@ -55,6 +55,9 @@ public class MemberController {
 	@Autowired
 	private NaverLoginAuth naverloginAuth; //네이버 소셜 로그인
 	
+	@Autowired
+	private GoogleLoginAuth googleloginAuth; //구글 소셜 로그인
+	
 	public MemberController() {
 		super();
 	}
@@ -63,10 +66,16 @@ public class MemberController {
 		this.naverloginAuth = naverLoginAuth;
 	}//네이버 소셜 로그인
 	
+	public MemberController(GoogleLoginAuth googleLoginAuth) {
+		this.googleloginAuth = googleLoginAuth;
+	}//구글 소셜 로그인
+	
 	private void addAuthURLsMethod(Model model, HttpSession session) {
 		String naverAuthURL = naverloginAuth.getAuthorizationUrl(session);
+		String googleAuthURL = googleloginAuth.getAuthorizationUrl(session);
 		
 		model.addAttribute("naverurl", naverAuthURL);
+		model.addAttribute("googleurl", googleAuthURL);
 	}
 	
 	//소셜로그인 **************************************************
@@ -174,6 +183,59 @@ public class MemberController {
 		}//회원가입 이미 한
 		
 	}//kakaoLogin() end
+	
+	
+	//구글 소셜 로그인
+	@RequestMapping(value = "googleLogin.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String googleLogin(@RequestParam String code, @RequestParam String state, Model model,
+			HttpSession session, SessionStatus status) throws Exception {
+		logger.info("Code: {}\nState: {}\nSession : {}", code, state, session);
+		
+		OAuth2AccessToken node = googleloginAuth.getAccessToken(session, code, state);
+		logger.info("node : " + node);
+		
+		if(node != null) {
+			String apiResult = googleloginAuth.getUserProfile(node);
+			
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(apiResult);
+			JSONObject jsonObj = (JSONObject) obj;
+			
+			String name = (String) jsonObj.get("name");
+			String email = (String) jsonObj.get("email");
+			
+			//Member 테이블에서 회원정보 조회해오기
+			Member member = new Member();
+			
+			if (memberService.selectSocialLogin(email) == null) { //회원가입 안한 유저
+				member.setUuid(UUID.randomUUID().toString());
+				member.setName(name);
+				member.setEmail(email);
+				member.setSigntype("GOOGLE");
+				
+				if (memberService.insertSocialMember(member) > 0) { //소셜 회원가입 성공시
+					session.setAttribute("loginMember", member);
+					status.setComplete();
+					return "redirect:main.do";
+				}else { //소셜 회원가입 실패시
+					model.addAttribute("message", "소셜 회원가입에 실패하였습니다.<br> 다시 시도해주세요.");
+					return "common/error";
+				}
+				
+			} else { //이미 회원가입 한 유저
+				member = memberService.selectSocialLogin(email);
+				session.setAttribute("loginMember", member);
+				status.setComplete();
+				return "redirect:main.do";				
+					
+			}//회원가입 이미 한
+			
+		}else {
+			model.addAttribute("message", "Google Token Error<br> 브라우저 캐시를 지우고 다시 시도해주세요.");
+			return "common/error";
+		}
+	}//googleLogin() end
+	
 	
 	
 	//뷰페이지 내보내기용 메서드 --------------------------------------------------

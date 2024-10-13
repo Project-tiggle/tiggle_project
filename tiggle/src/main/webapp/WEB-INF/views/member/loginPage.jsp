@@ -8,9 +8,11 @@
 <title>티글 로그인</title>
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/member_style.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
 <script src="/tiggle/resources/js/jquery-3.7.1.min.js"></script>
 <script src="/tiggle/resources/js/naveridlogin_js_sdk_2.0.2.js"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <script type="text/javascript">
 	/* $(document).ready(function(){
 		Kakao.init('99818889ec96dce2c471645e26a48fdd');
@@ -62,6 +64,10 @@
 				</a>
 				<a href="javascript:loginWithKakao()">
 					<img src="${ pageContext.servletContext.contextPath }/resources/images/kakao_login_icon.png" alt="카카오로그인">
+				</a>
+				<a href="${ googleurl }">
+					<img src="${ pageContext.servletContext.contextPath }/resources/images/google_login_icon.png" alt="구글로그인">
+					<span>구글 로그인</span>
 				</a>
 			</div><!-- social_login_wrap end -->
 		</div><!-- login_wrap end -->

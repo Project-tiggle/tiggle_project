@@ -95,7 +95,12 @@
 	
 						<div class="myinfo_list">
 							<p>연락처</p>
-							<input type="tel" name="phone" id="myinfo_phone" value="${ requestScope.member.phone }" required>
+							<c:if test="${ requestScope.member.signtype eq 'TIGGLE' }">
+								<input type="tel" name="phone" id="myinfo_phone" value="${ requestScope.member.phone }" required>
+							</c:if>
+							<c:if test="${ requestScope.member.signtype ne 'TIGGLE' }">
+								<input type="tel" name="phone" id="myinfo_phone" value="${ requestScope.member.phone }">
+							</c:if>
 							<span>예시) 010-1234-5678</span>
 						</div><!-- myinfo_list end -->
 						
