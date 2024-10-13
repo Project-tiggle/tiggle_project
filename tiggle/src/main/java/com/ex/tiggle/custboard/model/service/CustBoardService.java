@@ -12,4 +12,5 @@ public interface CustBoardService {
 	ArrayList<CustBoard> selectCustList(Paging paging);	//리스트 조회용
 	CustBoard selectCboardCid(int cId);					//글 디테일 뷰 불러오기용, 댓글 달기용 원글 불러오기
 	int insertReply(CustBoard reply);					//1:1문의 댓글 등록용
+	int updateUpY(int cId);								//답변완료 메세지를 위한 원글 update
 }

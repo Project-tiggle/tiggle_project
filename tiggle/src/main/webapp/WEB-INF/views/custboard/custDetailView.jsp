@@ -72,19 +72,23 @@ function requestReply(){
 						<th>첨부파일</th>
 						<td colspan="5" style="padding-left: 15px; text-align: left;">
 							<c:if test="${ empty custBoard.fileUrl }">첨부파일 없음</c:if>
-							<c:if test="${ !empty custBoard.fileUrl }">${ custBoard.fileUrl }</c:if>
+							<c:if test="${ !empty custBoard.fileUrl }">
+								<a href="${pageContext.request.contextPath}/resources/custboard_upfiles/${ custBoard.fileUrl }" download>${ custBoard.fileUrl }
+							</c:if>
 						</td>
 					</tr>
 				</table>
 
 				<div id="custContent">
-					<p>${ custBoard.cContent }</p>
+					<textarea rows="15" style="font-size: 15px; line-heigth: 1.5; line-height: unset; width: 100%" readonly>${ custBoard.cContent }</textarea>
 				</div>
 
 				<div id="custActions">
-					<button id="reBtn" onclick="requestReply(); return false;">문의글 답변하기</button>
+					<c:if test="${ custBoard.cLev eq 1 and custBoard.updatedYn eq 'N' }">
+						<button id="reBtn" onclick="requestReply(); return false;">문의글 답변하기</button>
+					</c:if>
 					<button onclick="javascript:location.href='adminCustBoard.do?page=${ currentPage }';">목록</button>
-					<button onclick="alert('삭제 기능은 준비 중입니다.');">삭제</button>
+					<button onclick="alert('삭제 기능은 준비 중입니다.'); return false">삭제</button>
 				</div>
 			</div>
 		</div>

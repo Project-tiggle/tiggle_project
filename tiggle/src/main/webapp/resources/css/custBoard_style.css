@@ -87,3 +87,57 @@
 #custActions button:hover {
     background-color: #f1f1f1;
 }
+
+/* custWriteView.jsp */
+#cwCon {
+	margin: 30px;
+}
+
+#cwFormTable {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+
+#cwFormTable td {
+	padding: 10px;
+	border: 1px solid #ccc;
+	text-align: left;
+	vertical-align: top;
+}
+
+#cwFormTable label {
+	font-weight: bold;
+}
+
+#cwTitle, #cwWriter, #cwFile {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 5px;
+	width: 100%;
+}
+
+#cwContent {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 5px;
+	width: 100%;
+}
+
+#cwBtn {
+	text-align: right;
+}
+
+#cwBtn > input {
+	border: 1px solid #ccc;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+#cwBtn > input:hover {
+	background-color: #ff7a4d;
+	color: white;
+}

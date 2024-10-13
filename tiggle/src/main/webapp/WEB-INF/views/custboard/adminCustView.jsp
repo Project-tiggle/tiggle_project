@@ -45,9 +45,9 @@
 						<tr>
 							<th align="center">No</th>
 							<th align="center">처리상태</th>
-							<th align="center">작성자</th>
 							<th align="center">제목</th>
 							<th align="center">첨부파일</th>
+							<th align="center">작성자</th>
 							<th align="center">등록일</th>
 							<th align="center">수정일</th>
 						</tr>
@@ -56,28 +56,34 @@
 						<c:forEach items="${ requestScope.list }" var="list">
 							<tr>
 								<td align="center">${ list.cId }</td>
+																
 								<td align="center">
 									<c:if test="${ list.updatedYn eq 'N' }">
 										<b style="color: #ff5f2c;">답변대기</b>
 									</c:if>
-									<c:if test="${ list.updatedYn eq 'Y' }">완료</c:if>
 								</td>
-								<td align="center">${ list.id }</td>
+								
+								<!-- 제목 -->
 								<td style="text-align: left;">
 									<c:url var="cDetail" value="custbDetail.do">
 										<c:param name="cId" value="${ list.cId }" />
 										<c:param name="page" value="${ currentPage }" />
 									</c:url>
+									
 									<c:if test="${ list.cLev eq 1 }">
-										<a href="${ cDetail }">${ list.title }</a>
+										<a href="${ cDetail }"><b>${ list.title }</b></a>
 									</c:if>
 									<c:if test="${ list.cLev eq 2 }">
 										<a href="${ cDetail }">&#x21B3; [Re:No.${ list.refNo }] ${ list.title }</a>
 									</c:if>
 								</td>
+								<!-- 제목 여기까지 -->
+								
 								<td align="center">
 									<c:if test="${ empty list.fileUrl }"></c:if>
-									<c:if test="${ !empty list.fileUrl }"><b>첨부</b></c:if></td>
+									<c:if test="${ !empty list.fileUrl }"><b>첨부</b></c:if>
+								</td>
+								<td align="center">${ list.id }</td>
 								<td align="center">${ list.createdAt }</td>
 								<td align="center">${ list.updatedAt }</td>
 							</tr>

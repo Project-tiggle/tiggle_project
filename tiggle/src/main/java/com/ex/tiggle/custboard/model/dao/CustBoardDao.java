@@ -29,6 +29,11 @@ public class CustBoardDao {
 	}
 
 	public int insertReply(CustBoard reply) {
-		return sqlSessionTemplate.selectOne("custBoardMapper.insertReply", reply);
+		return sqlSessionTemplate.insert("custBoardMapper.insertReply", reply);
 	}
+
+	public int updateUpY(int cId) {
+		return sqlSessionTemplate.update("custBoardMapper.updateUpY", cId);
+	}
+
 }

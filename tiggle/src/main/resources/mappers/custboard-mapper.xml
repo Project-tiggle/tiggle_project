@@ -39,7 +39,7 @@
 			            		c_level, refno, file_url, id
         				from tb_cust_board cb
 				        join tb_member using (uuid)
-				        order by updated_yn asc, refno desc, c_level asc
+				        order by refno desc, c_level asc
 			         ) tb
 		     )
 		where rnum between #{ startRow } and #{ endRow }
@@ -53,11 +53,18 @@
 		where c_id = #{ cId }
 	</select>
 	
+	<!-- 관리자용 1:1 답변 등록용 -->
 	<insert id="insertReply" parameterType="CustBoard">
 		insert into tb_cust_board
-		values (#{ uuid }, (select max(cid) +1 from tb_cust_board), #{ cCategory },
-				#{ title }, #{ cContent }, sysdate, null, null, null, Y, #{ cLev },
+		values (#{ uuid }, (select max(c_id) +1 from tb_cust_board), #{ cCategory },
+				#{ title }, #{ cContent }, default, null, null, null, default, #{ cLev },
 				#{ refNo }, #{ fileUrl })
 	</insert>
+	<insert id="updateUpY" parameterType="_int">
+		update tb_cust_board
+		set updated_yn = 'Y'
+		where c_id = #{ cId }
+	</insert>
+	
 	
 </mapper>

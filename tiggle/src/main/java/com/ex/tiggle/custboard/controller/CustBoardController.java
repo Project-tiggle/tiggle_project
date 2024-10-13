@@ -99,19 +99,20 @@ public class CustBoardController {
 		model.addAttribute("custBoard", custBoard);
 		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("cId", cId);
-		return "custboard/custWriteView";
+		return "custboard/custReplyView";
 	}
 	
-	//
-	/* @RequestMapping(value = "custReply.do", method = RequestMethod.POST) */
+	//관리자 댓글 글 등록용
+	@RequestMapping(value = "cBoardReply.do", method = RequestMethod.POST)
 	public String RegCustBoardReply(
 			CustBoard reply,
 			Model model,
-			@RequestParam("cId") int cId,
+			@RequestParam("uuid") String uuid,
 			@RequestParam("page") int page,
-			@RequestParam(name = "ofile", required = false) MultipartFile mfile,
+			@RequestParam("cId") int cId,
+			@RequestParam(name = "cfile", required = false) MultipartFile mfile,
 			HttpServletRequest request) {
-		
+		logger.info("CustBoard : " + reply);
 		// 게시 원글 첨부파일 저장 폴더를 경로 지정
 		String savePath = request.getSession().getServletContext().getRealPath("resources/custboard_upfiles");
 		
@@ -141,19 +142,20 @@ public class CustBoardController {
 			reply.setFileUrl(renameFileName);
 		} // 첨부파일이 있을 때
 		
-		// 1. 새로 등록할 댓글은 원글을 조회해 옴
+		// 새로 등록할 댓글은 원글을 조회해 옴
 		CustBoard origin = custBoardService.selectCboardCid(cId);
-
-		// 2. 새로 등록할 댓글의 레벨을 지정함
+		// 새로 등록할 댓글의 레벨을 지정함
 		reply.setcLev(origin.getcLev() + 1);
-
-		// 3. 참조 원글 번호(boardRef) 지정함
+		// 참조 원글 번호(boardRef) 지정함
 		reply.setRefNo(origin.getRefNo());
+		reply.setUuid(uuid);	//현재 로그인한 관리자 uuid 셋팅
+		reply.setcCategory(origin.getcCategory());	//원글 그대로 카테고리 셋팅		
 
 		if (custBoardService.insertReply(reply) > 0) {
+			custBoardService.updateUpY(cId);	//답변완료메세지용 원글 업데이트
 			return "redirect:adminCustBoard.do?page=" + page;
 		} else {
-			model.addAttribute("message", cId + "번 글에 대한 댓글 | 대댓글 등록 실패!");
+			model.addAttribute("message", cId +" 번글 답변 등록 실패!");
 			return "common/error";
 		}
 	}

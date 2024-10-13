@@ -33,4 +33,11 @@ public class CustBoardServiceImpl implements CustBoardService {
 	public int insertReply(CustBoard reply) {
 		return custBoardDao.insertReply(reply);
 	}
+
+	@Override
+	public int updateUpY(int cId) {
+		return custBoardDao.updateUpY(cId);
+	}
+
+
 }
