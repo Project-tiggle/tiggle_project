@@ -22,8 +22,8 @@ import com.ex.tiggle.reserve.model.dto.KakaoPayDto;
 @Transactional
 
 public class KakaoPayService {
-//	private static final String Host = "open-api.kakaopay.com";
-//	
+	private static final String Host = "open-api.kakaopay.com";
+	
 //	@Value("#{sellentProperty['kakao.admin']}")
 //	private String kakaoAdminKey; // 카카오페이 관리자 키 변수 설정
 //	
