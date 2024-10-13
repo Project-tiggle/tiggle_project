@@ -23,4 +23,12 @@ public class CustBoardDao {
 		List<CustBoard> list = sqlSessionTemplate.selectList("custBoardMapper.selectCustList", paging);
 		return (ArrayList<CustBoard>)list;
 	}
+
+	public CustBoard selectCboardCid(int cId) {
+		return sqlSessionTemplate.selectOne("custBoardMapper.selectCboardCid", cId);
+	}
+
+	public int insertReply(CustBoard reply) {
+		return sqlSessionTemplate.selectOne("custBoardMapper.insertReply", reply);
+	}
 }

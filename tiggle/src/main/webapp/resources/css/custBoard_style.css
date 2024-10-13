@@ -1,0 +1,89 @@
+@charset "UTF-8";
+/* adminCustView.jsp */
+#boardTable {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+#dataTable {
+    width: 100%;
+    border-left: none;
+    border-right: none;
+}
+
+#dataTable th, #dataTable td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+#dataTable th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+#dataTable th, #dataTable td {
+    border-left: none;
+    border-right: none;
+}
+
+#dataTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+/* custDetailView.jsp */
+#custDetail {
+	margin: 30px;
+}
+
+#custTitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#custInfoTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#custInfoTable th, #custInfoTable td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    width: 15%;
+}
+
+#custInfoTable th {
+    background-color: #f8f8f8;
+}
+
+#custContent {
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+#custActions {
+    text-align: right;
+}
+
+#custActions button {
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+#reBtn:hover {
+	background-color: #ff7a4d !important;
+	color: white !important;
+}
+
+#custActions button:hover {
+    background-color: #f1f1f1;
+}

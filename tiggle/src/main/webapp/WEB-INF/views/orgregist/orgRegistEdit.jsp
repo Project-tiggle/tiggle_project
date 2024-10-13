@@ -85,7 +85,7 @@
             <!-- 이미지 등록 -->
             <div id="outer">
                 <div id="ptPhoto">
-                    <img src="/tiggle/resources/images/exhibit_files/${orgRegist.fileUrl}" id="photo" alt="포스터 이미지를 올려주세요">
+                    <img src="/tiggle/resources/exhibit_upfiles/${orgRegist.fileUrl}" id="photo" alt="포스터 이미지를 올려주세요">
                 </div>
                 <br>
                 <div class="file-actions">

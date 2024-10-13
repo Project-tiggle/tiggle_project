@@ -23,4 +23,14 @@ public class CustBoardServiceImpl implements CustBoardService {
 	public ArrayList<CustBoard> selectCustList(Paging paging) {
 		return custBoardDao.selectCustList(paging);
 	}
+
+	@Override
+	public CustBoard selectCboardCid(int cId) {
+		return custBoardDao.selectCboardCid(cId);
+	}
+
+	@Override
+	public int insertReply(CustBoard reply) {
+		return custBoardDao.insertReply(reply);
+	}
 }

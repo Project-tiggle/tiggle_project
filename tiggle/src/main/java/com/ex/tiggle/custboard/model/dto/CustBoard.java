@@ -19,12 +19,15 @@ public class CustBoard implements java.io.Serializable {
 	private int refNo;			//REFNO			NUMBER				Yes				12	참조원글번호
 	private String fileUrl;		//FILE_URL		VARCHAR2(300 BYTE)	Yes				13	첨부파일 URL
 	
+	private String id;			//ID 멤버테이블
+	
 	public CustBoard() {
 		super();
 	}
 
 	public CustBoard(String uuid, int cId, String cCategory, String title, String cContent, Date createdAt,
-			Date updatedAt, String updatedYn, Date deletedAt, String deleteYn, int cLev, int refNo, String fileUrl) {
+			Date updatedAt, String updatedYn, Date deletedAt, String deleteYn, int cLev, int refNo, String fileUrl,
+			String id) {
 		super();
 		this.uuid = uuid;
 		this.cId = cId;
@@ -39,6 +42,7 @@ public class CustBoard implements java.io.Serializable {
 		this.cLev = cLev;
 		this.refNo = refNo;
 		this.fileUrl = fileUrl;
+		this.id = id;
 	}
 
 	public String getUuid() {
@@ -149,13 +153,23 @@ public class CustBoard implements java.io.Serializable {
 		return serialVersionUID;
 	}
 
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
 		return "CustBoard [uuid=" + uuid + ", cId=" + cId + ", cCategory=" + cCategory + ", title=" + title
 				+ ", cContent=" + cContent + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", updatedYn="
 				+ updatedYn + ", deletedAt=" + deletedAt + ", deleteYn=" + deleteYn + ", cLev=" + cLev + ", refNo="
-				+ refNo + ", fileUrl=" + fileUrl + "]";
+				+ refNo + ", fileUrl=" + fileUrl + ", id=" + id + "]";
 	}
+
+	
 	
 	
 }

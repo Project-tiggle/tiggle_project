@@ -1,12 +1,94 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>QnA 게시판</title>
+<title>게시물 상세 보기</title>
+<link rel="stylesheet" href="/tiggle/resources/css/member_style.css">
+<link rel="stylesheet" href="/tiggle/resources/css/custBoard_style.css">
+
+<c:url var="replyf" value="custReply.do">
+	<c:param name="cId" value="${ custBoard.cId }" />
+	<c:param name="page" value="${ currentPage }" />
+</c:url>
+
+<script type="text/javascript">
+
+function requestReply(){
+	location.href = "${ replyf }";
+}
+
+</script>
 </head>
 <body>
+	<c:import url="/WEB-INF/views/common/header.jsp" />
 
+	<div class="myinfo_section">
+		<aside class="myinfo_aside">
+			<div class="mypage_title">
+				<p>관리자페이지</p>
+			</div>
+			<!-- mypage_title -->
+
+			<nav>
+				<ul class="left_menu">
+					<!-- <li><a href="mlist.do?page=1">회원목록</a></li> -->
+					<li><a href="ulist.do?page=1">일반사용자 목록</a></li>
+					<li><a href="olist.do?page=1">전시관계자 목록</a></li>
+					<li><a href="#">예약확인 / 취소</a></li>
+					<li><a href="adminCustBoard.do?page=1">1:1 문의내역</a></li>
+				</ul>
+				<!-- left_ menu end -->
+			</nav>
+		</aside>
+		<!-- myinfo_aside end -->
+
+		<div class="myinfo_content">
+			<div class="myinfo_title">
+				<p>1:1문의 ${ cId }번 글 상세 (관리자용)</p>
+			</div>
+			<!-- myinfo_title end -->
+
+			<div id="custDetail">
+				<h2 id="custTitle">[글제목] ${ custBoard.title }</h2>
+
+				<table id="custInfoTable">
+					<tr>
+						<th>회원ID</th>
+						<td style="padding-left: 15px; text-align: left;">${ custBoard.id }</td>
+						<th>등록일</th>
+						<td>${ custBoard.createdAt }</td>
+						<th>수정일</th>
+						<c:if test="${ empty custBoard.updatedAt }">
+							<td>-</td>
+						</c:if>
+						<c:if test="${ !empty custBoard.updatedAt }">
+							<td>${ custBoard.updatedAt }</td>
+						</c:if>
+					</tr>
+					<tr>
+						<th>첨부파일</th>
+						<td colspan="5" style="padding-left: 15px; text-align: left;">
+							<c:if test="${ empty custBoard.fileUrl }">첨부파일 없음</c:if>
+							<c:if test="${ !empty custBoard.fileUrl }">${ custBoard.fileUrl }</c:if>
+						</td>
+					</tr>
+				</table>
+
+				<div id="custContent">
+					<p>${ custBoard.cContent }</p>
+				</div>
+
+				<div id="custActions">
+					<button id="reBtn" onclick="requestReply(); return false;">문의글 답변하기</button>
+					<button onclick="javascript:location.href='adminCustBoard.do?page=${ currentPage }';">목록</button>
+					<button onclick="alert('삭제 기능은 준비 중입니다.');">삭제</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<c:import url="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>

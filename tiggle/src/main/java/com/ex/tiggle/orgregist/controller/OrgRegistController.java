@@ -141,7 +141,7 @@ public class OrgRegistController {
     	String detailEventSite = orgRegist.getDetailEventSite();	//API 쉽게 사용하기 위한 변수
 		/* logger.info("orgRegist.do : " + orgRegist); */
     	
-    	String savePath = request.getSession().getServletContext().getRealPath("resources/images/exhibit_files");
+    	String savePath = request.getSession().getServletContext().getRealPath("resources/exhibit_upfiles");
 		/* logger.info("savePath : " + savePath); */
     	
     	// 첨부파일이 있을 때
@@ -229,7 +229,7 @@ public class OrgRegistController {
     	String detailEventSite = orgRegist.getDetailEventSite();	//API 쉽게 사용하기 위한 변수
     	
     	// 사진 파일첨부, 저장 폴더 경로 지정 -----------------------------------
-    	String savePath = request.getSession().getServletContext().getRealPath("resources/images/exhibit_files");
+    	String savePath = request.getSession().getServletContext().getRealPath("resources/exhibit_upfiles");
         
     	// 수정된 첨부파일이 있다면
 		if (!mfile.isEmpty()) {
@@ -307,7 +307,7 @@ public class OrgRegistController {
 			// 게시글 삭제 성공시 저장 폴더에 있는 첨부파일도 삭제 처리함
 			if (saveFileName != null && saveFileName.length() > 0) {
 				// 게시글 첨부파일 저장 폴더 경로 지정
-				String savePath = request.getSession().getServletContext().getRealPath("resources/images/exhibit_files");
+				String savePath = request.getSession().getServletContext().getRealPath("resources/exhibit_upfiles");
 				// 저장 폴더에서 파일 삭제함
 				new File(savePath + "\\" + saveFileName).delete();
 			}

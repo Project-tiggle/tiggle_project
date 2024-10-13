@@ -41,7 +41,7 @@
 		            latitude: ${ exhibit.latitude},
 		            longitude: ${ exhibit.longitude },
 		            latlng : new kakao.maps.LatLng(${ exhibit.latitude }, ${ exhibit.longitude }),
-		            poster: '${pageContext.request.contextPath}/resources/images/exhibit_files/${exhibit.fileUrl}',
+		            poster: '${pageContext.request.contextPath}/resources/exhibit_upfiles/${exhibit.fileUrl}',
 		            summary: '${ exhibit.eDescription }'
 	            });
 			</c:if>

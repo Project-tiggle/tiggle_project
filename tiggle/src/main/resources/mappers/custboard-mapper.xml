@@ -18,6 +18,7 @@
 	       <result property="cLev" column="C_LEVEL" />
 	       <result property="refNo" column="REFNO" />
 	       <result property="fileUrl" column="FILE_URL" />
+	       <result property="id" column="ID" />
 	</resultMap>
 	
 	<!-- 관리자용 보드 리스트 총갯수 조회용 -->
@@ -26,16 +27,37 @@
 		from tb_cust_board
 	</select>
 	
+	<!-- 관리자용 보드 리스트 조회용 -->
 	<select id="selectCustList" parameterType="Paging" resultMap="resultCustBoard">
 		select *
-		from (select rownum rnum, uuid, c_id, c_category, title, 
-		            c_content, created_at,
-		            updated_at, updated_yn, deleted_at, deleted_yn,
-		            c_level, refno, file_url
-		      from (select *
-		      		from tb_cust_board
-		            order by refno desc, c_level asc))
+		from (
+				select rownum rnum, tb.*
+			    from (
+			    		select uuid, c_id, c_category, title, c_content, created_at,
+			            		cb.updated_at as updated_at, updated_yn,
+			            		cb.deleted_at as deleted_at, cb.deleted_yn as deleted_yn,
+			            		c_level, refno, file_url, id
+        				from tb_cust_board cb
+				        join tb_member using (uuid)
+				        order by updated_yn asc, refno desc, c_level asc
+			         ) tb
+		     )
 		where rnum between #{ startRow } and #{ endRow }
 	</select>
+	
+	<!-- 관리자용 cId로 정보 조회해 오기용 -->
+	<select id="selectCboardCid" parameterType="_int" resultMap="resultCustBoard">
+		select *
+		from tb_cust_board
+		join tb_member using (uuid)
+		where c_id = #{ cId }
+	</select>
+	
+	<insert id="insertReply" parameterType="CustBoard">
+		insert into tb_cust_board
+		values (#{ uuid }, (select max(cid) +1 from tb_cust_board), #{ cCategory },
+				#{ title }, #{ cContent }, sysdate, null, null, null, Y, #{ cLev },
+				#{ refNo }, #{ fileUrl })
+	</insert>
 	
 </mapper>
