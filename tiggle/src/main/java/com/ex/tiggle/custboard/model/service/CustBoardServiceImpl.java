@@ -55,5 +55,10 @@ public class CustBoardServiceImpl implements CustBoardService {
 		return custBoardDao.updateOrigin(custBoard);
 	}
 
+	@Override
+	public int updateUpAt(int cId) {
+		return custBoardDao.updateUpAt(cId);
+	}
+
 
 }

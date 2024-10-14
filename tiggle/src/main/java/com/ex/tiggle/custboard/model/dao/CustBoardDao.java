@@ -48,4 +48,8 @@ public class CustBoardDao {
 		return sqlSessionTemplate.update("custBoardMapper.updateOrigin", custBoard);
 	}
 
+	public int updateUpAt(int cId) {
+		return sqlSessionTemplate.update("custBoardMapper.updateUpAt", cId);
+	}
+
 }

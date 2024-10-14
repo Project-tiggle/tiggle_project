@@ -16,4 +16,5 @@ public interface CustBoardService {
 	int deleteCustBoard(CustBoard custBoard);			//게시글 삭제처리
 	int updateUpN(int refNo);							//Lev2 삭제완료시 참조 Lev1 N처리
 	int updateOrigin(CustBoard custBoard);				//게시글 수정(파일 삭제, 변경하기)
+	int updateUpAt(int cId);							//게시글 수정일 업데이트
 }

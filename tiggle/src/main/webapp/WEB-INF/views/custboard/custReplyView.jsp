@@ -40,6 +40,17 @@
 			<!-- myinfo_title end -->
 
 			<div id="cwCon">
+				<!-- 내용 분류 위한 변수 준비 -->
+				<c:set var="categoryText" value="" />
+				<c:if test="${custBoard.cCategory == '1'}">
+				    <c:set var="categoryText" value="전시회" />
+				</c:if>
+				<c:if test="${custBoard.cCategory == '2'}">
+				    <c:set var="categoryText" value="박람회" />
+				</c:if>
+				<!-- 변수 준비 여기까지 -->
+			
+				<!-- 폼태그 여기서부터 시작 -->
 				<form action="cBoardReply.do" method="post" enctype="multipart/form-data" id="cwForm">
 					<input type="hidden" name="cId" value="${ custBoard.cId }">
 				    <input type="hidden" name="page" value="${ currentPage }">
@@ -61,8 +72,9 @@
 						<tr>
 							<td><label for="cwContent">내용</label></td>
 							<td><textarea id="cwContent" name="cContent" rows="15" style="width: 100%" required>[게시글 내용]
-제    목 : ${ custBoard.title }
 게시자ID : ${ custBoard.id }
+분    류 : ${ categoryText }
+제    목 : ${ custBoard.title }
 내    용 : ${ custBoard.cContent }
 ========================================================================
 </textarea></td>

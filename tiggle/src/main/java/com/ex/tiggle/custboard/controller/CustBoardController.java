@@ -110,7 +110,7 @@ public class CustBoardController {
 		return "custboard/custReplyView";
 	}
 	
-	//관리자 댓글 글 등록용
+	//관리자 댓글 등록용
 	@RequestMapping(value = "cBoardReply.do", method = RequestMethod.POST)
 	public String RegCustBoardReply(
 			CustBoard reply,
@@ -244,6 +244,7 @@ public class CustBoardController {
 			CustBoard custBoard,
 			Model model,
 			HttpServletRequest request,
+			@RequestParam(name = "saveFile", required = false) String saveFile,
 			@RequestParam(name = "page", required = false) String page,
 			@RequestParam(name = "deleteFlag", required = false) String delFlag,
 			@RequestParam(name = "cfile", required = false) MultipartFile mfile) {
@@ -263,13 +264,12 @@ public class CustBoardController {
 		// => 이전 파일과 파일정보 삭제함
 		if (custBoard.getFileUrl() != null && (delFlag != null && delFlag.equals("yes"))) {
 			// 저장 폴더에서 이전 파일은 삭제함
-			new File(savePath + "\\" + custBoard.getFileUrl()).delete();
+			new File(savePath + "\\" + saveFile).delete();
 			// board 안의 파일 정보도 삭제함
 			custBoard.setFileUrl(null);
 		}
 
 		// 2. 새로운 첨부파일이 있을 때 또는 변경 첨부파일이 있을 때 (공지글 첨부파일은 1개임)
-		// 즉, upfile 이름으로 전송온 파일이 있다면
 		if (!mfile.isEmpty()) {
 			// 전송온 파일이름 추출함
 			String fileName = mfile.getOriginalFilename();
@@ -286,7 +286,7 @@ public class CustBoardController {
 				try {
 					// 저장 폴더에 파일명 바꾸어 저장하기
 					mfile.transferTo(new File(savePath + "\\" + renameFileName));
-					new File(savePath + "\\" + custBoard.getFileUrl()).delete();
+					new File(savePath + "\\" + saveFile).delete();	// 기존파일 삭제
 				} catch (Exception e) {
 					e.printStackTrace();
 					model.addAttribute("message", "첨부파일 저장 실패!");
@@ -297,7 +297,9 @@ public class CustBoardController {
 			custBoard.setFileUrl(renameFileName);
 		} // 첨부파일이 있을 때
 
-		if (custBoardService.updateOrigin(custBoard) > 0) { // 게시원글 수정 성공시
+		if (custBoardService.updateOrigin(custBoard) > 0
+				&& custBoardService.updateUpAt(custBoard.getcId()) > 0) { // 게시원글 수정 성공시
+			
 			model.addAttribute("cId", custBoard.getcId());
 			model.addAttribute("page", currentPage);
 
@@ -307,4 +309,56 @@ public class CustBoardController {
 			return "common/error";
 		}
 	}
+
+	
+	//------------------------------------------일반사용자---------------------------------------------------
+	// 푸터에서 1:1문의 이동용
+	@RequestMapping("userCustBoard.do")
+	public ModelAndView moveUserCustBoard(
+			ModelAndView mv,
+			CustBoard custBoard,
+	    	@RequestParam(name = "page", required = false) String page,
+			@RequestParam(name = "limit", required = false) String slimit) {
+		// page : 출력할 페이지, limit : 한 페이지에 출력할 목록 갯수
+		
+		// 페이징 처리
+		int currentPage = 1;
+		if (page != null) {
+			currentPage = Integer.parseInt(page);
+		}
+
+		// 한 페이지에 출력할 등록 목록 10개 지정
+		int limit = 10;
+		if (slimit != null) {
+			limit = Integer.parseInt(slimit);
+		}
+
+		// 총 목록갯수 조회해서 총 페이지 수 계산함
+		int listCount = custBoardService.selectCustListCount();
+		// 페이지 관련 항목 계산 처리
+		Paging paging = new Paging(listCount, limit, currentPage, "adminCustBoard.do");
+		paging.calculate();
+
+		// 서비스롤 목록 조회 요청하고 결과 받기
+		ArrayList<CustBoard> list = custBoardService.selectCustList(paging);
+
+		if (list != null && list.size() > 0) {
+			mv.addObject("list", list);
+			mv.addObject("paging", paging);
+			mv.addObject("currentPage", currentPage);
+
+			mv.setViewName("custboard/userCustView");
+		} else {
+			mv.setViewName("custboard/userCustView");
+		}
+
+		return mv;
+	}
+	
+	
+	
+	
+	
+	
+	
 }

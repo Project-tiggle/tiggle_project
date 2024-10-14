@@ -81,6 +81,8 @@
 		set updated_yn = 'N'
 		where c_id = #{ refNo }
 	</insert>
+	
+	<!-- 게시글 수정 처리용 -->
 	<update id="updateOrigin" parameterType="custBoard">
 		update tb_cust_board
 		set title = #{ title }, c_content = #{ cContent }
@@ -90,6 +92,11 @@
 		<if test="fileUrl == null">
 			, file_url = null
 		</if>
+		where c_id = #{ cId }
+	</update>
+	<update id="updateUpAt" parameterType="_int">
+		update tb_cust_board
+		set updated_at = sysdate
 		where c_id = #{ cId }
 	</update>
 	

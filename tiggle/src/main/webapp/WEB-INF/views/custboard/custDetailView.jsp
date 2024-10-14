@@ -111,7 +111,10 @@ function requestUpdatePage(){
 						<button id="reBtn" onclick="requestReply(); return false;">문의글 답변하기</button>
 					</c:if>
 					<button onclick="javascript:location.href='adminCustBoard.do?page=${ currentPage }';">목록</button>
-					<button onclick="requestUpdatePage(); return false;">수정</button>
+					<%-- 게시글을 적은 id와 로그인세션에 저장되어있는 id가 같을때 활성화 --%>
+					<c:if test="${ custBoard.id eq sessionScope.loginMember.id }">
+						<button onclick="requestUpdatePage(); return false;">수정</button>
+					</c:if>
 					<button onclick="requestDelete(); return false;">삭제</button>
 				</div>
 			</div>

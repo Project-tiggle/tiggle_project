@@ -16,7 +16,7 @@
 	<div class="myinfo_section">
 		<aside class="myinfo_aside">
 			<div class="mypage_title">
-				<p>관리자페이지</p>
+				<p>1:1문의</p>
 			</div>
 			<!-- mypage_title -->
 
@@ -36,10 +36,10 @@
 		<div class="myinfo_content">
 			<div class="myinfo_title">
 				<c:if test="${ !empty sessionScope.loginMember.nickname }">
-					<p>${ sessionScope.loginMember.nickname } 님 안녕하세요.</p>
+					<p>${ sessionScope.loginMember.nickname } 님 안녕하세요. 무엇을 도와드릴까요?</p>
 				</c:if>
 				<c:if test="${ empty sessionScope.loginMember.nickname }">
-					<p>${ sessionScope.loginMember.id } 님 안녕하세요.</p>
+					<p>${ sessionScope.loginMember.id } 님 안녕하세요. 무엇을 도와드릴까요?</p>
 				</c:if>
 			</div>
 			<!-- myinfo_title end -->
@@ -54,8 +54,7 @@
 					<table id="cwFormTable">
 						<tr>
 							<td><label for="cwTitle">제목</label></td>
-							<td><input type="text" id="cwTitle" name="title" style="width: 90%;"
-								value="${ custBoard.title }" readonly>
+							<td><input type="text" id="cwTitle" name="title" style="width: 90%;">
 							</td>
 						</tr>
 						<tr>
@@ -66,21 +65,11 @@
 						</tr>
 						<tr>
 							<td><label for="cwContent">내용</label></td>
-							<td><textarea id="cwContent" name="cContent" rows="15" style="width: 100%" required>${ custBoard.cContent }</textarea></td>
+							<td><textarea id="cwContent" name="cContent" rows="15" style="width: 100%" required></textarea></td>
 						</tr>
 						<tr>
 							<td><label for="cwFile">첨부파일</label></td>
-							<td>
-								<c:if test="${ !empty custBoard.fileUrl }">
-									${ custBoard.fileUrl } &nbsp;
-									<input type="checkbox" name="deleteFlag" value="yes">파일삭제<br>
-									변경 : <input type="file" id="cwFile" name="cfile" style="width: 400px;">
-								</c:if>
-								<c:if test="${ empty custBoard.fileUrl }">
-									첨부 파일 없음 <br>
-									추가 : <input type="file" id="cwFile" name="cfile" style="width: 400px;">
-								</c:if>
-							</td>
+							<td><input type="file" id="cwFile" name="cfile" style="width: 400px;"></td>
 						</tr>
 					</table>
 					<br>
@@ -88,7 +77,7 @@
 						<input type="button" value="이전페이지" onclick="javascript:history.go(-1);">
 						<input type="button" value="목록"
 							onclick="javascript:location.href='adminCustBoard.do?page=${ currentPage }';">
-						<input type="submit" value="글수정">
+						<input type="submit" value="글등록">
 					</div>			
 				</form>
 			</div>
