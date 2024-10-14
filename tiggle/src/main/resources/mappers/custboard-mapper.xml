@@ -66,5 +66,32 @@
 		where c_id = #{ cId }
 	</insert>
 	
+	<!-- 게시 원글, 댓글 삭제 처리용 -->
+	<delete id="deleteCustBoard">
+		delete from tb_cust_board
+		<if test="cLev == 1">
+			where refno = #{ refNo }
+		</if>
+		<if test="cLev == 2">
+			where c_id = #{ cId }
+		</if>
+	</delete>
+	<insert id="updateUpN" parameterType="_int">
+		update tb_cust_board
+		set updated_yn = 'N'
+		where c_id = #{ refNo }
+	</insert>
+	<update id="updateOrigin" parameterType="custBoard">
+		update tb_cust_board
+		set title = #{ title }, c_content = #{ cContent }
+		<if test="fileUrl != null">
+			, file_url = #{ fileUrl }
+		</if>
+		<if test="fileUrl == null">
+			, file_url = null
+		</if>
+		where c_id = #{ cId }
+	</update>
+	
 	
 </mapper>

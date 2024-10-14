@@ -36,4 +36,16 @@ public class CustBoardDao {
 		return sqlSessionTemplate.update("custBoardMapper.updateUpY", cId);
 	}
 
+	public int deleteCustBoard(CustBoard custBoard) {
+		return sqlSessionTemplate.delete("custBoardMapper.deleteCustBoard", custBoard);
+	}
+
+	public int updateUpN(int refNo) {
+		return sqlSessionTemplate.update("custBoardMapper.updateUpN", refNo);
+	}
+
+	public int updateOrigin(CustBoard custBoard) {
+		return sqlSessionTemplate.update("custBoardMapper.updateOrigin", custBoard);
+	}
+
 }

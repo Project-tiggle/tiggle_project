@@ -39,5 +39,21 @@ public class CustBoardServiceImpl implements CustBoardService {
 		return custBoardDao.updateUpY(cId);
 	}
 
+	@Override
+	public int deleteCustBoard(CustBoard custBoard) {
+		return custBoardDao.deleteCustBoard(custBoard);
+	}
+
+	@Override
+	public int updateUpN(int refNo) {
+		return custBoardDao.updateUpN(refNo);
+		
+	}
+
+	@Override
+	public int updateOrigin(CustBoard custBoard) {
+		return custBoardDao.updateOrigin(custBoard);
+	}
+
 
 }
