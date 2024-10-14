@@ -66,5 +66,69 @@
 		where c_id = #{ cId }
 	</insert>
 	
+	<!-- 게시 원글, 댓글 삭제 처리용 -->
+	<delete id="deleteCustBoard">
+		delete from tb_cust_board
+		<if test="cLev == 1">
+			where refno = #{ refNo }
+		</if>
+		<if test="cLev == 2">
+			where c_id = #{ cId }
+		</if>
+	</delete>
+	<insert id="updateUpN" parameterType="_int">
+		update tb_cust_board
+		set updated_yn = 'N'
+		where c_id = #{ refNo }
+	</insert>
 	
+	<!-- 게시글 수정 처리용 -->
+	<update id="updateOrigin" parameterType="custBoard">
+		update tb_cust_board
+		set title = #{ title }, c_content = #{ cContent }
+		<if test="fileUrl != null">
+			, file_url = #{ fileUrl }
+		</if>
+		<if test="fileUrl == null">
+			, file_url = null
+		</if>
+		where c_id = #{ cId }
+	</update>
+	<update id="updateUpAt" parameterType="_int">
+		update tb_cust_board
+		set updated_at = sysdate
+		where c_id = #{ cId }
+	</update>
+	
+	
+	<!-- 일반 사용자 게시글 갯수 조회용 -->
+	<select id="selectUserCbListCount" parameterType="string" resultType="_int">
+		select count(*)
+		from tb_cust_board
+		where refno in (select c_id
+		                from tb_cust_board
+		                join tb_member using (uuid)
+		                where id = #{ id })
+	</select>
+	
+	<!-- 일반 사용자 내글 및 내글의 댓글 조회용 -->
+	<select id="selectUserCbList" parameterType="map" resultMap="resultCustBoard">
+		select *
+		from ( 
+		       select rownum rnum, tb.*  
+		       from (
+		            select *
+		            from tb_cust_board
+		            join tb_member using (uuid)
+		            where refno in (
+		                            select c_id
+		                            from tb_cust_board
+		                            join tb_member using (uuid)
+		                            where id = #{ id }
+		                           )
+		            order by refno desc, c_level asc
+		            ) tb
+		     )
+		where rnum between #{ paging.startRow } and #{ paging.endRow }	
+	</select>
 </mapper>
