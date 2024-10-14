@@ -82,6 +82,9 @@
 }
 
 </style>
+<script type="text/javascript" src="/tiggle/resources/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="/tiggle/resources/js/exhibition.js"></script>
+
 </head>
 <body>
     <c:import url="/WEB-INF/views/common/header.jsp" />
@@ -91,7 +94,7 @@
         
         <!-- 전시회 API 등록 버튼 -->
         <div id="apiBtnDiv">
-        	<button id="apiBtn" onclick="">전시회 API 등록</button>
+        	<button id="apiBtn" onclick="cultureApiDataSave();">전시회 API 등록</button>
         </div>
         <!-- 전시회 API 등록 버튼 -->
         

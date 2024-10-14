@@ -160,9 +160,18 @@ function showdiv(tag){
 
 }
 
-function rvPopupOpen() {
+function rviPopupOpen() {
 	  // 팝업을 띄울 페이지 URL
-	  var popupURL = "rvmove.do?no=${ exhibition.totalId }";
+	  var popupURL = "rvmove.do" + "?no=${ exhibition.totalId }";
+	  // 팝업 창의 속성
+	  var popupProperties = "width=600,height=400,scrollbars=no,left=600,top=200,location=no";
+	  // 팝업 열기
+	  window.open(popupURL, "Popup", popupProperties);
+	}
+	
+function rvuPopupOpen() {
+	  // 팝업을 띄울 페이지 URL
+	  var popupURL = "rvmoveup.do?no=${ exhibition.totalId }";
 	  // 팝업 창의 속성
 	  var popupProperties = "width=600,height=400,scrollbars=no,left=600,top=200,location=no";
 	  // 팝업 열기
@@ -237,8 +246,11 @@ function rePopupOpen() {
 <%-- 한줄평 클릭시 출력될 폼 --%>
 <div id="reviewdiv" class="sdiv">
 	<input type="hidden" name="action" value="review">
-			<c:if test="${ !empty sessionScope.loginMember }">
-				<button onclick="rvPopupOpen()">등록</button>
+			<c:if test="${ !empty sessionScope.loginMember && rv.uuid eq null }">
+				<button onclick="rviPopupOpen()">등록</button>
+			</c:if>
+			<c:if test="${ !empty sessionScope.loginMember && rv.uuid eq sessionScope.uuid }">
+				<button onclick="rvuPopupOpen()">수정</button>
 			</c:if>
 	<fieldset>
 		<div>
@@ -252,12 +264,14 @@ function rePopupOpen() {
 		<c:forEach items="${ list }" var="rv">
 		<c:set var="i" value="${ i + 1 }"/>
 			<tr>
+			<c:if test="${ deleteYN != 'Y' }">
 				<td align="center">${ i }</td>
 				<td align="center">${ rv.nickName }</td>
 				<td align="left"> &nbsp; ${ rv.rContents }</td>
 				<td align="center">
 					<fmt:formatDate value="${rv.writeDate }" pattern="yyyy-MM-dd"/>
 				</td>
+			</c:if>
 			</tr>
 		</c:forEach>
 </table>

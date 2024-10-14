@@ -13,6 +13,7 @@
 	<resultMap type="Exhibition" id="resultExhibition">
 		<result property="totalId" column="total_Id" />
 		<result property="uuid" column="uuid" />
+		<result property="title" column="title" />
 		<result property="contributor" column="contributor" />
 		<result property="description" column="E_description" />
 		<result property="eventSite" column="event_Site" />
@@ -20,7 +21,7 @@
 		<result property="latitude" column="latitude" />
 		<result property="longitude" column="longitude" />
 		<result property="genre" column="genre" />
-		<result property="contactPoint" column="contact_0Point" />
+		<result property="contactPoint" column="contact_Point" />
 		<result property="viewCounter" column="view_Counter" />
 		<result property="url" column="url" />
 		<result property="period" column="period" />
@@ -29,6 +30,7 @@
 		<result property="approvalStatus" column="approval_Status" />
 		<result property="category" column="E_category" />
 		<result property="fileUrl" column="file_Url" />
+		<result property="charge" column="charge" />
 	</resultMap>
 	
 	<!-- dao 에서 사용되는 쿼리문(sql문)을 각 엘리멘트 안에 작성함 
@@ -64,16 +66,46 @@
 						 contact_point,
 						 view_counter,
 						 E_url,
+						 period,
 						 start_date,
 						 end_date,
 						 approval_status,
 						 E_category,
-						 file_url
+						 file_url,
+						 charge
 				   from (select * from TB_EXHIBITION_FAIR
 				   order by TO_NUMBER(total_id) asc))
 		where rnum between #{ startRow } and #{ endRow }
 	</select>
-
+	
+	<select id="selectListTop5" resultMap="resultExhibition" parameterType="Paging">
+		select *
+		from (select rownum rnum,
+					 total_id,
+					 uuid,
+					 title,
+					 contributor,
+					 E_description,
+					 event_site,
+					 detail_event_site,
+					 latitude,
+					 longitude,
+					 genre,
+					 contact_point,
+					 view_counter, 
+					 E_url,
+					 period,
+					 start_date,
+					 end_date,
+					 approval_status,
+					 E_category,
+					 file_url,
+					 charge
+				from (select * from TB_EXHIBITION_FAIR
+		     	order by TO_DATE(start_date) desc))
+		where rnum between 1 and 5;
+	</select>
+	
 		
 	<select id="selectListCount" resultType="_int">
 		select count(*)
@@ -88,27 +120,35 @@
 		
 	<!-- 전시정보 데이터 입력 -->
 	<insert id="insertExhibition" parameterType="Exhibition">
-		insert into TB_Exhibition_FAIR
+		insert into TB_Exhibition_FAIR (
+				TOTAL_ID,
+				TITLE,
+				CONTRIBUTOR,
+				E_DESCRIPTION,
+				EVENT_SITE,
+				GENRE,
+				E_URL,
+				PERIOD,
+				START_DATE,
+				END_DATE,
+				FILE_URL,
+				CHARGE
+				
+			
+				)
 		values (
-			   #{totalId},
-			   #{uuid},
-			   #{title},
-			   #{contributor},
-			   #{description},
-			   #{eventSite},
-			   default,
-			   default,
-			   default,
-			   default,
-			   default,
-			   default,
+			   total_Id_Seq.nextval,
+			   #{ title },
+			   #{ contributor },
+			   #{ description },
+			   #{ eventSite },
+			   #{ genre },
 			   #{ url },
-		 	   #{period},
-		 	   TOCHAR(SUBSTR(#{period}, 1, 10), yyyy-MM-dd),
-		 	   TOCHAR(SUBSTR(#{period}, 12, 21), yyyy-MM-dd),
-		 	   default,
-		 	   default,
-		 	   default
+		 	   #{ period },
+		 	   TO_DATE(SUBSTR(#{ period }, 1, 10), 'yyyy-MM-dd'),
+		 	   TO_DATE(SUBSTR(#{ period }, 12, 21), 'yyyy-MM-dd'),
+		 	   #{ fileUrl },
+		 	   #{ charge }
 		 	   )
 	</insert>
 	
@@ -116,4 +156,9 @@
 	<delete id="deleteExhibition" parameterType="string">
 		delete from TB_EXHIBITION_FAIR where totalId = #{ totalId }
 	</delete>
+	
+	<delete id="deleteApi">
+		delete from TB_EXHIBITION_FAIR where uuid is null
+	</delete>
+	
 </mapper>

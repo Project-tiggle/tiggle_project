@@ -35,11 +35,11 @@
 
 </head>
 <body>
+<script type="text/javascript" src="/tiggle/resources/js/jquery-3.7.1.min.js"></script>
 	<c:import url="/WEB-INF/views/common/header.jsp" />
 
 	
 	<!-- main section start -->
-
 	<div class="exhibition"  style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start; padding:20px;">
 		<table>
 			 <c:forEach var="p" items="${ list }">
