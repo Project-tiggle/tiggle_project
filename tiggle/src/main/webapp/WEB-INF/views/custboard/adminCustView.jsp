@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>관리자페이지</title>
@@ -58,7 +58,7 @@
 								<td align="center">${ list.cId }</td>
 																
 								<td align="center">
-									<c:if test="${ list.updatedYn eq 'N' }">
+									<c:if test="${ list.replyYn eq 'N' and empty list.deletedAt }">
 										<b style="color: #ff5f2c;">답변대기</b>
 									</c:if>
 								</td>
@@ -71,10 +71,24 @@
 									</c:url>
 									
 									<c:if test="${ list.cLev eq 1 }">
-										<a href="${ cDetail }"><b>${ list.title }</b></a>
+										<a href="${ cDetail }">
+											<c:if test="${ empty list.deletedAt }">
+												<b>${ list.title }</b>
+											</c:if>
+											<c:if test="${ !empty list.deletedAt }">
+												[${ list.deletedAt } 삭제] <del>${ list.title }</del>
+											</c:if>
+										</a>
 									</c:if>
 									<c:if test="${ list.cLev eq 2 }">
-										<a href="${ cDetail }">&#x21B3; [Re:No.${ list.refNo }] ${ list.title }</a>
+										<a href="${ cDetail }">
+											<c:if test="${ empty list.deletedAt }">
+												&#x21B3; [Re:No.${ list.refNo }] ${ list.title }
+											</c:if>
+											<c:if test="${ !empty list.deletedAt }">
+												&#x21B3; [Re:No.${ list.refNo }] <del>${ list.title }</del>
+											</c:if>
+										</a>
 									</c:if>
 								</td>
 								<!-- 제목 여기까지 -->

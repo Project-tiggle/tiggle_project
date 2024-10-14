@@ -47,7 +47,18 @@
                     <p>전화번호 02-123-4567</p>
                     <p>팩스번호 02-123-4568</p>
                     <p>이메일 tiggle@tiggle.com</p>
-                    <p><a href="#">1:1 문의</a></p>
+                    <c:if test="${ !empty sessionScope.loginMember and sessionScope.loginMember.memberType eq 'ADMIN' }">
+                    	<p><a href="adminCustBoard.do">1:1 문의</a></p>
+                    </c:if>
+                    <c:if test="${ !empty sessionScope.loginMember and sessionScope.loginMember.memberType eq 'ORGANIZER' }">
+                    	<p><a href="inquiry.do">1:1 문의</a></p>
+                    </c:if>
+                    <c:if test="${ !empty sessionScope.loginMember and sessionScope.loginMember.memberType eq 'USER' }">
+                    	<p><a href="inquiry.do">1:1 문의</a></p>
+                    </c:if>
+                    <c:if test="${ empty sessionScope.loginMember }">
+                    	<p><a href="loginPage.do">1:1 문의</a></p>
+                    </c:if>
                 </div><!-- f_right end -->
             </div><!-- f_info end -->
 

@@ -141,3 +141,16 @@
 	background-color: #ff7a4d;
 	color: white;
 }
+
+#inquiryBtn {
+	background-color: white;
+	border: 1px solid #ccc;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+#inquiryBtn:hover {
+	background-color: #f1f1f1;
+}

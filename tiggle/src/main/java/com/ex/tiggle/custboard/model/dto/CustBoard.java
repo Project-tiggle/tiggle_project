@@ -12,7 +12,7 @@ public class CustBoard implements java.io.Serializable {
 	private String cContent;	//C_CONTENT		VARCHAR2(2000 BYTE)	No				5	내용
 	private Date createdAt;		//CREATED_AT	DATE				No	SYSDATE 	6	작성일자
 	private Date updatedAt;		//UPDATED_AT	DATE				Yes				7	수정일자
-	private String updatedYn;	//UPDATED_YN	CHAR(1 BYTE)		Yes	'Y'			8	수정활성화여부
+	private String replyYn;		//REPLY_YN		CHAR(1 BYTE)		Yes				8	답변유무
 	private Date deletedAt;		//DELETED_AT	DATE				Yes				9	삭제일자
 	private String deleteYn;	//DELETED_YN	CHAR(1 BYTE)		Yes	'Y'			10	삭제활성화여부
 	private int cLev;			//C_LEVEL		NUMBER				Yes				11	분류레벨
@@ -26,7 +26,7 @@ public class CustBoard implements java.io.Serializable {
 	}
 
 	public CustBoard(String uuid, int cId, String cCategory, String title, String cContent, Date createdAt,
-			Date updatedAt, String updatedYn, Date deletedAt, String deleteYn, int cLev, int refNo, String fileUrl,
+			Date updatedAt, String replyYn, Date deletedAt, String deleteYn, int cLev, int refNo, String fileUrl,
 			String id) {
 		super();
 		this.uuid = uuid;
@@ -36,7 +36,7 @@ public class CustBoard implements java.io.Serializable {
 		this.cContent = cContent;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
-		this.updatedYn = updatedYn;
+		this.replyYn = replyYn;
 		this.deletedAt = deletedAt;
 		this.deleteYn = deleteYn;
 		this.cLev = cLev;
@@ -101,12 +101,12 @@ public class CustBoard implements java.io.Serializable {
 		this.updatedAt = updatedAt;
 	}
 
-	public String getUpdatedYn() {
-		return updatedYn;
+	public String getReplyYn() {
+		return replyYn;
 	}
 
-	public void setUpdatedYn(String updatedYn) {
-		this.updatedYn = updatedYn;
+	public void setReplyYn(String replyYn) {
+		this.replyYn = replyYn;
 	}
 
 	public Date getDeletedAt() {
@@ -149,10 +149,6 @@ public class CustBoard implements java.io.Serializable {
 		this.fileUrl = fileUrl;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	public String getId() {
 		return id;
 	}
@@ -161,15 +157,18 @@ public class CustBoard implements java.io.Serializable {
 		this.id = id;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public String toString() {
 		return "CustBoard [uuid=" + uuid + ", cId=" + cId + ", cCategory=" + cCategory + ", title=" + title
-				+ ", cContent=" + cContent + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", updatedYn="
-				+ updatedYn + ", deletedAt=" + deletedAt + ", deleteYn=" + deleteYn + ", cLev=" + cLev + ", refNo="
+				+ ", cContent=" + cContent + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", replyYn="
+				+ replyYn + ", deletedAt=" + deletedAt + ", deleteYn=" + deleteYn + ", cLev=" + cLev + ", refNo="
 				+ refNo + ", fileUrl=" + fileUrl + ", id=" + id + "]";
 	}
 
-	
-	
+		
 	
 }

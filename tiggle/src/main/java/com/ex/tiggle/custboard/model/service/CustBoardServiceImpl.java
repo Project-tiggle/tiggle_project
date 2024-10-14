@@ -71,5 +71,10 @@ public class CustBoardServiceImpl implements CustBoardService {
 		return custBoardDao.selectUserCbList(idNpaging);
 	}
 
+	@Override
+	public int updateDeleteAt(CustBoard custBoard) {
+		return custBoardDao.updateDeleteAt(custBoard);
+	}
+
 
 }

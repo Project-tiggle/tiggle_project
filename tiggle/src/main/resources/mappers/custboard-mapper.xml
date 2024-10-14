@@ -12,7 +12,7 @@
 	       <result property="cContent" column="C_CONTENT" />
 	       <result property="createdAt" column="CREATED_AT" />
 	       <result property="updatedAt" column="UPDATED_AT" />
-	       <result property="updatedYn" column="UPDATED_YN" />
+	       <result property="replyYn" column="REPLY_YN" />
 	       <result property="deletedAt" column="DELETED_AT" />
 	       <result property="deleteYn" column="DELETED_YN" />
 	       <result property="cLev" column="C_LEVEL" />
@@ -34,7 +34,7 @@
 				select rownum rnum, tb.*
 			    from (
 			    		select uuid, c_id, c_category, title, c_content, created_at,
-			            		cb.updated_at as updated_at, updated_yn,
+			            		cb.updated_at as updated_at, reply_yn,
 			            		cb.deleted_at as deleted_at, cb.deleted_yn as deleted_yn,
 			            		c_level, refno, file_url, id
         				from tb_cust_board cb
@@ -62,7 +62,7 @@
 	</insert>
 	<insert id="updateUpY" parameterType="_int">
 		update tb_cust_board
-		set updated_yn = 'Y'
+		set reply_yn = 'Y'
 		where c_id = #{ cId }
 	</insert>
 	
@@ -78,12 +78,12 @@
 	</delete>
 	<insert id="updateUpN" parameterType="_int">
 		update tb_cust_board
-		set updated_yn = 'N'
+		set reply_yn = 'N'
 		where c_id = #{ refNo }
 	</insert>
 	
 	<!-- 게시글 수정 처리용 -->
-	<update id="updateOrigin" parameterType="custBoard">
+	<update id="updateOrigin" parameterType="CustBoard">
 		update tb_cust_board
 		set title = #{ title }, c_content = #{ cContent }
 		<if test="fileUrl != null">
@@ -122,13 +122,20 @@
 		            join tb_member using (uuid)
 		            where refno in (
 		                            select c_id
-		                            from tb_cust_board
+		                            from tb_cust_board cb
 		                            join tb_member using (uuid)
-		                            where id = #{ id }
+		                            where id = #{ id } and cb.deleted_at is null
 		                           )
 		            order by refno desc, c_level asc
 		            ) tb
 		     )
 		where rnum between #{ paging.startRow } and #{ paging.endRow }	
 	</select>
+	
+	<!-- 일반사용자 삭제용(사용자 게시판에 숨김) -->
+	<update id="updateDeleteAt" parameterType="CustBoard">
+		update tb_cust_board
+		set deleted_at = sysdate
+		where refno = #{ refNo }
+	</update>
 </mapper>

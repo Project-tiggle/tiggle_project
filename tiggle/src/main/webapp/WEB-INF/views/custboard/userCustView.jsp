@@ -3,10 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>사용자페이지</title>
+<title>1:1 문의</title>
 <link rel="stylesheet" href="/tiggle/resources/css/member_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/custBoard_style.css">
 </head>
@@ -59,13 +59,12 @@
 							<tr>
 								<td align="center">${ list.cId }</td>
 
-								<td align="center"><c:if test="${ list.updatedYn eq 'N' }">
-										<b style="color: #ff5f2c;">답변대기</b>
+								<td align="center"><c:if test="${ list.replyYn eq 'Y' }">
+										<b style="color: #ff5f2c;">답변완료</b>
 									</c:if></td>
 
 								<!-- 제목 -->
-								<td style="text-align: left;"><c:url var="cDetail"
-										value="custbDetail.do">
+								<td style="text-align: left;"><c:url var="cDetail" value="usercDetail.do">
 										<c:param name="cId" value="${ list.cId }" />
 										<c:param name="page" value="${ currentPage }" />
 									</c:url> <c:if test="${ list.cLev eq 1 }">
@@ -87,6 +86,7 @@
 					</tbody>
 				</table>
 			</div>
+			<input id="inquiryBtn" type="button" onclick="javascript:location.href='inquiry.do'" value="1:1 문의">
 			<c:import url="/WEB-INF/views/common/pagingView.jsp" />
 			<br> <br> <br> <br>
 

@@ -62,4 +62,8 @@ public class CustBoardDao {
 		return (ArrayList<CustBoard>)list;
 	}
 
+	public int updateDeleteAt(CustBoard custBoard) {
+		return sqlSessionTemplate.update("custBoardMapper.updateDeleteAt", custBoard);
+	}
+
 }

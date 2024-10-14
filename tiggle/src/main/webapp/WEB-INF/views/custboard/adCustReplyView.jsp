@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>QnA 게시판</title>
@@ -35,21 +35,26 @@
 
 		<div class="myinfo_content">
 			<div class="myinfo_title">
-				<c:if test="${ !empty sessionScope.loginMember.nickname }">
-					<p>${ sessionScope.loginMember.nickname } 님 안녕하세요.</p>
-				</c:if>
-				<c:if test="${ empty sessionScope.loginMember.nickname }">
-					<p>${ sessionScope.loginMember.id } 님 안녕하세요.</p>
-				</c:if>
+				<p>1:1문의 ${ cId }번 글 답변 (관리자용)</p>
 			</div>
 			<!-- myinfo_title end -->
 
 			<div id="cwCon">
-				<form action="cBoardUpdate.do" method="post" enctype="multipart/form-data" id="cwForm">
+				<!-- 내용 분류 위한 변수 준비 -->
+				<c:set var="categoryText" value="" />
+				<c:if test="${custBoard.cCategory == '1'}">
+				    <c:set var="categoryText" value="전시회" />
+				</c:if>
+				<c:if test="${custBoard.cCategory == '2'}">
+				    <c:set var="categoryText" value="박람회" />
+				</c:if>
+				<!-- 변수 준비 여기까지 -->
+			
+				<!-- 폼태그 여기서부터 시작 -->
+				<form action="cBoardReply.do" method="post" enctype="multipart/form-data" id="cwForm">
 					<input type="hidden" name="cId" value="${ custBoard.cId }">
 				    <input type="hidden" name="page" value="${ currentPage }">
 				    <input type="hidden" name="uuid" value="${ sessionScope.loginMember.uuid }">
-				    <input type="hidden" name="saveFile" value="${ custBoard.fileUrl }">
     
 					<table id="cwFormTable">
 						<tr>
@@ -66,21 +71,17 @@
 						</tr>
 						<tr>
 							<td><label for="cwContent">내용</label></td>
-							<td><textarea id="cwContent" name="cContent" rows="15" style="width: 100%" required>${ custBoard.cContent }</textarea></td>
+							<td><textarea id="cwContent" name="cContent" rows="15" style="width: 100%" required>[게시글 내용]
+게시자ID : ${ custBoard.id }
+분    류 : ${ categoryText }
+제    목 : ${ custBoard.title }
+내    용 : ${ custBoard.cContent }
+========================================================================
+</textarea></td>
 						</tr>
 						<tr>
 							<td><label for="cwFile">첨부파일</label></td>
-							<td>
-								<c:if test="${ !empty custBoard.fileUrl }">
-									${ custBoard.fileUrl } &nbsp;
-									<input type="checkbox" name="deleteFlag" value="yes">파일삭제<br>
-									변경 : <input type="file" id="cwFile" name="cfile" style="width: 400px;">
-								</c:if>
-								<c:if test="${ empty custBoard.fileUrl }">
-									첨부 파일 없음 <br>
-									추가 : <input type="file" id="cwFile" name="cfile" style="width: 400px;">
-								</c:if>
-							</td>
+							<td><input type="file" id="cwFile" name="cfile" style="width: 400px;"></td>
 						</tr>
 					</table>
 					<br>
@@ -88,7 +89,7 @@
 						<input type="button" value="이전페이지" onclick="javascript:history.go(-1);">
 						<input type="button" value="목록"
 							onclick="javascript:location.href='adminCustBoard.do?page=${ currentPage }';">
-						<input type="submit" value="글수정">
+						<input type="submit" value="글등록">
 					</div>			
 				</form>
 			</div>

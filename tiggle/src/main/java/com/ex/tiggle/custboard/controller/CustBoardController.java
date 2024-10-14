@@ -96,7 +96,7 @@ public class CustBoardController {
 		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("originalFileName", originalFileName);
 		
-		return "custboard/custDetailView";
+		return "custboard/adCustDetailView";
 	}
 
 	//댓글 달기 페이지로 이동
@@ -111,7 +111,7 @@ public class CustBoardController {
 		model.addAttribute("custBoard", custBoard);
 		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("cId", cId);
-		return "custboard/custReplyView";
+		return "custboard/adCustReplyView";
 	}
 	
 	//관리자 댓글 등록용
@@ -204,7 +204,7 @@ public class CustBoardController {
 			HttpServletRequest request) {
 
 		if (custBoardService.deleteCustBoard(custBoard) > 0) { // 게시글 삭제 성공시
-			if (custBoard.getcLev() == 2) {
+			if (custBoard.getcLev() == 2) {	// 댓글을 삭제했을경우 원글을 다시 답볁대기상태로 만듦
 				custBoardService.updateUpN(custBoard.getRefNo());
 			}
 			// 게시글 삭제 성공시 저장 폴더에 있는 첨부파일도 삭제 처리함
@@ -235,7 +235,7 @@ public class CustBoardController {
 			model.addAttribute("custBoard", custBoard);
 			model.addAttribute("currentPage", currentPage);
 
-			return "custboard/custEditView";
+			return "custboard/adCustEditView";
 		} else {
 			model.addAttribute("message", cId + "번 게시글 수정페이지로 이동 실패!");
 			return "common/error";
@@ -316,7 +316,7 @@ public class CustBoardController {
 
 	
 	//------------------------------------------일반사용자---------------------------------------------------
-	// 
+	// 일반사용자용 1:1 문의내역 메인페이지로 이동(자신의 글과 그 글에 대한 댓글만 출력)
 	@RequestMapping("userCustBoard.do")
 	public ModelAndView moveUserCustBoard(
 			ModelAndView mv,
@@ -365,10 +365,49 @@ public class CustBoardController {
 		return mv;
 	}
 	
+	//글 상세보기 페이지 이동
+	@RequestMapping("usercDetail.do")
+	public String moveUsCustDetail(
+			CustBoard custBoard,
+			@RequestParam("cId") int cId,
+			@RequestParam("page") int currentPage,
+			Model model) {
+		custBoard = custBoardService.selectCboardCid(cId);	//입력된 cId정보로, 내용 select
+		
+		
+		String originalFileName = null;// 원래 파일 이름 내보내기용
+		if(custBoard.getFileUrl() != null && custBoard.getFileUrl().length() > 0) {
+			originalFileName = custBoard.getFileUrl().substring(custBoard.getFileUrl().indexOf('_') + 1);
+		}
+		
+		model.addAttribute("cId", cId);
+		model.addAttribute("custBoard", custBoard);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("originalFileName", originalFileName);
+		
+		return "custboard/usCustDetailView";
+	}
 	
+	// 게시글 삭제 처리용
+	@RequestMapping("usCustDelete.do")
+	public String cbDeleteMethod(
+			CustBoard custBoard,
+			Model model,
+			HttpServletRequest request) {
+
+		if (custBoardService.updateDeleteAt(custBoard) > 0) { // 게시글 삭제yn 업데이트 성공시
+			return "redirect:userCustBoard.do";
+		} else {
+			model.addAttribute("message", custBoard.getcId() + "번 게시글 삭제 실패!");
+			return "common/error";
+		}
+	}
 	
-	
-	
-	
+	// 1:1 문의 작성 페이지로 이동
+	@RequestMapping("inquiry.do")
+	public String moveInquiryPage() {
+		
+		return "custboard/usCustWriteView";
+	}
 	
 }
