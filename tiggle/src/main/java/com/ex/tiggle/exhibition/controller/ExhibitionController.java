@@ -170,7 +170,8 @@ public class ExhibitionController {
 			
 			Exhibition exhibition = new Exhibition();
 			exhibition.setTitle((String) job.get("TITLE"));
-			exhibition.setContributor((String) job.get("CNTC_INSTT_NM"));
+			exhibition.setLocalId((String) job.get("LOCAL_ID"));		
+			exhibition.setContInsttNm((String) job.get("CNTC_INSTT_NM"));
 			exhibition.setDescription((String) job.get("DESCRIPTION"));
 			exhibition.setFileUrl((String) job.get("IMAGE_OBJECT"));
 			exhibition.setUrl((String) job.get("URL"));
