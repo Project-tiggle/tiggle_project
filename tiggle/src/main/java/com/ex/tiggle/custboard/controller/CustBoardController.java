@@ -2,8 +2,11 @@ package com.ex.tiggle.custboard.controller;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +23,7 @@ import com.ex.tiggle.common.FileNameChange;
 import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.custboard.model.dto.CustBoard;
 import com.ex.tiggle.custboard.model.service.CustBoardService;
+import com.ex.tiggle.member.model.dto.Member;
 
 @Controller
 public class CustBoardController {
@@ -312,14 +316,16 @@ public class CustBoardController {
 
 	
 	//------------------------------------------일반사용자---------------------------------------------------
-	// 푸터에서 1:1문의 이동용
+	// 
 	@RequestMapping("userCustBoard.do")
 	public ModelAndView moveUserCustBoard(
 			ModelAndView mv,
+			HttpSession session,
 			CustBoard custBoard,
 	    	@RequestParam(name = "page", required = false) String page,
 			@RequestParam(name = "limit", required = false) String slimit) {
 		// page : 출력할 페이지, limit : 한 페이지에 출력할 목록 갯수
+		Member loginMember = (Member) session.getAttribute("loginMember");
 		
 		// 페이징 처리
 		int currentPage = 1;
@@ -333,14 +339,18 @@ public class CustBoardController {
 			limit = Integer.parseInt(slimit);
 		}
 
-		// 총 목록갯수 조회해서 총 페이지 수 계산함
-		int listCount = custBoardService.selectCustListCount();
+		// 목록갯수 조회
+		int listCount = custBoardService.selectUserCbListCount(loginMember.getId());
 		// 페이지 관련 항목 계산 처리
 		Paging paging = new Paging(listCount, limit, currentPage, "adminCustBoard.do");
 		paging.calculate();
+		
+		Map<String, Object> idNpaging = new HashMap<>();
+		idNpaging.put("paging", paging);
+		idNpaging.put("id", loginMember.getId());
 
 		// 서비스롤 목록 조회 요청하고 결과 받기
-		ArrayList<CustBoard> list = custBoardService.selectCustList(paging);
+		ArrayList<CustBoard> list = custBoardService.selectUserCbList(idNpaging);
 
 		if (list != null && list.size() > 0) {
 			mv.addObject("list", list);

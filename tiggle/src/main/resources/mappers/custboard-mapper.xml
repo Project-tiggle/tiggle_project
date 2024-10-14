@@ -101,4 +101,34 @@
 	</update>
 	
 	
+	<!-- 일반 사용자 게시글 갯수 조회용 -->
+	<select id="selectUserCbListCount" parameterType="string" resultType="_int">
+		select count(*)
+		from tb_cust_board
+		where refno in (select c_id
+		                from tb_cust_board
+		                join tb_member using (uuid)
+		                where id = #{ id })
+	</select>
+	
+	<!-- 일반 사용자 내글 및 내글의 댓글 조회용 -->
+	<select id="selectUserCbList" parameterType="map" resultMap="resultCustBoard">
+		select *
+		from ( 
+		       select rownum rnum, tb.*  
+		       from (
+		            select *
+		            from tb_cust_board
+		            join tb_member using (uuid)
+		            where refno in (
+		                            select c_id
+		                            from tb_cust_board
+		                            join tb_member using (uuid)
+		                            where id = #{ id }
+		                           )
+		            order by refno desc, c_level asc
+		            ) tb
+		     )
+		where rnum between #{ paging.startRow } and #{ paging.endRow }	
+	</select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.ex.tiggle.custboard.model.service;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,6 +59,16 @@ public class CustBoardServiceImpl implements CustBoardService {
 	@Override
 	public int updateUpAt(int cId) {
 		return custBoardDao.updateUpAt(cId);
+	}
+
+	@Override
+	public int selectUserCbListCount(String id) {
+		return custBoardDao.selectUserCbListCount(id);
+	}
+
+	@Override
+	public ArrayList<CustBoard> selectUserCbList(Map<String, Object> idNpaging) {
+		return custBoardDao.selectUserCbList(idNpaging);
 	}
 
 

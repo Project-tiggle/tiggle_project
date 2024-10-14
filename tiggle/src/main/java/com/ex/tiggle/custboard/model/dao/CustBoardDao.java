@@ -2,6 +2,7 @@ package com.ex.tiggle.custboard.model.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,15 @@ public class CustBoardDao {
 
 	public int updateUpAt(int cId) {
 		return sqlSessionTemplate.update("custBoardMapper.updateUpAt", cId);
+	}
+
+	public int selectUserCbListCount(String id) {
+		return sqlSessionTemplate.selectOne("custBoardMapper.selectUserCbListCount", id);
+	}
+
+	public ArrayList<CustBoard> selectUserCbList(Map<String, Object> idNpaging) {
+		List<CustBoard> list = sqlSessionTemplate.selectList("custBoardMapper.selectUserCbList", idNpaging);
+		return (ArrayList<CustBoard>)list;
 	}
 
 }
