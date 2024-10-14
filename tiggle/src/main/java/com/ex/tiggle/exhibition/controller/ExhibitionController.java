@@ -164,7 +164,7 @@ public class ExhibitionController {
 		
 		exhibitionService.deleteApi();
 		
-		// json 객체가 가진 각 필드(property) 값을 추출해서 dto(vo, entity) 객체(Notice)에 저장
+		// json 객체가 가진 각 필드(property) 값을 추출해서 dto(vo, entity) 객체에 저장
 		for(int i = 0; i < jarr.size(); i++) {
 			JSONObject job = (JSONObject)jarr.get(i);
 			
