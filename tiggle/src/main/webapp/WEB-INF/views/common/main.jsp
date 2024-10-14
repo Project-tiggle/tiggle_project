@@ -16,7 +16,42 @@
 	
 	<!-- main section start -->
 	<div class="main">
-	
+		<div class="main_slide">
+			 <div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<a href="${ pageContext.servletContext.contextPath }/exhibitionDetail.do?no=12">
+							<img src="/tiggle/resources/images/pc_slide_1.jpg" alt="main_img1" class="main_img1">
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="${ pageContext.servletContext.contextPath }/exhibitionDetail.do?no=46">
+							<img src="/tiggle/resources/images/pc_slide_2.jpg" alt="main_img2" class="main_img2">
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="${ pageContext.servletContext.contextPath }/exhibitionDetail.do?no=13">
+							<img src="/tiggle/resources/images/pc_slide_3.jpg" alt="main_img3" class="main_img3">
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="${ pageContext.servletContext.contextPath }/exhibitionDetail.do?no=44">
+							<img src="/tiggle/resources/images/pc_slide_4.jpg" alt="main_img4" class="main_img4">
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="${ pageContext.servletContext.contextPath }/exhibitionDetail.do?no=26">
+							<img src="/tiggle/resources/images/pc_slide_5.jpg" alt="main_img5" class="main_img5">
+						</a>
+					</div>
+				</div><!-- swiper_wrapper end -->
+
+    			<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+
+				<div class="swiper-pagination"></div>
+			 </div><!-- swiper-container end -->
+		</div><!-- main_slide end -->
 	
 	
 	

@@ -1,3 +1,60 @@
+//main_slide swiper
+$(function(){
+    let mainSwiper = new Swiper('.main_slide .swiper-container', {
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+        },
+        speed: 700,
+        loop: true,
+        effect: "fade",
+        navigation: {
+            nextEl: ".main_slide .swiper-button-next",
+            prevEl: ".main_slide .swiper-button-prev",
+        },
+        pagination: {
+            el: ".main_slide .swiper-pagination",
+          },
+    });
+
+    let mobileSize = window.matchMedia("(max-width: 500px)");
+    if (mobileSize.matches) {
+        // 0 ~ 500px
+        $(".main_img1").attr("src", "/tiggle/resources/images/mobile_slide_1.jpg");
+        $(".main_img2").attr("src", "/tiggle/resources/images/mobile_slide_2.jpg");
+        $(".main_img3").attr("src", "/tiggle/resources/images/mobile_slide_3.jpg");
+        $(".main_img4").attr("src", "/tiggle/resources/images/mobile_slide_4.jpg");
+        $(".main_img5").attr("src", "/tiggle/resources/images/mobile_slide_5.jpg");
+    } else {
+        // 501px ~
+        $(".main_img1").attr("src", "/tiggle/resources/images/pc_slide_1.jpg");
+        $(".main_img2").attr("src", "/tiggle/resources/images/pc_slide_2.jpg");
+        $(".main_img3").attr("src", "/tiggle/resources/images/pc_slide_3.jpg");
+        $(".main_img4").attr("src", "/tiggle/resources/images/pc_slide_4.jpg");
+        $(".main_img5").attr("src", "/tiggle/resources/images/pc_slide_5.jpg");
+    }
+});
+
+$(window).resize(function(){
+    let mobileSize = window.matchMedia("(max-width: 500px)");
+    if (mobileSize.matches) {
+        // 0 ~ 500px
+        $(".main_img1").attr("src", "/tiggle/resources/images/mobile_slide_1.jpg");
+        $(".main_img2").attr("src", "/tiggle/resources/images/mobile_slide_2.jpg");
+        $(".main_img3").attr("src", "/tiggle/resources/images/mobile_slide_3.jpg");
+        $(".main_img4").attr("src", "/tiggle/resources/images/mobile_slide_4.jpg");
+        $(".main_img5").attr("src", "/tiggle/resources/images/mobile_slide_5.jpg");
+    } else {
+        // 501px ~
+        $(".main_img1").attr("src", "/tiggle/resources/images/pc_slide_1.jpg");
+        $(".main_img2").attr("src", "/tiggle/resources/images/pc_slide_2.jpg");
+        $(".main_img3").attr("src", "/tiggle/resources/images/pc_slide_3.jpg");
+        $(".main_img4").attr("src", "/tiggle/resources/images/pc_slide_4.jpg");
+        $(".main_img5").attr("src", "/tiggle/resources/images/pc_slide_5.jpg");
+    }
+});
+//main_slide swiper end
+
 //main_notice swiper
 $(function(){
     $.ajax({
@@ -32,13 +89,14 @@ $(function(){
         }, //error end
     });//ajax end
 
-    var mainNoticeSwiper = new Swiper('.main_notice .swiper-container', {
+    let mainNoticeSwiper = new Swiper('.main_notice .swiper-container', {
         direction: 'vertical',
         autoplay: {
             delay: 3500,
             disableOnInteraction: false,
         },
         speed: 700,
+        loop: true,
     });
 });
 //main_notice swiper end

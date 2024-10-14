@@ -51,7 +51,7 @@
 					<tr>
 						<th>내 용</th>
 						<td>
-							<textarea name="nContent" wrap="hard" style=" white-space: pre;"></textarea>
+							<textarea name="nContent" wrap="hard" style="white-space: pre;"></textarea>
 						</td>
 					</tr>
 				</table><!-- n_insert_table end -->
