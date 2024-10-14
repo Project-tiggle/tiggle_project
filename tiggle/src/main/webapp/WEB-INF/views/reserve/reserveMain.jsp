@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>tiggle</title>
+<script src="https://js.tosspayments.com/v2/standard"></script>
 
 <style>
 
@@ -124,48 +125,108 @@ div.resC {
 			    </script>
 		</th></tr>
 		<tr><th colspan="2">
-			<input type="button" value="결제하기" id="payButton"><a href="payment.do?no=1">결제하기</a>
-		  <!-- <script src="https://js.tosspayments.com/v1"></script> -->
+			<button class="button" value="결제하기" id="payment-Button">결제하기</button>
+		  		
 			<script>
-			
-			<%--   document.getElementById('payButton').addEventListener('click', function() {
-		            // 결제 요청 정보
-		            const amount = document.getElementById('totalPrice').innerText;
-		            const orderId = 'ORDER_' + new Date().getTime();  // 고유 주문번호 생성 (예시)
-		            const orderName = document.getElementById('title').innerText;
-	
-		            // 토스페이먼츠 결제 API 호출
-		            const clientKey = '<%= request.getAttribute("test_ck_BX7zk2yd8yLNpMR6DEQLrx9POLqK") %>';  // 서버에서 제공한 클라이언트 키
-		            const successUrl = '<%= request.getAttribute("successUrl") %>';  // 결제 성공 시 이동할 URL
-		            const failUrl = '<%= request.getAttribute("failUrl") %>';  // 결제 실패 시 이동할 URL
-	
-		            TossPayments.requestPayment('카드', {
-		                amount: amount,
+			 main();
+
+		      async function main() {
+		        const button = document.getElementById("payment-button");
+		        
+		        // ------  결제위젯 초기화 ------
+		        const clientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
+		        const tossPayments = TossPayments(clientKey);
+		        // 회원 결제
+		        const customerKey = "u8v1GriemisXxWDUEW9Sb";
+		        const widgets = tossPayments.widgets({
+		          customerKey,
+		        });
+		        
+		        // ------ 주문의 결제 금액 설정 ------
+		        await widgets.setAmount({
+		          currency: "KRW",
+		          value: 50000,
+		        });
+		        
+		        await Promise.all([
+		        // ------  결제 UI 렌더링 ------
+		          widgets.renderPaymentMethods({
+		            selector: "#payment-method",
+		            variantKey: "DEFAULT",
+		          }),
+		        
+	          // ------  이용약관 UI 렌더링 ------
+		          widgets.renderAgreement({ 
+		        	  selector: "#agreement", 
+		        	  variantKey: "AGREEMENT" 
+	        	 	 }),
+	        	  }
+		        ]);
+		        
+	        // ------ '결제하기' 버튼 누르면 결제창 띄우기 ------
+		        button.addEventListener(
+		        		"click",
+		        		async function () {
+					          await widgets.requestPayment({
+		    			      orderId: "ZYyTRgZ3fG25vcl667LFh",
+		            		  orderName: "토스 티셔츠 외 2건",
+		   		              successUrl: window.location.origin + "/success.html",
+		          			  failUrl: window.location.origin + "/fail.html",
+		          			  customerEmail: "customer123@gmail.com",
+		       			      customerName: "김토스",
+		       			      customerMobilePhone: "01012341234",
+         			 });
+    		    });
+	        
+		        const express = require("express");
+		        const got = require("got");
+
+		        const app = express();
+
+		        app.use(express.json());
+		        app.use(express.urlencoded({ extended: true }));
+
+		        app.post("/confirm", function (req, res) {
+		          // 클라이언트에서 받은 JSON 요청 바디입니다.
+		          const { paymentKey, orderId, amount } = req.body;
+
+		          // 토스페이먼츠 API는 시크릿 키를 사용자 ID로 사용하고, 비밀번호는 사용하지 않습니다.
+		          // 비밀번호가 없다는 것을 알리기 위해 시크릿 키 뒤에 콜론을 추가합니다.
+		          const widgetSecretKey = "test_gsk_docs_OaPz8L5KdmQXkzRz3y47BMw6";
+		          const encryptedSecretKey =
+		            "Basic " + Buffer.from(widgetSecretKey + ":").toString("base64");
+
+		          // 결제를 승인하면 결제수단에서 금액이 차감돼요.
+		          got
+		            .post("https://api.tosspayments.com/v1/payments/confirm", {
+		              headers: {
+		                Authorization: encryptedSecretKey,
+		                "Content-Type": "application/json",
+		              },
+		              json: {
 		                orderId: orderId,
-		                orderName: orderName,
-		                successUrl: successUrl,
-		                failUrl: failUrl
+		                amount: amount,
+		                paymentKey: paymentKey,
+		              },
+		              responseType: "json",
+		            })
+		            .then(function (response) {
+		              // 결제 성공 비즈니스 로직을 구현하세요.
+		              console.log(response.body);
+		              res.status(response.statusCode).json(response.body)
+		            })
+		            .catch(function (error) {
+		              // 결제 실패 비즈니스 로직을 구현하세요.
+		              console.log(error.response.body);
+		              res.status(error.response.statusCode).json(error.response.body)
 		            });
 		        });
-			  
-			  
-			function onPaymentSuccess(paymentKey, orderId, amount) {
-			        fetch('/process-payment', {
-		            method: 'POST',
-		            headers: {
-		                'Content-Type': 'application/x-www-form-urlencoded'
-			            },
-			            body: `paymentKey=${paymentKey}&orderId=${orderId}&amount=${amount}`
-			        })
-			        .then(response => response.json())
-			        .then(data => {
-			            console.log("결제 처리 결과:", data);
-			            // 결제 완료 후 처리 (예: 성공 페이지로 리디렉션)
-			        })
-			        .catch(error => {
-			            console.error("결제 처리 중 오류 발생:", error);
-			        });
-			    } --%>
+
+		        app.listen(4242, () =>
+		          console.log(`http://localhost:${4242} 으로 샘플 앱이 실행되었습니다.`)
+		        );	
+	        
+	        
 			</script>
 			 &nbsp;
 			<input type="button" value="취소" onclick="javascript:history.go(-1); return false;">

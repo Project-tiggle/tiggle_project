@@ -17,7 +17,7 @@
 <table id="outer" align="center" width="700" cellspacing="5" cellpadding="5">
 	<tr><th width="120">전시 제목</th>
 		<td>
-			<input type="text" name="exhibitionTitle" readonly value="test" >
+			<input type="text" name="exhibitionTitle" readonly value="${ exhibition.title }" >
 		</td>
 	</tr>
 	<tr><th width="120">작성자</th>
@@ -31,8 +31,7 @@
 	
 	<tr><th colspan="2">
 		<input type="submit" value="등록하기"> &nbsp;
-		<input type="reset" value="작성취소"> &nbsp;
-		<input type="button" value="목록" onclick="javascript:history.go(-1); return false;">
+		<input type="button" value="취소" onclick="window.close()"> &nbsp;
 	</th></tr>
 </table>
 </form>

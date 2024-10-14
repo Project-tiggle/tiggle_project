@@ -31,6 +31,11 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 	public Exhibition selectListOne(String totalId) {
 		return exhibitionDao.selectListOne(totalId);
 	}
+
+	@Override
+	public int insertExhibition(Exhibition exhibition) {
+		return exhibitionDao.insertExhibition(exhibition);
+	}
 	
 	
 }// ExhibitionService end

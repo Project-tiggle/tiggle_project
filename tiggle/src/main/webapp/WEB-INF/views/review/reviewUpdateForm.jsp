@@ -17,7 +17,7 @@
 <table id="outer" align="center" width="700" cellspacing="5" cellpadding="5">
 	<tr><th width="120">전시 제목</th>
 		<td>
-			<input type="text" name="exhibitionTitle" size="50" >
+			<input type="text" name="exhibitionTitle" size="50" readonly value="">
 		</td>
 	</tr>
 	<tr><th width="120">작성자</th>

@@ -22,10 +22,10 @@ public class Exhibition implements java.io.Serializable {
 	private String description; 	// description : String	
 	private String eventSite; 		// eventSite : String	
 	private String detailEventSite; // detailEventSite : String	
-	private double latitude;		// latitude : double	
-	private double longitude;		// longitude : double	
+	private String latitude;		// latitude : double	
+	private String longitude;		// longitude : double	
 	private String genre;			// genre : String	
-	private String cotactPoint;		//contactPoint : String	
+	private String contactPoint;		//contactPoint : String	
 	private int viewCounter;		// viewCounter : int	
 	private String url;				// url : String	
 	private String period;			// period : String
@@ -33,7 +33,8 @@ public class Exhibition implements java.io.Serializable {
 	private java.sql.Date endDate;	// endDate : date	
 	private String approvalStatus;	// approvalStatus : String	
 	private int category;			// category : int	
-	private String fileUrl;			// fileUrl : String	
+	private String fileUrl;			// fileUrl : String
+	private String charge;			// charge : String
 
 	// 기본 생성자 생성
 	public Exhibition() {
@@ -41,7 +42,7 @@ public class Exhibition implements java.io.Serializable {
 	
 	// Not null 조건 생성자
 	public Exhibition(String totalId, String uuid, String title, String contributor, String description,
-			String eventSite, double latitude, double longitude, String cotactPoint, String url, String period,
+			String eventSite, String contactPoint, String url, String period,
 			Date startDate, Date endDate, int category) {
 		super();
 		this.totalId = totalId;
@@ -50,9 +51,7 @@ public class Exhibition implements java.io.Serializable {
 		this.contributor = contributor;
 		this.description = description;
 		this.eventSite = eventSite;
-		this.latitude = latitude;
-		this.longitude = longitude;
-		this.cotactPoint = cotactPoint;
+		this.contactPoint = contactPoint;
 		this.url = url;
 		this.period = period;
 		this.startDate = startDate;
@@ -60,6 +59,34 @@ public class Exhibition implements java.io.Serializable {
 		this.category = category;
 	}
 	
+	// 전체 생성자
+	public Exhibition(String totalId, String uuid, String title, String contributor, String description,
+			String eventSite, String detailEventSite, String latitude, String longitude, String genre,
+			String contactPoint, int viewCounter, String url, String period, Date startDate, Date endDate,
+			String approvalStatus, int category, String fileUrl, String charge) {
+		super();
+		this.totalId = totalId;
+		this.uuid = uuid;
+		this.title = title;
+		this.contributor = contributor;
+		this.description = description;
+		this.eventSite = eventSite;
+		this.detailEventSite = detailEventSite;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.genre = genre;
+		this.contactPoint = contactPoint;
+		this.viewCounter = viewCounter;
+		this.url = url;
+		this.period = period;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.approvalStatus = approvalStatus;
+		this.category = category;
+		this.fileUrl = fileUrl;
+		this.charge = charge;
+	}
+
 	// getters and setters
 	public String getTotalId() {
 		return totalId;
@@ -117,19 +144,19 @@ public class Exhibition implements java.io.Serializable {
 		this.detailEventSite = detailEventSite;
 	}
 
-	public double getLatitude() {
+	public String getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(double latitude) {
+	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
 
-	public double getLongitude() {
+	public String getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(double longitude) {
+	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
 
@@ -141,12 +168,12 @@ public class Exhibition implements java.io.Serializable {
 		this.genre = genre;
 	}
 
-	public String getCotactPoint() {
-		return cotactPoint;
+	public String getContactPoint() {
+		return contactPoint;
 	}
 
-	public void setCotactPoint(String cotactPoint) {
-		this.cotactPoint = cotactPoint;
+	public void setContactPoint(String contactPoint) {
+		this.contactPoint = contactPoint;
 	}
 
 	public int getViewCounter() {
@@ -213,17 +240,25 @@ public class Exhibition implements java.io.Serializable {
 		this.fileUrl = fileUrl;
 	}
 
+	public String getCharge() {
+		return charge;
+	}
+	
+	public void setCharge(String charge) {
+		this.charge = charge;
+	}
 	
 	// 전체 toString
 	@Override
 	public String toString() {
 		return "Exhibition [totalId=" + totalId + ", uuid=" + uuid + ", title=" + title + ", contributor=" + contributor
 				+ ", description=" + description + ", eventSite=" + eventSite + ", detailEventSite=" + detailEventSite
-				+ ", latitude=" + latitude + ", longitude=" + longitude + ", genre=" + genre + ", cotactPoint="
-				+ cotactPoint + ", viewCounter=" + viewCounter + ", url=" + url + ", period=" + period + ", startDate=" + startDate
+				+ ", latitude=" + latitude + ", longitude=" + longitude + ", genre=" + genre + ", contactPoint="
+				+ contactPoint + ", viewCounter=" + viewCounter + ", url=" + url + ", period=" + period + ", startDate=" + startDate
 				+ ", endDate=" + endDate + ", approvalStatus=" + approvalStatus + ", category=" + category
-				+ ", fileUrl=" + fileUrl + "]";
+				+ ", fileUrl=" + fileUrl + ", charge=" + charge +"]";
 	}
+
 
 	
 	

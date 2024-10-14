@@ -13,4 +13,6 @@ public interface ExhibitionService {
 
 	Exhibition selectListOne(String totalId);
 
+	int insertExhibition(Exhibition exhibition);
+
 }

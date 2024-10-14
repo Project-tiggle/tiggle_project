@@ -30,6 +30,8 @@ public class ReviewController {
 	// 한줄평 등록 팝업 띄우는 메소드
 	@RequestMapping("rvmove.do")
 	public String moveReviewPage() {
+		
+		
 		return "review/reviewWriteForm";
 	}
 	
@@ -99,7 +101,7 @@ public class ReviewController {
 		return mv;
 	}
 	
-	// 새 게시글 등록 요청 처리용 (파일 업로드 기능 추가)
+	// 새 게시글 등록 요청 처리용
 	@RequestMapping(value = "rinsert.do", method = RequestMethod.POST)
 	public String reviewInsertMethod(Review review, Model model, HttpServletRequest request) {
 		logger.info("rinsert.do : " + review);
@@ -113,7 +115,23 @@ public class ReviewController {
 		}
 	}
 
+	// 한줄평 수정 요청 처리용
+	@RequestMapping(value = "rupdate.do", method = RequestMethod.POST)
+	public String reviewUpdateMethod(Review review, Model model, HttpServletRequest request,
+			@RequestParam(name="page", required=false) String page,
+			@RequestParam(name = "deleteFlag", required = false) String delFlag
+			) {
+		logger.info("rupdate.do : " + review); // 전송온 값 확인
+
+		int currentPage = 1;
+		if(page != null) {
+			currentPage = Integer.parseInt(page);
+		}
+		model.addAttribute("message", review.getrNum() + "번 게시글 원글 수정 실패!");
+			return "common/error";
+		}
+
+	} 
+
 	
-	
-	
-}
+

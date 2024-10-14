@@ -37,7 +37,8 @@
 		select *
 		from (select rownum rnum,
 					 TOTAL_ID,
-					 R_NUM, UUID,
+					 R_NUM,
+					 UUID,
 					 NICKNAME,
 					 R_CONTENTS,
 					 WRITE_DATE,
@@ -62,23 +63,34 @@
 				#{ uuid },
 				(select max(r_num) + 1 
 				 from TB_Review where total_id = #{ totalId }),
-				 					  #{ nickName },
-				#{ rContents }, sysdate, null , null , null , null )
+				#{ nickName },
+				#{ rContents },
+				sysdate,
+				null,
+				null,
+				null,
+				null
+				)
 	</insert>	
 	
 	<!-- 한줄평 삭제용 쿼리 -->
-	<!-- <update id="updateReviewDeleteYN">
+	<update id="updateReviewDeleteYN">
 		update	TB_REVIEW
-		set delete_YN = 'Y' , deleteDate = sysdate
-	</update> -->
+		set delete_YN = 'Y' , 
+			deleteDate = sysdate
+	</update>
 	
 	<!-- 한줄평 수정용 쿼리 -->
-	<!-- <update id="updateReview" parameterType="Review">
+	<update id="updateReview" parameterType="Review">
 		update TB_REVIEW
-			set	total_id = #{ totalId }, uuid = #{ uuid },
-				r_contents = #{ rContents }, update_date = sysdate, update_yn = 'Y')
+		set	total_id = #{ totalId },
+			uuid = #{ uuid },
+			r_contents = #{ rContents }, 
+			update_date = sysdate, 
+			update_yn = 'Y'
+			)
 		where r_num = #{ rNum }
-	</update> -->
+	</update> 
 	
 
 

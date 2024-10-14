@@ -15,8 +15,8 @@ public class ExhibitionDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	public Exhibition insertExhibition(Exhibition exhibition) {
-		return sqlSessionTemplate.selectOne("exhibitionMapper.insertExhibition", exhibition);
+	public int insertExhibition(Exhibition exhibition) {
+		return sqlSessionTemplate.insert("exhibitionMapper.insertExhibition", exhibition);
 	}
 
 	// 상세보기 처리를 위한 공지글 1개 조회용
