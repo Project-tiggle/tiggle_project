@@ -5,6 +5,7 @@ li {list-style: none;}
 a {text-decoration: none; color: inherit;}
 button {background: none; border: none; cursor: pointer;}
 
+/* .auto-height {height: auto !important; overflow: hidden !important; white-space: pre-wrap !important;} */
 .bg_eee {background: #eee !important;}
 
 /* noticeListView.jsp */
@@ -84,8 +85,10 @@ html, body {background: #fff; color: #333; font-family: -apple-system, BlinkMacS
 /* nd_attach_wrap end */
 
 .nd_content_wrap {width: 100%; border-bottom: 1px solid #333; min-height: 200px; margin-bottom: 60px;}
-.nd_content {width: 100%; box-sizing: border-box; padding: 30px 10px;}
-.nd_content > textarea {display: block; width: 100%; min-height: 200px; border: 0; outline: 0; font-family: "Pretendard Variable" !important; font-size: 16px;}
+.nd_content {width: 100%; box-sizing: border-box; padding: 30px 10px; height: auto;}
+.nd_content > textarea {display: block; width: 100%; 
+    min-height: 300px; 
+    border: 0; outline: 0; font-family: "Pretendard Variable" !important; font-size: 16px;}
 
 .nd_btns {width: 100%; display: flex; justify-content: center; align-items: center;}
 .nd_btns > button {display: block; width: 130px; height: 45px; line-height: 45px; text-align: center; font-size: 16px; font-weight: bold; border: 1px solid #ddd; margin: 0 10px; cursor: pointer; transition: all 0.2s; font-family: "Pretendard Variable" !important; letter-spacing: 2px;}

@@ -71,7 +71,8 @@
 
 			<div class="nd_content_wrap">
 				<div class="nd_content">
-					<textarea readonly><c:out value="${ notice.nContent }" /></textarea>
+					<!-- <textarea readonly><c:out value="${ notice.nContent }" /></textarea> -->
+					<div style="white-space: pre;"><c:out value="${ notice.nContent }" /></div>
 				</div><!-- nd_content end -->
 			</div><!-- nd_content_wrap end -->
 		</div><!-- n_detail_wrap end -->

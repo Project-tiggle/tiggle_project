@@ -19,6 +19,22 @@
 		<result property="nReadCount" column="N_READCOUNT" />
 	</resultMap><!-- resultNotice end -->
 
+	<!-- 메인페이지 공지사항(ajax) ************************************************** -->
+		<resultMap type="Notice" id="resultNTop3">
+			<result property="nNo" column="N_NO"/>
+			<result property="nTitle" column="N_TITLE"/>
+			<result property="nDate" column="N_DATE"/>
+		</resultMap>
+	
+		<select id="selectNTop3" resultMap="resultNTop3">
+			select *
+			from (select rownum rnum, n_no, n_title, n_date
+			        from (select * from tb_notice
+			                order by n_date desc, n_no desc))
+			where rnum between 1 and 3
+		</select>
+	<!-- 메인페이지 공지사항(ajax) end ************************************************** -->
+
 
 	
 	<!-- 공지사항 총 목록갯수 -->
