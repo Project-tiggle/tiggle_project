@@ -1,5 +1,5 @@
 /**
- * 
+ * 24-10-14 15:01 건열 전시 OPEN API Data -> 관리자 권한으로 DB에 JSON 형식으로 저장하는 함수
  */
  
  function cultureApiDataSave(){
@@ -10,46 +10,67 @@
 	queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('100'); /*세션당 요청레코드수*/
 	queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /*페이지수*/
 	
+	var jarr = new Array();
+	
 	xhr.open('GET', url + queryParams);
 	xhr.onreadystatechange = function () {
+		
+	
 	if (this.readyState == 4) {
 	
 	console.log('status: ' + this.status);
 	console.log('resultCode: ' + $(this.responseText).find('resultCode').text());
 	console.log('resultMsg: ' + $(this.responseText).find('resultMsg').text());
 	
-	var jarr = new Array();
-	var pStr = '';
 	
-
 	var item = $(this.responseText).find('item');
 	$(item).each(function(){
 	
+		console.log("TITLE" + $(this).find("TITLE").text());
+		console.log("CNTC_INSTT_NM" + $(this).find("CNTC_INSTT_NM").text());
+		console.log("COLLECTED_DATE" + $(this).find("COLLECTED_DATE").text());
+		console.log("ISSUED_DATE" + $(this).find("ISSUED_DATE").text());
+		console.log("DESCRIPTION" + $(this).find("DESCRIPTION").text());
+		console.log("IMAGE_OBJECT" + $(this).find("IMAGE_OBJECT").text());
+		console.log("LOCAL_ID" + $(this).find("LOCAL_ID").text());
+		console.log("URL" + $(this).find("URL").text());
+		console.log("VIEW_COUNT" + $(this).find("VIEW_COUNT").text());
+		console.log("SUB_DESCRIPTION" + $(this).find("SUB_DESCRIPTION").text());
+		console.log("SPATIAL_COVERAGE" + $(this).find("SPATIAL_COVERAGE").text());
+		console.log("EVENT_SITE" + $(this).find("EVENT_SITE").text());
+		console.log("GENRE" + $(this).find("GENRE").text());
+		console.log("DURATION" + $(this).find("DURATION").text());
+		console.log("NUMBER_PAGES" + $(this).find("NUMBER_PAGES").text());
+		console.log("TABLE_OF_CONTENTS" + $(this).find("TABLE_OF_CONTENTS").text());
+		console.log("AUTHOR" + $(this).find("AUTHOR").text());
+		console.log("CONTACT_POINT" + $(this).find("CONTACT_POINT").text());
+		console.log("ACTOR" + $(this).find("ACTOR").text());
+		console.log("CONTRIBUTOR" + $(this).find("CONTRIBUTOR").text());
+		console.log("AUDIENCE" + $(this).find("AUDIENCE").text());
+		console.log("CHARGE" + $(this).find("CHARGE").text());
+		console.log("PERIOD" + $(this).find("PERIOD").text());
+		console.log("EVENT_PERIOD" + $(this).find("EVENT_PERIOD").text());	
+	
+	
 	var job = new Object();
 	
+		job.TITLE = $(this).find("TITLE").text();
+		job.CNTC_INSTT_NM = $(this).find("CNTC_INSTT_NM").text();
+		job.DESCRIPTION = $(this).find("DESCRIPTION").text();
+		job.IMAGE_OBJECT = $(this).find("IMAGE_OBJECT").text();
+		job.URL = $(this).find("URL").text();
+		job.EVENT_SITE = $(this).find("EVENT_SITE").text();
+		job.GENRE = $(this).find("GENRE").text();
+		job.CONTACT_POINT = $(this).find("CONTACT_POINT").text();
+		job.CONTRIBUTOR = $(this).find("CONTRIBUTOR").text();
+		job.CHARGE = $(this).find("CHARGE").text();
+		job.PERIOD = $(this).find("PERIOD").text();
 	
-	
-	job.TITLE = $(this).find("TITLE").text());
-	job.CNTC_INSTT_NM = $(this).find("CNTC_INSTT_NM").text());
-	job.DESCRIPTION = $(this).find("DESCRIPTION").text());
-	job.IMAGE_OBJECT = $(this).find("IMAGE_OBJECT").text());
-	job.URL = $(this).find("URL").text());
-	job.EVENT_SITE = $(this).find("EVENT_SITE").text());
-	job.GENRE = $(this).find("GENRE").text());
-	job.CONTACT_POINT = $(this).find("CONTACT_POINT").text());
-	job.CONTRIBUTOR = $(this).find("CONTRIBUTOR").text());
-	job.CHARGE = $(this).find("CHARGE").text());
-	job.PERIOD = $(this).find("PERIOD").text());
-	
+	console.log(job.toString());
 	jarr.push(job);
-	
-	});
-	
-	};
-	
-	}
-	xhr.send('');
-	
+	console.log(jarr.length);
+	}); // each
+	}; // readyState
 	$.ajax({
 			url: 'apiDbSave.do',
 			type: 'post',
@@ -62,11 +83,8 @@
 				console.log("error code : " + request.status + "\nMessage : " + request.responseText
 				+ "\nError : " + errorData );
 			}
-	});
+	}); // ajax
+	}// onreadystatechange end
+	xhr.send('');
 	
-	
-	
-	
-	
-	
- }
+ }// cultureApiDataSave end

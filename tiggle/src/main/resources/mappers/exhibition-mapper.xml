@@ -120,27 +120,34 @@
 		
 	<!-- 전시정보 데이터 입력 -->
 	<insert id="insertExhibition" parameterType="Exhibition">
-		insert into TB_Exhibition_FAIR
+		insert into TB_Exhibition_FAIR (
+				TOTAL_ID,
+				TITLE,
+				CONTRIBUTOR,
+				E_DESCRIPTION,
+				EVENT_SITE,
+				GENRE,
+				E_URL,
+				PERIOD,
+				START_DATE,
+				END_DATE,
+				FILE_URL,
+				CHARGE
+				
+			
+				)
 		values (
-			   total_Id_Seq,
-			   #{ uuid },
+			   total_Id_Seq.nextval,
 			   #{ title },
 			   #{ contributor },
 			   #{ description },
 			   #{ eventSite },
-			   default,
-			   default,
-			   default,
 			   #{ genre },
-			   default,
-			   default,
 			   #{ url },
 		 	   #{ period },
-		 	   TO_CHAR(SUBSTR(#{ period }, 1, 10), yyyy-MM-dd),
-		 	   TO_CHAR(SUBSTR(#{ period }, 12, 21), yyyy-MM-dd),
-		 	   default,
-		 	   default,
-		 	   default,
+		 	   TO_DATE(SUBSTR(#{ period }, 1, 10), 'yyyy-MM-dd'),
+		 	   TO_DATE(SUBSTR(#{ period }, 12, 21), 'yyyy-MM-dd'),
+		 	   #{ fileUrl },
 		 	   #{ charge }
 		 	   )
 	</insert>
@@ -148,6 +155,10 @@
 	<!-- 전시정보 삭제용 쿼리 -->
 	<delete id="deleteExhibition" parameterType="string">
 		delete from TB_EXHIBITION_FAIR where totalId = #{ totalId }
+	</delete>
+	
+	<delete id="deleteApi">
+		delete from TB_EXHIBITION_FAIR where uuid is null
 	</delete>
 	
 </mapper>

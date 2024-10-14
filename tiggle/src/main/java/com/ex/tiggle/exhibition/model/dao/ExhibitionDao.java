@@ -37,5 +37,9 @@ public class ExhibitionDao {
 		return sqlSessionTemplate.selectOne("exhibitionMapper.selectListOne", totalId);
 	}
 
+	public int deleteApi() {
+		return sqlSessionTemplate.delete("exhibitionMapper.deleteApi");
+	}
+
 	
 }

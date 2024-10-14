@@ -154,12 +154,16 @@ public class ExhibitionController {
 	@RequestMapping(value = "apiDbSave.do", method = RequestMethod.POST)
 	public ResponseEntity<String> apiDbSave(@RequestBody String param) throws ParseException {
 		// post 로 request body 에 기록된 json 배열 문자열을 꺼내서 param 변수에 저장하라는 의미임
-
+		logger.info("apiDbSave.do 작동 확인");
 		// param 에 저장된 json string 을 json 배열 객체로 바꿈 : parsing
 		JSONParser jparser = new JSONParser();
 		JSONArray jarr = (JSONArray) jparser.parse(param);
-
+		
+		logger.info("jarr 길이 :" + jarr.size());
 		// jarr 이 가진 
+		
+		exhibitionService.deleteApi();
+		
 		// json 객체가 가진 각 필드(property) 값을 추출해서 dto(vo, entity) 객체(Notice)에 저장
 		for(int i = 0; i < jarr.size(); i++) {
 			JSONObject job = (JSONObject)jarr.get(i);
@@ -176,7 +180,9 @@ public class ExhibitionController {
 			exhibition.setContributor((String) job.get("CONTRIBUTOR"));
 			exhibition.setCharge((String) job.get("CHARGE"));
 			exhibition.setPeriod((String) job.get("PERIOD"));
-		
+			logger.info(exhibition.toString());
+			
+			
 			// 새 공지글 등록 처리용 메소드 실행
 			int result = exhibitionService.insertExhibition(exhibition);
 			

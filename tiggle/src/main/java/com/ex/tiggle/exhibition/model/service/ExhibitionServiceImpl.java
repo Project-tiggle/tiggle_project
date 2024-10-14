@@ -36,6 +36,11 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 	public int insertExhibition(Exhibition exhibition) {
 		return exhibitionDao.insertExhibition(exhibition);
 	}
+
+	@Override
+	public int deleteApi() {
+		return exhibitionDao.deleteApi();
+	}
 	
 	
 }// ExhibitionService end

@@ -15,4 +15,6 @@ public interface ExhibitionService {
 
 	int insertExhibition(Exhibition exhibition);
 
+	int deleteApi();
+
 }
