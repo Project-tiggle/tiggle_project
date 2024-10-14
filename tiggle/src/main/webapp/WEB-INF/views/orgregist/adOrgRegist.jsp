@@ -62,6 +62,25 @@
     color: white;
 }
 
+#apiBtnDiv{
+	text-align: right;
+}
+
+#apiBtn {
+    width: 250px;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #eee;
+}
+
+#apiBtn:hover {
+    background-color: #ff7a52;
+    color: white;
+}
+
 </style>
 </head>
 <body>
@@ -69,6 +88,13 @@
 
     <div id="ynMessage" align="center">
         <h1 id="adminMainTitle">전시/박람회 등록 대기</h1>
+        
+        <!-- 전시회 API 등록 버튼 -->
+        <div id="apiBtnDiv">
+        	<button id="apiBtn" onclick="">전시회 API 등록</button>
+        </div>
+        <!-- 전시회 API 등록 버튼 -->
+        
         <table>
             <thead>
                 <tr>
