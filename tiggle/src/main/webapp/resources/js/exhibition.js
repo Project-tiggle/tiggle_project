@@ -11,12 +11,10 @@
 	queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /*페이지수*/
 	
 	var jarr = new Array();
-	var lastLocalID = null; // 마지막으로 처리된 LOCAL_ID 값을 저장
 	
 	xhr.open('GET', url + queryParams);
 	xhr.onreadystatechange = function () {
 		
-	
 	if (this.readyState == 4) {
 	
 	console.log('status: ' + this.status);
@@ -52,24 +50,11 @@
 		// console.log("CHARGE" + $(this).find("CHARGE").text());
 		// console.log("PERIOD" + $(this).find("PERIOD").text());
 		// console.log("EVENT_PERIOD" + $(this).find("EVENT_PERIOD").text());	
-
-	 	var currentLocalID = $(this).find("LOCAL_ID").text(); // 현재 처리 중인 LOCAL_ID
 	 
-		 // 마지막 LOCAL_ID와 현재 LOCAL_ID 비교
-	    if (lastLocalID !== null) {
-       		 if (lastLocalID === currentLocalID) {
-            	console.log(`이전 Local_ID(${lastLocalID})와 현재 Local_ID(${currentLocalID})가 동일합니다.`);
-           		return; // 같은 경우 넘기고 다음 항목 처리
-       		 } else {
-            	console.log(`이전 Local_ID(${lastLocalID})와 현재 Local_ID(${currentLocalID})가 다릅니다.`);
-       		 }
-    	}
- 
-	
 		var job = new Object();
 	
 		job.TITLE = $(this).find("TITLE").text();
-		job.LOCAL_ID = currentLocalID;;		
+		job.LOCAL_ID = $(this).find("LOCAL_ID").text();;		
 		job.CNTC_INSTT_NM = $(this).find("CNTC_INSTT_NM").text();
 		job.DESCRIPTION = $(this).find("DESCRIPTION").text();
 		job.IMAGE_OBJECT = $(this).find("IMAGE_OBJECT").text();
@@ -84,9 +69,6 @@
 		console.log(JSON.stringify(job));
 		jarr.push(job);
 		console.log(jarr.length);
-	
-		// 마지막 LOCAL_ID 값을 현재 LOCAL_ID로 업데이트
-   		 lastLocalID = currentLocalID;
 	
 		}); // each
 	}; // readyState
