@@ -107,16 +107,79 @@
 				from (select * from TB_EXHIBITION_FAIR
 		     	order by TO_DATE(end_date) desc))
 		where rnum between 1 and 5
+		AND end_date >= sysdate AND
 	</select>
 	
+	<!-- 메인페이지용 포스터 정렬용 쿼리들 -->
+	<select id="selectListTop8" resultMap="resultExhibition">
+		select *
+		from (select rownum rnum,
+					 total_id,
+					 uuid,
+					 title,
+					 local_Id,
+					 contributor,
+					 E_description,
+					 event_site,
+					 detail_event_site,
+					 latitude,
+					 longitude,
+					 genre,
+					 contact_point,
+					 view_counter, 
+					 E_url,
+					 period,
+					 start_date,
+					 end_date,
+					 approval_status,
+					 E_category,
+					 file_url,
+					 charge
+				from (select * from TB_EXHIBITION_FAIR
+		     	order by TO_DATE(end_date) desc))
+		where rnum between 1 and 8
+		AND end_date >= sysdate
+	</select>
+	
+	<select id="selectListSameMon" resultMap="resultExhibition">
+		select *
+		from (select rownum rnum,
+					 total_id,
+					 uuid,
+					 title,
+					 local_Id,
+					 contributor,
+					 E_description,
+					 event_site,
+					 detail_event_site,
+					 latitude,
+					 longitude,
+					 genre,
+					 contact_point,
+					 view_counter, 
+					 E_url,
+					 period,
+					 start_date,
+					 end_date,
+					 approval_status,
+					 E_category,
+					 file_url,
+					 charge
+				from (select * from TB_EXHIBITION_FAIR
+		     	order by TO_DATE(start_date))) 
+        where end_date >= sysdate AND
+        EXTRACT(month from start_date) = extract(month from sysdate) 
+        AND EXTRACT(year from start_date) >= EXTRACT(year from sysdate) 
+	</select>
 		
 	<select id="selectListCount" resultType="_int">
 		select count(*)
 		from TB_EXHIBITION_FAIR
+		where end_date >= sysdate
 	</select>		
 	
 	<!-- PK 전달을 위해 total_id를 추출해주는 쿼리 -->
-	<select id="selectListOne" parameterType="string" resultMap="resultExhibition">
+	<select id="selectExhibitionOne" parameterType="string" resultMap="resultExhibition">
 		select * from TB_EXHIBITION_FAIR
 		where total_id = #{ no }
 	</select>

@@ -210,7 +210,7 @@ function rePopupOpen() {
 				 <h3>장소 :</h3>
 				 ${ exhibition.contributor }
 				 </p><br>
-				 
+				<button ><a href="toss.do">토스결제테스트</button>
 				<button id="reserve_b"><a href="remove.do?no=${ exhibition.totalId }" >예매하기</a></button>
 			</div>
 		</div>
@@ -246,20 +246,17 @@ function rePopupOpen() {
 <%-- 한줄평 클릭시 출력될 폼 --%>
 <div id="reviewdiv" class="sdiv">
 	<input type="hidden" name="action" value="review">
-			<c:if test="${ !empty sessionScope.loginMember && rv.uuid eq null }">
-				<button onclick="rviPopupOpen()">등록</button>
-			</c:if>
-			<c:if test="${ !empty sessionScope.loginMember && rv.uuid eq sessionScope.uuid }">
-				<button onclick="rvuPopupOpen()">수정</button>
-			</c:if>
+			
 	<fieldset>
 		<div>
+		<c:set var="writeflag" value="false"/>
 		<table align="center" width="650" border="1" cellspacing="0" cellpadding="0">
 			<tr>
 				<th>번호</th>
 				<th>작성자</th>
 				<th>내용</th>
 				<th>날짜</th>
+				<th>...</th>				
 			</tr>
 		<c:forEach items="${ list }" var="rv">
 		<c:set var="i" value="${ i + 1 }"/>
@@ -269,12 +266,22 @@ function rePopupOpen() {
 				<td align="center">${ rv.nickName }</td>
 				<td align="left"> &nbsp; ${ rv.rContents }</td>
 				<td align="center">
-					<fmt:formatDate value="${rv.writeDate }" pattern="yyyy-MM-dd"/>
+					<fmt:formatDate value="${ rv.writeDate }" pattern="yyyy-MM-dd"/>
 				</td>
-			</c:if>
-			</tr>
-		</c:forEach>
-</table>
+					<td>
+						<c:if test="${ !empty sessionScope.loginMember && rv.uuid eq sessionScope.loginMember.uuid }">
+							<button onclick="rvuPopupOpen()">수정</button>
+							<button onclick="rvuPopupOpen()">삭제</button>
+							<c:set var="writeflag" value="true"/>
+						</c:if>
+					</td>
+						</c:if>
+				</tr>
+			</c:forEach>
+		</table>
+				<c:if test="${ writeflag eq false }">
+						<button onclick="rviPopupOpen()">등록</button>
+				</c:if>
 		</div>
 	</fieldset>
 </div>

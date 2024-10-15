@@ -1,7 +1,10 @@
 package com.ex.tiggle.exhibition.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ex.tiggle.common.Paging;
@@ -37,6 +41,11 @@ public class ExhibitionController {
 	@Autowired
 	private ReviewService reviewService;
 	
+	
+	@RequestMapping("toss.do")
+	public String moveToss() {
+		return "reserve/tossTest";
+	}
 	
 	
 	// 전시 페이지 관련 컨트롤러
@@ -83,17 +92,91 @@ public class ExhibitionController {
 		return mv;
 	}
 	
-	
+	// 메인 페이지가 시작했을 때 TOP-N 설정
+	@RequestMapping(value = "exhibitionMainTop8.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String exhibitionTop8ListMethod(HttpServletResponse response)  throws UnsupportedEncodingException {
+		
+		
+		// 조회수 많은 전시회 8개 조회 요청
+		ArrayList<Exhibition> list = exhibitionService.selectListTop8();
+		
+		// 내보낼 값에 대해 response 에 mimiType 설정
+		response.setContentType("application/json; charset=utf-8");
 
+		// 리턴된 list 를 json 배열에 옮겨 기록하기
+		JSONArray jarr = new JSONArray();
+		
+		for (Exhibition exhibition : list) {
+			// board 값들을 저장할 json 객체 생성
+			JSONObject job = new JSONObject(); // org.json.simple.JSONObject 임포트함
+
+			
+			job.put("fileUrl", URLEncoder.encode(exhibition.getFileUrl(), "utf-8"));
+			job.put("title", URLEncoder.encode(exhibition.getTitle(), "utf-8"));
+			job.put("contInsttNm", URLEncoder.encode(exhibition.getContInsttNm(), "utf-8"));
+			job.put("period", URLEncoder.encode(exhibition.getPeriod(), "utf-8"));
+		
+			// 조회수
+			job.put("viewCounter", exhibition.getViewCounter());
+
+			jarr.add(job); // 배열에 추가
+		} // for each
+		
+		// 전송용 json 객체 생성함
+		JSONObject sendJson = new JSONObject();
+		
+		// 전송용 json 에 jarr 을 저장함
+		sendJson.put("elist", jarr);
+
+		return sendJson.toJSONString();
+	}
+	
+	// sysdate와 같은 달의 전시회 조회 요청
+	@RequestMapping(value = "exhibitionMainSameMon.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String exhibitionSameMonListMethod(HttpServletResponse response)  throws UnsupportedEncodingException {
+	
+			ArrayList<Exhibition> list = exhibitionService.selectListSameMon();
+			
+			// 내보낼 값에 대해 response 에 mimiType 설정
+			response.setContentType("application/json; charset=utf-8");
+
+			// 리턴된 list 를 json 배열에 옮겨 기록하기
+			JSONArray jarr = new JSONArray();
+			
+			for (Exhibition exhibition : list) {
+				// board 값들을 저장할 json 객체 생성
+				JSONObject job = new JSONObject(); // org.json.simple.JSONObject 임포트함
+
+				
+				job.put("fileUrl", URLEncoder.encode(exhibition.getFileUrl(), "utf-8"));
+				job.put("title", URLEncoder.encode(exhibition.getTitle(), "utf-8"));
+				job.put("contInsttNm", URLEncoder.encode(exhibition.getContInsttNm(), "utf-8"));
+				job.put("period", URLEncoder.encode(exhibition.getPeriod(), "utf-8"));
+			
+				jarr.add(job); // 배열에 추가
+			} // for each
+			
+			// 전송용 json 객체 생성함
+			JSONObject sendJson = new JSONObject();
+			
+			// 전송용 json 에 jarr 을 저장함
+			sendJson.put("elist", jarr);
+
+			return sendJson.toJSONString();
+		}
+	
+	
 	// 클릭한 포스터와 같은 전시의 내용을 담은 상세 정보 페이지로 이동
 	@RequestMapping(value = "exhibitionDetail.do")
 	public ModelAndView exhibitionDetailMethod(@RequestParam("no") String totalId , ModelAndView mv) {
 		
-		Exhibition exhibition = exhibitionService.selectListOne(totalId);
-		// 같은 totalId 를 갖는 한줄평 조회
+		Exhibition exhibition = exhibitionService.selectExhibitionOne(totalId);
+		// 같은 totalId 를 갖는 전시 리스트
 
 		int currentPage = 1;
-		// 한 페이지에 출력할 공지 갯수 10개로 지정
+		// 한 페이지에 출력할 한줄평 갯수 10개로 지정
 		int limit = 10;
 		// 총 목록갯수 조회해서 총 페이지 수 계산
 		int listCount = reviewService.selectListCount(totalId);
@@ -124,7 +207,7 @@ public class ExhibitionController {
 	@RequestMapping(value = "rinsert.do")
 	public ModelAndView reviewInsertMethod(@RequestParam("no") String totalId , ModelAndView mv) {
 		
-		Exhibition exhibition = exhibitionService.selectListOne(totalId);
+		Exhibition exhibition = exhibitionService.selectExhibitionOne(totalId);
 		// 같은 totalId 를 갖는 한줄평 조회
 		
 		int currentPage = 1;

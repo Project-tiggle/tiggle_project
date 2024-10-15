@@ -33,12 +33,22 @@ public class ExhibitionDao {
 		return sqlSessionTemplate.selectOne("exhibitionMapper.selectListCount");
 	}
 
-	public Exhibition selectListOne(String totalId) {
-		return sqlSessionTemplate.selectOne("exhibitionMapper.selectListOne", totalId);
+	public Exhibition selectExhibitionOne(String totalId) {
+		return sqlSessionTemplate.selectOne("exhibitionMapper.selectExhibitionOne", totalId);
 	}
 
 	public int deleteApi() {
 		return sqlSessionTemplate.delete("exhibitionMapper.deleteApi");
+	}
+
+	public ArrayList<Exhibition> selectListTop8() {
+		List<Exhibition> list = sqlSessionTemplate.selectList("exhibitionMapper.selectListTop8");
+		return (ArrayList<Exhibition>)list;
+	}
+
+	public ArrayList<Exhibition> selectListSameMon() {
+		List<Exhibition> list = sqlSessionTemplate.selectList("exhibitionMapper.selectListSameMon");
+		return (ArrayList<Exhibition>)list;
 	}
 
 	
