@@ -25,4 +25,10 @@ public interface OrgRegistService {
 	ArrayList<OrgRegist> selectApList(Paging paging);	//N값 불러오기
 	int apStatusYn(String totalId); 				//전시등록 승인처리
 	
+	/* API용 */
+	ArrayList<OrgRegist> selectLocation();			//API용 전체 전시 조회
+	int updateLocation(OrgRegist orgRegist);		//API용 위치 등록
+	int updateApiApprovalY();						//API용 자료 등록 승인처리
+	int updateNotNull();							//API용 NULL자료 처리용
+	
 }

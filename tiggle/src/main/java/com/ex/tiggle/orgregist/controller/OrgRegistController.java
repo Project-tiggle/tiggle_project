@@ -30,22 +30,19 @@ import com.ex.tiggle.orgregist.model.service.OrgRegistService;
 @Controller
 public class OrgRegistController {
 	private static final Logger logger = LoggerFactory.getLogger(OrgRegistController.class);
-	
+
 	@Autowired
-    private OrgRegistService orgRegistService;
-    
-    
-	/************************ orgRegist.jsp : 기업관계자 ************************/
+	private OrgRegistService orgRegistService;
+
+	/************************ orgRegist.jsp : 전시관계자 ************************/
 	// 전시/박람회 메인 페이지로 이동 : 전시관계자
-    @RequestMapping("orgRegistPage.do")
-    public ModelAndView moveOrgRegist(
-	    	ModelAndView mv, 
-	    	HttpSession session,
-	    	@RequestParam(name = "page", required = false) String page,
+	@RequestMapping("orgRegistPage.do")
+	public ModelAndView moveOrgRegist(ModelAndView mv, HttpSession session,
+			@RequestParam(name = "page", required = false) String page,
 			@RequestParam(name = "limit", required = false) String slimit) {
 		// page : 출력할 페이지, limit : 한 페이지에 출력할 목록 갯수
-    	
-    	Member loginMember = (Member) session.getAttribute("loginMember");
+
+		Member loginMember = (Member) session.getAttribute("loginMember");
 		// 페이징 처리
 		int currentPage = 1;
 		if (page != null) {
@@ -63,7 +60,7 @@ public class OrgRegistController {
 		// 페이지 관련 항목 계산 처리
 		Paging paging = new Paging(listCount, limit, currentPage, "orgRegistPage.do");
 		paging.calculate();
-		
+
 		Map<String, Object> uuidNpaging = new HashMap<>();
 		uuidNpaging.put("paging", paging);
 		uuidNpaging.put("uuid", loginMember.getUuid());
@@ -84,67 +81,58 @@ public class OrgRegistController {
 		return mv;
 	}
 
-    // 전시/박람회 등록 상세 페이지로 이동 : 전시관계자
-    @RequestMapping("orgRegDetail.do")
-    public String moveOrgRegistDetail(
-    		HttpSession session,
-    		Model model) {
-    	Member loginMember = (Member) session.getAttribute("loginMember");
-    	
-    	OrgRegist orgRegist = orgRegistService.selectOrgRegistByUuid(loginMember.getUuid());
-        model.addAttribute("orgRegist", orgRegist);
-        return "orgregist/orgRegistDetail";
-    }
-    
-    //수정 페이지로 이동 : 전시관계자
-    @RequestMapping("orgRegEdit.do")
-	public String moveEditOrgRegist(
-			@RequestParam("num") String num,
-    		Model model) {
-    	
-    	OrgRegist orgRegist = orgRegistService.selectOrgTotalId(num); //totalId정보를 이용해서 orgRegist정보를 DB로부터 받아옴
-    	
-    	String totalId = orgRegist.getTotalId();
-    	String originalFilename = null;	// 유저가 파일을 올릴때의 원래 이름
-    	String saveFilename = null;	// url에 저장되어있는 이름
-    	if (orgRegist.getFileUrl() != null) {
-    		saveFilename = orgRegist.getFileUrl();
+	// 전시/박람회 등록 상세 페이지로 이동 : 전시관계자
+	@RequestMapping("orgRegDetail.do")
+	public String moveOrgRegistDetail(HttpSession session, Model model) {
+		Member loginMember = (Member) session.getAttribute("loginMember");
+
+		OrgRegist orgRegist = orgRegistService.selectOrgRegistByUuid(loginMember.getUuid());
+		model.addAttribute("orgRegist", orgRegist);
+		return "orgregist/orgRegistDetail";
+	}
+
+	// 수정 페이지로 이동 : 전시관계자
+	@RequestMapping("orgRegEdit.do")
+	public String moveEditOrgRegist(@RequestParam("num") String num, Model model) {
+
+		OrgRegist orgRegist = orgRegistService.selectOrgTotalId(num); // totalId정보를 이용해서 orgRegist정보를 DB로부터 받아옴
+
+		String totalId = orgRegist.getTotalId();
+		String originalFilename = null; // 유저가 파일을 올릴때의 원래 이름
+		String saveFilename = null; // url에 저장되어있는 이름
+		if (orgRegist.getFileUrl() != null) {
+			saveFilename = orgRegist.getFileUrl();
 			originalFilename = orgRegist.getFileUrl().substring(orgRegist.getFileUrl().indexOf('_') + 1);
 		}
-    	    	
-        model.addAttribute("totalId", totalId);
-    	model.addAttribute("orgRegist", orgRegist);
-        model.addAttribute("ofile", originalFilename);
-        model.addAttribute("sfile", saveFilename);
-        return "orgregist/orgRegistEdit";
-    }
-    
-	/************************ orgRegistDetail.jsp : 기업관계자 ************************/
-    //전시등록 : 전시관계자
-    @RequestMapping(value = "orgRegist.do", method = RequestMethod.POST)
-    public String registerOrgRegist(
-            OrgRegist orgRegist,
-            Model model,
-            HttpSession session,
-            HttpServletRequest request,
-            @RequestParam(name="photofile", required = false) MultipartFile mfile) {
-    	
-    	
-    	//***************  Session안에 loginMember 객체 정보를 orgRegist에 담음
-    	Member loginMember = (Member) session.getAttribute("loginMember");
-    	
-    	orgRegist.setUuid(loginMember.getUuid());
-    	orgRegist.setTotalId(String.valueOf(orgRegistService.selectMaxTotalId() + 1));	//가장 큰 번호를 불러와서 +1, varchar2형식으로 변환
-    	orgRegist.setApprovalStatus("N");	// 등록시 관리자 확인전까지는 기본 설정값 'N' 값을 넣음
-    	// ************** orgRegist 셋팅 마무리
-    	
-    	String detailEventSite = orgRegist.getDetailEventSite();	//API 쉽게 사용하기 위한 변수
+
+		model.addAttribute("totalId", totalId);
+		model.addAttribute("orgRegist", orgRegist);
+		model.addAttribute("ofile", originalFilename);
+		model.addAttribute("sfile", saveFilename);
+		return "orgregist/orgRegistEdit";
+	}
+
+	// 전시등록 : 전시관계자
+	@RequestMapping(value = "orgRegist.do", method = RequestMethod.POST)
+	public String registerOrgRegist(OrgRegist orgRegist, Model model, HttpSession session, HttpServletRequest request,
+			@RequestParam(name = "photofile", required = false) MultipartFile mfile) {
+
+		// *************** Session안에 loginMember 객체 정보를 orgRegist에 담음
+		Member loginMember = (Member) session.getAttribute("loginMember");
+
+		orgRegist.setUuid(loginMember.getUuid());
+		orgRegist.setTotalId(String.valueOf(orgRegistService.selectMaxTotalId() + 1)); // 가장 큰 번호를 불러와서 +1, varchar2형식으로
+																						// 변환
+		orgRegist.setApprovalStatus("N"); // 등록시 관리자 확인전까지는 기본 설정값 'N' 값을 넣음
+		// ************** orgRegist 셋팅 마무리
+
+		String detailEventSite = orgRegist.getDetailEventSite(); // API 쉽게 사용하기 위한 변수
 		/* logger.info("orgRegist.do : " + orgRegist); */
-    	
-    	String savePath = request.getSession().getServletContext().getRealPath("resources/exhibit_upfiles");
+
+		String savePath = request.getSession().getServletContext().getRealPath("resources/exhibit_upfiles");
 		/* logger.info("savePath : " + savePath); */
-    	
-    	// 첨부파일이 있을 때
+
+		// 첨부파일이 있을 때
 		if (!mfile.isEmpty()) {
 			// 전송온 파일이름 추출함
 			String fileName = mfile.getOriginalFilename();
@@ -169,69 +157,64 @@ public class OrgRegistController {
 
 			orgRegist.setFileUrl(renameFileName);
 		} // 첨부파일이 있을 때
-    	
-        try {
-            // 상세 주소를 기반으로 좌표 데이터를 얻어오기
-            KakaoXY kakaoXy = new KakaoXY();
-            String response = kakaoXy.getCoordinateFromAddress(detailEventSite);
-            
-            JSONObject jsonResponse = new JSONObject(response);
-            if (jsonResponse.getJSONArray("documents").length() > 0) {
-                JSONObject addressInfo = jsonResponse.getJSONArray("documents").getJSONObject(0);
-                String xCoord = addressInfo.getJSONObject("address").getString("x");
-                String yCoord = addressInfo.getJSONObject("address").getString("y");
 
-                // DTO에 경도와 위도 값 설정
-                orgRegist.setLongitude(Double.parseDouble(xCoord));
-                orgRegist.setLatitude(Double.parseDouble(yCoord));
-                //경도위도 확인 로거
-                logger.info("x, y (check) : " + orgRegist);
-            }
+		try {
+			// 상세 주소를 기반으로 좌표 데이터를 얻어오기
+			KakaoXY kakaoXy = new KakaoXY();
+			String response = kakaoXy.getCoordinateFromAddress(detailEventSite);
 
-            // 서비스 호출, 반환된 값에 따라 성공 여부를 판단
-            int resultInsert = orgRegistService.insertOrgRegist(orgRegist);
-            int resultUpdate = orgRegistService.updateMember(orgRegist);
-            
-            if (resultInsert > 0 && resultUpdate > 0) {
-                model.addAttribute("message", "전시/박람회가 성공적으로 등록되었습니다.");
-                return "common/success";
-            } else {
-                model.addAttribute("message", "등록 중 오류가 발생했습니다.");
-                return "common/error";
-            }
+			JSONObject jsonResponse = new JSONObject(response);
+			if (jsonResponse.getJSONArray("documents").length() > 0) {
+				JSONObject addressInfo = jsonResponse.getJSONArray("documents").getJSONObject(0);
+				String xCoord = addressInfo.getJSONObject("address").getString("x");
+				String yCoord = addressInfo.getJSONObject("address").getString("y");
 
-        } catch (Exception e) {
-            model.addAttribute("message", "등록 중 오류가 발생했습니다.");
-            return "common/error";
-        }
-    }
-    
-    /************************ orgRegistEdit.jsp : 기업관계자 ************************/
-    // 수정 처리 : 전시관계자
-    @RequestMapping(value="orgRegistUpdate.do", method = RequestMethod.POST)
-    public String orgRegistUpdate( OrgRegist orgRegist,
-            Model model,
-            HttpSession session,
-            HttpServletRequest request,
-            @RequestParam(name="photofile", required = false) MultipartFile mfile,
-            @RequestParam("totalId") String totalId,
-            @RequestParam("ofile") String originalFileName,
-            @RequestParam("sfile") String saveFileName) {
-        
-    	//***************  Session안에 loginMember 객체 정보를 orgRegist에 담음
-    	Member loginMember = (Member) session.getAttribute("loginMember");
-    	
-    	orgRegist.setUuid(loginMember.getUuid());
-    	orgRegist.setTotalId(totalId);
-    	orgRegist.setApprovalStatus("N");	// 등록시 관리자 확인전까지는 기본 설정값 'N' 값을 넣음
-    	// ************** orgRegist 셋팅 마무리
-    	
-    	String detailEventSite = orgRegist.getDetailEventSite();	//API 쉽게 사용하기 위한 변수
-    	
-    	// 사진 파일첨부, 저장 폴더 경로 지정 -----------------------------------
-    	String savePath = request.getSession().getServletContext().getRealPath("resources/exhibit_upfiles");
-        
-    	// 수정된 첨부파일이 있다면
+				// DTO에 경도와 위도 값 설정
+				orgRegist.setLongitude(Double.parseDouble(xCoord));
+				orgRegist.setLatitude(Double.parseDouble(yCoord));
+				// 경도위도 확인 로거
+				logger.info("x, y (check) : " + orgRegist);
+			}
+
+			// 서비스 호출, 반환된 값에 따라 성공 여부를 판단
+			int resultInsert = orgRegistService.insertOrgRegist(orgRegist);
+			int resultUpdate = orgRegistService.updateMember(orgRegist);
+
+			if (resultInsert > 0 && resultUpdate > 0) {
+				model.addAttribute("message", "전시/박람회가 성공적으로 등록되었습니다.");
+				return "redirect:orgRegistPage.do";
+			} else {
+				model.addAttribute("message", "등록 중 오류가 발생했습니다.");
+				return "common/error";
+			}
+
+		} catch (Exception e) {
+			model.addAttribute("message", "등록 중 오류가 발생했습니다.");
+			return "common/error";
+		}
+	}
+
+	// 수정 처리 : 전시관계자
+	@RequestMapping(value = "orgRegistUpdate.do", method = RequestMethod.POST)
+	public String orgRegistUpdate(OrgRegist orgRegist, Model model, HttpSession session, HttpServletRequest request,
+			@RequestParam(name = "photofile", required = false) MultipartFile mfile,
+			@RequestParam("totalId") String totalId, @RequestParam("ofile") String originalFileName,
+			@RequestParam("sfile") String saveFileName) {
+
+		// *************** Session안에 loginMember 객체 정보를 orgRegist에 담음
+		Member loginMember = (Member) session.getAttribute("loginMember");
+
+		orgRegist.setUuid(loginMember.getUuid());
+		orgRegist.setTotalId(totalId);
+		orgRegist.setApprovalStatus("N"); // 등록시 관리자 확인전까지는 기본 설정값 'N' 값을 넣음
+		// ************** orgRegist 셋팅 마무리
+
+		String detailEventSite = orgRegist.getDetailEventSite(); // API 쉽게 사용하기 위한 변수
+
+		// 사진 파일첨부, 저장 폴더 경로 지정 -----------------------------------
+		String savePath = request.getSession().getServletContext().getRealPath("resources/exhibit_upfiles");
+
+		// 수정된 첨부파일이 있다면
 		if (!mfile.isEmpty()) {
 			// 전송온 파일 이름 추출함
 			String fileName = mfile.getOriginalFilename();
@@ -257,53 +240,49 @@ public class OrgRegistController {
 		} else { // 수정된 첨부파일과 원래 첨부파일명이 같은 경우 (폴더에 저장된 상태임)
 			orgRegist.setFileUrl(saveFileName);
 		}
-        
-        try {
-            // 상세 주소를 기반으로 좌표 데이터를 얻어오기
-            KakaoXY kakaoXy = new KakaoXY();
-            String response = kakaoXy.getCoordinateFromAddress(detailEventSite);
-            
-            JSONObject jsonResponse = new JSONObject(response);
-            if (jsonResponse.getJSONArray("documents").length() > 0) {
-                JSONObject addressInfo = jsonResponse.getJSONArray("documents").getJSONObject(0);
-                String xCoord = addressInfo.getJSONObject("address").getString("x");
-                String yCoord = addressInfo.getJSONObject("address").getString("y");
 
-                // DTO에 경도와 위도 값 설정
-                orgRegist.setLongitude(Double.parseDouble(xCoord));
-                orgRegist.setLatitude(Double.parseDouble(yCoord));
-                //경도위도 확인 로거
-                logger.info("x, y (check) : " + orgRegist);
-            }
+		try {
+			// 상세 주소를 기반으로 좌표 데이터를 얻어오기
+			KakaoXY kakaoXy = new KakaoXY();
+			String response = kakaoXy.getCoordinateFromAddress(detailEventSite);
 
-            int result = orgRegistService.updateOrgRegist(orgRegist); // 수정처리 service 2개 작동
-            int resultUpdate = orgRegistService.updateMember(orgRegist);
-            
-            if (result > 0 && resultUpdate > 0) {
-                model.addAttribute("message", "수정이 완료되었습니다.");
-                return "common/success";
-            } else {
-                model.addAttribute("message", "수정에 실패했습니다.");
-                return "common/error";
-            }
+			JSONObject jsonResponse = new JSONObject(response);
+			if (jsonResponse.getJSONArray("documents").length() > 0) {
+				JSONObject addressInfo = jsonResponse.getJSONArray("documents").getJSONObject(0);
+				String xCoord = addressInfo.getJSONObject("address").getString("x");
+				String yCoord = addressInfo.getJSONObject("address").getString("y");
 
-        } catch (Exception e) {
-            model.addAttribute("message", "등록 중 오류가 발생했습니다.");
-            return "common/error";
-        }
-        
-        
-    }
+				// DTO에 경도와 위도 값 설정
+				orgRegist.setLongitude(Double.parseDouble(xCoord));
+				orgRegist.setLatitude(Double.parseDouble(yCoord));
+				// 경도위도 확인 로거
+				logger.info("x, y (check) : " + orgRegist);
+			}
 
-    // 삭제 처리 : 전시관계자
-    @RequestMapping("deleteOrgRegist.do")
-    public String deleteOrgRegist(
-    		Model model, 
-    		HttpServletRequest request,
-    		@RequestParam("totalId") String totalId,
-    		@RequestParam("sfile") String saveFileName) {
-    	
-    	if (orgRegistService.deleteOrgRegist(totalId) > 0) { // 등록글 삭제 성공시
+			int result = orgRegistService.updateOrgRegist(orgRegist); // 수정처리 service 2개 작동
+			int resultUpdate = orgRegistService.updateMember(orgRegist);
+
+			if (result > 0 && resultUpdate > 0) {
+				model.addAttribute("message", "수정이 완료되었습니다.");
+				return "redirect:orgRegistPage.do";
+			} else {
+				model.addAttribute("message", "수정에 실패했습니다.");
+				return "common/error";
+			}
+
+		} catch (Exception e) {
+			model.addAttribute("message", "등록 중 오류가 발생했습니다.");
+			return "common/error";
+		}
+
+	}
+
+	// 삭제 처리 : 전시관계자
+	@RequestMapping("deleteOrgRegist.do")
+	public String deleteOrgRegist(Model model, HttpServletRequest request, @RequestParam("totalId") String totalId,
+			@RequestParam("sfile") String saveFileName) {
+
+		if (orgRegistService.deleteOrgRegist(totalId) > 0) { // 등록글 삭제 성공시
 			// 게시글 삭제 성공시 저장 폴더에 있는 첨부파일도 삭제 처리함
 			if (saveFileName != null && saveFileName.length() > 0) {
 				// 게시글 첨부파일 저장 폴더 경로 지정
@@ -312,23 +291,21 @@ public class OrgRegistController {
 				new File(savePath + "\\" + saveFileName).delete();
 			}
 			model.addAttribute("message", "등록글 삭제 성공!");
-			return "common/success";
+			return "redirect:orgRegistPage.do";
 		} else {
 			model.addAttribute("message", "등록글 삭제 실패!");
 			return "common/error";
 		}
-    }
+	}
 
-    /************************ adOrgRegist.jsp : 티글관리자 ************************/
-    //전시/박람회 메인 페이지로 이동 : 티글관리자
-    @RequestMapping("orgRegistAd.do")
-    public ModelAndView moveAdminRegist(
-    		OrgRegist orgRegist,
-	    	ModelAndView mv,
-	    	@RequestParam(name = "page", required = false) String page,
+	/************************ 티글관리자 ************************/
+	// 전시/박람회 메인 페이지로 이동 : 티글관리자
+	@RequestMapping("orgRegistAd.do")
+	public ModelAndView moveAdminRegist(OrgRegist orgRegist, ModelAndView mv,
+			@RequestParam(name = "page", required = false) String page,
 			@RequestParam(name = "limit", required = false) String slimit) {
 		// page : 출력할 페이지, limit : 한 페이지에 출력할 목록 갯수
-    	
+
 		// 페이징 처리
 		int currentPage = 1;
 		if (page != null) {
@@ -346,7 +323,7 @@ public class OrgRegistController {
 		// 페이지 관련 항목 계산 처리
 		Paging paging = new Paging(listCount, limit, currentPage, "orgRegistAd.do");
 		paging.calculate();
-		
+
 		// 서비스롤 목록 조회 요청하고 결과 받기
 		ArrayList<OrgRegist> list = orgRegistService.selectApList(paging);
 
@@ -362,42 +339,125 @@ public class OrgRegistController {
 
 		return mv;
 	}
-    
-    //전시/박람회 승인페이지로 이동 : 티글관리자
-    @RequestMapping("RegistDetailAd.do")
-    public String moveAdminRegistAp(
-			@RequestParam("num") String totalId,
-    		Model model) {
-    	
-    	OrgRegist orgRegist = orgRegistService.selectOrgTotalId(totalId); //전시관계자와 서비스 공동 사용
-    	
-    	String originalFilename = null;	// 유저가 파일을 올릴때의 원래 이름
-    	String saveFilename = null;	// url에 저장되어있는 이름
-    	if (orgRegist.getFileUrl() != null) {
-    		saveFilename = orgRegist.getFileUrl();
+
+	// 전시/박람회 승인페이지로 이동 : 티글관리자
+	@RequestMapping("RegistDetailAd.do")
+	public String moveAdminRegistAp(@RequestParam("num") String totalId, Model model) {
+
+		OrgRegist orgRegist = orgRegistService.selectOrgTotalId(totalId); // 전시관계자와 서비스 공동 사용
+
+		String originalFilename = null; // 유저가 파일을 올릴때의 원래 이름
+		String saveFilename = null; // url에 저장되어있는 이름
+		if (orgRegist.getFileUrl() != null) {
+			saveFilename = orgRegist.getFileUrl();
 			originalFilename = orgRegist.getFileUrl().substring(orgRegist.getFileUrl().indexOf('_') + 1);
 		}
-    	    	
-        model.addAttribute("totalId", totalId);
-    	model.addAttribute("orgRegist", orgRegist);
-        model.addAttribute("ofile", originalFilename);
-        model.addAttribute("sfile", saveFilename);
-        return "orgregist/adOrgRegistAp";
-    }
-    
-    //전시/박람회 승인처리 : 티글관리자
-    @RequestMapping(value="apStatusYn.do", method = RequestMethod.POST)
-    public String RegistYn(Model model,
-    		@RequestParam("totalId") String totalId) {
-    	
-    	int result = orgRegistService.apStatusYn(totalId);
-    	
-    	if (result > 0) {
-            model.addAttribute("message", "승인처리 완료");
-            return "common/success";
-        } else {
-            model.addAttribute("message", "승인처리 실패");
-            return "common/error";
-        }
-    }
+
+		model.addAttribute("totalId", totalId);
+		model.addAttribute("orgRegist", orgRegist);
+		model.addAttribute("ofile", originalFilename);
+		model.addAttribute("sfile", saveFilename);
+		return "orgregist/adOrgRegistAp";
+	}
+
+	// 전시/박람회 승인처리 : 티글관리자
+	@RequestMapping(value = "apStatusYn.do", method = RequestMethod.POST)
+	public String registYn(Model model, @RequestParam("totalId") String totalId) {
+
+		int result = orgRegistService.apStatusYn(totalId);
+
+		if (result > 0) {
+			model.addAttribute("message", "승인처리 완료");
+			return "redirect:orgRegistAd.do";
+		} else {
+			model.addAttribute("message", "승인처리 실패");
+			return "common/error";
+		}
+	}
+
+	/************************ API ************************/
+	// API 좌표 처리 메서드
+	@RequestMapping("apiXySetting.do")
+	public String apiXySetting(Model model) {
+		orgRegistService.updateNotNull();		// 지도 오류 없애는 null 자리 없애기
+		ArrayList<OrgRegist> list = orgRegistService.selectLocation();
+
+		for (OrgRegist orgRegist : list) {
+			String place = orgRegist.getEventSite(); // 위치 뽑아오기
+
+			if (place != null) {
+				if (place != "etc") {
+					switch (place) {
+					case "청주":
+						place = "충북 청주시 청원구 상당로 314";
+						break;
+					case "서울":
+						place = "서울특별시 종로구 삼청로 30";
+						break;
+					case "덕수궁":
+						place = "서울특별시 중구 세종대로 99";
+						break;
+					case "과천":
+						place = "경기도 과천시 광명로 313";
+						break;
+					case "exco":
+						place = "대구광역시 북구 엑스코로 10";
+						break;
+					case "bexco":
+						place = "부산광역시 해운대구 APEC로 55";
+						break;
+					case "setec":
+						place = "서울특별시 강남구 남부순환로 3104";
+						break;
+					case "songdo":
+						place = "인천광역시 연수구 센트럴로 123";
+						break;
+					case "messe":
+						place = "경기도 수원시 권선구 세화로 134";
+						break;
+					case "sac":
+						place = "서울특별시 서초구 남부순환로 2406";
+						break;
+					case "coex":
+						place = "서울특별시 강남구 영동대로 513";
+						break;
+					case "kintex":
+						place = "경기도 고양시 일산서구 킨텍스로 217-60";
+						break;
+					default:
+						place = "서울특별시 중구 세종대로 110";
+					}
+
+					try {
+						// 상세 주소를 기반으로 좌표 데이터를 얻어오기
+						KakaoXY kakaoXy = new KakaoXY();
+						String response = kakaoXy.getCoordinateFromAddress(place);
+
+						JSONObject jsonResponse = new JSONObject(response);
+						if (jsonResponse.getJSONArray("documents").length() > 0) {
+							JSONObject addressInfo = jsonResponse.getJSONArray("documents").getJSONObject(0);
+							String xCoord = addressInfo.getJSONObject("address").getString("x");
+							String yCoord = addressInfo.getJSONObject("address").getString("y");
+
+							// DTO에 경도와 위도 값 설정
+							orgRegist.setLongitude(Double.parseDouble(xCoord));
+							orgRegist.setLatitude(Double.parseDouble(yCoord));
+							// 경도위도 확인 로거
+							logger.info("x, y (check) : " + orgRegist);
+						}
+
+						// 서비스 호출, 반환된 값에 따라 성공 여부를 판단
+						orgRegistService.updateLocation(orgRegist);
+
+					} catch (Exception e) {
+						model.addAttribute("message", "등록 중 오류가 발생했습니다.");
+						return "common/error";
+					}
+				} // if
+			} // if
+		} // for
+		orgRegistService.updateApiApprovalY();	// uuid 없는 행(API 파일) 승인 Y처리
+		return "redirect:main.do";
+	}
+
 }

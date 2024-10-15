@@ -110,7 +110,7 @@
 	font-weight: bold;
 }
 
-#cwTitle, #cwWriter, #cwFile {
+#cwTitle, #cwWriter, #cwFile, #cwCategory {
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	padding: 5px;

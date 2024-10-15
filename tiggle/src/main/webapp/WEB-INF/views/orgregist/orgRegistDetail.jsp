@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>전시회 신청서</title>
+<link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link href="/tiggle/resources/css/orgRegist_style.css" rel="stylesheet"	type="text/css">
 </head>
 <body>
@@ -27,20 +28,16 @@
             <label for="exhibitionName">*전시/박람회명:</label>
             <input type="text" id="exhibitionName" name="title" required>
             
-            <!-- 장르 -->
-            <label for="genre">*장 르:</label>
-            <input type="text" id="genre" name=genre required>
-            
-            <!-- 전시/박람회 상세내용 -->
-            <label for="eDescription">*전시 소개:</label>
-            <input type="text" id="eDescription" name="eDescription" required>
-
             <!-- 행사 일정 -->
             <label for="eventStartDate">*행사 일정 (시작):</label>
             <input type="date" id="eventStartDate" name="startDate" required>
 
             <label for="eventEndDate">*행사 일정 (종료):</label>
             <input type="date" id="eventEndDate" name="endDate" required>
+			
+			<!-- 가격 -->
+            <label for="charge">가 격:</label>
+            <input type="text" id="charge" name="charge" required>
 
             <!-- 개최 장소 -->
             <label for="venue">*개최 장소:</label>
@@ -62,16 +59,21 @@
 
             <!-- 참가 기업명 -->
             <label for="companyName">*참가 기업명:</label>
-            <input type="text" id="companyName" name="contributor" value="${ orgRegist.contributor }" required>
+            <input type="text" id="companyName" name="orgName" value="${ orgRegist.orgName }" required>
             
             <!-- 참가 기업 연락처 -->
-            <label for="contactPoint">*참가 기업 연락처:</label>
-            <input type="tel" id="contactPoint" name="contactPoint" value="${ orgRegist.contactPoint }" required>
+            <label for="orgTel">*참가 기업 연락처:</label>
+            <input type="tel" id="orgTel" name="orgTel" value="${ orgRegist.orgTel }" required>
 
             <!-- 홈페이지 -->
             <label for="website">*홈페이지:</label>
             <input type="url" id="website" name="eUrl" value="${ orgRegist.eUrl }">
 
+            <!-- 전시/박람회 상세내용 -->
+            <label for="eDescription">*전시 소개:</label>
+            <textarea id="eDescription" name="eDescription" rows="15" style="width: 100%" required></textarea>
+            <!--  <input type="text" id="eDescription" name="eDescription" style="height: 400px;" required> -->
+            
             <!-- 이미지 등록 -->
             <div id="outer">
                 <div id="ptPhoto">

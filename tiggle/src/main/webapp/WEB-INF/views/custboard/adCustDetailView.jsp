@@ -8,7 +8,8 @@
 
 <head>
 <meta charset="UTF-8">
-<title>게시물 상세 보기</title>
+<title>1:1 문의</title>
+<link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/member_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/custBoard_style.css">
 

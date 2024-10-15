@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>기업 전시/박람회 등록</title>
+<link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <style>
 #orgContainer {
 	width: 80%;
@@ -162,6 +163,7 @@
 		    <table>
 		        <thead>
 		            <tr>
+		                <th align="center">분류</th>
 		                <th align="center">제목</th>
 		                <th align="center">신청자</th>
 		                <th align="center">시작일</th>
@@ -172,6 +174,10 @@
 		        <tbody>
 		            <c:forEach items="${ requestScope.list }" var="list">
 		                <tr>
+		                	<td align="center">
+	                    		<c:if test="${ list.eCategory eq 1 }">전시회</c:if>
+	                    		<c:if test="${ list.eCategory eq 2 }">박람회</c:if>
+                    		</td>
 		                    <td align="center">${ list.title }</td>
 		                    <td align="center">${ list.name }</td>
 		                    <td align="center">

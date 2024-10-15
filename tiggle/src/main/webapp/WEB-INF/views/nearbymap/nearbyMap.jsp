@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>내 주변 전시</title>
 <script type="text/javascript" src="${ link }"></script>
-<link href="/tiggle/resources/css/map_style.css" rel="stylesheet"
-	type="text/css">
+<link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
+<link rel="stylesheet" href="/tiggle/resources/css/map_style.css">
 </head>
 <body>
 	<c:import url="/WEB-INF/views/common/header.jsp" />

@@ -76,4 +76,25 @@ public class OrgRegistServiceImpl implements OrgRegistService {
 		return orgRegistDao.apStatusYn(totalId);
 	}
 
+	@Override
+	public ArrayList<OrgRegist> selectLocation() {
+		return orgRegistDao.selectLocation();
+	}
+
+	@Override
+	public int updateLocation(OrgRegist orgRegist) {
+		return orgRegistDao.updateLocation(orgRegist);
+	}
+
+	@Override
+	public int updateApiApprovalY() {
+		return orgRegistDao.updateApiApprovalY();
+		
+	}
+
+	@Override
+	public int updateNotNull() {
+		return orgRegistDao.updateNotNull();
+	}
+
 }

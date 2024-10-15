@@ -24,5 +24,7 @@ public interface CustBoardService {
 	//일반사용자용
 	int selectUserCbListCount(String id);				//리스트 갯수 조회용(내글 조회만)
 	ArrayList<CustBoard> selectUserCbList(Map<String, Object> idNpaging); //내글과 내글에 대한 답변만 조회
-	int updateDeleteAt(CustBoard custBoard);			//글 삭제 Y로 업데이트
+	int updateDeleteAt(CustBoard custBoard);			//글 삭제 Y로 업데이트(일반사용자에게 숨김처리)
+	int insertInquiry(CustBoard custBoard);				//문의글 등록
+	int updateUsOrigin(CustBoard custBoard);			//게시글 수정(파일 삭제, 변경하기)
 }

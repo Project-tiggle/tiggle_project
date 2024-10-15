@@ -42,6 +42,16 @@
     box-sizing: border-box;
 }
 
+#eDescription {
+    width: 100%;
+    max-width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
 #submitBtn, #resetBtn, #deleteBtn, #goback {
     width: 100%;
     padding: 10px;

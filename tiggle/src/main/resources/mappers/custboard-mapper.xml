@@ -66,7 +66,7 @@
 		where c_id = #{ cId }
 	</insert>
 	
-	<!-- 게시 원글, 댓글 삭제 처리용 -->
+	<!-- 관리자용 게시 원글, 댓글 삭제 처리용 -->
 	<delete id="deleteCustBoard">
 		delete from tb_cust_board
 		<if test="cLev == 1">
@@ -82,7 +82,7 @@
 		where c_id = #{ refNo }
 	</insert>
 	
-	<!-- 게시글 수정 처리용 -->
+	<!-- 관리자 게시글 수정 처리용 -->
 	<update id="updateOrigin" parameterType="CustBoard">
 		update tb_cust_board
 		set title = #{ title }, c_content = #{ cContent }
@@ -94,6 +94,8 @@
 		</if>
 		where c_id = #{ cId }
 	</update>
+	
+	<!-- 관리자, 일반사용자 수정일자 등록용 -->
 	<update id="updateUpAt" parameterType="_int">
 		update tb_cust_board
 		set updated_at = sysdate
@@ -137,5 +139,26 @@
 		update tb_cust_board
 		set deleted_at = sysdate
 		where refno = #{ refNo }
+	</update>
+	
+	<!-- 일반사용자용 1:1 문의용 -->
+	<insert id="insertInquiry" parameterType="CustBoard">
+		insert into tb_cust_board
+		values (#{ uuid }, (select max(c_id) +1 from tb_cust_board), #{ cCategory },
+				#{ title }, #{ cContent }, default, null, 'N', null, default, 1,
+				(select max(c_id) +1 from tb_cust_board), #{ fileUrl })
+	</insert>
+	
+	<!-- 일반사용자 게시글 수정 처리용 -->
+	<update id="updateUsOrigin" parameterType="CustBoard">
+		update tb_cust_board
+		set title = #{ title }, c_content = #{ cContent }, c_category = #{ cCategory }
+		<if test="fileUrl != null">
+			, file_url = #{ fileUrl }
+		</if>
+		<if test="fileUrl == null">
+			, file_url = null
+		</if>
+		where c_id = #{ cId }
 	</update>
 </mapper>

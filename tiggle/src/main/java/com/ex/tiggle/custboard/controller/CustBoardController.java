@@ -116,7 +116,7 @@ public class CustBoardController {
 	
 	//관리자 댓글 등록용
 	@RequestMapping(value = "cBoardReply.do", method = RequestMethod.POST)
-	public String RegCustBoardReply(
+	public String regCustBoardReply(
 			CustBoard reply,
 			Model model,
 			@RequestParam("uuid") String uuid,
@@ -231,15 +231,16 @@ public class CustBoardController {
 		// 수정페이지에 전달해서 출력할 board 정보 조회함
 		CustBoard custBoard = custBoardService.selectCboardCid(cId);
 
-		if (custBoard != null) {
-			model.addAttribute("custBoard", custBoard);
-			model.addAttribute("currentPage", currentPage);
-
-			return "custboard/adCustEditView";
-		} else {
-			model.addAttribute("message", cId + "번 게시글 수정페이지로 이동 실패!");
-			return "common/error";
+		String originalFileName = null;// 원래 파일 이름 내보내기용
+		if(custBoard.getFileUrl() != null && custBoard.getFileUrl().length() > 0) {
+			originalFileName = custBoard.getFileUrl().substring(custBoard.getFileUrl().indexOf('_') + 1);
 		}
+		
+		model.addAttribute("custBoard", custBoard);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("originalFileName", originalFileName);
+
+		return "custboard/adCustEditView";
 	}
 	
 	// 게시글 수정 요청 처리용 (파일 업로드 기능 사용)
@@ -266,7 +267,7 @@ public class CustBoardController {
 		// 1. 원래 첨부파일이 있는데 '파일삭제'를 선택한 경우
 		// 또는 원래 첨부파일이 있는데 새로운 첨부파일로 변경 업로드된 경우
 		// => 이전 파일과 파일정보 삭제함
-		if (custBoard.getFileUrl() != null && (delFlag != null && delFlag.equals("yes"))) {
+		if (saveFile != null && (delFlag != null && delFlag.equals("yes"))) {
 			// 저장 폴더에서 이전 파일은 삭제함
 			new File(savePath + "\\" + saveFile).delete();
 			// board 안의 파일 정보도 삭제함
@@ -410,4 +411,148 @@ public class CustBoardController {
 		return "custboard/usCustWriteView";
 	}
 	
+	// 1:1 문의 글등록 요청 처리
+	@RequestMapping(value = "regInquiry.do", method = RequestMethod.POST)
+	public String registInquiry(
+			CustBoard custBoard,
+			Model model,
+			@RequestParam("uuid") String uuid,
+			@RequestParam("page") int page,
+			@RequestParam(name = "cfile", required = false) MultipartFile mfile,
+			HttpServletRequest request) {
+		logger.info("CustBoard : " + custBoard);
+		// 게시 원글 첨부파일 저장 폴더를 경로 지정
+		String savePath = request.getSession().getServletContext().getRealPath("resources/custboard_upfiles");
+		
+		// 첨부파일이 있을 때
+		if (!mfile.isEmpty()) {
+			// 전송온 파일이름 추출함
+			String fileName = mfile.getOriginalFilename();
+			String renameFileName = null;
+
+			// 저장폴더에는 변경된 이름을 저장 처리함
+			// 파일 이름바꾸기함 : 년월일시분초.확장자
+			if (fileName != null && fileName.length() > 0) {
+				// 바꿀 파일명에 대한 문자열 만들기
+				renameFileName = (FileNameChange.change(fileName, "yyyyMMddHHmmss")) + "_" + fileName;
+				// 바뀐 파일명 확인
+				logger.info("첨부파일명 확인 : " + renameFileName);
+
+				try {
+					// 저장 폴더에 파일명 바꾸어 저장하기
+					mfile.transferTo(new File(savePath + "\\" + renameFileName));
+				} catch (Exception e) {
+					model.addAttribute("message", "첨부파일 저장 실패!");
+					return "common/error";
+				}
+			} // 파일명 바꾸기
+
+			custBoard.setFileUrl(renameFileName);
+		} // 첨부파일이 있을 때
+		
+		custBoard.setUuid(uuid);	//현재 로그인한 유저 uuid 셋팅
+		// 새로 등록할 댓글의 레벨을 지정함		
+
+		if (custBoardService.insertInquiry(custBoard) > 0) {
+			return "redirect:userCustBoard.do?page=" + page;
+		} else {
+			model.addAttribute("message", "문의 글 등록 실패!");
+			return "common/error";
+		}
+	}
+
+	// 1:1 문의글 수정 페이지 이동
+	@RequestMapping("usCustUpView.do")
+	public String moveusCbUpPage(
+			@RequestParam("cId") int cId,
+			@RequestParam("page") int currentPage,
+			Model model) {
+		// 수정페이지에 전달해서 출력할 board 정보 조회함
+		CustBoard custBoard = custBoardService.selectCboardCid(cId);
+
+		String originalFileName = null;// 원래 파일 이름 내보내기용
+		if(custBoard.getFileUrl() != null && custBoard.getFileUrl().length() > 0) {
+			originalFileName = custBoard.getFileUrl().substring(custBoard.getFileUrl().indexOf('_') + 1);
+		}
+		
+	
+		model.addAttribute("custBoard", custBoard);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("originalFileName", originalFileName);
+
+		return "custboard/usCustEditView";
+		
+	}
+
+	// 게시글 수정 요청 처리용 (파일 업로드 기능 사용)
+		@RequestMapping(value = "usCbUp.do", method = RequestMethod.POST)
+		public String usInquiryUp(
+				CustBoard custBoard,
+				Model model,
+				HttpServletRequest request,
+				@RequestParam(name = "saveFile", required = false) String saveFile,
+				@RequestParam(name = "page", required = false) String page,
+				@RequestParam(name = "deleteFlag", required = false) String delFlag,
+				@RequestParam(name = "cfile", required = false) MultipartFile mfile) {
+			logger.info("usCbUp.do : " + custBoard); // 전송온 값 확인
+
+			int currentPage = 1;
+			if (page != null) {
+				currentPage = Integer.parseInt(page);
+			}
+
+			// 첨부파일 관련 변경 사항 처리
+			// 게시원글 첨부파일 저장 폴더 경로 지정
+			String savePath = request.getSession().getServletContext().getRealPath("resources/custboard_upfiles");
+
+			// 1. 원래 첨부파일이 있는데 '파일삭제'를 선택한 경우
+			// 또는 원래 첨부파일이 있는데 새로운 첨부파일로 변경 업로드된 경우
+			// => 이전 파일과 파일정보 삭제함
+			if (saveFile != null && (delFlag != null && delFlag.equals("yes"))) {
+				// 저장 폴더에서 이전 파일은 삭제함
+				new File(savePath + "\\" + saveFile).delete();
+				// board 안의 파일 정보도 삭제함
+				custBoard.setFileUrl(null);
+			}
+
+			// 2. 새로운 첨부파일이 있을 때 또는 변경 첨부파일이 있을 때 (공지글 첨부파일은 1개임)
+			if (!mfile.isEmpty()) {
+				// 전송온 파일이름 추출함
+				String fileName = mfile.getOriginalFilename();
+				String renameFileName = null;
+
+				// 저장폴더에는 변경된 이름을 저장 처리함
+				// 파일 이름바꾸기함 : 년월일시분초.확장자
+				if (fileName != null && fileName.length() > 0) {
+					// 바꿀 파일명에 대한 문자열 만들기
+					renameFileName = FileNameChange.change(fileName, "yyyyMMddHHmmss") + "_" + fileName;
+					// 바뀐 파일명 확인
+					logger.info("첨부파일명 확인 : " + renameFileName);
+
+					try {
+						// 저장 폴더에 파일명 바꾸어 저장하기
+						mfile.transferTo(new File(savePath + "\\" + renameFileName));
+						new File(savePath + "\\" + saveFile).delete();	// 기존파일 삭제
+					} catch (Exception e) {
+						e.printStackTrace();
+						model.addAttribute("message", "첨부파일 저장 실패!");
+						return "common/error";
+					}
+				} // 파일명 바꾸기
+
+				custBoard.setFileUrl(renameFileName);
+			} // 첨부파일이 있을 때
+
+			if (custBoardService.updateUsOrigin(custBoard) > 0
+					&& custBoardService.updateUpAt(custBoard.getcId()) > 0) { // 게시원글 수정 성공시
+				
+				model.addAttribute("cId", custBoard.getcId());
+				model.addAttribute("page", currentPage);
+
+				return "redirect:userCustBoard.do";
+			} else {
+				model.addAttribute("message", custBoard.getcId() + "번 게시 원글 수정 실패!");
+				return "common/error";
+			}
+		}
 }

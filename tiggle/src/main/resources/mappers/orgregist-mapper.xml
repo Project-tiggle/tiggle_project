@@ -8,7 +8,9 @@
 	       <result property="uuid" column="UUID" />
 	       <result property="totalId" column="TOTAL_ID" />
 	       <result property="title" column="TITLE" />
+	       <result property="localId" column="LOCAL_ID" />
 	       <result property="contributor" column="CONTRIBUTOR" />
+	       <result property="cntcInsttNm" column="CNTC_INSTT_NM" />
 	       <result property="eDescription" column="E_DESCRIPTION" />
 	       <result property="eventSite" column="EVENT_SITE" />
 	       <result property="detailEventSite" column="DETAIL_EVENT_SITE" />
@@ -18,18 +20,22 @@
 	       <result property="contactPoint" column="CONTACT_POINT" />
 	       <result property="viewCounter" column="VIEW_COUNTER" />
 	       <result property="eUrl" column="E_URL" />
+	       <result property="preiod" column="PERIOD" />
 	       <result property="startDate" column="START_DATE" />
 	       <result property="endDate" column="END_DATE" />
 	       <result property="approvalStatus" column="APPROVAL_STATUS" />
 	       <result property="eCategory" column="E_CATEGORY" />
 	       <result property="fileUrl" column="FILE_URL" />
+	       <result property="charge" column="CHARGE" />
 	       <result property="name" column="NAME" />
 	       <result property="mngDept" column="MNG_DEPT" />
 	       <result property="mngJobId" column="MNG_JOBID" />
 	       <result property="phone" column="PHONE" />
 	       <result property="email" column="EMAIL" />
+	       <result property="orgName" column="ORG_NAME" />
+	       <result property="orgTel" column="ORG_TEL" />
 	</resultMap>
-	
+
 	<!-- 기업용 쿼리 -->
 	<!-- 전시등록 총 갯수 조회용 쿼리 -->
 	<select id="selectListCount" resultType="_int" parameterType="string">
@@ -41,11 +47,11 @@
 	<!-- 요청한 페이지에 출력할 게시글 리스트 조회용 쿼리 -->
 	<select id="selectList" resultMap="resultOrgRegist" parameterType="map">
 		select *
-		from (select rownum rnum, TITLE, NAME, START_DATE, END_DATE, TOTAL_ID
+		from (select rownum rnum, tb.*
 		      from (select *
 		            from tb_exhibition_fair
 		            join tb_member using (uuid)
-		            where uuid = #{ uuid })
+		            where uuid = #{ uuid }) tb
 		      order by start_date)
 		where rnum between #{ paging.startRow } and #{ paging.endRow }
 	</select>
@@ -53,15 +59,15 @@
 	<!-- 전시/박람회 등록하기(insert & update) -->
 	<insert id="insertOrgRegist" parameterType="OrgRegist">
 		insert into tb_exhibition_fair
-		values (#{ uuid }, #{ totalId }, #{ title }, #{ contributor }, #{ eDescription },
-				#{ eventSite }, #{ detailEventSite }, #{ latitude }, #{ longitude }, #{ genre },
-				#{ contactPoint }, #{ viewCounter }, #{ eUrl }, #{ startDate }, #{ endDate },
-				#{ approvalStatus }, #{ eCategory }, #{ fileUrl })
+		values (#{ uuid }, #{ totalId }, #{ title }, null,#{ contributor }, null, #{ eDescription },
+				#{ eventSite }, #{ detailEventSite }, #{ latitude }, #{ longitude }, null,
+				#{ contactPoint }, #{ viewCounter }, #{ eUrl }, null, #{ startDate }, #{ endDate },
+				#{ approvalStatus }, #{ eCategory }, #{ fileUrl }, #{ charge })
 	</insert>
 	<update id="updateMember" parameterType="OrgRegist">			
 		update tb_member
 		set name = #{ name }, mng_dept = #{ mngDept }, mng_jobid = #{ mngJobId },
-			phone = #{ phone }, email = #{ email }
+			phone = #{ phone }, email = #{ email }, org_name = #{ orgName }, org_tel = #{ orgTel }
 		where uuid = #{ uuid }
 	</update>
 	
@@ -90,11 +96,10 @@
     <!-- 전시/박람회 정보 수정하기 -->
     <update id="updateOrgRegist" parameterType="OrgRegist">
     	update tb_exhibition_fair
-    	set TITLE = #{ title }, CONTRIBUTOR = #{ contributor }, E_DESCRIPTION = #{ eDescription },
-			EVENT_SITE = #{ eventSite }, DETAIL_EVENT_SITE = #{ detailEventSite }, LATITUDE = #{ latitude },
-			LONGITUDE = #{ longitude }, GENRE = #{ genre }, CONTACT_POINT = #{ contactPoint },
-			VIEW_COUNTER = #{ viewCounter }, E_URL = #{ eUrl }, START_DATE = #{ startDate }, END_DATE = #{ endDate },
-			APPROVAL_STATUS = #{ approvalStatus }, E_CATEGORY = #{ eCategory }, FILE_URL = #{ fileUrl }
+    	set title = #{ title }, e_description = #{ eDescription }, event_site = #{ eventSite },
+    	detail_event_site = #{ detailEventSite }, latitude = #{ latitude },	longitude = #{ longitude },
+    	view_counter = 0, e_url = #{ eUrl }, start_date = #{ startDate }, end_date = #{ endDate },
+		approval_status = 'N', e_category = #{ eCategory }, file_url = #{ fileUrl }, charge = #{ charge }
 		where TOTAL_ID = #{ totalId }
     </update>
     
@@ -116,7 +121,7 @@
     <!-- 요청한 페이지에 출력할 등록신청 미승인 리스트 조회용 쿼리 -->
 	<select id="selectApList" resultMap="resultOrgRegist" parameterType="Paging">
 		select *
-		from (select rownum rnum, TITLE, CONTRIBUTOR, START_DATE, END_DATE, TOTAL_ID, E_CATEGORY
+		from (select rownum rnum, TITLE, ORG_NAME, START_DATE, END_DATE, TOTAL_ID, E_CATEGORY
 		      from (select *
 		            from tb_exhibition_fair
 		            join tb_member using (uuid)
@@ -130,5 +135,32 @@
 		update tb_exhibition_fair
     	set APPROVAL_STATUS = 'Y'
     	where TOTAL_ID = #{ totalId }
+	</update>
+	
+	<!-- API 위치 업데이트용 : 업데이트할 정보 조회 -->
+	<select id="selectLocation" resultMap="resultOrgRegist">
+		select *
+		from tb_exhibition_fair
+	</select>
+	
+	<!-- API 위치 업데이트 -->
+	<update id="updateLocation" parameterType="OrgRegist">
+		update tb_exhibition_fair
+		set LATITUDE = #{ latitude }, LONGITUDE = #{ longitude }
+		where TOTAL_ID = #{ totalId }
+	</update>
+	
+	<!-- API 등록 상태 Y 처리용 -->
+	<update id="updateApiApprovalY">
+		update tb_exhibition_fair
+		set APPROVAL_STATUS = 'Y'
+		where uuid is null
+	</update>
+	
+	<!-- API 자료 null값에따른 오류 처리용 -->
+	<update id="updateNotNull">
+		update tb_exhibition_fair
+		set event_site = 'none'
+		where event_site is null
 	</update>
 </mapper>
