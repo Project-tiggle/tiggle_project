@@ -18,6 +18,8 @@ import com.ex.tiggle.review.model.service.ReviewService;
 import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.exhibition.controller.ExhibitionController;
 import com.ex.tiggle.exhibition.model.dto.Exhibition;
+import com.ex.tiggle.exhibition.model.service.ExhibitionService;
+import com.ex.tiggle.notice.controller.NoticeController;
 import com.ex.tiggle.review.model.dto.Review;
 import com.ex.tiggle.review.model.dto.ReviewPaging;
 
@@ -26,13 +28,18 @@ public class ReviewController {
 	private static final Logger logger = LoggerFactory.getLogger(ReviewController.class);
 	@Autowired
 	private ReviewService reviewService;
+	@Autowired
+	private ExhibitionService exhibitionService;
+	
 	
 	// 한줄평 등록 팝업 띄우는 메소드
 	@RequestMapping("rvmove.do")
-	public String moveReviewPage() {
-		
-		
-		return "review/reviewWriteForm";
+	public String moveReviewPage(
+			@RequestParam("no") String totalId, Model model) {
+			Exhibition exhibition = exhibitionService.selectExhibitionOne(totalId);
+			model.addAttribute("exhibition", exhibition);
+			
+			return "review/reviewWriteForm";
 	}
 	
 	// 한줄평 수정 팝업 띄우는 메소드 
@@ -63,7 +70,6 @@ public class ReviewController {
 		int currentPage = 1;
 		if (page != null) {
 			currentPage = Integer.parseInt(page);
-
 		}
 
 		// 한 페이지에 출력할 한줄평 갯수 10개로 지정
@@ -83,7 +89,6 @@ public class ReviewController {
 		reviewPaging.setTotalId(totalId);
 		reviewPaging.setStartRow(paging.getStartRow());
 		reviewPaging.setEndRow(paging.getEndRow());
-		
 		
 		// 서비스로 목록 조회 요청하고 결과 받기
 		ArrayList<Review> list = reviewService.selectList(reviewPaging);
@@ -108,7 +113,7 @@ public class ReviewController {
 
 		if (reviewService.insertReview(review) > 0) {
 			// 새 공지글 등록 성공시 목록 페이지 내보내기 요청
-			return "redirect:reviewList.do";
+			return "redirect:/exhibitionDetail.do?no=" + review.getTotalId();
 		} else {
 			model.addAttribute("massage", "새 게시글 등록 실패!");
 			return "common/error";
@@ -130,7 +135,6 @@ public class ReviewController {
 		model.addAttribute("message", review.getrNum() + "번 게시글 원글 수정 실패!");
 			return "common/error";
 		}
-
 	} 
 
 	

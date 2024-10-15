@@ -8,7 +8,7 @@
 			<result property="totalId" column="TOTAL_ID" />
 			<result property="uuid" column="UUID" />
 			<result property="rNum" column="R_NUM" />
-			<result property="nickName" column="NICKNAME" />
+			<result property="nickname" column="NICKNAME" />
 			<result property="rContents" column="R_CONTENTS" />
 			<result property="writeDate" column="WRITE_DATE" />
 			<result property="updateDate" column="UPDATE_DATE" />
@@ -21,15 +21,15 @@
 	
 
 	<!-- ajax 테스트용 : 최근 등록된 마지막 공지글 한 개 조회용 -->
-		
-	
 	<select id="selectReview" parameterType="string" resultMap="resultReview">
-		select * from TB_REVIEW
+		select * 
+		from TB_REVIEW
 		where total_id = #{ no }
 	</select>
 	
 	<select id="selectListCount" resultType="_int" parameterType="string">
-		select count(*) from TB_REVIEW
+		select count(*)
+		from TB_REVIEW
 		where total_id = #{ no }
 	</select>
 	
@@ -52,8 +52,6 @@
 		where rnum between #{ startRow } and #{ endRow }
 	</select>
 	
-	
-	
 	<!-- dml -->
 	
 	<!-- 새 한줄평 등록용 쿼리 -->
@@ -61,9 +59,8 @@
 		insert into TB_REVIEW
 		values (#{ totalId },
 				#{ uuid },
-				(select max(r_num) + 1 
-				 from TB_Review where total_id = #{ totalId }),
-				#{ nickName },
+				seq_rnum.nextval,
+				#{ nickname },
 				#{ rContents },
 				sysdate,
 				null,

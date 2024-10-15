@@ -9,12 +9,16 @@ public interface ExhibitionService {
 
 	int selectListCount();
 	
+	Exhibition selectExhibitionOne(String totalId);
 	ArrayList<Exhibition> selectList(Paging paging);
 
-	Exhibition selectListOne(String totalId);
-
+	// DML
 	int insertExhibition(Exhibition exhibition);
 
-	int deleteApi();
+	// 메인페이지 출력용 메서드
+	ArrayList<Exhibition> selectListTop8();
+	ArrayList<Exhibition> selectListSameMon();
 
+	// DB 데이터 업데이트시 실행할 메서드
+	int deleteApi();
 }

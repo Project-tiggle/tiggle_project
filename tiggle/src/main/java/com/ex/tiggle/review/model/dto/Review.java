@@ -9,7 +9,7 @@ public class Review implements java.io.Serializable {
 	private String totalId;  	// TOTAL_ID	VARCHAR2(100 BYTE)
 	private String uuid; 		// UUID	VARCHAR2(36 BYTE)
 	private int rNum; 			// R_NUM	NUMBER
-	private String nickName;	// NICKNAME	VARCHAR2(50 BYTE)
+	private String nickname;	// NICKNAME	VARCHAR2(50 BYTE)
 	private String rContents; 	// R_CONTENTS	VARCHAR2(500 BYTE)
 	private Date writeDate; 	// WRITE_DATE	DATE
 	private Date updateDate; 	// UPDATE_DATE	DATE
@@ -38,10 +38,10 @@ public class Review implements java.io.Serializable {
 		this.rNum = rNum;
 	}
 	public String getNickName() {
-		return nickName;
+		return nickname;
 	}
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+	public void setNickName(String nickname) {
+		this.nickname = nickname;
 	}
 	public String getrContents() {
 		return rContents;
@@ -85,24 +85,24 @@ public class Review implements java.io.Serializable {
 	public Review() {
 	}
 	
-	public Review(String totalId, String uuid, int rNum, String nickName, String rContents, Date writeDate) {
+	public Review(String totalId, String uuid, int rNum, String nickname, String rContents, Date writeDate) {
 		super();
 		this.totalId = totalId;
 		this.uuid = uuid;
 		this.rNum = rNum;
-		this.nickName = nickName;
+		this.nickname = nickname;
 		this.rContents = rContents;
 		this.writeDate = writeDate;
 	}
 	
 	
-	public Review(String totalId, String uuid, int rNum, String nickName, String rContents, Date writeDate,
+	public Review(String totalId, String uuid, int rNum, String nickname, String rContents, Date writeDate,
 			Date updateDate, String updateYN, Date deletedDate, String deleteYN) {
 		super();
 		this.totalId = totalId;
 		this.uuid = uuid;
 		this.rNum = rNum;
-		this.nickName = nickName;
+		this.nickname = nickname;
 		this.rContents = rContents;
 		this.writeDate = writeDate;
 		this.updateDate = updateDate;
@@ -113,7 +113,7 @@ public class Review implements java.io.Serializable {
 	
 	@Override
 	public String toString() {
-		return "Review [totalId=" + totalId + ", uuid=" + uuid + ", rNum=" + rNum + ", nickName=" + nickName
+		return "Review [totalId=" + totalId + ", uuid=" + uuid + ", rNum=" + rNum + ", nickname=" + nickname
 				+ ", rContents=" + rContents + ", writeDate=" + writeDate + ", updateDate=" + updateDate + ", updateYN="
 				+ updateYN + ", deletedDate=" + deleteDate + ", deleteYN=" + deleteYN + "]";
 	}
