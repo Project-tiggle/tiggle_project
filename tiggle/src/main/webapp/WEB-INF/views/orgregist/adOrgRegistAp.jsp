@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>전시회 등록 신청서 승인여부</title>
+<link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link href="/tiggle/resources/css/orgRegist_style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -29,22 +30,18 @@
             <label for="exhibitionName">*전시/박람회명:</label>
             <input type="text" id="exhibitionName" name="title" value="${ orgRegist.title }" readonly>
             
-            <!-- 장르 -->
-            <label for="genre">*장 르:</label>
-            <input type="text" id="genre" name=genre value="${ orgRegist.genre }" readonly>
-            
-            <!-- 전시/박람회 상세내용 -->
-            <label for="eDescription">*전시 소개:</label>
-            <input type="text" id="eDescription" name="eDescription" value="${ orgRegist.eDescription }" readonly>
-
             <!-- 행사 일정 -->
             <label for="eventStartDate">*행사 일정 (시작):</label>
             <input type="date" id="eventStartDate" name="startDate" value="${orgRegist.startDate}" disabled>
 
             <label for="eventEndDate">*행사 일정 (종료):</label>
             <input type="date" id="eventEndDate" name="endDate" value="${orgRegist.endDate}" disabled>
-
-            <!-- 개최 장소 -->
+            
+            <!-- 가격 -->
+            <label for="charge">가 격:</label>
+            <input type="text" id="charge" name=charge value="${orgRegist.charge}" readonly>
+            
+			<!-- 개최 장소 -->
             <label for="venue">*개최 장소:</label>
             <select id="venue" name="eventSite" disabled>
                 <option value="exco" <c:if test="${orgRegist.eventSite == 'exco'}">selected</c:if>>대구엑스코(EXCO)</option>
@@ -72,15 +69,19 @@
 
             <!-- 참가 기업명 -->
             <label for="companyName">*참가 기업명:</label>
-            <input type="text" id="companyName" name="contributor" value="${orgRegist.contributor}" readonly>
+            <input type="text" id="companyName" name="orgName" value="${orgRegist.orgName}" readonly>
             
             <!-- 참가 기업 연락처 -->
             <label for="contactPoint">*참가 기업 연락처:</label>
-            <input type="tel" id="contactPoint" name="contactPoint" value="${ orgRegist.contactPoint }" readonly>
+            <input type="tel" id="contactPoint" name="orgTel" value="${ orgRegist.orgTel }" readonly>
 
             <!-- 홈페이지 -->
             <label for="website">홈페이지:</label>
             <input type="url" id="website" name="eUrl" value="${orgRegist.eUrl}" readonly>
+
+            <!-- 전시/박람회 상세내용 -->
+            <label for="eDescription">*전시 소개:</label>
+            <textarea id="eDescription" name="eDescription" rows="15" style="width: 100%" required>${ orgRegist.eDescription }</textarea>
 
             <!-- 이미지 등록 -->
             <div id="outer">

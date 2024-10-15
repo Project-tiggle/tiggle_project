@@ -66,4 +66,21 @@ public class OrgRegistDao {
 		return sqlSessionTemplate.update("orgRegistMapper.apStatusYn", totalId);
 	}
 
+	public ArrayList<OrgRegist> selectLocation() {
+		List<OrgRegist> list = sqlSessionTemplate.selectList("orgRegistMapper.selectLocation");
+		return (ArrayList<OrgRegist>)list;
+	}
+
+	public int updateLocation(OrgRegist orgRegist) {
+		return sqlSessionTemplate.update("orgRegistMapper.updateLocation", orgRegist);
+	}
+
+	public int updateApiApprovalY() {
+		return sqlSessionTemplate.update("orgRegistMapper.updateApiApprovalY");
+	}
+
+	public int updateNotNull() {
+		return sqlSessionTemplate.update("orgRegistMapper.updateNotNull");
+	}
+
 }

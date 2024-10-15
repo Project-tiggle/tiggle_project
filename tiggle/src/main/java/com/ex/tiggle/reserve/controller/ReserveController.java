@@ -23,8 +23,9 @@ public class ReserveController {
 	// 한줄평 등록 팝업 띄우는 메소드
 	@RequestMapping("remove.do")
 	public String moveReservePage(
-			@RequestParam("no") String totalId, Model model) {
-		Exhibition exhibition = exhibitionService.selectListOne(totalId);
+			@RequestParam("no") String totalId, Model model
+			){
+		Exhibition exhibition = exhibitionService.selectExhibitionOne(totalId);
 		
 		model.addAttribute("exhibition", exhibition);
 		
@@ -35,7 +36,7 @@ public class ReserveController {
 	@RequestMapping("payment.do") public String movePaymentPage(
 	
 	@RequestParam("no") String totalId, Model model) { Exhibition exhibition =
-	exhibitionService.selectListOne(totalId);
+	exhibitionService.selectExhibitionOne(totalId);
 		model.addAttribute("exhibition", exhibition);	
 		return "reserve/paykeyin"; 
 	}

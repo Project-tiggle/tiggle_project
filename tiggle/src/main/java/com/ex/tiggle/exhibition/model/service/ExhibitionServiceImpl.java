@@ -28,8 +28,8 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 	}
 
 	@Override
-	public Exhibition selectListOne(String totalId) {
-		return exhibitionDao.selectListOne(totalId);
+	public Exhibition selectExhibitionOne(String totalId) {
+		return exhibitionDao.selectExhibitionOne(totalId);
 	}
 
 	@Override
@@ -40,6 +40,16 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 	@Override
 	public int deleteApi() {
 		return exhibitionDao.deleteApi();
+	}
+
+	@Override
+	public ArrayList<Exhibition> selectListTop8() {
+		return exhibitionDao.selectListTop8();
+	}
+
+	@Override
+	public ArrayList<Exhibition> selectListSameMon() {
+		return exhibitionDao.selectListSameMon();
 	}
 	
 	

@@ -66,4 +66,12 @@ public class CustBoardDao {
 		return sqlSessionTemplate.update("custBoardMapper.updateDeleteAt", custBoard);
 	}
 
+	public int insertInquiry(CustBoard custBoard) {
+		return sqlSessionTemplate.insert("custBoardMapper.insertInquiry", custBoard);
+	}
+
+	public int updateUsOrigin(CustBoard custBoard) {
+		return sqlSessionTemplate.update("custBoardMapper.updateUsOrigin", custBoard);
+	}
+
 }

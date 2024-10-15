@@ -8,8 +8,8 @@
 <head>
 <meta charset="UTF-8">
 
-<title>게시물 상세 보기</title>
-
+<title>1:1 문의</title>
+<link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/member_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/custBoard_style.css">
 
@@ -17,7 +17,7 @@
 	<c:param name="refNo" value="${ custBoard.refNo }" />
 </c:url>
 
-<c:url var="cbup" value="custUpView.do">
+<c:url var="cbup" value="usCustUpView.do">
 	<c:param name="cId" value="${ custBoard.cId }" />
 	<c:param name="page" value="${ currentPage }" />
 </c:url>
@@ -112,7 +112,7 @@
 					<button onclick="javascript:location.href='userCustBoard.do?page=${ currentPage }';">목록</button>
 					<%-- 게시글을 적은 id와 로그인세션에 저장되어있는 id가 같을때 활성화 --%>
 					<c:if test="${ custBoard.id eq sessionScope.loginMember.id }">
-						<button onclick="#">수정</button>
+						<button onclick="requestUpdatePage(); return false;">수정</button>
 						<button onclick="requestDelete(); return false;">삭제</button>
 					</c:if>
 				</div>

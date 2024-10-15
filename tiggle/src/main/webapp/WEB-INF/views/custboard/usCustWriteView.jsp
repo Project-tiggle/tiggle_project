@@ -5,8 +5,8 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>QnA 게시판</title>
-
+<title>1:1 문의</title>
+<link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/member_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/custBoard_style.css">
 </head>
@@ -42,9 +42,13 @@
 			<!-- myinfo_title end -->
 
 			<div id="cwCon">
-				<form action="#" method="post" enctype="multipart/form-data" id="cwForm">
-					<input type="hidden" name="cId" value="${ custBoard.cId }">
-				    <input type="hidden" name="page" value="${ currentPage }">
+				<form action="regInquiry.do" method="post" enctype="multipart/form-data" id="cwForm">
+					<c:if test="${ !empty currentPage }">
+				    	<input type="hidden" name="page" value="${ currentPage }">
+				    </c:if>
+				    <c:if test="${ empty currentPage }">
+				    	<input type="hidden" name="page" value="1">
+				    </c:if>
 				    <input type="hidden" name="uuid" value="${ sessionScope.loginMember.uuid }">
 				    <input type="hidden" name="saveFile" value="${ custBoard.fileUrl }">
     
@@ -52,6 +56,15 @@
 						<tr>
 							<td><label for="cwTitle">제목</label></td>
 							<td><input type="text" id="cwTitle" name="title" style="width: 90%;">
+							</td>
+						</tr>
+						<tr>
+							<td><label for="cwCategory">분야</label></td>
+							<td>
+								<select id="cwCategory" name="cCategory" style="width: 20%;">
+									<option value="1">전시회</option>
+									<option value="2">박람회</option>
+								</select>
 							</td>
 						</tr>
 						<tr>
@@ -72,8 +85,7 @@
 					<br>
 					<div id="cwBtn">
 						<input type="button" value="이전페이지" onclick="javascript:history.go(-1);">
-						<input type="button" value="목록"
-							onclick="javascript:location.href='userCustBoard.do';">
+						<input type="button" value="목록" onclick="javascript:location.href='userCustBoard.do';">
 						<input type="submit" value="글등록">
 					</div>			
 				</form>

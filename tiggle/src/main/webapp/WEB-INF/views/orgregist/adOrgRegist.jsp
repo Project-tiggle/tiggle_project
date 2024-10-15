@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>관리자 전시등록 관리 페이지</title>
-
+<link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <style>
 #adminMainTitle {
     margin: 50px 0 20px;
@@ -62,11 +62,11 @@
     color: white;
 }
 
-#apiBtnDiv{
+#apiBtnDiv, #apiXy{
 	text-align: right;
 }
 
-#apiBtn {
+#apiBtn, #apiXyBtn {
     width: 250px;
     padding: 10px;
     margin-top: 15px;
@@ -76,7 +76,7 @@
     background-color: #eee;
 }
 
-#apiBtn:hover {
+#apiBtn:hover, #apiXyBtn:hover {
     background-color: #ff7a52;
     color: white;
 }
@@ -95,7 +95,10 @@
         <!-- 전시회 API 등록 버튼 -->
         <div id="apiBtnDiv">
         	<button id="apiBtn" onclick="cultureApiDataSave();">전시회 API 등록</button>
+  			&nbsp;
+        	<button id="apiXyBtn" onclick="javascript:location.href='apiXySetting.do';">전시회 API 위치 값(X, Y등록)</button>
         </div>
+        <br>
         <!-- 전시회 API 등록 버튼 -->
         
         <table>
@@ -103,7 +106,7 @@
                 <tr>
                 	<th align="center">분류</th>
                     <th align="center">제목</th>
-                    <th align="center">신청업체</th>
+                    <th align="center">신청기업</th>
                     <th align="center">시작일</th>
                     <th align="center">종료일</th>
                     <th align="center">상세보기</th>
@@ -117,15 +120,15 @@
                     		<c:if test="${ list.eCategory ne 1 }">박람회</c:if>
                     	</td>
                         <td align="center">${ list.title }</td>
-                        <td align="center">${ list.contributor }</td>
-                        <td align="center"><fmt:formatDate
-                                value="${ list.startDate }" pattern="yyyy-MM-dd" /></td>
-                        <td align="center"><fmt:formatDate value="${ list.endDate }"
-                                pattern="yyyy-MM-dd" /></td>
-                        <td align="center"><c:url var="adEditLink" value="RegistDetailAd.do">
+                        <td align="center">${ list.orgName }</td>
+                        <td align="center">${ list.startDate }</td>
+                        <td align="center">${ list.endDate }</td>
+                        <td align="center">
+                        	<c:url var="adEditLink" value="RegistDetailAd.do">
                                 <c:param name="num" value="${ list.totalId }" />
                                 <c:param name="page" value="${ currentPage }" />
-                            </c:url> <a href="${ adEditLink }" id="adEditBtn">상세 정보 보기</a></td>
+                            </c:url> <a href="${ adEditLink }" id="adEditBtn">상세 정보 보기</a>
+                        </td>
                     </tr>
                 </c:forEach>
             </tbody>

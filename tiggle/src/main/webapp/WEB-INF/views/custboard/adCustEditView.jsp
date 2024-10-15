@@ -5,8 +5,8 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>QnA 게시판</title>
-
+<title>1:1 문의</title>
+<link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/member_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/custBoard_style.css">
 </head>
@@ -72,7 +72,7 @@
 							<td><label for="cwFile">첨부파일</label></td>
 							<td>
 								<c:if test="${ !empty custBoard.fileUrl }">
-									${ custBoard.fileUrl } &nbsp;
+									${ originalFileName } &nbsp;
 									<input type="checkbox" name="deleteFlag" value="yes">파일삭제<br>
 									변경 : <input type="file" id="cwFile" name="cfile" style="width: 400px;">
 								</c:if>
