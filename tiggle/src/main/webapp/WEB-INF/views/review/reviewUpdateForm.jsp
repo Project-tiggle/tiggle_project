@@ -14,19 +14,22 @@
 <br>
 <!-- form 에서 파일이 첨부되어서 전송이 될 경우에는 반드시 enctype = "multipart/form-data" 속성을 추가해야 함 -->
 <form action="rupdate.do" method="post">
+<input type="hidden" name="totalId" value="${ exhibition.totalId }">
+<input type="hidden" name="uuid" value="${ sessionScope.loginMember.uuid }">
+<input type="hidden" name="nickname" value="${ sessionScope.loginMember.nickname }">
 <table id="outer" align="center" width="700" cellspacing="5" cellpadding="5">
 	<tr><th width="120">전시 제목</th>
 		<td>
-			<input type="text" name="exhibitionTitle" size="50" readonly value="">
+			<input type="text" name="exhibitionTitle" size="50" readonly value="${ exhibition.title }">
 		</td>
 	</tr>
 	<tr><th width="120">작성자</th>
 		<td>
-			<input type="text" name="reviewWriter" readonly value="${ sessionScope.loginUser.userId }">
+			<input type="text" name="reviewWriter" readonly value="${ sessionScope.loginMember.id }">
 		</td>
 	</tr>
 	<tr><th>내 용</th>
-		<td><textarea rows="5" cols="50" name="reviewContent"></textarea>
+		<td><textarea rows="5" cols="50" name="rContents"></textarea>
 		</td></tr>
 	
 	<tr><th colspan="2">

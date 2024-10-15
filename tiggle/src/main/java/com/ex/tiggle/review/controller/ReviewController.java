@@ -3,6 +3,7 @@ package com.ex.tiggle.review.controller;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,7 @@ import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.exhibition.controller.ExhibitionController;
 import com.ex.tiggle.exhibition.model.dto.Exhibition;
 import com.ex.tiggle.exhibition.model.service.ExhibitionService;
+import com.ex.tiggle.member.model.dto.Member;
 import com.ex.tiggle.notice.controller.NoticeController;
 import com.ex.tiggle.review.model.dto.Review;
 import com.ex.tiggle.review.model.dto.ReviewPaging;
@@ -44,11 +46,18 @@ public class ReviewController {
 	
 	// 한줄평 수정 팝업 띄우는 메소드 
 	@RequestMapping("rvmoveup.do")
-	public ModelAndView moveUpdatePage(@RequestParam("uuid") String uuid, ModelAndView mv) {
+	public ModelAndView moveUpdatePage(HttpSession session,
+			@RequestParam("no") String totalId,
+			@RequestParam(value="uuid", required=false) String uuid, ModelAndView mv) {
 		// 수정페이지에서 출력할 공지글 조회해 봄
-		Review reivew = reviewService.selectReivew(uuid);
-
+		Member member = (Member)session.getAttribute("loginMember");
+		String memberInfo = member.getUuid();
+		
+		Exhibition exhibition = exhibitionService.selectExhibitionOne(totalId);
+		Review reivew = reviewService.selectReivew(memberInfo);
+		
 		if (reivew != null) {
+			mv.addObject("exhibition", exhibition);
 			mv.addObject("review", reivew);
 			mv.setViewName("review/reviewUpdateForm");
 		} else {

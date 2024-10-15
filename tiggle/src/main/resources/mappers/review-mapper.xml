@@ -24,7 +24,7 @@
 	<select id="selectReview" parameterType="string" resultMap="resultReview">
 		select * 
 		from TB_REVIEW
-		where total_id = #{ no }
+		where uuid = #{ uuid }
 	</select>
 	
 	<select id="selectListCount" resultType="_int" parameterType="string">

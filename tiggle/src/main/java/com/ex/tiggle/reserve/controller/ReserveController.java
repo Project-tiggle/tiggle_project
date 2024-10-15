@@ -25,7 +25,7 @@ public class ReserveController {
 	public String moveReservePage(
 			@RequestParam("no") String totalId, Model model
 			){
-		Exhibition exhibition = exhibitionService.selectListOne(totalId);
+		Exhibition exhibition = exhibitionService.selectExhibitionOne(totalId);
 		
 		model.addAttribute("exhibition", exhibition);
 		
@@ -36,7 +36,7 @@ public class ReserveController {
 	@RequestMapping("payment.do") public String movePaymentPage(
 	
 	@RequestParam("no") String totalId, Model model) { Exhibition exhibition =
-	exhibitionService.selectListOne(totalId);
+	exhibitionService.selectExhibitionOne(totalId);
 		model.addAttribute("exhibition", exhibition);	
 		return "reserve/paykeyin"; 
 	}
