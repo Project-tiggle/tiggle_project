@@ -31,18 +31,18 @@
 				<div class="enroll_box">
 					<div class="enroll_list">
 						<p>아이디</p>
-						<input type="text" name="id" id="enroll_id" placeholder="6~20자 영문, 숫자" required>
+						<input type="text" name="id" id="enroll_id" placeholder="6~20자 영문시작, 숫자포함" required>
 						<input type="button" value="중복확인" onclick="return dupIdCheck();">
 					</div>
 
 					<div class="enroll_list">
 						<p>비밀번호</p>
-						<input type="password" name="pwd" id="enroll_pwd" placeholder="8~20자 영문, 숫자, 특수문자" required>
+						<input type="password" name="pwd" id="enroll_pwd" placeholder="영문, 숫자, 특수문자 포함가능" required>
 					</div>
 					
 					<div class="enroll_list">
 						<p>비밀번호 확인</p>
-						<input type="password" id="enroll_pwd2" placeholder="8~20자 영문, 숫자, 특수문자" required>
+						<input type="password" id="enroll_pwd2" placeholder="영문, 숫자, 특수문자 포함가능" required>
 					</div>
 
 					<div class="enroll_list">

@@ -14,6 +14,7 @@ $(function(){
         },
         pagination: {
             el: ".main_slide .swiper-pagination",
+            clickable: true,
           },
     });
 

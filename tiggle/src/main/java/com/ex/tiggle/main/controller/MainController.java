@@ -5,24 +5,36 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.ex.tiggle.main.service.MainService;
+import com.ex.tiggle.member.controller.MemberController;
+import com.ex.tiggle.member.model.dto.Member;
+import com.ex.tiggle.member.model.service.MemberService;
 import com.ex.tiggle.notice.model.dto.Notice;
 
 @Controller
 public class MainController {
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
 	@Autowired
 	private MainService mainService;
 	
+	@Autowired
+	private MemberService memberService;
 	
 	//메인 공지사항(ajax)
 	@RequestMapping(value="ntop3.do", method=RequestMethod.POST)
@@ -57,6 +69,15 @@ public class MainController {
 
 		return sendJson.toJSONString();
 	}//noticeNewTop3Method() end
+	
+	
+	
+	//챗봇
+	@RequestMapping(value="chatbot.do")
+	public String moveChatbotPage() {
+		return "common/chatbot";
+
+	}//moveChatbotPage()
 	
 	
 	

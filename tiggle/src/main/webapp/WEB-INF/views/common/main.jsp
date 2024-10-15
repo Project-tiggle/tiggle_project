@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>티글</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<link rel="shortcut icon" href="/tiggle/resources/images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 </head>
 <body>
@@ -99,8 +100,9 @@
 		</div><!-- main_notice end -->
 	</div><!-- main end -->
 	<!-- main section end -->
-
-
+	
+	<a href="chatbot.do" class="chatbot_wrap"><img src="/tiggle/resources/images/chatbot.png" alt="챗봇로고"></a>
+	
 	<c:import url="/WEB-INF/views/common/footer.jsp" />
 
 	<script src="/tiggle/resources/js/jquery-3.7.1.min.js"></script>

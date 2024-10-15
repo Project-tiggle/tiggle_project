@@ -180,3 +180,6 @@ html, body {background: #fff; color: #333; font-family: -apple-system, BlinkMacS
     .new_notice > p:nth-child(2) {box-sizing: border-box; padding: 0 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 }
 /* main_notice end */
+
+.chatbot_wrap {width: 100px; position: fixed; right: 20px; bottom: 40px; z-index: 100;}
+.chatbot_wrap > img {display: block; width: 100%;}

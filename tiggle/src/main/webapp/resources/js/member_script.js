@@ -72,28 +72,38 @@ document.getElementById('agreeBtn').addEventListener('click', function() {
 
 //아이디 중복 체크(ajax)
 function dupIdCheck() {
-  $.ajax({
-    url: 'idchk.do',
-    type: 'post',
-    data: {id: $('#enroll_id').val() },
-    success: function(data){
-      console.log('success : ' + data);
-      if(data == 'ok') {
-        alert('사용 가능한 아이디입니다.');	
-        $('#enroll_pwd').focus();
-      }else {
-        alert('이미 사용중인 아이디입니다.');
-        $('#enroll_id').select();
-      }
-    },
-    error: function(request, status, errorData){ //요청이 실패했을 때 실행되는 함수임
-      console.log('error code : ' + request.status 
-          + '\nMessage : ' + request.responseText
-          + '\nError : ' + errorData);
-    },
+  // 영문으로 시작, 숫자 포함 6~20자 체크하는 정규식
+  let regex = new RegExp("^[a-z]+[a-z0-9]{5,19}$");
 
-  });
-}//dupIdCheck() end
+  if(regex.test($('#enroll_id').val())) {
+    $.ajax({
+      url: 'idchk.do',
+      type: 'post',
+      data: {id: $('#enroll_id').val() },
+      cache: false,
+      success: function(data){
+        console.log('success : ' + data);
+        if(data == 'ok') {
+          alert('사용 가능한 아이디입니다.');	
+          $('#enroll_pwd').focus();
+        }else {
+          alert('이미 사용중인 아이디입니다.');
+          $('#enroll_id').select();
+        }
+      },
+      error: function(request, status, errorData){ //요청이 실패했을 때 실행되는 함수임
+        console.log('error code : ' + request.status 
+            + '\nMessage : ' + request.responseText
+            + '\nError : ' + errorData);
+      },
+  	});
+  }else {
+    alert('입력한 아이디값이 유효하지 않습니다.');
+    $('#enroll_id').focus();
+    return false;
+  };
+};
+
 
 
 //암호와 암호확인이 일치하지 않는지 확인 
