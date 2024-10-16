@@ -1,11 +1,11 @@
 package com.ex.tiggle.exhibition.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -27,7 +27,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.exhibition.model.dto.Exhibition;
 import com.ex.tiggle.exhibition.model.service.ExhibitionService;
-import com.ex.tiggle.member.controller.MemberController;
 import com.ex.tiggle.review.model.dto.Review;
 import com.ex.tiggle.review.model.dto.ReviewPaging;
 import com.ex.tiggle.review.model.service.ReviewService;
@@ -95,7 +94,7 @@ public class ExhibitionController {
 	// 메인 페이지가 시작했을 때 TOP-N 설정
 	@RequestMapping(value = "exhibitionMainTop10.do", method = RequestMethod.POST)
 	@ResponseBody
-	public String exhibitionTop8ListMethod(HttpServletResponse response)  throws UnsupportedEncodingException {
+	public String exhibitionTop10ListMethod(HttpServletResponse response)  throws UnsupportedEncodingException {
 		
 		
 		// 조회수 많은 전시회 10개 조회 요청
@@ -111,26 +110,31 @@ public class ExhibitionController {
 			// board 값들을 저장할 json 객체 생성
 			JSONObject job = new JSONObject(); // org.json.simple.JSONObject 임포트함
 
-			
 			job.put("title", URLEncoder.encode(exhibition.getTitle(), "utf-8"));
 			job.put("totalId", URLEncoder.encode(exhibition.getTotalId(), "utf-8"));
-			job.put("contInsttNm", URLEncoder.encode(exhibition.getCnctInsttNm(), "utf-8"));
-			job.put("startDate", exhibition.getStartDate());
-			job.put("endDate", exhibition.getEndDate());
+			
+			if (exhibition.getCnctInsttNm() != null) {
+				job.put("cnctInsttNm", URLEncoder.encode(exhibition.getCnctInsttNm(), "utf-8"));				
+			}
+			job.put("startDate", exhibition.getStartDate().toString());
+			job.put("endDate", exhibition.getEndDate().toString());
 			// 조회수
 			job.put("viewCounter", exhibition.getViewCounter());
 		
-			job.put("fileUrl", URLEncoder.encode(exhibition.getFileUrl(), "utf-8"));
-
+			//job.put("fileUrl", URLEncoder.encode(exhibition.getFileUrl(), "utf-8"));
+			job.put("fileUrl", exhibition.getFileUrl());
+			
 			jarr.add(job); // 배열에 추가
 		} // for each
+		
+		logger.info("job : " + jarr);
 		
 		// 전송용 json 객체 생성함
 		JSONObject sendJson = new JSONObject();
 		
 		// 전송용 json 에 jarr 을 저장함
 		sendJson.put("elist", jarr);
-
+		
 		return sendJson.toJSONString();
 	}
 	
@@ -139,38 +143,45 @@ public class ExhibitionController {
 	@ResponseBody
 	public String exhibitionSameMonListMethod(HttpServletResponse response)  throws UnsupportedEncodingException {
 	
-			ArrayList<Exhibition> list = exhibitionService.selectListSameMon();
-			
-			// 내보낼 값에 대해 response 에 mimiType 설정
-			response.setContentType("application/json; charset=utf-8");
+		// 조회수 많은 전시회 10개 조회 요청
+		ArrayList<Exhibition> list = exhibitionService.selectListSameMon();
+		
+		// 내보낼 값에 대해 response 에 mimiType 설정
+		response.setContentType("application/json; charset=utf-8");
 
-			// 리턴된 list 를 json 배열에 옮겨 기록하기
-			JSONArray jarr = new JSONArray();
-			
-			for (Exhibition exhibition : list) {
-				// board 값들을 저장할 json 객체 생성
-				JSONObject job = new JSONObject(); // org.json.simple.JSONObject 임포트함
+		// 리턴된 list 를 json 배열에 옮겨 기록하기
+		JSONArray jarr = new JSONArray();
+		
+		for (Exhibition exhibition : list) {
+			// board 값들을 저장할 json 객체 생성
+			JSONObject job = new JSONObject(); // org.json.simple.JSONObject 임포트함
 
-				job.put("title", URLEncoder.encode(exhibition.getTitle(), "utf-8"));
-				job.put("totalId", URLEncoder.encode(exhibition.getTotalId(), "utf-8"));
-				job.put("contInsttNm", URLEncoder.encode(exhibition.getCnctInsttNm(), "utf-8"));
-				job.put("startDate", exhibition.getStartDate());
-				job.put("endDate", exhibition.getEndDate());
-				// 조회수
-				job.put("viewCounter", exhibition.getViewCounter());
-				
-				job.put("fileUrl", URLEncoder.encode(exhibition.getFileUrl(), "utf-8"));
-				
-				jarr.add(job); // 배열에 추가
-			} // for each
+			job.put("title", URLEncoder.encode(exhibition.getTitle(), "utf-8"));
+			job.put("totalId", URLEncoder.encode(exhibition.getTotalId(), "utf-8"));
 			
-			// 전송용 json 객체 생성함
-			JSONObject sendJson = new JSONObject();
+			if (exhibition.getCnctInsttNm() != null) {
+				job.put("cnctInsttNm", URLEncoder.encode(exhibition.getCnctInsttNm(), "utf-8"));				
+			}
+			job.put("startDate", exhibition.getStartDate().toString());
+			job.put("endDate", exhibition.getEndDate().toString());
+			// 조회수
+			job.put("viewCounter", exhibition.getViewCounter());
+		
+			//job.put("fileUrl", URLEncoder.encode(exhibition.getFileUrl(), "utf-8"));
+			job.put("fileUrl", exhibition.getFileUrl());
 			
-			// 전송용 json 에 jarr 을 저장함
-			sendJson.put("elist", jarr);
-
-			return sendJson.toJSONString();
+			jarr.add(job); // 배열에 추가
+		} // for each
+		
+		logger.info("job : " + jarr);
+		
+		// 전송용 json 객체 생성함
+		JSONObject sendJson = new JSONObject();
+		
+		// 전송용 json 에 jarr 을 저장함
+		sendJson.put("elist", jarr);
+		
+		return sendJson.toJSONString();
 		}
 	
 	
