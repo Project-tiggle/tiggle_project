@@ -133,7 +133,7 @@ $(function(){
 				
 			</div>
 			<div class="">
-				<form action="" method="get" id="">
+				<form action="cbSearch.do" method="get" id="cbSearch">
 					<select name="sOption" class="search_option">
 						<option value="">검색</option>
 						<option value="cbNo">번호</option>
@@ -141,8 +141,8 @@ $(function(){
 						<option value="cbId">아이디</option>
 					</select>
 
-					<input type="text" name="keyword">
-					<input type="submit" value="검색">
+					<input type="text" name="keyword" style="padding: 5px;">
+					<input type="submit" value="검색" style="padding: 5px;">
 				</form>
 			</div>
 			<c:import url="/WEB-INF/views/common/pagingView.jsp" />

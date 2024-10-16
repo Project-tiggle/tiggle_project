@@ -58,6 +58,7 @@
 
 #orgRegBtn:hover {
 	background-color: #ff5f2c;
+	color: white;
 }
 
 #ynMessage > table {
@@ -168,6 +169,7 @@
 		                <th align="center">신청자</th>
 		                <th align="center">시작일</th>
 		                <th align="center">종료일</th>
+		                <th align="center">등록상태</th>
 		                <th align="center">수정</th>
 		            </tr>
 		        </thead>
@@ -185,6 +187,10 @@
 		                    </td>
 		                    <td align="center">
 		                        <fmt:formatDate value="${ list.endDate }" pattern="yyyy-MM-dd" />
+		                    </td>
+		                    <td align="center">
+		                    	<c:if test="${ list.approvalStatus eq 'N' }">등록대기</c:if>
+		                    	<c:if test="${ list.approvalStatus eq 'Y' }">승인</c:if>
 		                    </td>
 		                    <td align="center">
 		                        <c:url var="editLink" value="orgRegEdit.do">

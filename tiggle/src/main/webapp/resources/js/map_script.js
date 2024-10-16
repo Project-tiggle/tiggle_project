@@ -110,25 +110,40 @@ function displayExhibitions() {
             // 포스터 추가
             var posterDiv = document.createElement("div");
             posterDiv.classList.add("exhibition-poster");
-            posterDiv.innerHTML = '<img src="' + positions[i].poster + '" alt="등록된 포스터가 없습니다">'; // 포스터 이미지 삽입
+            posterDiv.innerHTML = '<img src="' + positions[i].poster + '" alt="등록된 포스터가 없습니다" style="object-fit: cover;">'; // 포스터 이미지 삽입
 
-            // 요약 정보 추가
-            var summaryDetailsDiv = document.createElement("div");
-            summaryDetailsDiv.classList.add("summary-details");
+            // 전시회 정보 영역 추가
+            var detailsDiv = document.createElement("div");
+            detailsDiv.classList.add("exhibition-details");
 
-            var summaryDiv = document.createElement("div");
-            summaryDiv.classList.add("exhibition-summary");
-            summaryDiv.textContent = positions[i].summary; // 요약 정보 삽입
+            // 제목 추가
+            var titleDiv = document.createElement("div");
+            titleDiv.classList.add("exhibition-title");
+            titleDiv.textContent = positions[i].title;
 
+            // 연락처 추가
+            var contactDiv = document.createElement("div");
+            contactDiv.classList.add("exhibition-contact");
+            contactDiv.textContent = positions[i].cntc;
+
+            // 기간 추가
+            var periodDiv = document.createElement("div");
+            periodDiv.classList.add("exhibition-period");
+            periodDiv.textContent = positions[i].perido;
+
+            // 상세보기 버튼 추가
             var detailsButton = document.createElement("button");
             detailsButton.classList.add("exhibition-btn");
             detailsButton.innerHTML = '<a href="exhibitionDetail.do?no=' + positions[i].totalId + '">상세보기</a>';
 
             // 요소들 연결
-            summaryDetailsDiv.appendChild(summaryDiv);
-            summaryDetailsDiv.appendChild(detailsButton);
+            detailsDiv.appendChild(titleDiv);
+            detailsDiv.appendChild(contactDiv);
+            detailsDiv.appendChild(periodDiv);
+            detailsDiv.appendChild(detailsButton);
+
             exhibitContainer.appendChild(posterDiv);
-            exhibitContainer.appendChild(summaryDetailsDiv);
+            exhibitContainer.appendChild(detailsDiv);
 
             // 전시회 컨테이너를 전시회 목록에 추가
             exhibitListContainer.appendChild(exhibitContainer);

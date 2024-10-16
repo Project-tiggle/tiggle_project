@@ -27,7 +27,7 @@ public class NearbyMapController {
 				
 		int totalCount = nearbyMapService.selectTotalCount();
 		ArrayList<NearbyMap> exhibitList = nearbyMapService.selectLocList();
-		String ak = new NearbyMap().getAppKeyUrl();	//dto에서 appkey 전체 url 받아옴
+		String ak = new NearbyMap().getAppKeyUrl();	// APPKEY 포함 URL
 		
 		// 검색 값이 있을때만 작동-------------------------------------------------------------------
 		if (keyword != null && keyword.length() > 0) {

@@ -349,8 +349,8 @@ public class CustBoardController {
 		switch(sOption) {
 			case "cbNo":	listCount = custBoardService.selectSearchCbNoCount(keyword); break;
 			case "cbTitle":	listCount = custBoardService.selectSearchCbTitleCount(keyword); break;
-			case "cbId":listCount = custBoardService.selectSearchCbIdCount(keyword); break;
-			default: listCount = 0; break;
+			case "cbId":	listCount = custBoardService.selectSearchCbIdCount(keyword); break;
+			default: 		listCount = 0; break;
 		}
 		
 		//페이징 계산 처리

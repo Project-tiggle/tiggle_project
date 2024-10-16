@@ -9,6 +9,73 @@
 <script type="text/javascript" src="${ link }"></script>
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/map_style.css">
+
+<style type="text/css">
+/* 전시회 항목 전체 레이아웃 */
+.exhibition-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 48%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* 포스터 이미지 크기 */
+.exhibition-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+}
+
+/* 전시회 정보 영역 */
+.exhibition-details {
+    flex: 1;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* 전시회 제목 스타일 */
+.exhibition-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 전시회 cntc 스타일 */
+.exhibition-contact, .exhibition-period {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* 상세보기 버튼 */
+.exhibition-btn {
+    margin-top: 170px; /* 버튼이 아래쪽으로 밀리도록 설정 */
+    padding: 10px 20px;
+    border: none;
+    background-color: #ccc;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    align-self: center;
+}
+
+/* 버튼에 호버 효과 */
+.exhibition-btn:hover {
+    background-color: #ff5f2c;
+    color:white;
+}
+
+/* 링크 스타일 제거 */
+.exhibition-btn a {
+    text-decoration: none;
+}
+</style>
 </head>
 <body>
 	<c:import url="/WEB-INF/views/common/header.jsp" />
@@ -29,9 +96,11 @@
 		            latitude: ${ exhibit.latitude},
 		            longitude: ${ exhibit.longitude },
 		            latlng : new kakao.maps.LatLng(${ exhibit.latitude }, ${ exhibit.longitude }),
-		            poster: '${ exhibit.fileUrl }',
-		            summary: '${ exhibit.eDescription }'
-		            });
+		            poster: '${exhibit.fileUrl}',
+		            title: '${ exhibit.title }',
+		            cntc: '${ exhibit.cntcInsttNm }',
+		            perido: '${ exhibit.preiod }'
+		        });
 			</c:if>
 			
 			<c:if test="${!exhibit.fileUrl.toUpperCase().startsWith('H')}">
@@ -42,8 +111,10 @@
 		            longitude: ${ exhibit.longitude },
 		            latlng : new kakao.maps.LatLng(${ exhibit.latitude }, ${ exhibit.longitude }),
 		            poster: '${pageContext.request.contextPath}/resources/exhibit_upfiles/${exhibit.fileUrl}',
-		            summary: '${ exhibit.eDescription }'
-	            });
+		            title: '${ exhibit.title }',
+		            cntc: '${ exhibit.cntcInsttNm }',
+		            perido: '${ exhibit.preiod }'
+		        });
 			</c:if>
 				
 	  	</c:forEach>
@@ -57,7 +128,7 @@
 				<td colspan="5" class="search-container">
 					<form action="nearbyMap.do" id="titleform" class="sform" method="get">
 						<input type="search" name="keyword" size="50" placeholder="검색한 주소의 주변 전시가 보여집니다">
-						<input type="submit" value="Search">
+						<input type="submit" value="검색">
 					</form>
 				</td>
 			</tr>
@@ -67,7 +138,6 @@
 					<div id="map"><!-- 카카오 지도 표시 --></div>
 				</td>
 			</tr>
-			<tr><td><a href="directions.do">direction</a></td></tr>
 		</table>
 	
 		

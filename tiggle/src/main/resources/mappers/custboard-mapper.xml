@@ -106,12 +106,14 @@
 	
 	<!-- 게시글 검색관련 목록 총 갯수 조회용 쿼리 ************************************* -->
 	<select id="selectSearchCbNoCount" resultType="_int" parameterType="string">
-		select count(*) from tb_cust_board
+		select count(*)
+		from tb_cust_board
 		where c_id like '%' || #{ keyword } || '%'
 	</select>
 	
 	<select id="selectSearchCbTitleCount" resultType="_int" parameterType="string">
-		select count(*) from tb_cust_board
+		select count(*)
+		from tb_cust_board
 		where title like '%' || #{ keyword } || '%'
 	</select>
 	
@@ -122,14 +124,14 @@
 		where id like '%' || #{ keyword } || '%'
 	</select>
 	
-	<!-- 공지글 검색용 쿼리 ********************************************** -->
+	<!-- 게시글 검색용 쿼리 ********************************************** -->
 	<select id="selectSearchCbNo" parameterType="Search" resultMap="resultCustBoard">
 		select *
 		from (
 				select rownum rnum, tb.*
 			    from (
 			    		select *
-        				from tb_cust_board cb
+        				from tb_cust_board
 				        join tb_member using (uuid)
 				        where c_id like '%' || #{ keyword } || '%'
 				        order by refno desc, c_level asc
