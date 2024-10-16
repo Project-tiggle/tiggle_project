@@ -8,10 +8,20 @@
 <meta charset="UTF-8">
 <title>tiggle</title>
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
-<c:import url="/WEB-INF/views/reserve/tossTest.jsp"/>
-			
+<!-- jQuery와 Postcodify를 로딩한다. -->
+<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+<script>
+	/*  검색 단추를 누르면 팝업 레이어가 열리도록 설정한다. */
+	$(function(){
+		$("#postcodify_search_button").postcodifyPopUp();
+	});
+</script>			
 <style>
-
+	
+	span.guide {display:none; font-size:12px; top:12px, right:10px;}
+	span.ok{color:green;}
+	span.error{color:red;}
+	
 #reserve {
 	display: flex;
 	justify-content: space-between;
@@ -41,52 +51,68 @@ div.resC {
 </div>
 <div class="resC">
 	<table id="outer" align="center" width="700" cellspacing="5" cellpadding="5">
-		<tr><th width="120">전시 제목</th>
+		<tr>
+		<th width="120">전시 제목</th>
 			<td>
 				<input type="text" name="exhibitionTitle" readonly id="title" value="${ exhibition.title }" >
 			</td>
 		</tr>
-		<tr><th width="120">예매자</th>
+		<tr>
+		<th width="120">예매자</th>
 			<td>
 				<input type="text" name="reserveId" readonly value="${ sessionScope.loginMember.id }">
 			</td>
 		</tr>
-		<tr><th>전화번호</th>
+		<tr>
+		<th>전화번호</th>
 			<td><input type="text" name="reservePhone" readonly value="${ sessionScope.loginMember.phone }">
 			</td></tr>
 		
-		<tr><th>주소</th>
+		<tr>
+		<th>주소</th>
 			<td>
 				<input type="text" name="reserveAddress" readonly value="${ sessionScope.loginMember.address }">
 				<input type="checkbox" id="deliveryCheck" name="delivery"> 기본 배송지로 설정
 			</td></tr>
-		
-		<tr><th>배송지</th>
-			<td><input type="text" id="delivery" name="reserveDelivery">
-				
-			</td></tr>
-		
-
-		<tr><th colspan="2">
-			인원수    
-			<button id="decrease" type="button">-</button>
-       		<span id="counter">0</span>
-       		<button id="increase" type="button">+</button>
-
-		<tr><th colspan="2">
-			금액 <p>총 금액: <span id="totalPrice">0</span> 원</p> &nbsp;
-				
-		</th></tr>
-	
-		<tr><th colspan="2">
-			
-			 &nbsp;
-			<input type="button" value="취소" onclick="javascript:history.go(-1); return false;">
-		</th></tr>
+		<tr>
+		<td>우편번호</td>
+			<td>
+				<input type="text" name="post" class="postcodify_postcode5" size="6">
+				<button type="button" id="postcodify_search_button">검색</button>
+			</td>
+		</tr>
+		<tr>
+			<td>도로명 주소</td>
+			<td><input type="text" name="address1" class="postcodify_address"></td>
+		</tr>
+		<tr>
+			<td>상세 주소</td>
+			<td><input type="text" name="address2" class="postcodify_extra_info"></td>
+		</tr>	
+		<tr>
+		<th>배송지</th>
+			<td>
+				<input type="text" id="delivery" name="reserveDelivery">
+			</td>
+		</tr>
+		<tr>
+			<th colspan="2">인원수    
+				<button id="decrease" type="button">-</button>
+	       			<span id="counter">	0</span>
+	       		<button id="increase" type="button">+</button>
+		<tr>
+			<th colspan="2">
+				금액 <p>총 금액: <span id="totalPrice">0</span> 원</p> &nbsp;
+			</th>
+		</tr>
+		<tr>
+			<th colspan="2"> &nbsp;
+				<input type="button" value="취소" onclick="javascript:history.go(-1); return false;">
+			</th>
+		</tr>
 	</table>
 </div>
 </form>
-			<button class="button" onclick="requestPayment()">결제하기</button>
 <footer></footer>
 <hr>
  

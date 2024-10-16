@@ -31,31 +31,22 @@ public class ReserveController {
 		
 		return "reserve/reserveMain";
 	}
-	
-	
-	@RequestMapping("payment.do") public String movePaymentPage(
-	
-	@RequestParam("no") String totalId, Model model) { Exhibition exhibition =
-	exhibitionService.selectExhibitionOne(totalId);
-		model.addAttribute("exhibition", exhibition);	
-		return "reserve/paykeyin"; 
-	}
 		
 	// 현재 열려있는 페이지의 정보를 가져와서 예매창에 출력
-//	@RequestMapping(value = "reserveExhibition.do")
-//	public ModelAndView exhibitionDetailMethod(@RequestParam("no") String totalId , ModelAndView mv) {
-//		
-//		Reserve reserve = reserveService.selectListOne(totalId);
-//		
-//		if (reserve != null) {
-//			mv.addObject("reserve", reserve);
-//			mv.setViewName("reserve/reserveForm");
-//			
-//			}
-//		
-//		
-//		return mv;
-//	}
+	@RequestMapping(value = "reserveExhibition.do")
+	public ModelAndView exhibitionDetailMethod(@RequestParam("no") String totalId , ModelAndView mv) {
+		
+		Reserve reserve = reserveService.selectListOne(totalId);
+		
+		if (reserve != null) {
+			mv.addObject("reserve", reserve);
+			mv.setViewName("reserve/reserveForm");
+			
+			}
+		
+		
+		return mv;
+	}
 	
 	
 }
