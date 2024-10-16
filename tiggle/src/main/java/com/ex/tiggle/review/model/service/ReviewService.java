@@ -11,10 +11,11 @@ public interface ReviewService {
 
 	int selectListCount(String totalId);
 	ArrayList<Review> selectList(ReviewPaging reviewPaging);
-	Review selectReivew(String uuid);
+	Review selectReivew(Review review);
 	
 	// dml 
 	int insertReview(Review review);
-	
-
+	int insertReviewD(Review reviewd);
+	int updateReview(Review review);
+	int deleteReview(int rNum);
 }

@@ -18,7 +18,7 @@ public class Exhibition implements java.io.Serializable {
 	private String title;			// title : String	
 	private String localId;			// localId : String	
 	private String contributor; 	// contributor : String
-	private String contInsttNm; 	// contInsttNm : String	
+	private String cntcInsttNm; 	// cntcInsttNm : String	
 	private String description; 	// description : String	
 	private String eventSite; 		// eventSite : String	
 	private String detailEventSite; // detailEventSite : String	
@@ -47,7 +47,7 @@ public class Exhibition implements java.io.Serializable {
 	}
 	
 	// 전체 생성자
-	public Exhibition(String totalId, String uuid, String title, String localId, String contributor, String contInsttNm, String description,
+	public Exhibition(String totalId, String uuid, String title, String localId, String contributor, String cntcInsttNm, String description,
 			String eventSite, String detailEventSite, String latitude, String longitude, String genre,
 			String contactPoint, int viewCounter, String url, String period, Date startDate, Date endDate,
 			String approvalStatus, int category, String fileUrl, String charge) {
@@ -57,7 +57,7 @@ public class Exhibition implements java.io.Serializable {
 		this.title = title;
 		this.localId = localId;
 		this.contributor = contributor;
-		this.contInsttNm = contInsttNm;
+		this.cntcInsttNm = cntcInsttNm;
 		this.description = description;
 		this.eventSite = eventSite;
 		this.detailEventSite = detailEventSite;
@@ -109,12 +109,12 @@ public class Exhibition implements java.io.Serializable {
 		this.localId = localId;
 	}
 	
-	public String getContInsttNm() {
-		return contInsttNm;
+	public String getCnctInsttNm() {
+		return cntcInsttNm;
 	}
 	
-	public void setContInsttNm(String contInsttNm) {
-		this.contInsttNm = contInsttNm;
+	public void setContInsttNm(String cntcInsttNm) {
+		this.cntcInsttNm = cntcInsttNm;
 	}
 	
 	public String getContributor() {
@@ -256,7 +256,7 @@ public class Exhibition implements java.io.Serializable {
 	@Override
 	public String toString() {
 		return "Exhibition [totalId=" + totalId + ", uuid=" + uuid + ", title=" + title + ", localId=" + localId + ", contributor=" + contributor
-				+ ", contInsttNm=" + contInsttNm +", description=" + description + ", eventSite=" + eventSite + ", detailEventSite=" + detailEventSite
+				+ ", cntcInsttNm=" + cntcInsttNm +", description=" + description + ", eventSite=" + eventSite + ", detailEventSite=" + detailEventSite
 				+ ", latitude=" + latitude + ", longitude=" + longitude + ", genre=" + genre + ", contactPoint="
 				+ contactPoint + ", viewCounter=" + viewCounter + ", url=" + url + ", period=" + period + ", startDate=" + startDate
 				+ ", endDate=" + endDate + ", approvalStatus=" + approvalStatus + ", category=" + category

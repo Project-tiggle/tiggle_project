@@ -134,6 +134,11 @@ div.sdiv {
 
 <script type="text/javascript" src="/tiggle/resources/js/jquery-3.7.1.min.js"></script>
 <script src="/tiggle/resources/js/script.js"></script>
+
+	<c:set var="currentPage" value="1"/>
+<c:if test="${ !empty currentPage }">
+	<c:set var="currentPage" value="${ currentPage }"/>
+</c:if>
 <script type="text/javascript">
 $(function(){
 	$('.sdiv').eq(0).css('display', 'block');
@@ -171,11 +176,12 @@ function rviPopupOpen() {
 	
 function rvuPopupOpen() {
 	  // 팝업을 띄울 페이지 URL
-	  var popupURL = "rvmoveup.do?no=${ exhibition.totalId }";
+	  var popupURL = "rvmoveup.do?no=${ exhibition.totalId }&page=${ currentPage }";
 	  // 팝업 창의 속성
 	  var popupProperties = "width=600,height=400,scrollbars=no,left=600,top=200,location=no";
 	  // 팝업 열기
 	  window.open(popupURL, "Popup", popupProperties);
+	    
 	}
 
 function rePopupOpen() {
@@ -183,9 +189,22 @@ function rePopupOpen() {
 	  var popupURL = "remove.do?no=${ exhibition.totalId }";
 	  // 팝업 창의 속성
 	  var popupProperties = "width=600,height=400,scrollbars=no,left=600,top=200,location=no";
-	  // 팝업 열기
-	  window.open(popupURL, "Popup", popupProperties);
 	}
+
+function reload(){
+    // 자신을 새로고침하는데, 100 : 0.1초 뒤에 새로고침을 진행하라는 함수
+    // 서버에서 받을 
+	setTimeout(function () {
+    location.reload();
+    }, 100); 
+}
+
+function rvdPopupOpen(rN){
+	var delYN = window.confirm('한줄평을 삭제하시겠습니까?')
+	if(delYN == true){
+		location.href="rdelete.do?rNum=" + rN + "&totalId=" + ${ exhibition.totalId };
+	}
+}
 
 </script>
 
@@ -210,7 +229,6 @@ function rePopupOpen() {
 				 <h3>장소 :</h3>
 				 ${ exhibition.contributor }
 				 </p><br>
-				<button ><a href="toss.do">토스결제테스트</button>
 				<button id="reserve_b"><a href="remove.do?no=${ exhibition.totalId }" >예매하기</a></button>
 			</div>
 		</div>
@@ -271,7 +289,7 @@ function rePopupOpen() {
 					<td>
 						<c:if test="${ !empty sessionScope.loginMember && rv.uuid eq sessionScope.loginMember.uuid }">
 							<button onclick="rvuPopupOpen()">수정</button>
-							<button onclick="rvuPopupOpen()">삭제</button>
+							<button onclick="rvdPopupOpen(${ rv.rNum })">삭제</button>
 							<c:set var="writeflag" value="true"/>
 						</c:if>
 					</td>
@@ -293,6 +311,7 @@ function rePopupOpen() {
 		<h2>오시는 길</h2>
 		<div style="width: 600x; height: 450px; border: 1px red; background: green;">
 			지도가 들어갈 공간
+			
 		</div>
 	</fieldset>
 </div>

@@ -93,13 +93,13 @@ public class ExhibitionController {
 	}
 	
 	// 메인 페이지가 시작했을 때 TOP-N 설정
-	@RequestMapping(value = "exhibitionMainTop8.do", method = RequestMethod.POST)
+	@RequestMapping(value = "exhibitionMainTop10.do", method = RequestMethod.POST)
 	@ResponseBody
 	public String exhibitionTop8ListMethod(HttpServletResponse response)  throws UnsupportedEncodingException {
 		
 		
-		// 조회수 많은 전시회 8개 조회 요청
-		ArrayList<Exhibition> list = exhibitionService.selectListTop8();
+		// 조회수 많은 전시회 10개 조회 요청
+		ArrayList<Exhibition> list = exhibitionService.selectListTop10();
 		
 		// 내보낼 값에 대해 response 에 mimiType 설정
 		response.setContentType("application/json; charset=utf-8");
@@ -112,13 +112,15 @@ public class ExhibitionController {
 			JSONObject job = new JSONObject(); // org.json.simple.JSONObject 임포트함
 
 			
-			job.put("fileUrl", URLEncoder.encode(exhibition.getFileUrl(), "utf-8"));
 			job.put("title", URLEncoder.encode(exhibition.getTitle(), "utf-8"));
-			job.put("contInsttNm", URLEncoder.encode(exhibition.getContInsttNm(), "utf-8"));
-			job.put("period", URLEncoder.encode(exhibition.getPeriod(), "utf-8"));
-		
+			job.put("totalId", URLEncoder.encode(exhibition.getTotalId(), "utf-8"));
+			job.put("contInsttNm", URLEncoder.encode(exhibition.getCnctInsttNm(), "utf-8"));
+			job.put("startDate", exhibition.getStartDate());
+			job.put("endDate", exhibition.getEndDate());
 			// 조회수
 			job.put("viewCounter", exhibition.getViewCounter());
+		
+			job.put("fileUrl", URLEncoder.encode(exhibition.getFileUrl(), "utf-8"));
 
 			jarr.add(job); // 배열에 추가
 		} // for each
@@ -149,12 +151,16 @@ public class ExhibitionController {
 				// board 값들을 저장할 json 객체 생성
 				JSONObject job = new JSONObject(); // org.json.simple.JSONObject 임포트함
 
+				job.put("title", URLEncoder.encode(exhibition.getTitle(), "utf-8"));
+				job.put("totalId", URLEncoder.encode(exhibition.getTotalId(), "utf-8"));
+				job.put("contInsttNm", URLEncoder.encode(exhibition.getCnctInsttNm(), "utf-8"));
+				job.put("startDate", exhibition.getStartDate());
+				job.put("endDate", exhibition.getEndDate());
+				// 조회수
+				job.put("viewCounter", exhibition.getViewCounter());
 				
 				job.put("fileUrl", URLEncoder.encode(exhibition.getFileUrl(), "utf-8"));
-				job.put("title", URLEncoder.encode(exhibition.getTitle(), "utf-8"));
-				job.put("contInsttNm", URLEncoder.encode(exhibition.getContInsttNm(), "utf-8"));
-				job.put("period", URLEncoder.encode(exhibition.getPeriod(), "utf-8"));
-			
+				
 				jarr.add(job); // 배열에 추가
 			} // for each
 			
@@ -181,10 +187,12 @@ public class ExhibitionController {
 		// 총 목록갯수 조회해서 총 페이지 수 계산
 		int listCount = reviewService.selectListCount(totalId);
 		
-		Paging paging = new Paging(listCount, limit, currentPage, "exhibitionList.do");
+		Paging paging = new Paging(listCount, limit, currentPage, "exhibitionDetail.do");
 		paging.calculate();
 		
-				
+		// 조회수 1 증가 처리
+		exhibitionService.updateAddReadCount(totalId);
+		
 		ReviewPaging reviewPaging = new ReviewPaging();
 		reviewPaging.setTotalId(totalId);
 		reviewPaging.setStartRow(paging.getStartRow());
@@ -198,8 +206,6 @@ public class ExhibitionController {
 			mv.addObject("list", list);
 			mv.setViewName("exhibition/exhibitionDetail");
 			}
-		
-		
 		return mv;
 	}
 	
@@ -226,8 +232,6 @@ public class ExhibitionController {
 			mv.addObject("list", list);
 			mv.setViewName("exhibition/reviewWriteForm");
 		}
-		
-		
 		return mv;
 	}
 
@@ -265,7 +269,6 @@ public class ExhibitionController {
 			exhibition.setCharge((String) job.get("CHARGE"));
 			exhibition.setPeriod((String) job.get("PERIOD"));
 			logger.info(exhibition.toString());
-			
 			
 			// 새 공지글 등록 처리용 메소드 실행
 			int result = exhibitionService.insertExhibition(exhibition);

@@ -29,12 +29,27 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public Review selectReivew(String uuid) {
-		return reviewDao.selectReview(uuid);
+	public Review selectReivew(Review review) {
+		return reviewDao.selectReview(review);
 	}
 
 	@Override
 	public int insertReview(Review review) {
 		return reviewDao.insertReview(review);
+	}
+
+	@Override
+	public int updateReview(Review review) {
+		return reviewDao.updateReview(review);
+	}
+
+	@Override
+	public int deleteReview(int rNum) {
+		return reviewDao.deleteReveiw(rNum);
+	}
+
+	@Override
+	public int insertReviewD(Review reviewd) {
+		return reviewDao.insertReviewD(reviewd);
 	}
 } // ReviewService end
