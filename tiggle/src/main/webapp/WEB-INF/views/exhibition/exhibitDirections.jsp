@@ -9,7 +9,7 @@
 </head>
 <body>
 	<!-- 이미지 지도를 표시할 div 입니다 -->
-	<div id="staticMap" style="width: 600px; height: 350px;"></div>
+	<div id="staticMap" style="width: 100%; height: 450px;"></div>
 
 	<script type="text/javascript" src="${ link }"></script>
 	<script>

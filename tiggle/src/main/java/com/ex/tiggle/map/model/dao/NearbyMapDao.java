@@ -23,9 +23,4 @@ public class NearbyMapDao {
 		List<NearbyMap> list = sqlSessionTemplate.selectList("mapMapper.selectLocList");
 		return (ArrayList<NearbyMap>)list; 
 	}
-
-	public NearbyMap selectDirections(String totalId) {
-		return sqlSessionTemplate.selectOne("mapMapper.selectDirections", totalId);
-	}
-
 }

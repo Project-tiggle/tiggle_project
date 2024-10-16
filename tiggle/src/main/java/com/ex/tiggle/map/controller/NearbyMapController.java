@@ -59,21 +59,4 @@ public class NearbyMapController {
 		return "nearbymap/nearbyMap";
 	}
 	
-	@RequestMapping("directions.do")
-	public String moveDirectionsTab(
-			NearbyMap nearbyMap,
-			@RequestParam(name = "totalId", required = false) String totalId,
-			Model model) {
-		String ak = new NearbyMap().getAppKeyUrl();	//dto에서 appkey 전체 url 받아옴
-		totalId="100";
-		nearbyMap = nearbyMapService.selectDirections(totalId);
-		
-		double searchLat = nearbyMap.getLatitude();
-		double searchLon = nearbyMap.getLongitude();
-		
-		model.addAttribute("searchLat", searchLat);
-		model.addAttribute("searchLon", searchLon);
-		model.addAttribute("link", ak);
-		return "nearbymap/directions";
-	}
 }

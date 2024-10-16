@@ -10,6 +10,4 @@ public interface NearbyMapService {
 
 	ArrayList<NearbyMap> selectLocList();	// 등록승인Y 전체 데이터 가져오기
 
-	NearbyMap selectDirections(String totalId);	//totalId로 위치정보 가져오기
-
 }

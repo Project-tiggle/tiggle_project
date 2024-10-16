@@ -27,6 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ex.tiggle.common.Paging;
 import com.ex.tiggle.exhibition.model.dto.Exhibition;
 import com.ex.tiggle.exhibition.model.service.ExhibitionService;
+import com.ex.tiggle.map.model.dto.NearbyMap;
 import com.ex.tiggle.review.model.dto.Review;
 import com.ex.tiggle.review.model.dto.ReviewPaging;
 import com.ex.tiggle.review.model.service.ReviewService;
@@ -191,6 +192,12 @@ public class ExhibitionController {
 		
 		Exhibition exhibition = exhibitionService.selectExhibitionOne(totalId);
 		// 같은 totalId 를 갖는 전시 리스트
+		
+		/****************확인후지우셔도됩니다.***************************/
+		String ak = new NearbyMap().getAppKeyUrl();	//APPKEY포함 URL
+		String searchLat = exhibition.getLatitude();
+		String searchLon = exhibition.getLongitude();
+		/****************************************************************/
 
 		int currentPage = 1;
 		// 한 페이지에 출력할 한줄평 갯수 10개로 지정
@@ -213,6 +220,11 @@ public class ExhibitionController {
 		ArrayList<Review> list = reviewService.selectList(reviewPaging);
 		
 		if (exhibition != null) {
+			/*************************************/
+			mv.addObject("searchLat", searchLat);
+			mv.addObject("searchLon", searchLon);
+			mv.addObject("link", ak);
+			/*************************************/
 			mv.addObject("exhibition", exhibition);
 			mv.addObject("list", list);
 			mv.setViewName("exhibition/exhibitionDetail");

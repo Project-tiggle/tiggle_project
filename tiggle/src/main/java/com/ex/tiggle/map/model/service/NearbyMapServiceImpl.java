@@ -24,8 +24,4 @@ public class NearbyMapServiceImpl implements NearbyMapService {
 		return nearbyMapDao.selectLocList();
 	}
 
-	@Override
-	public NearbyMap selectDirections(String totalId) {
-		return nearbyMapDao.selectDirections(totalId);
-	}
 }
