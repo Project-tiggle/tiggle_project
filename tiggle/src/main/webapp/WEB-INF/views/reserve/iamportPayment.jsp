@@ -21,11 +21,11 @@
     <script>
     $(function(){
         var IMP = window.IMP; // 생략가능
-        IMP.init('imp04918071'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+        IMP.init('imp24660508'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
         var msg;
         
         IMP.request_pay({
-            pg : 'kakaopay',
+            pg : 'KG이니시스',
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
             name : '주문명:결재테스트',
@@ -35,7 +35,7 @@
             buyer_tel : '구매자전화번호',
             buyer_addr : '구매자주소',
             buyer_postcode : '구매자우편번호',
-            //m_redirect_url : 'https://www.yourdomain.com/payments/complete'
+            // m_redirect_url : 'https://www.yourdomain.com/payments/complete'
             //모바일 결제시, 결제가 끝나고 랜딩되는 URL을 지정 
             //(카카오페이, 페이코, 다날의 경우는 필요없음. PC와 마찬가지로 callback함수로 결과가 떨어짐)
         }, function(rsp) {
@@ -65,12 +65,12 @@
                     }
                 });
                 //성공시 이동할 페이지
-                location.href='<%=request.getContextPath()%>/views/test_api/paySuccess.jsp?msg='+msg;
+                location.href='<%=request.getContextPath()%>/views/reserve/paySuccess.jsp?msg='+msg;
             } else {
                 msg = '결제에 실패하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;
                 //실패시 이동할 페이지
-                location.href="<%=request.getContextPath()%>/views/testapi/payFail.jsp?msg="+msg;
+                location.href="<%=request.getContextPath()%>/views/reserve/payFail.jsp?msg="+msg;
                 alert(msg);
             }
         });

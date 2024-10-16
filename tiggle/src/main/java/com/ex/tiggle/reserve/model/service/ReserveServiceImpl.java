@@ -18,6 +18,4 @@ public class ReserveServiceImpl implements ReserveService {
 	public Reserve selectListOne(String totalId) {
 		return sqlSessionTemplate.selectOne(totalId);
 	}
-	
-	
 }// ReserveService end
