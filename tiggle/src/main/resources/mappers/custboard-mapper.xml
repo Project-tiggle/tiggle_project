@@ -103,6 +103,72 @@
 	</update>
 	
 	
+	
+	<!-- 게시글 검색관련 목록 총 갯수 조회용 쿼리 ************************************* -->
+	<select id="selectSearchCbNoCount" resultType="_int" parameterType="string">
+		select count(*) from tb_cust_board
+		where c_id like '%' || #{ keyword } || '%'
+	</select>
+	
+	<select id="selectSearchCbTitleCount" resultType="_int" parameterType="string">
+		select count(*) from tb_cust_board
+		where title like '%' || #{ keyword } || '%'
+	</select>
+	
+	<select id="selectSearchCbIdCount" resultType="_int" parameterType="string">
+		select count(*)
+		from tb_cust_board
+		join tb_member
+		where id like '%' || #{ keyword } || '%'
+	</select>
+	
+	<!-- 공지글 검색용 쿼리 ********************************************** -->
+	<select id="selectSearchCbNo" parameterType="Search" resultMap="resultCustBoard">
+		select *
+		from (
+				select rownum rnum, tb.*
+			    from (
+			    		select *
+        				from tb_cust_board cb
+				        join tb_member using (uuid)
+				        where c_id like '%' || #{ keyword } || '%'
+				        order by refno desc, c_level asc
+			         ) tb
+		     )
+		where rnum between #{ startRow } and #{ endRow }
+	</select>
+	
+	<select id="selectSearchCbTitle" parameterType="Search" resultMap="resultCustBoard">
+		select *
+		from (
+				select rownum rnum, tb.*
+			    from (
+			    		select *
+        				from tb_cust_board cb
+				        join tb_member using (uuid)
+				        where title like '%' || #{ keyword } || '%'
+				        order by refno desc, c_level asc
+			         ) tb
+		     )
+		where rnum between #{ startRow } and #{ endRow }
+	</select>
+	
+	<select id="selectSearchCbId" parameterType="Search" resultMap="resultCustBoard">
+		select *
+		from (
+				select rownum rnum, tb.*
+			    from (
+			    		select *
+        				from tb_cust_board cb
+				        join tb_member using (uuid)
+				        where id like '%' || #{ keyword } || '%'
+				        order by refno desc, c_level asc
+			         ) tb
+		     )
+		where rnum between #{ startRow } and #{ endRow }
+	</select>
+	
+	
 	<!-- 일반 사용자 게시글 갯수 조회용 -->
 	<select id="selectUserCbListCount" parameterType="string" resultType="_int">
 		select count(*)

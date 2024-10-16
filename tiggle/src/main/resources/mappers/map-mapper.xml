@@ -43,4 +43,10 @@
 		where approval_Status = 'Y'
 	</select>
 	
+	<select id="selectDirections" parameterType="string" resultMap="resultNearbyMap">
+		select *
+		from tb_exhibition_fair
+		where total_id = #{ totalId }
+	</select>
+	
 </mapper>

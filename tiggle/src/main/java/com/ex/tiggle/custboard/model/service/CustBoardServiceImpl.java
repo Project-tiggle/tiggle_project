@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ex.tiggle.common.Paging;
+import com.ex.tiggle.common.Search;
 import com.ex.tiggle.custboard.model.dao.CustBoardDao;
 import com.ex.tiggle.custboard.model.dto.CustBoard;
 
@@ -84,6 +85,36 @@ public class CustBoardServiceImpl implements CustBoardService {
 	@Override
 	public int updateUsOrigin(CustBoard custBoard) {
 		return custBoardDao.updateUsOrigin(custBoard);
+	}
+
+	@Override
+	public int selectSearchCbNoCount(String keyword) {
+		return custBoardDao.selectSearchCbNoCount(keyword);
+	}
+
+	@Override
+	public int selectSearchCbTitleCount(String keyword) {
+		return custBoardDao.selectSearchCbTitleCount(keyword);
+	}
+
+	@Override
+	public int selectSearchCbIdCount(String keyword) {
+		return custBoardDao.selectSearchCbIdCount(keyword);
+	}
+
+	@Override
+	public ArrayList<CustBoard> selectSearchCbNo(Search search) {
+		return custBoardDao.selectSearchCbNo(search);
+	}
+
+	@Override
+	public ArrayList<CustBoard> selectSearchCbTitle(Search search) {
+		return custBoardDao.selectSearchCbTitle(search);
+	}
+
+	@Override
+	public ArrayList<CustBoard> selectSearchCbId(Search search) {
+		return custBoardDao.selectSearchCbId(search);
 	}
 
 

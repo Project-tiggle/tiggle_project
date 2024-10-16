@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ex.tiggle.common.KakaoXY;
+import com.ex.tiggle.exhibition.model.dto.Exhibition;
 import com.ex.tiggle.map.model.dto.NearbyMap;
 import com.ex.tiggle.map.model.service.NearbyMapService;
 
@@ -26,7 +27,7 @@ public class NearbyMapController {
 				
 		int totalCount = nearbyMapService.selectTotalCount();
 		ArrayList<NearbyMap> exhibitList = nearbyMapService.selectLocList();
-		String ak = "https://dapi.kakao.com/v2/maps/sdk.js?appkey=e1972ed25349a231bccee750d03753b3";
+		String ak = new NearbyMap().getAppKeyUrl();	//dto에서 appkey 전체 url 받아옴
 		
 		// 검색 값이 있을때만 작동-------------------------------------------------------------------
 		if (keyword != null && keyword.length() > 0) {
@@ -56,5 +57,23 @@ public class NearbyMapController {
 		model.addAttribute("exList", exhibitList);
 		model.addAttribute("link", ak);
 		return "nearbymap/nearbyMap";
+	}
+	
+	@RequestMapping("directions.do")
+	public String moveDirectionsTab(
+			NearbyMap nearbyMap,
+			@RequestParam(name = "totalId", required = false) String totalId,
+			Model model) {
+		String ak = new NearbyMap().getAppKeyUrl();	//dto에서 appkey 전체 url 받아옴
+		totalId="100";
+		nearbyMap = nearbyMapService.selectDirections(totalId);
+		
+		double searchLat = nearbyMap.getLatitude();
+		double searchLon = nearbyMap.getLongitude();
+		
+		model.addAttribute("searchLat", searchLat);
+		model.addAttribute("searchLon", searchLon);
+		model.addAttribute("link", ak);
+		return "nearbymap/directions";
 	}
 }

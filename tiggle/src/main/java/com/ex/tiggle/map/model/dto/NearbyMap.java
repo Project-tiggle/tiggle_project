@@ -28,6 +28,8 @@ public class NearbyMap implements java.io.Serializable {
 	private String fileUrl;			//	FILE_URL		VARCHAR2(4000 BYTE)		Yes		21	첨부파일URL
 	private String charge;			//	CHARGE			VARCHAR2(1000 BYTE)		Yes		22	가격 할인정보
 	
+	private String appKeyUrl = "https://dapi.kakao.com/v2/maps/sdk.js?appkey=e1972ed25349a231bccee750d03753b3";		//	앱키 + 전체 URL
+
 	public NearbyMap() {
 		super();
 	}
@@ -35,7 +37,7 @@ public class NearbyMap implements java.io.Serializable {
 	public NearbyMap(String uuid, String totalId, String title, String localId, String contributor, String cntcInsttNm,
 			String eDescription, String eventSite, String detailEventSite, double latitude, double longitude,
 			String genre, String contactPoint, int viewCounter, String eUrl, String preiod, Date startDate,
-			Date endDate, String approvalStatus, int eCategory, String fileUrl, String charge) {
+			Date endDate, String approvalStatus, int eCategory, String fileUrl, String charge, String appKeyUrl) {
 		super();
 		this.uuid = uuid;
 		this.totalId = totalId;
@@ -59,6 +61,7 @@ public class NearbyMap implements java.io.Serializable {
 		this.eCategory = eCategory;
 		this.fileUrl = fileUrl;
 		this.charge = charge;
+		this.appKeyUrl = appKeyUrl;
 	}
 
 	public String getUuid() {
@@ -237,6 +240,14 @@ public class NearbyMap implements java.io.Serializable {
 		this.charge = charge;
 	}
 
+	public String getAppKeyUrl() {
+		return appKeyUrl;
+	}
+
+	public void setAppKeyUrl(String appKeyUrl) {
+		this.appKeyUrl = appKeyUrl;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -249,7 +260,9 @@ public class NearbyMap implements java.io.Serializable {
 				+ ", longitude=" + longitude + ", genre=" + genre + ", contactPoint=" + contactPoint + ", viewCounter="
 				+ viewCounter + ", eUrl=" + eUrl + ", preiod=" + preiod + ", startDate=" + startDate + ", endDate="
 				+ endDate + ", approvalStatus=" + approvalStatus + ", eCategory=" + eCategory + ", fileUrl=" + fileUrl
-				+ ", charge=" + charge + "]";
+				+ ", charge=" + charge + ", appKeyUrl=" + appKeyUrl + "]";
 	}
+	
+	
 	
 }

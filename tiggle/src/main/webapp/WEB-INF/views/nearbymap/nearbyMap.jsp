@@ -67,6 +67,7 @@
 					<div id="map"><!-- 카카오 지도 표시 --></div>
 				</td>
 			</tr>
+			<tr><td><a href="directions.do">direction</a></td></tr>
 		</table>
 	
 		
