@@ -15,12 +15,10 @@
 		document.rupdate.action="rupdate.do"
 		document.rupdate.submit();
 		
-		if(response.status == 200){ 
-			window.location.href = 'http://localhost:8080/tiggle/exhibitionDetail.do?no=${ review.totalId }';
-			    opener.parent.reload(); // 부모 쪽 reload 함수를 실행시키는 함수
-			    window.close();
-			window.open("about:blank", "_self").close();
-			}
+		window.location.href = 'http://localhost:8080/tiggle/exhibitionDetail.do?no=${ review.totalId }';
+	    opener.parent.reload(); // 부모 쪽 reload 함수를 실행시키는 함수
+		window.open("about:blank", "_self").close();
+
 	}
 	
 	
@@ -31,7 +29,7 @@
 <br>
 <!-- form 에서 파일이 첨부되어서 전송이 될 경우에는 반드시 enctype = "multipart/form-data" 속성을 추가해야 함 -->
 <form name="rupdate" method="post">
-<input type="hidden" name="totalId" value="${ review.totalId }">
+<input type="hidden" name="totalId" value="${ exhibition.totalId }">
 <input type="hidden" name="uuid" value="${ sessionScope.loginMember.uuid }">
  <input type="hidden" name="nickname" value="${ sessionScope.loginMember.nickname }">
  <input type="hidden" name="page" value="${ requestScope.currentPage }">

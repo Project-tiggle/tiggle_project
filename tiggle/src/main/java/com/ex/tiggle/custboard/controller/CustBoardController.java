@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ex.tiggle.common.FileNameChange;
 import com.ex.tiggle.common.Paging;
+import com.ex.tiggle.common.Search;
 import com.ex.tiggle.custboard.model.dto.CustBoard;
 import com.ex.tiggle.custboard.model.service.CustBoardService;
 import com.ex.tiggle.member.model.dto.Member;
@@ -315,6 +316,80 @@ public class CustBoardController {
 		}
 	}
 
+	// 검색 처리용
+	@RequestMapping("cbSearch.do")
+	public ModelAndView custBoardSearch(
+			ModelAndView mv,
+			HttpServletRequest request) {
+		String keyword = request.getParameter("keyword").trim();
+		String sOption = request.getParameter("sOption");
+		Search search = new Search();
+		
+		if((sOption == null || sOption.trim().isEmpty()) && (keyword == null || keyword.trim().isEmpty())) {
+			mv.setViewName("redirect:adminCustBoard.do");
+			return mv;
+		}
+		
+		//검색 결과에 대한 페이징 처리
+		int currentPage = 1;
+		//페이지로 전송온 값이 있다면
+		if(request.getParameter("page") != null) {
+			currentPage = Integer.parseInt(request.getParameter("page"));
+		}
+		
+		//한 페이지에 출력할 목록 갯수 지정
+		int limit = 10;
+		//페이지로 전송온 값이 있다면
+		if(request.getParameter("limit") != null) {
+			limit = Integer.parseInt(request.getParameter("limit"));
+		}
+		
+		//총 페이지수 계산을 위해 겸색 결과가 적용된 총 목록 갯수 조회
+		int listCount = 0;
+		switch(sOption) {
+			case "cbNo":	listCount = custBoardService.selectSearchCbNoCount(keyword); break;
+			case "cbTitle":	listCount = custBoardService.selectSearchCbTitleCount(keyword); break;
+			case "cbId":listCount = custBoardService.selectSearchCbIdCount(keyword); break;
+			default: listCount = 0; break;
+		}
+		
+		//페이징 계산 처리
+		Paging paging = new Paging(listCount, limit, currentPage, "cbSearch.do");
+		paging.calculate();
+		
+		//겸색별 목록 조회 요청
+		ArrayList<CustBoard> list = null;
+		search.setStartRow(paging.getStartRow());
+		search.setEndRow(paging.getEndRow());
+		
+		switch(sOption) {
+			case "nNo": search.setKeyword(keyword);
+				list = custBoardService.selectSearchCbNo(search); break;
+			case "nTitle": search.setKeyword(keyword); 
+				list = custBoardService.selectSearchCbTitle(search); break;
+			case "nWriter": search.setKeyword(keyword); 
+				list = custBoardService.selectSearchCbId(search); break;
+		}
+		
+		if(list != null && list.size() > 0) {
+			mv.addObject("list", list);
+			mv.addObject("paging", paging);
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("limit", limit);
+			mv.setViewName("custboard/adminCustView");
+			
+			if (sOption !=null || keyword != null) {
+			    mv.addObject("sOption", sOption);
+			    mv.addObject("keyword", keyword);
+			}
+			
+		}else {
+			mv.addObject("message", sOption + "에 대한 " + keyword + " 검색 결과가 존재하지 않습니다.<br> 확인 후 다시 검색해보세요.");
+			mv.setViewName("common/error");
+		}
+		
+		return mv;
+	}
 	
 	//------------------------------------------일반사용자---------------------------------------------------
 	// 일반사용자용 1:1 문의내역 메인페이지로 이동(자신의 글과 그 글에 대한 댓글만 출력)

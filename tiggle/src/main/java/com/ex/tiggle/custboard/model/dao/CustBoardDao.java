@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ex.tiggle.common.Paging;
+import com.ex.tiggle.common.Search;
 import com.ex.tiggle.custboard.model.dto.CustBoard;
 
 @Repository("custBoardDao")
@@ -72,6 +73,33 @@ public class CustBoardDao {
 
 	public int updateUsOrigin(CustBoard custBoard) {
 		return sqlSessionTemplate.update("custBoardMapper.updateUsOrigin", custBoard);
+	}
+
+	public int selectSearchCbNoCount(String keyword) {
+		return sqlSessionTemplate.selectOne("custBoardMapper.selectSearchCbNoCount", keyword);
+	}
+
+	public int selectSearchCbTitleCount(String keyword) {
+		return sqlSessionTemplate.selectOne("custBoardMapper.selectSearchCbTitleCount", keyword);
+	}
+
+	public int selectSearchCbIdCount(String keyword) {
+		return sqlSessionTemplate.selectOne("custBoardMapper.selectSearchCbIdCount", keyword);
+	}
+
+	public ArrayList<CustBoard> selectSearchCbNo(Search search) {
+		List<CustBoard> list = sqlSessionTemplate.selectList("custBoardMapper.selectSearchCbNo", search);
+		return (ArrayList<CustBoard>)list;
+	}
+
+	public ArrayList<CustBoard> selectSearchCbTitle(Search search) {
+		List<CustBoard> list = sqlSessionTemplate.selectList("custBoardMapper.selectSearchCbTitle", search);
+		return (ArrayList<CustBoard>)list;
+	}
+
+	public ArrayList<CustBoard> selectSearchCbId(Search search) {
+		List<CustBoard> list = sqlSessionTemplate.selectList("custBoardMapper.selectSearchCbId", search);
+		return (ArrayList<CustBoard>)list;
 	}
 
 }

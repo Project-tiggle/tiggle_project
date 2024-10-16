@@ -1,3 +1,7 @@
+/* 하버사인 공식으로 내 주변 3km 정보만 표시
+*  마커 표시된 자료만 포스터 화면에 출력
+*/
+
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 mapOption = {
 	center : new kakao.maps.LatLng(37.5663174209601, 126.977829174031), // 지도의 중심좌표
