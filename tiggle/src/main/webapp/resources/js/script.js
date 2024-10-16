@@ -82,7 +82,7 @@ $(function(){
                                 + '</p>';
                                 
                 // swiper-slide의 nth-child에 해당하는 .new_notice에 각각의 값을 추가
-                $('.swiper-slide:nth-child(' + (parseInt(i) + 1) + ') .new_notice').html(noticeHTML);
+                $('.main_notice .swiper-slide:nth-child(' + (parseInt(i) + 1) + ') .new_notice').html(noticeHTML);
             }
         }, //success end
         error: function(jqXHR, textStatus, errorThrown){
@@ -101,3 +101,111 @@ $(function(){
     });
 });
 //main_notice swiper end
+
+
+
+//evc_ranking
+$(function(){
+    $.ajax({
+        url: 'exhibitionMainTop10.do',
+        type: 'post',
+        dataType: 'json',
+        success: function(data){
+            console.log('success : ' + data); //[object Object]
+				
+            //배열을 가지고 오는 json 을 처리할 때
+            //object --> string
+            var str = JSON.stringify(data);
+            
+            //string --> json : parsing
+            var json = JSON.parse(str);
+
+            values = '';
+
+            for (var i in json.elist) {
+                var totalId = decodeURIComponent(json.elist[i].totalId);
+                //var fileUrl = decodeURIComponent(json.elist[i].fileUrl);
+                var fileUrl = json.elist[i].fileUrl;
+                var title = decodeURIComponent(json.elist[i].title.replace(/\+/gi, ' '));
+                var cnctInsttNm = decodeURIComponent(json.elist[i].cnctInsttNm);
+
+                if (!fileUrl.startsWith('http')) {
+                    fileUrl = '/tiggle/resources/exhibit_upfiles/' + fileUrl;
+                }                
+                console.log(fileUrl);
+
+                var evcRankingHTML = '<a href="exhibitionDetail.do?no=' + totalId + '"><div class="evc_poster"><img src="' + fileUrl + '"><span>' + (parseInt(i) + 1) + '</span></div><p>' + title + '</p><p>' + cnctInsttNm + '</p><p>' + json.elist[i].startDate + ' ~ ' + json.elist[i].endDate + '</p></a>';
+
+                $('.evc_ranking .swiper-slide:nth-child(' + (parseInt(i) + 1) + ')').html(evcRankingHTML);
+            }
+        }, //success end
+        error: function(jqXHR, textStatus, errorThrown){
+            console.log('error : ' + jqXHR + ', ' + textStatus + ', ' + errorThrown);
+        }, //error end
+    });//ajax end
+
+    let evcRankingSwiper = new Swiper('.evc_ranking .swiper-container', {
+        slidesPerView: 5,
+        // autoplay: {
+        //     delay: 3500,
+        //     disableOnInteraction: false,
+        // },
+        // speed: 700,
+        loop: true,
+    });//evcRankingSwiper end
+});
+//evc_ranking end
+
+
+
+//month_ranking
+$(function(){
+    $.ajax({
+        url: 'exhibitionMainSameMon.do',
+        type: 'post',
+        dataType: 'json',
+        success: function(data){
+            console.log('success : ' + data); //[object Object]
+				
+            //배열을 가지고 오는 json 을 처리할 때
+            //object --> string
+            var str = JSON.stringify(data);
+            
+            //string --> json : parsing
+            var json = JSON.parse(str);
+
+            values = '';
+
+            for (var i in json.elist) {
+                var totalId = decodeURIComponent(json.elist[i].totalId);
+                //var fileUrl = decodeURIComponent(json.elist[i].fileUrl);
+                var fileUrl = json.elist[i].fileUrl;
+                var title = decodeURIComponent(json.elist[i].title.replace(/\+/gi, ' '));
+                var cnctInsttNm = decodeURIComponent(json.elist[i].cnctInsttNm);
+
+                if (!fileUrl.startsWith('http')) {
+                    fileUrl = '/tiggle/resources/exhibit_upfiles/' + fileUrl;
+                }                
+                console.log(fileUrl);
+
+                var monthRankingHTML = '<a href="exhibitionDetail.do?no=' + totalId + '"><div class="month_poster"><img src="' + fileUrl + '"><span>' + (parseInt(i) + 1) + '</span></div><p>' + title + '</p><p>' + cnctInsttNm + '</p><p>' + json.elist[i].startDate + ' ~ ' + json.elist[i].endDate + '</p></a>';
+
+                $('.month_ranking .swiper-slide:nth-child(' + (parseInt(i) + 1) + ')').html(monthRankingHTML);
+            }
+        }, //success end
+        error: function(jqXHR, textStatus, errorThrown){
+            console.log('error : ' + jqXHR + ', ' + textStatus + ', ' + errorThrown);
+        }, //error end
+    });//ajax end
+
+    let monthRankingSwiper = new Swiper('.month_ranking .swiper-container', {
+        slidesPerView: 5,
+        // autoplay: {
+        //     delay: 3500,
+        //     disableOnInteraction: false,
+        // },
+        // speed: 700,
+        loop: true,
+    });//monthRankingSwiper end
+});
+//month_ranking end

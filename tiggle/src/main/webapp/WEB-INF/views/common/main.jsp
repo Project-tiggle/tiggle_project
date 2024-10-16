@@ -53,51 +53,306 @@
 				<div class="swiper-pagination"></div>
 			 </div><!-- swiper-container end -->
 		</div><!-- main_slide end -->
-	
-	
-	
-		<!-- 맨 하단에 공지사항 출력 -->
-		<div class="main_notice">
-			<div class="main_notice_top">
-				<p>새로운 공지사항</p>
+		
+		
+		
+		<div class="evc_ranking">
+			<div class="evc_ranking_top">
+				<p>조회수 랭킹</p>
 				<p>
-					<a href="nlist.do?page=1">전체보기 <span>&gt;</span></a>
+					<a href="exhibitionMain.do">전시 전체보기 <span>&gt;</span></a>
 				</p>
-			</div><!-- main_notice_top end -->
-
-			<!-- <div class="new_notice_top">
-				<p>NO</p>
-				<p>제목</p>
-				<p>등록날짜</p>
-			</div> -->
-			<!-- new_notice_top -->
-
+			</div><!-- evc_ranking_top end -->
+			
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<div class="new_notice" id="new_notice1">
-							<p></p><!-- 번호 -->
-							<p></p><!-- 제목 -->
-							<p></p><!-- 등록날짜 -->
-						</div>
+						<a href="#">
+							<div class="evc_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- evc_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
 					</div><!-- swiper-slide end 1 -->
 					<div class="swiper-slide">
-						<div class="new_notice" id="new_notice2">
-							<p></p><!-- 번호 -->
-							<p></p><!-- 제목 -->
-							<p></p><!-- 등록날짜 -->
-						</div>
+						<a href="#">
+							<div class="evc_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- evc_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
 					</div><!-- swiper-slide end 2 -->
 					<div class="swiper-slide">
-						<div class="new_notice" id="new_notice3">
-							<p></p><!-- 번호 -->
-							<p></p><!-- 제목 -->
-							<p></p><!-- 등록날짜 -->
-						</div>
+						<a href="#">
+							<div class="evc_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- evc_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
 					</div><!-- swiper-slide end 3 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="evc_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- evc_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 4 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="evc_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- evc_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 5 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="evc_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- evc_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 6 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="evc_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- evc_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 7 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="evc_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- evc_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 8 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="evc_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- evc_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 9 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="evc_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- evc_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 10 -->
 				</div><!-- swiper-wrapper end -->
 			</div><!-- swiper-container end -->
-		</div><!-- main_notice end -->
+		</div><!-- evc_ranking end -->
+		
+		
+		
+		<div class="month_ranking">
+			<div class="month_ranking_top">
+				<p>이달의 전시</p>
+				<p>
+					<a href="exhibitionMain.do">전시 전체보기 <span>&gt;</span></a>
+				</p>
+			</div><!-- month_ranking_top end -->
+			
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="month_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- month_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 1 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="month_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- month_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 2 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="month_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- month_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 3 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="month_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- month_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 4 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="month_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- month_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 5 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="month_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- month_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 6 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="month_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- month_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 7 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="month_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- month_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 8 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="month_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- month_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 9 -->
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="month_poster">
+								<img src=""><!-- 포스터 -->
+								<span></span><!-- 랭킹순위 -->
+							</div><!-- month_poster end -->
+							<p></p><!-- 타이틀 -->
+							<p></p><!-- 연계기관 -->
+							<p></p><!-- 날짜 -->
+						</a>
+					</div><!-- swiper-slide end 10 -->
+				</div><!-- swiper-wrapper end -->
+			</div><!-- swiper-container end -->
+		</div><!-- month_ranking end -->
+		
+		
+		
+			<div class="main_notice">
+				<div class="main_notice_top">
+					<p>새로운 공지사항</p>
+					<p>
+						<a href="nlist.do?page=1">전체보기 <span>&gt;</span></a>
+					</p>
+				</div><!-- main_notice_top end -->
+	
+				<!-- <div class="new_notice_top">
+					<p>NO</p>
+					<p>제목</p>
+					<p>등록날짜</p>
+				</div> -->
+				<!-- new_notice_top -->
+	
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="new_notice" id="new_notice1">
+								<p></p><!-- 번호 -->
+								<p></p><!-- 제목 -->
+								<p></p><!-- 등록날짜 -->
+							</div>
+						</div><!-- swiper-slide end 1 -->
+						<div class="swiper-slide">
+							<div class="new_notice" id="new_notice2">
+								<p></p><!-- 번호 -->
+								<p></p><!-- 제목 -->
+								<p></p><!-- 등록날짜 -->
+							</div>
+						</div><!-- swiper-slide end 2 -->
+						<div class="swiper-slide">
+							<div class="new_notice" id="new_notice3">
+								<p></p><!-- 번호 -->
+								<p></p><!-- 제목 -->
+								<p></p><!-- 등록날짜 -->
+							</div>
+						</div><!-- swiper-slide end 3 -->
+					</div><!-- swiper-wrapper end -->
+				</div><!-- swiper-container end -->
+			</div><!-- main_notice end -->
+		
+		
+		
+
 	</div><!-- main end -->
 	<!-- main section end -->
 	

@@ -181,5 +181,67 @@ html, body {background: #fff; color: #333; font-family: -apple-system, BlinkMacS
 }
 /* main_notice end */
 
+/* evc_ranking */
+.evc_ranking {width: 90%; max-width: 1280px; margin: 100px auto;}
+.evc_ranking_top {width: 100%; box-sizing: border-box; padding: 0 10px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;}
+.evc_ranking_top > p:nth-child(1) {font-weight: bold; font-size: 36px;}
+.evc_ranking_top > p > a {color: #ff5f2c; font-size: 16px; font-weight: bold;}
+.evc_ranking_top > p > a > span {position: relative; left: 0; transition: all 0.3s;}
+.evc_ranking_top > p > a:hover > span {left: 10px;}
+/* evc_ranking_top end */
+
+.evc_ranking .swiper-container {width: 100%; overflow: hidden;}
+.evc_ranking .swiper-wrapper {width: 100%;}
+.evc_ranking .swiper-slide {width: 18%; box-sizing: border-box; padding: 0 10px;}
+.evc_poster {width: 100%; position: relative; margin-bottom: 15px; display: flex; justify-content: center;}
+.evc_poster > img {display: block; height: 236px;}
+.evc_poster > span {position: absolute; bottom: 10px; left: 10px; font-weight: bold; font-size: 36px; color: #ff5f2c;}
+
+.evc_ranking .swiper-slide > a > p {width: 90%; margin: 0 auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.evc_ranking .swiper-slide > a > p:nth-of-type(1) {font-size: 16px; font-weight: bold;}
+.evc_ranking .swiper-slide > a > p:nth-of-type(2) {font-size: 15px; margin-top: 5px;}
+.evc_ranking .swiper-slide > a > p:nth-of-type(3) {color: #999; font-size: 14px;}
+/* evc_ranking end */
+
+/* month_ranking */
+.month_ranking {width: 90%; max-width: 1280px; margin: 100px auto;}
+.month_ranking_top {width: 100%; box-sizing: border-box; padding: 0 10px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;}
+.month_ranking_top > p:nth-child(1) {font-weight: bold; font-size: 36px;}
+.month_ranking_top > p > a {color: #ff5f2c; font-size: 16px; font-weight: bold;}
+.month_ranking_top > p > a > span {position: relative; left: 0; transition: all 0.3s;}
+.month_ranking_top > p > a:hover > span {left: 10px;}
+/* month_ranking_top end */
+
+.month_ranking .swiper-container {width: 100%; overflow: hidden;}
+.month_ranking .swiper-wrapper {width: 100%;}
+.month_ranking .swiper-slide {width: 18%; box-sizing: border-box; padding: 0 10px;}
+.month_poster {width: 100%; position: relative; margin-bottom: 15px; display: flex; justify-content: center;}
+.month_poster > img {display: block; height: 236px;}
+.month_poster > span {position: absolute; bottom: 10px; left: 10px; font-weight: bold; font-size: 36px; color: #ff5f2c;}
+
+.month_ranking .swiper-slide > a > p {width: 90%; margin: 0 auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.month_ranking .swiper-slide > a > p:nth-of-type(1) {font-size: 16px; font-weight: bold;}
+.month_ranking .swiper-slide > a > p:nth-of-type(2) {font-size: 15px; margin-top: 5px;}
+.month_ranking .swiper-slide > a > p:nth-of-type(3) {color: #999; font-size: 14px;}
+/* month_ranking end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .chatbot_wrap {width: 100px; position: fixed; right: 20px; bottom: 40px; z-index: 100;}
 .chatbot_wrap > img {display: block; width: 100%;}
+/* chatbot_wrap end */

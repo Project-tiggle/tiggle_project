@@ -133,7 +133,7 @@
 	</update>
 	
 	<!-- ajax 요청 : 최근 등록 게시글 3개 조회용 (top-N) -->
-	<select id="selectTop10" resultMap="resultTop10">
+	<select id="selectListTop10" resultMap="resultTop10">
 		SELECT *
 		FROM (SELECT rownum rnum,
 					 total_id,

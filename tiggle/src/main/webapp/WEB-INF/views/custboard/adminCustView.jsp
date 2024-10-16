@@ -1,15 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>1:1 문의</title>
+
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/member_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/custBoard_style.css">
+
+<script type="text/javascript">
+$(function(){
+	//input 태그의 name이 item인 radio 값이 바뀌면(change) 작동되는 이벤트 핸들러 작성
+	//jQuery('태그선택자').실행할메소드명(.....); => jQuery 는 줄여서  $로 표시함
+	$('input[name=item]').on('change', function(){
+		//3개의 item 중에 체크표시가 된 radio 를 선택 => 반복 처리 : each() 메소드 사용
+		$('input[name=item]').each(function(index){
+			//선택된 radio 순번대로 하나씩 checked 인지 확인함 : is() 메소드 사용
+			if($(this).is(':checked')){
+				//체크 표시된 아이템에 대한 폼이 보여지게 처리함
+				$('form.sform').eq(index).css('display', 'block');
+			}else{
+				//체크 표시 안된 아이템에 대한 폼이 안 보여지게 처리함
+				$('form.sform').eq(index).css('display', 'none');
+			}
+		});  //each
+		
+	});  //onchange
+}); //document.ready
+</script>
+
 </head>
 <body>
 	<c:import url="/WEB-INF/views/common/header.jsp" />
@@ -108,15 +130,26 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				
+			</div>
+			<div class="">
+				<form action="" method="get" id="">
+					<select name="sOption" class="search_option">
+						<option value="">검색</option>
+						<option value="cbNo">번호</option>
+						<option value="cbTitle">제목</option>
+						<option value="cbId">아이디</option>
+					</select>
+
+					<input type="text" name="keyword">
+					<input type="submit" value="검색">
+				</form>
 			</div>
 			<c:import url="/WEB-INF/views/common/pagingView.jsp" />
 			<br><br><br><br>
-
-			<!-- myinfo_wrap end -->
 		</div>
-		<!-- myinfo_content end -->
 	</div>
-	<!-- myinfo_section end -->
+	
 	
 
 	<c:import url="/WEB-INF/views/common/footer.jsp" />
