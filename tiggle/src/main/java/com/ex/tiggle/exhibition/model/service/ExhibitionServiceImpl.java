@@ -43,13 +43,18 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 	}
 
 	@Override
-	public ArrayList<Exhibition> selectListTop8() {
-		return exhibitionDao.selectListTop8();
+	public ArrayList<Exhibition> selectListTop10() {
+		return exhibitionDao.selectListTop10();
 	}
 
 	@Override
 	public ArrayList<Exhibition> selectListSameMon() {
 		return exhibitionDao.selectListSameMon();
+	}
+
+	@Override
+	public int updateAddReadCount(String totalId) {
+		return exhibitionDao.updateAddReadCount(totalId);
 	}
 	
 	

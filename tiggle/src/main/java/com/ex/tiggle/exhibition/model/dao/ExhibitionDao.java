@@ -41,14 +41,18 @@ public class ExhibitionDao {
 		return sqlSessionTemplate.delete("exhibitionMapper.deleteApi");
 	}
 
-	public ArrayList<Exhibition> selectListTop8() {
-		List<Exhibition> list = sqlSessionTemplate.selectList("exhibitionMapper.selectListTop8");
+	public ArrayList<Exhibition> selectListTop10() {
+		List<Exhibition> list = sqlSessionTemplate.selectList("exhibitionMapper.selectListTop10");
 		return (ArrayList<Exhibition>)list;
 	}
 
 	public ArrayList<Exhibition> selectListSameMon() {
 		List<Exhibition> list = sqlSessionTemplate.selectList("exhibitionMapper.selectListSameMon");
 		return (ArrayList<Exhibition>)list;
+	}
+
+	public int updateAddReadCount(String totalId) {
+		return sqlSessionTemplate.update("exhibitionMapper.updateAddReadCount", totalId);
 	}
 
 	

@@ -15,6 +15,6 @@ public interface ReviewService {
 	
 	// dml 
 	int insertReview(Review review);
-	
-
+	int updateReview(Review review);
+	int deleteReview(int rNum);
 }

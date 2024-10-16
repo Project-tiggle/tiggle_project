@@ -42,4 +42,14 @@ public class ReviewDao {
 		return sqlSessionTemplate.insert("reviewMapper.insertReview", review);
 	}
 
+
+	public int updateReview(Review review) {
+		return sqlSessionTemplate.update("reviewMapper.updateReview", review);
+	}
+
+
+	public int deleteReveiw(int rNum) {
+		return sqlSessionTemplate.update("reviewMapper.deleteReview", rNum);
+	}
+
 }

@@ -71,21 +71,19 @@
 	</insert>	
 	
 	<!-- 한줄평 삭제용 쿼리 -->
-	<update id="updateReviewDeleteYN">
+	<update id="deleteReview" parameterType="_int">
 		update	TB_REVIEW
 		set delete_YN = 'Y' , 
 			deleteDate = sysdate
+		where r_num = #{ rNum }
 	</update>
 	
 	<!-- 한줄평 수정용 쿼리 -->
 	<update id="updateReview" parameterType="Review">
 		update TB_REVIEW
-		set	total_id = #{ totalId },
-			uuid = #{ uuid },
-			r_contents = #{ rContents }, 
+		set	r_contents = #{ rContents }, 
 			update_date = sysdate, 
 			update_yn = 'Y'
-			)
 		where r_num = #{ rNum }
 	</update> 
 	
