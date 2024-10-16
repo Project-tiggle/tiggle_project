@@ -33,13 +33,17 @@ public class ReviewDao {
 	}
 
 
-	public Review selectReview(String uuid) {
-		return sqlSessionTemplate.selectOne("reviewMapper.selectReview", uuid);
+	public Review selectReview(Review review) {
+		return sqlSessionTemplate.selectOne("reviewMapper.selectReview", review);
 	}
 
 
 	public int insertReview(Review review) {
 		return sqlSessionTemplate.insert("reviewMapper.insertReview", review);
+	}
+
+	public int insertReviewD(Review review) {
+		return sqlSessionTemplate.insert("reviewMapper.insertReviewD", review);
 	}
 
 

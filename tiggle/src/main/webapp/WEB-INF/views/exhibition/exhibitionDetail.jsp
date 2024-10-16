@@ -199,6 +199,12 @@ function reload(){
     }, 100); 
 }
 
+function rvdPopupOpen(rN){
+	var delYN = window.confirm('한줄평을 삭제하시겠습니까?')
+	if(delYN == true){
+		location.href="rdelete.do?rNum=" + rN + "&totalId=" + ${ exhibition.totalId };
+	}
+}
 
 </script>
 
@@ -283,7 +289,7 @@ function reload(){
 					<td>
 						<c:if test="${ !empty sessionScope.loginMember && rv.uuid eq sessionScope.loginMember.uuid }">
 							<button onclick="rvuPopupOpen()">수정</button>
-							<button onclick="rvdPopupOpen()">삭제</button>
+							<button onclick="rvdPopupOpen(${ rv.rNum })">삭제</button>
 							<c:set var="writeflag" value="true"/>
 						</c:if>
 					</td>
@@ -305,6 +311,7 @@ function reload(){
 		<h2>오시는 길</h2>
 		<div style="width: 600x; height: 450px; border: 1px red; background: green;">
 			지도가 들어갈 공간
+			
 		</div>
 	</fieldset>
 </div>

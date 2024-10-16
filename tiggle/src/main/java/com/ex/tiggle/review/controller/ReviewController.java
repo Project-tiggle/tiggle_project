@@ -50,19 +50,20 @@ public class ReviewController {
 	@RequestMapping("rvmoveup.do")
 	public ModelAndView moveUpdatePage(HttpSession session,
 			@RequestParam("no") String totalId,
-			@RequestParam(value="uuid", required=false) String uuid,
-			@RequestParam("page") int currentPage,
 			ModelAndView mv) {
 		Member member = (Member)session.getAttribute("loginMember");
-		String memberInfo = member.getUuid();
+		Review review = new  Review();
+		review.setUuid(member.getUuid());
+		review.setTotalId(totalId);
 		
 		Exhibition exhibition = exhibitionService.selectExhibitionOne(totalId);
-		Review reivew = reviewService.selectReivew(memberInfo);
+		Review reviewF = reviewService.selectReivew(review);
 		
-		if (reivew != null) {
+	
+		logger.info(totalId);
+		if (reviewF != null) {
 			mv.addObject("exhibition", exhibition);
-			mv.addObject("review", reivew);
-			mv.addObject("currentPage", currentPage);
+			mv.addObject("review", reviewF);
 			mv.setViewName("review/reviewUpdateForm");
 		} else {
 			mv.addObject("message", "한줄평 수정 권한이 없습니다.");
@@ -136,12 +137,13 @@ public class ReviewController {
 	// 한줄평 수정 요청 처리용
 	@RequestMapping(value = "rupdate.do", method = RequestMethod.POST)
 	public ResponseEntity reviewUpdateMethod(Review review, Model model, HttpServletRequest request,
-			@RequestParam(name="page", required=false) String page
+			@RequestParam(name="page", required=false) String page,
+			@RequestParam(name="uuid") String uuid
 			) {
 		logger.info("rupdate.do : " + review); // 전송온 값 확인
 
 		int currentPage = 1;
-		if( page != null) {
+		if( page != null && page.length() > 0) {
 			currentPage = Integer.parseInt(page);
 		}
 		if(reviewService.updateReview(review) > 0) {
@@ -152,21 +154,25 @@ public class ReviewController {
 	} 
 	
 	// 한줄평 삭제 요청 처리용
-		@RequestMapping(value = "rdelete.do", method = RequestMethod.POST)
-		public String reviewDeleteMethod(Review review, Model model, HttpServletRequest request,
-				@RequestParam(name="page", required=false) String page
+		@RequestMapping(value = "rdelete.do", method = RequestMethod.GET)
+		public String reviewDeleteMethod(Model model, HttpSession session,
+				@RequestParam("totalId") String totalId,
+				@RequestParam(name="rNum") int rNum
 				) {
-			logger.info("rdelete.do : " + review); // 전송온 값 확인
-
-			int currentPage = 1;
-			if( page != null) {
-				currentPage = Integer.parseInt(page);
-			}
-			if (reviewService.deleteReview(review.getrNum()) > 0) {
-				model.addAttribute("currentPage", currentPage);
-				return "redirect:/exhibitionDetail.do?no=" + review.getTotalId() + "&page=";
+			logger.info("rdelete.do : " + rNum); // 전송온 값 확인
+			logger.info("rdelete.do : " + totalId); // 전송온 값 확인
+			Member member = (Member)session.getAttribute("loginMember");
+			Review review = new  Review();
+			review.setUuid(member.getUuid());
+			review.setTotalId(totalId);
+			
+			Review reviewd = reviewService.selectReivew(review);
+			reviewService.insertReviewD(reviewd);
+			
+			if (reviewService.deleteReview(rNum) > 0) {
+				return "redirect:/exhibitionDetail.do?no=" + review.getTotalId() + "&page=1";
 			}else { 
-				model.addAttribute("message", review.getrNum() + "한줄평 삭제 실패!");
+				model.addAttribute("message", rNum + "한줄평 삭제 실패!");
 				return "common/error";
 			}
 		} 

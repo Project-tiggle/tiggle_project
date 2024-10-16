@@ -29,8 +29,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public Review selectReivew(String uuid) {
-		return reviewDao.selectReview(uuid);
+	public Review selectReivew(Review review) {
+		return reviewDao.selectReview(review);
 	}
 
 	@Override
@@ -46,5 +46,10 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public int deleteReview(int rNum) {
 		return reviewDao.deleteReveiw(rNum);
+	}
+
+	@Override
+	public int insertReviewD(Review reviewd) {
+		return reviewDao.insertReviewD(reviewd);
 	}
 } // ReviewService end

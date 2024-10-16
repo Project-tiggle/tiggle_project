@@ -21,10 +21,11 @@
 	
 
 	<!-- ajax 테스트용 : 최근 등록된 마지막 공지글 한 개 조회용 -->
-	<select id="selectReview" parameterType="string" resultMap="resultReview">
+	<select id="selectReview" parameterType="Review" resultMap="resultReview">
 		select * 
 		from TB_REVIEW
 		where uuid = #{ uuid }
+		AND total_id = #{ totalId }
 	</select>
 	
 	<select id="selectListCount" resultType="_int" parameterType="string">
@@ -70,13 +71,26 @@
 				)
 	</insert>	
 	
+	<insert id="insertReviewD" parameterType="Review">
+		insert into TB_REVIEW_Delete
+		values (#{ totalId },
+				#{ uuid },
+				#{ rNum },
+				#{ nickname },
+				#{ rContents },
+				#{ writeDate },
+				#{ updateDate },
+				#{ updateYN },
+				sysdate,
+				'Y'
+				)
+	</insert>	
+	
 	<!-- 한줄평 삭제용 쿼리 -->
-	<update id="deleteReview" parameterType="_int">
-		update	TB_REVIEW
-		set delete_YN = 'Y' , 
-			deleteDate = sysdate
+	<delete id="deleteReview" parameterType="_int">
+		delete from	TB_REVIEW
 		where r_num = #{ rNum }
-	</update>
+	</delete>
 	
 	<!-- 한줄평 수정용 쿼리 -->
 	<update id="updateReview" parameterType="Review">
