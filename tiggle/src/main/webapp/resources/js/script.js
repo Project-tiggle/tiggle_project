@@ -145,7 +145,7 @@ $(function(){
     });//ajax end
 
     let evcRankingSwiper = new Swiper('.evc_ranking .swiper-container', {
-        slidesPerView: 5,
+        slidesPerView: "auto",
         // autoplay: {
         //     delay: 3500,
         //     disableOnInteraction: false,
@@ -199,7 +199,7 @@ $(function(){
     });//ajax end
 
     let monthRankingSwiper = new Swiper('.month_ranking .swiper-container', {
-        slidesPerView: 5,
+        slidesPerView: "auto",
         // autoplay: {
         //     delay: 3500,
         //     disableOnInteraction: false,

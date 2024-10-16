@@ -308,51 +308,40 @@
 		
 		
 		
-			<div class="main_notice">
-				<div class="main_notice_top">
-					<p>새로운 공지사항</p>
-					<p>
-						<a href="nlist.do?page=1">전체보기 <span>&gt;</span></a>
-					</p>
-				</div><!-- main_notice_top end -->
-	
-				<!-- <div class="new_notice_top">
-					<p>NO</p>
-					<p>제목</p>
-					<p>등록날짜</p>
-				</div> -->
-				<!-- new_notice_top -->
-	
-				<div class="swiper-container">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<div class="new_notice" id="new_notice1">
-								<p></p><!-- 번호 -->
-								<p></p><!-- 제목 -->
-								<p></p><!-- 등록날짜 -->
-							</div>
-						</div><!-- swiper-slide end 1 -->
-						<div class="swiper-slide">
-							<div class="new_notice" id="new_notice2">
-								<p></p><!-- 번호 -->
-								<p></p><!-- 제목 -->
-								<p></p><!-- 등록날짜 -->
-							</div>
-						</div><!-- swiper-slide end 2 -->
-						<div class="swiper-slide">
-							<div class="new_notice" id="new_notice3">
-								<p></p><!-- 번호 -->
-								<p></p><!-- 제목 -->
-								<p></p><!-- 등록날짜 -->
-							</div>
-						</div><!-- swiper-slide end 3 -->
-					</div><!-- swiper-wrapper end -->
-				</div><!-- swiper-container end -->
-			</div><!-- main_notice end -->
-		
-		
-		
+		<div class="main_notice">
+			<div class="main_notice_top">
+				<p>새로운 공지사항</p>
+				<p>
+					<a href="nlist.do?page=1">전체보기 <span>&gt;</span></a>
+				</p>
+			</div><!-- main_notice_top end -->
 
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="new_notice" id="new_notice1">
+							<p></p><!-- 번호 -->
+							<p></p><!-- 제목 -->
+							<p></p><!-- 등록날짜 -->
+						</div>
+					</div><!-- swiper-slide end 1 -->
+					<div class="swiper-slide">
+						<div class="new_notice" id="new_notice2">
+							<p></p><!-- 번호 -->
+							<p></p><!-- 제목 -->
+							<p></p><!-- 등록날짜 -->
+						</div>
+					</div><!-- swiper-slide end 2 -->
+					<div class="swiper-slide">
+						<div class="new_notice" id="new_notice3">
+							<p></p><!-- 번호 -->
+							<p></p><!-- 제목 -->
+							<p></p><!-- 등록날짜 -->
+						</div>
+					</div><!-- swiper-slide end 3 -->
+				</div><!-- swiper-wrapper end -->
+			</div><!-- swiper-container end -->
+		</div><!-- main_notice end -->
 	</div><!-- main end -->
 	<!-- main section end -->
 	
@@ -365,23 +354,3 @@
 	<script src="/tiggle/resources/js/script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
