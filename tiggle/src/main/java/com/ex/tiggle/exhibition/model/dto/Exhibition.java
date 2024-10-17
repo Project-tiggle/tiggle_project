@@ -25,7 +25,7 @@ public class Exhibition implements java.io.Serializable {
 	private String latitude;		// latitude : double	
 	private String longitude;		// longitude : double	
 	private String genre;			// genre : String	
-	private String contactPoint;		//contactPoint : String	
+	private String contactPoint;	// contactPoint : String	
 	private int viewCounter;		// viewCounter : int	
 	private String url;				// url : String	
 	private String period;			// period : String
@@ -45,11 +45,10 @@ public class Exhibition implements java.io.Serializable {
 		super();
 		this.totalId = totalId;		
 	}
-	
-	// 전체 생성자
-	public Exhibition(String totalId, String uuid, String title, String localId, String contributor, String cntcInsttNm, String description,
-			String eventSite, String detailEventSite, String latitude, String longitude, String genre,
-			String contactPoint, int viewCounter, String url, String period, Date startDate, Date endDate,
+
+	public Exhibition(String totalId, String uuid, String title, String localId, String contributor, String cntcInsttNm,
+			String description, String eventSite, String detailEventSite, String latitude, String longitude,
+			String genre, String contactPoint, int viewCounter, String url, String period, Date startDate, Date endDate,
 			String approvalStatus, int category, String fileUrl, String charge) {
 		super();
 		this.totalId = totalId;
@@ -76,7 +75,6 @@ public class Exhibition implements java.io.Serializable {
 		this.charge = charge;
 	}
 
-	// getters and setters
 	public String getTotalId() {
 		return totalId;
 	}
@@ -104,25 +102,25 @@ public class Exhibition implements java.io.Serializable {
 	public String getLocalId() {
 		return localId;
 	}
-	
+
 	public void setLocalId(String localId) {
 		this.localId = localId;
 	}
-	
-	public String getCnctInsttNm() {
-		return cntcInsttNm;
-	}
-	
-	public void setCnctInsttNm(String cntcInsttNm) {
-		this.cntcInsttNm = cntcInsttNm;
-	}
-	
+
 	public String getContributor() {
 		return contributor;
 	}
 
 	public void setContributor(String contributor) {
 		this.contributor = contributor;
+	}
+
+	public String getCntcInsttNm() {
+		return cntcInsttNm;
+	}
+
+	public void setCntcInsttNm(String cntcInsttNm) {
+		this.cntcInsttNm = cntcInsttNm;
 	}
 
 	public String getDescription() {
@@ -200,7 +198,7 @@ public class Exhibition implements java.io.Serializable {
 	public String getPeriod() {
 		return period;
 	}
-	
+
 	public void setPeriod(String period) {
 		this.period = period;
 	}
@@ -248,19 +246,26 @@ public class Exhibition implements java.io.Serializable {
 	public String getCharge() {
 		return charge;
 	}
-	
+
 	public void setCharge(String charge) {
 		this.charge = charge;
 	}
-	// 전체 toString
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public String toString() {
-		return "Exhibition [totalId=" + totalId + ", uuid=" + uuid + ", title=" + title + ", localId=" + localId + ", contributor=" + contributor
-				+ ", cntcInsttNm=" + cntcInsttNm +", description=" + description + ", eventSite=" + eventSite + ", detailEventSite=" + detailEventSite
-				+ ", latitude=" + latitude + ", longitude=" + longitude + ", genre=" + genre + ", contactPoint="
-				+ contactPoint + ", viewCounter=" + viewCounter + ", url=" + url + ", period=" + period + ", startDate=" + startDate
-				+ ", endDate=" + endDate + ", approvalStatus=" + approvalStatus + ", category=" + category
-				+ ", fileUrl=" + fileUrl + ", charge=" + charge +"]";
+		return "Exhibition [totalId=" + totalId + ", uuid=" + uuid + ", title=" + title + ", localId=" + localId
+				+ ", contributor=" + contributor + ", cntcInsttNm=" + cntcInsttNm + ", description=" + description
+				+ ", eventSite=" + eventSite + ", detailEventSite=" + detailEventSite + ", latitude=" + latitude
+				+ ", longitude=" + longitude + ", genre=" + genre + ", contactPoint=" + contactPoint + ", viewCounter="
+				+ viewCounter + ", url=" + url + ", period=" + period + ", startDate=" + startDate + ", endDate="
+				+ endDate + ", approvalStatus=" + approvalStatus + ", category=" + category + ", fileUrl=" + fileUrl
+				+ ", charge=" + charge + "]";
 	}
+	
+	
 	
 }
