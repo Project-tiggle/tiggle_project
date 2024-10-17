@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ex.tiggle.common.Paging;
+import com.ex.tiggle.common.Search;
 import com.ex.tiggle.exhibition.model.dto.Exhibition;
 import com.ex.tiggle.exhibition.model.service.ExhibitionService;
 import com.ex.tiggle.map.model.dto.NearbyMap;
@@ -114,8 +115,8 @@ public class ExhibitionController {
 			job.put("title", URLEncoder.encode(exhibition.getTitle(), "utf-8"));
 			job.put("totalId", URLEncoder.encode(exhibition.getTotalId(), "utf-8"));
 			
-			if (exhibition.getCnctInsttNm() != null) {
-				job.put("cnctInsttNm", URLEncoder.encode(exhibition.getCnctInsttNm(), "utf-8"));				
+			if (exhibition.getCntcInsttNm() != null) {
+				job.put("cnctInsttNm", URLEncoder.encode(exhibition.getCntcInsttNm(), "utf-8"));				
 			}
 			job.put("startDate", exhibition.getStartDate().toString());
 			job.put("endDate", exhibition.getEndDate().toString());
@@ -160,8 +161,8 @@ public class ExhibitionController {
 			job.put("title", URLEncoder.encode(exhibition.getTitle(), "utf-8"));
 			job.put("totalId", URLEncoder.encode(exhibition.getTotalId(), "utf-8"));
 			
-			if (exhibition.getCnctInsttNm() != null) {
-				job.put("cnctInsttNm", URLEncoder.encode(exhibition.getCnctInsttNm(), "utf-8"));				
+			if (exhibition.getCntcInsttNm() != null) {
+				job.put("cnctInsttNm", URLEncoder.encode(exhibition.getCntcInsttNm(), "utf-8"));				
 			}
 			job.put("startDate", exhibition.getStartDate().toString());
 			job.put("endDate", exhibition.getEndDate().toString());
@@ -281,7 +282,7 @@ public class ExhibitionController {
 			Exhibition exhibition = new Exhibition();
 			exhibition.setTitle((String) job.get("TITLE"));
 			exhibition.setLocalId((String) job.get("LOCAL_ID"));		
-			exhibition.setContInsttNm((String) job.get("CNTC_INSTT_NM"));
+			exhibition.setCntcInsttNm((String) job.get("CNTC_INSTT_NM"));
 			exhibition.setDescription((String) job.get("DESCRIPTION"));
 			exhibition.setFileUrl((String) job.get("IMAGE_OBJECT"));
 			exhibition.setUrl((String) job.get("URL"));
@@ -308,6 +309,65 @@ public class ExhibitionController {
 		return new ResponseEntity<String>("success", HttpStatus.OK);
 	}
 	
+	// 게시글 제목 검색용 (페이징 처리 포함)
+	@RequestMapping("esearchTitle.do")
+	public ModelAndView ExhibitionSearchTitleMethod(ModelAndView mv, 
+			@RequestParam(name= "action", defaultValue="POST") String action,
+			@RequestParam("keyword") String keyword,
+			@RequestParam(name = "page", required = false) String page,
+			@RequestParam(name = "limit", required = false) String slimit) {
+
+		// page : 출력할 페이지, limit : 한 페이지에 출력할 목록 갯수
+			logger.info("action" + action);
+			// 페이징 처리
+			int currentPage = 1;
+			if (page != null) {
+				currentPage = Integer.parseInt(page);
+			}
+		
+			// 한 페이지에 출력할 공지 갯수 10개로 지정
+			int limit = 10;
+			if (slimit != null) {
+				limit = Integer.parseInt(slimit);
+			}
+		
+			// 검색 결과가 적용된 총 목록 갯수 조회후 총 페이지 수 계산
+			int listCount = exhibitionService.selectSearchTitleCount(keyword);
 	
+		// 페이지 관련 항목 계산 처리
+		Paging paging = new Paging(listCount, limit, currentPage, "esearchTitle.do");
+		paging.calculate();
 	
+		// mybatis Mapper 에서 사용되는 메소드는 Object 1개만 전달할 수 있음
+		// paging.startRow, paging.endRow + keyword 가 같이 전달해야 하므로 => 하나의 객체로 만들어야 함
+		Search search = new Search();
+		search.setKeyword(keyword);
+		search.setStartRow(paging.getStartRow());
+		search.setEndRow(paging.getEndRow());
+	
+		// 서비스로 목록 조회 요청하고 결과 받기
+		ArrayList<Exhibition> list = exhibitionService.selectSearchTitle(search);
+		logger.info("list size = " + list.size());
+		
+		for( Exhibition test : list ) {
+			logger.info(test.toString());
+		};
+		
+			if (list != null && list.size() > 0) {
+				mv.addObject("list", list);
+				mv.addObject("paging", paging);
+				mv.addObject("currentPage", currentPage);
+				mv.addObject("action", action);
+				mv.addObject("keyword", keyword);
+		
+				mv.setViewName("exhibition/exhibitionSearchResult");
+			
+				
+			} else {
+				mv.addObject("message", action + "에 대한" + keyword + "검색 결과가 존재하지 않습니다.");
+				mv.setViewName("common/error");
+			}
+			return mv;
+		}
+
 }

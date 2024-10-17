@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ex.tiggle.common.Paging;
+import com.ex.tiggle.common.Search;
 import com.ex.tiggle.exhibition.model.dao.ExhibitionDao;
 import com.ex.tiggle.exhibition.model.dto.Exhibition;
 
@@ -55,6 +56,16 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 	@Override
 	public int updateAddReadCount(String totalId) {
 		return exhibitionDao.updateAddReadCount(totalId);
+	}
+
+	@Override
+	public int selectSearchTitleCount(String keyword) {
+		return exhibitionDao.selectSearchTitleCount(keyword);
+	}
+
+	@Override
+	public ArrayList<Exhibition> selectSearchTitle(Search search) {
+		return exhibitionDao.selectSearchTitle(search);
 	}
 	
 	

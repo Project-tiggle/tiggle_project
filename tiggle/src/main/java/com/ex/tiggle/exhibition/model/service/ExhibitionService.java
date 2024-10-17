@@ -3,6 +3,7 @@ package com.ex.tiggle.exhibition.model.service;
 import java.util.ArrayList;
 
 import com.ex.tiggle.common.Paging;
+import com.ex.tiggle.common.Search;
 import com.ex.tiggle.exhibition.model.dto.Exhibition;
 
 public interface ExhibitionService {
@@ -22,5 +23,10 @@ public interface ExhibitionService {
 
 	// DB 데이터 업데이트시 실행할 메서드
 	int deleteApi();
+
+	// 검색기능 관련 메소드
+	int selectSearchTitleCount(String keyword);
+	ArrayList<Exhibition> selectSearchTitle(Search search);
+
 
 }

@@ -145,25 +145,9 @@ div.sdiv {
 </c:if>
 <script type="text/javascript">
 /* $(function(){
-	$('.sdiv').eq(2).css('display', 'block');
+	$('.sdiv').eq(0).css('display', 'block');
 });// document.ready
 
-function showdiv(tag){
-	if($(tag).attr("id") == "div1" ){
-		$('.sdiv').eq(0).css('display', 'block');
-		$('.sdiv').eq(1).css('display', 'none');
-		$('.sdiv').eq(2).css('display', 'none');
-	}
-	if($(tag).attr("id") == "div2"  ){
-		$('.sdiv').eq(0).css('display', 'none');
-		$('.sdiv').eq(1).css('display', 'block');
-		$('.sdiv').eq(2).css('display', 'none');
-	}
-	if($(tag).attr("id") == "div3"  ){
-		$('.sdiv').eq(0).css('display', 'none');
-		$('.sdiv').eq(1).css('display', 'none'); 
-		$('.sdiv').eq(2).css('display', 'block');
-	}
 
 } */
 /* display none 이 비활성화 되면서 3개가 동시에 출력됨
