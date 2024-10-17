@@ -153,3 +153,9 @@
 #inquiryBtn:hover {
 	background-color: #f1f1f1;
 }
+
+#cbMain {
+	width: 80%;
+	max-width: 1280px;
+	margin: 50px auto;
+}

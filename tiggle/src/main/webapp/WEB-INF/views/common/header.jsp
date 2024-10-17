@@ -15,7 +15,7 @@
             <div class="h_top">
                 <nav>
                     <ul class="lnb">
-                        <li><a href="#">고객센터</a></li>
+                        <li><a href="noneMemCBoard.do">고객센터</a></li>
                         <li><a href="TOSPage.do">회원가입</a></li>
                         <li><a href="loginPage.do">로그인</a></li>
                         <li><a href="loginPage.do">마이페이지</a></li>
@@ -99,12 +99,12 @@
                 
                 <div class="m_bt">
 	                <ul class="m_gnb">
-	                    <li><a href="#"><span>&middot;</span>전시회</a></li>
+	                    <li><a href="exhibitionMain.do"><span>&middot;</span>전시회</a></li>
 	                    <li><a href="#"><span>&middot;</span>박람회</a></li>
 	                    <li><a href="nearbyMap.do"><span>&middot;</span>내 주변?</a></li>
 	                    <li><a href="nlist.do?page=1"><span>&middot;</span>공지사항</a></li>
 	                    <li><a href="#"><span>&middot;</span>전시등록</a></li>
-	                    <li><a href="#"><span>&middot;</span>고객센터</a></li>
+	                    <li><a href="noneMemCBoard.do"><span>&middot;</span>고객센터</a></li>
 	                    <li><a href="loginPage.do"><span>&middot;</span>마이페이지</a></li>
 	                </ul><!-- m_gnb end -->
 	            </div><!-- m_bt end -->
@@ -135,7 +135,7 @@
 	                    <c:if test="${ sessionScope.loginMember.memberType ne 'ORGANIZER' }">
 	                    	<li><a href="#"><span>&middot;</span>전시등록</a></li>
 	                    </c:if>
-	                    <li><a href="#"><span>&middot;</span>고객센터</a></li>
+	                    	<li><a href="userCustBoard.do"><span>&middot;</span>고객센터</a></li>
 	                    <li><a href="myInfo.do?uuid=${ sessionScope.loginMember.uuid }"><span>&middot;</span>마이페이지</a></li>
 	                </ul><!-- m_gnb end -->
 	            </div><!-- m_bt end -->
@@ -156,7 +156,7 @@
 	                    <li><a href="nearbyMap.do"><span>&middot;</span>내 주변?</a></li>
 	                    <li><a href="nlist.do?page=1"><span>&middot;</span>공지사항</a></li>
 	                    <li><a href="orgRegistAd.do"><span>&middot;</span>전시등록</a></li>
-	                    <li><a href="#"><span>&middot;</span>고객센터</a></li>
+	                    <li><a href="adminCustBoard.do"><span>&middot;</span>고객센터</a></li>
 	                    <li><a href="ulist.do?page=1"><span>&middot;</span>관리자페이지</a></li>
 	                </ul><!-- m_gnb end -->
 	            </div><!-- m_bt end -->

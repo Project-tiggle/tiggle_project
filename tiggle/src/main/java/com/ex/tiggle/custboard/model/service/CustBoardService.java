@@ -28,7 +28,6 @@ public interface CustBoardService {
 	ArrayList<CustBoard> selectSearchCbTitle(Search search);	//제목으로 검색
 	ArrayList<CustBoard> selectSearchCbId(Search search);		//ID로 검색
 	
-	
 	//공동 사용
 	CustBoard selectCboardCid(int cId);					//1.(관리자, 일반사용자)글 디테일 뷰 이동 2.(관리자)수정 처리용
 	
@@ -38,6 +37,19 @@ public interface CustBoardService {
 	int updateDeleteAt(CustBoard custBoard);			//글 삭제 Y로 업데이트(일반사용자에게 숨김처리)
 	int insertInquiry(CustBoard custBoard);				//문의글 등록
 	int updateUsOrigin(CustBoard custBoard);			//게시글 수정(파일 삭제, 변경하기)
+	
+	//비회원용
+	int selectNoCustListCount();						//비회원 고객게시판 total count
+	ArrayList<CustBoard> selectNoCustList(Paging paging);	//비회원 고객게시판 조회용
+	
+	//검색용(비회원)
+	int selectNoMemSearchNoCount(String keyword);		//비회원 검색 번호 카운트
+	int selectNoMemSearchTitleCount(String keyword);	//비회원 검색 제목 카운트
+	int selectNoMemSearchIdCount(String keyword);		//비회원 검색 ID 카운트
+	ArrayList<CustBoard> selectNoMemSearchNo(Search search);	//비회원 번호 검색
+	ArrayList<CustBoard> selectNoMemSearchTitle(Search search);	//비회원 제목 검색
+	ArrayList<CustBoard> selectNoMemSearchId(Search search);	//비회원 ID 검색
+	
 	
 	
 	

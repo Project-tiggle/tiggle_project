@@ -5,6 +5,7 @@ table {
 	width: 80%;
 	margin: 0 auto; /* 테이블의 화면 중앙에 배치 */
 	border-collapse: collapse; /* 셀 간의 경계를 합쳐서 하나의 경계로 표시 */
+	margin-bottom: 20px;
 }
 
 #mapOuter > td {
@@ -30,7 +31,20 @@ table {
 }
 
 #titleform {
-	text-align: right;
+	display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    top: 1px;
+    left: 1px;
+}
+
+#exhibit-list {
+	display: flex;
+	flex-wrap: wrap;
+	width: 80%;
+	max-width: 1280px;
+	margin: 0 auto;
 }
 
 /* 검색창 스타일 */

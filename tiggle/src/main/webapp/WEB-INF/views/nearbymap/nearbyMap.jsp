@@ -11,16 +11,23 @@
 <link rel="stylesheet" href="/tiggle/resources/css/map_style.css">
 
 <style type="text/css">
+
 /* 전시회 항목 전체 레이아웃 */
 .exhibition-item {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    width: 48%;
+    width: 50%;
     padding: 20px;
     border: 1px solid #ccc;
-    margin-bottom: 20px;
     box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 640px;
+}
+
+.exhibition-poster {
+	height: 330px;
+	width: 230px;
 }
 
 /* 포스터 이미지 크기 */
@@ -28,15 +35,19 @@
     width: 100%;
     height: 100%;
     object-fit: cover !important;
+    display: block;
 }
 
 /* 전시회 정보 영역 */
 .exhibition-details {
     flex: 1;
-    padding-left: 20px;
+    margin-left: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    width: 60%;
+    height: 330px;
+    position: relative;
 }
 
 /* 전시회 제목 스타일 */
@@ -55,14 +66,21 @@
 
 /* 상세보기 버튼 */
 .exhibition-btn {
-    margin-top: 170px; /* 버튼이 아래쪽으로 밀리도록 설정 */
-    padding: 10px 20px;
+    margin-top: 0px; /* 버튼이 아래쪽으로 밀리도록 설정 */
+    height: 45px;
+    line-height: 45px;
+    font-weight: bold;
+    font-family: "Pretendard Variable", Pretendard, sans-selif;
+    letter-spacing: 1px;
     border: none;
-    background-color: #ccc;
-    font-size: 16px;
+    background-color: #eee;
+    font-size: 18px;
     cursor: pointer;
     width: 100%;
     align-self: center;
+    position: absolute;
+    bottom: 0px;
+    transition: all 0.2s;
 }
 
 /* 버튼에 호버 효과 */

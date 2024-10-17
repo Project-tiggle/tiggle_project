@@ -317,13 +317,14 @@ public class CustBoardController {
 	}
 
 	// 검색 처리용
-	@RequestMapping("cbSearch.do")
+	@RequestMapping(value = "cbSearch.do", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView custBoardSearch(
 			ModelAndView mv,
 			HttpServletRequest request) {
 		String keyword = request.getParameter("keyword").trim();
 		String sOption = request.getParameter("sOption");
 		Search search = new Search();
+		
 		
 		if((sOption == null || sOption.trim().isEmpty()) && (keyword == null || keyword.trim().isEmpty())) {
 			mv.setViewName("redirect:adminCustBoard.do");
@@ -363,11 +364,11 @@ public class CustBoardController {
 		search.setEndRow(paging.getEndRow());
 		
 		switch(sOption) {
-			case "nNo": search.setKeyword(keyword);
+			case "cbNo": search.setKeyword(keyword);
 				list = custBoardService.selectSearchCbNo(search); break;
-			case "nTitle": search.setKeyword(keyword); 
+			case "cbTitle": search.setKeyword(keyword); 
 				list = custBoardService.selectSearchCbTitle(search); break;
-			case "nWriter": search.setKeyword(keyword); 
+			case "cbId": search.setKeyword(keyword); 
 				list = custBoardService.selectSearchCbId(search); break;
 		}
 		
@@ -630,4 +631,125 @@ public class CustBoardController {
 				return "common/error";
 			}
 		}
+
+
+//------------------------------------------비회원---------------------------------------------------
+	//고객센터 페이지로 이동
+	@RequestMapping("noneMemCBoard.do")
+	public ModelAndView moveNoneMemberCB(
+			ModelAndView mv,
+			CustBoard custBoard,
+	    	@RequestParam(name = "page", required = false) String page,
+			@RequestParam(name = "limit", required = false) String slimit) {
+		// page : 출력할 페이지, limit : 한 페이지에 출력할 목록 갯수
+		
+		// 페이징 처리
+		int currentPage = 1;
+		if (page != null) {
+			currentPage = Integer.parseInt(page);
+		}
+
+		// 한 페이지에 출력할 등록 목록 10개 지정
+		int limit = 10;
+		if (slimit != null) {
+			limit = Integer.parseInt(slimit);
+		}
+
+		// 총 목록갯수 조회해서 총 페이지 수 계산함
+		int listCount = custBoardService.selectNoCustListCount();
+		// 페이지 관련 항목 계산 처리
+		Paging paging = new Paging(listCount, limit, currentPage, "noneMemCBoard.do");
+		paging.calculate();
+
+		// 서비스롤 목록 조회 요청하고 결과 받기
+		ArrayList<CustBoard> list = custBoardService.selectNoCustList(paging);
+
+		if (list != null && list.size() > 0) {
+			mv.addObject("list", list);
+			mv.addObject("paging", paging);
+			mv.addObject("currentPage", currentPage);
+
+			mv.setViewName("custboard/nonMemCustView");
+		} else {
+			mv.setViewName("custboard/nonMemCustView");
+		}
+
+		return mv;
+	}
+
+	//비회원 검색
+	@RequestMapping(value = "noMemCbSearch.do", method= {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView noMemCBoardSearch(
+			ModelAndView mv,
+			HttpServletRequest request) {
+		String keyword = request.getParameter("keyword").trim();
+		String sOption = request.getParameter("sOption");
+		Search search = new Search();
+		
+		
+		if((sOption == null || sOption.trim().isEmpty()) && (keyword == null || keyword.trim().isEmpty())) {
+			mv.setViewName("redirect:adminCustBoard.do");
+			return mv;
+		}
+		
+		//검색 결과에 대한 페이징 처리
+		int currentPage = 1;
+		//페이지로 전송온 값이 있다면
+		if(request.getParameter("page") != null) {
+			currentPage = Integer.parseInt(request.getParameter("page"));
+		}
+		
+		//한 페이지에 출력할 목록 갯수 지정
+		int limit = 10;
+		//페이지로 전송온 값이 있다면
+		if(request.getParameter("limit") != null) {
+			limit = Integer.parseInt(request.getParameter("limit"));
+		}
+		
+		//총 페이지수 계산을 위해 겸색 결과가 적용된 총 목록 갯수 조회
+		int listCount = 0;
+		switch(sOption) {
+			case "cbNo":	listCount = custBoardService.selectNoMemSearchNoCount(keyword); break;
+			case "cbTitle":	listCount = custBoardService.selectNoMemSearchTitleCount(keyword); break;
+			case "cbId":	listCount = custBoardService.selectNoMemSearchIdCount(keyword); break;
+			default: 		listCount = 0; break;
+		}
+		
+		//페이징 계산 처리
+		Paging paging = new Paging(listCount, limit, currentPage, "noMemCbSearch.do");
+		paging.calculate();
+		
+		//겸색별 목록 조회 요청
+		ArrayList<CustBoard> list = null;
+		search.setStartRow(paging.getStartRow());
+		search.setEndRow(paging.getEndRow());
+		
+		switch(sOption) {
+			case "cbNo": search.setKeyword(keyword);
+				list = custBoardService.selectNoMemSearchNo(search); break;
+			case "cbTitle": search.setKeyword(keyword); 
+				list = custBoardService.selectNoMemSearchTitle(search); break;
+			case "cbId": search.setKeyword(keyword);
+				list = custBoardService.selectNoMemSearchId(search); break;
+		}
+		
+		if(list != null && list.size() > 0) {
+			mv.addObject("list", list);
+			mv.addObject("paging", paging);
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("limit", limit);
+			mv.setViewName("custboard/nonMemCustView");
+			
+			if (sOption !=null || keyword != null) {
+			    mv.addObject("sOption", sOption);
+			    mv.addObject("keyword", keyword);
+			}
+			
+		}else {
+			mv.addObject("message", sOption + "에 대한 " + keyword + " 검색 결과가 존재하지 않습니다.<br> 확인 후 다시 검색해보세요.");
+			mv.setViewName("common/error");
+		}
+		
+		return mv;
+	}
 }

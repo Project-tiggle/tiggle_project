@@ -104,11 +104,11 @@
 	
 	
 	
-	<!-- 게시글 검색관련 목록 총 갯수 조회용 쿼리 ************************************* -->
+	<!-- 관리자 게시글 검색관련 목록 총 갯수 조회용 쿼리 ************************************* -->
 	<select id="selectSearchCbNoCount" resultType="_int" parameterType="string">
 		select count(*)
 		from tb_cust_board
-		where c_id like '%' || #{ keyword } || '%'
+		where c_id = #{ keyword }
 	</select>
 	
 	<select id="selectSearchCbTitleCount" resultType="_int" parameterType="string">
@@ -120,11 +120,11 @@
 	<select id="selectSearchCbIdCount" resultType="_int" parameterType="string">
 		select count(*)
 		from tb_cust_board
-		join tb_member
+		join tb_member using (uuid)
 		where id like '%' || #{ keyword } || '%'
 	</select>
 	
-	<!-- 게시글 검색용 쿼리 ********************************************** -->
+	<!-- 관리자 게시글 검색용 쿼리 ********************************************** -->
 	<select id="selectSearchCbNo" parameterType="Search" resultMap="resultCustBoard">
 		select *
 		from (
@@ -133,7 +133,7 @@
 			    		select *
         				from tb_cust_board
 				        join tb_member using (uuid)
-				        where c_id like '%' || #{ keyword } || '%'
+				        where c_id = #{ keyword }
 				        order by refno desc, c_level asc
 			         ) tb
 		     )
@@ -170,6 +170,71 @@
 		where rnum between #{ startRow } and #{ endRow }
 	</select>
 	
+	<!-- 비회원 게시글 검색관련 목록 총 갯수 조회용 쿼리 ************************************* -->
+	<select id="selectNoMemSearchNoCount" resultType="_int" parameterType="string">
+		select count(*)
+		from tb_cust_board
+		where c_id = #{ keyword } and deleted_at is null
+	</select>
+	
+	<select id="selectNoMemSearchTitleCount" resultType="_int" parameterType="string">
+		select count(*)
+		from tb_cust_board
+		where title like ('%' || #{ keyword } || '%') and deleted_at is null
+	</select>
+	
+	<select id="selectNoMemSearchIdCount" resultType="_int" parameterType="string">
+		select count(*)
+		from tb_cust_board cb
+		join tb_member using (uuid)
+		where id like ('%' || #{ keyword } || '%') and cb.deleted_at is null
+	</select>
+	
+	<!-- 비회원 게시글 검색용 쿼리 ********************************************** -->
+	<select id="selectNoMemSearchNo" parameterType="Search" resultMap="resultCustBoard">
+		select *
+		from (
+				select rownum rnum, tb.*
+			    from (
+			    		select *
+        				from tb_cust_board cb
+				        join tb_member using (uuid)
+				        where c_id = #{ keyword } and cb.deleted_at is null
+				        order by refno desc, c_level asc
+			         ) tb
+		     )
+		where rnum between #{ startRow } and #{ endRow }
+	</select>
+	
+	<select id="selectNoMemSearchTitle" parameterType="Search" resultMap="resultCustBoard">
+		select *
+		from (
+				select rownum rnum, tb.*
+			    from (
+			    		select *
+        				from tb_cust_board cb
+				        join tb_member using (uuid)
+				        where title like ('%' || #{ keyword } || '%') and cb.deleted_at is null
+				        order by refno desc, c_level asc
+			         ) tb
+		     )
+		where rnum between #{ startRow } and #{ endRow }
+	</select>
+	
+	<select id="selectNoMemSearchId" parameterType="Search" resultMap="resultCustBoard">
+		select *
+		from (
+				select rownum rnum, tb.*
+			    from (
+			    		select *
+        				from tb_cust_board cb
+				        join tb_member using (uuid)
+				        where id like ('%' || #{ keyword } || '%') and cb.deleted_at is null
+				        order by refno desc, c_level asc
+			         ) tb
+		     )
+		where rnum between #{ startRow } and #{ endRow }
+	</select>
 	
 	<!-- 일반 사용자 게시글 갯수 조회용 -->
 	<select id="selectUserCbListCount" parameterType="string" resultType="_int">
@@ -229,4 +294,24 @@
 		</if>
 		where c_id = #{ cId }
 	</update>
+	
+	<!-- 비회원 고객게시판 -->
+	<select id="selectNoCustListCount" resultType="_int">
+		select count(*)
+		from tb_cust_board
+		where deleted_at is null
+	</select>
+	<select id="selectNoCustList" parameterType="Paging" resultMap="resultCustBoard">
+		select *
+		from (
+				select rownum rnum, tb.*
+			    from (
+			    		select *
+        				from tb_cust_board cb
+				        where deleted_at is null
+				        order by refno desc, c_level asc
+			         ) tb
+		     )
+		where rnum between #{ startRow } and #{ endRow }
+	</select>	
 </mapper>
