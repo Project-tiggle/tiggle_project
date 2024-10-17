@@ -10,7 +10,16 @@
 </head>
 <body>
 <script type="text/javascript">
+function closeWindow(){
+	// 자신의 창을 닫기 처리할때는 form 태그에 action 속성을 직접 설정하면 안됨. 
+	document.rupdate.action="rinsert.do"
+	document.rupdate.submit();
+	
+	window.location.href = 'http://localhost:8080/tiggle/exhibitionDetail.do?no=${ review.totalId }';
+    opener.parent.reload(); // 부모 쪽 reload 함수를 실행시키는 함수
+	window.open("about:blank", "_self").close();
 
+}
 </script>
 
 <hr>

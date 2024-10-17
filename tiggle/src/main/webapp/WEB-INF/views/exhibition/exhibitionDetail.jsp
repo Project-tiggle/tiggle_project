@@ -198,25 +198,18 @@ function rvuPopupOpen() {
 	  var popupURL = "rvmoveup.do?no=${ exhibition.totalId }&page=${ currentPage }";
 	  // 팝업 창의 속성
 	  var popupProperties = "width=600,height=400,scrollbars=no,left=600,top=200,location=no";
+	  var dat
 	  // 팝업 열기
 	  window.open(popupURL, "Popup", popupProperties);
 	    
 	}
 
 function rePopupOpen() {
-	  // 팝업을 띄울 페이지 URL
+	  // 이동할 페이지 URL
 	  var popupURL = "remove.do?no=${ exhibition.totalId }";
 	  // 팝업 창의 속성
 	  var popupProperties = "width=600,height=400,scrollbars=no,left=600,top=200,location=no";
 	}
-
-function reload(){
-    // 자신을 새로고침하는데, 100 : 0.1초 뒤에 새로고침을 진행하라는 함수
-    // 서버에서 받을 
-	setTimeout(function () {
-    location.reload();
-    }, 100); 
-}
 
 function rvdPopupOpen(rN){
 	var delYN = window.confirm('한줄평을 삭제하시겠습니까?')
@@ -224,6 +217,16 @@ function rvdPopupOpen(rN){
 		location.href="rdelete.do?rNum=" + rN + "&totalId=" + ${ exhibition.totalId };
 	}
 }
+
+ function reload(){
+    // 자신을 새로고침하는데, 100 : 0.1초 뒤에 새로고침을 진행하라는 함수
+    // 서버에서 받을 
+	setTimeout(function () {
+    location.reload();
+    }, 100); 
+}
+ 
+
 
 </script>
 
@@ -318,7 +321,7 @@ function rvdPopupOpen(rN){
 								</tr>
 							</c:forEach>
 						</table>
-						<c:if test="${ writeflag eq false }">
+						<c:if test="${ !empty sessionScope.loginMember && writeflag eq false }">
 							<button onclick="rviPopupOpen()">등록</button>
 						</c:if>
 					</div>
