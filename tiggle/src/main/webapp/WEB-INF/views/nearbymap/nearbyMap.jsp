@@ -162,6 +162,9 @@
 	    <div id="exhibit-list" class="exhibit-grid"><!-- 전시회 목록 l --></div>
 	</div>
 	<script src="/tiggle/resources/js/map_script.js"></script>	
+	
+	<a href="chatbot.do" class="chatbot_wrap"><img src="/tiggle/resources/images/chatbot.png" alt="챗봇로고"></a>
+	
 	<c:import url="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>

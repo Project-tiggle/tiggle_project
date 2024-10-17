@@ -7,6 +7,6 @@
 <title>first</title>
 </head>
 <body>
-<h2>결재 실패 : <%= request.getParameter("msg") %></h2>
+<h2>결제 실패 : <%= request.getParameter("msg") %></h2>
 </body>
 </html>

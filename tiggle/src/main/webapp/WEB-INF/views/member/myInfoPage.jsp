@@ -205,7 +205,7 @@
 	<!-- 마이페이지 회원정보 수정 end -->
 
 
-
+	<a href="chatbot.do" class="chatbot_wrap"><img src="/tiggle/resources/images/chatbot.png" alt="챗봇로고"></a>
 	<c:import url="/WEB-INF/views/common/footer.jsp" />
 
 	<script src="/tiggle/resources/js/jquery-3.7.1.min.js"></script>

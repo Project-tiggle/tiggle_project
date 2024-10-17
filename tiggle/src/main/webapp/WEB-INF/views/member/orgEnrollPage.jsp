@@ -83,7 +83,7 @@
 	<!-- 회원가입 페이지 end -->
 	
 
-
+	<a href="chatbot.do" class="chatbot_wrap"><img src="/tiggle/resources/images/chatbot.png" alt="챗봇로고"></a>
 	<script src="/tiggle/resources/js/jquery-3.7.1.min.js"></script>
 	<script src="/tiggle/resources/js/script.js"></script>
 	<script src="/tiggle/resources/js/member_script.js"></script>
