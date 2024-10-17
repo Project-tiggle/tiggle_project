@@ -41,7 +41,6 @@
 	
 	<!-- main section start -->
 	<div class="exhibition"  style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start; padding:20px;">
-		<table>
 			 <c:forEach var="p" items="${ list }">
        			 <div class="poster" style="flex-basis: calc(20% - 20px);">
 		            <a href="exhibitionDetail.do?no=${ p.totalId }" ><img id="Emain" src="${ p.fileUrl }" ></a>
@@ -52,7 +51,6 @@
 		            </div>
 		        </div>
 		    </c:forEach>
-		</table>
 	</div>
 	
 

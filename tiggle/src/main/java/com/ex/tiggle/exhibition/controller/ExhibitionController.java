@@ -352,7 +352,6 @@ public class ExhibitionController {
 		for( Exhibition test : list ) {
 			logger.info(test.toString());
 		};
-		
 			if (list != null && list.size() > 0) {
 				mv.addObject("list", list);
 				mv.addObject("paging", paging);
@@ -361,8 +360,6 @@ public class ExhibitionController {
 				mv.addObject("keyword", keyword);
 		
 				mv.setViewName("exhibition/exhibitionSearchResult");
-			
-				
 			} else {
 				mv.addObject("message", action + "에 대한" + keyword + "검색 결과가 존재하지 않습니다.");
 				mv.setViewName("common/error");

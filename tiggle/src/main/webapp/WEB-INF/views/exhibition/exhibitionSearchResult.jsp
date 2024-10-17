@@ -13,23 +13,70 @@
 
 <style>
 
+.poster{
+	display: flex;
+	width: 100%;
+    justify-content: space-between;
+    overflow: hidden !important;
+}
 
 .poster > a {
 	display: block;
-	width: 100%;
-	height: 400px;
+	width: 300px;
 }
 
 .poster > a > img {
-	display: block;
 	width: 100%;
-	height: 90%;
+	height: 300px;
 	object-fit: cover;
 }
+
 .poster_p {
-	position: relative;
-	top: -25px;
+	width: 75%;
 }
+#title {
+	width: 100%;
+	margin-bottom: 60px;
+	border-bottom: 2px solid #ff5f2c;
+	padding-bottom: 30px;
+}
+.exhibition{
+	width: 90%;
+	max-width:1280px;
+	margin: 60px auto;
+}
+
+.poster_p > p:nth-of-type(6) {
+   height: 100px;
+   overflow: hidden;
+   text-align: justify;
+   width: 100%;
+   text-overflow: ellipsis;
+   word-break: break-word;
+
+   display: -webkit-box;
+   -webkit-line-clamp: 3; 
+   -webkit-box-orient: vertical;
+}
+.poster_p > p:nth-of-type(6) ~ p {
+	display: none;
+}
+.poster_p > p img{
+	display: none;
+	
+}
+.t {
+	font-weight: bold;
+}
+.poster_p > p > p{
+	font-weight: normal !important;
+}
+
+.poster_p table {
+	display: none;
+}
+
+
 
 </style>
 
@@ -40,21 +87,20 @@
 
 	
 	<!-- main section start -->
-	<div class="exhibition"  style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start; padding:20px;">
-		<h2>"${ keyword }" 에 대한 검색 결과.</h2><br>
-		<table>
+	<div class="exhibition">
+		<h2 id=title>"${ keyword }" 에 대한 검색 결과</h2><br>
 			 <c:forEach var="p" items="${ requestScope.list }">
-       			 <div class="poster" style="flex-basis: calc(20% - 20px);">
+       			 <div class="poster" >
 		            <a href="exhibitionDetail.do?no=${ p.totalId }" ><img id="Emain" src="${ p.fileUrl }" ></a>
 		            <div class="poster_p">
-		            	제목 : ${ p.title }<br>
-		           		장소 : ${ p.cntcInsttNm }<br>
-			            기간 : ${ p.startDate } ~ ${ p.endDate } <br>
-			            입장료 : ${ p.charge } <br>
+		            	<p><span class="t">제목 :</span> ${ p.title }</p>
+		           		<p><span class="t">장소 :</span> ${ p.cntcInsttNm }</p>
+			            <p><span class="t">기간 :</span> ${ p.startDate } ~ ${ p.endDate } </p>
+			            <p><span class="t">입장료 :</span> ${ p.charge }</p>
+			            <p><span class="t">내용</span> ${ p.description }</p> 
 		            </div>
 		        </div>
 		    </c:forEach>
-		</table>
 	</div>
 	
 
