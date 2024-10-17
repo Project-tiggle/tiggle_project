@@ -115,8 +115,8 @@ public class ExhibitionController {
 			job.put("title", URLEncoder.encode(exhibition.getTitle(), "utf-8"));
 			job.put("totalId", URLEncoder.encode(exhibition.getTotalId(), "utf-8"));
 			
-			if (exhibition.getCnctInsttNm() != null) {
-				job.put("cnctInsttNm", URLEncoder.encode(exhibition.getCnctInsttNm(), "utf-8"));				
+			if (exhibition.getCntcInsttNm() != null) {
+				job.put("cnctInsttNm", URLEncoder.encode(exhibition.getCntcInsttNm(), "utf-8"));				
 			}
 			job.put("startDate", exhibition.getStartDate().toString());
 			job.put("endDate", exhibition.getEndDate().toString());
@@ -161,8 +161,8 @@ public class ExhibitionController {
 			job.put("title", URLEncoder.encode(exhibition.getTitle(), "utf-8"));
 			job.put("totalId", URLEncoder.encode(exhibition.getTotalId(), "utf-8"));
 			
-			if (exhibition.getCnctInsttNm() != null) {
-				job.put("cnctInsttNm", URLEncoder.encode(exhibition.getCnctInsttNm(), "utf-8"));				
+			if (exhibition.getCntcInsttNm() != null) {
+				job.put("cnctInsttNm", URLEncoder.encode(exhibition.getCntcInsttNm(), "utf-8"));				
 			}
 			job.put("startDate", exhibition.getStartDate().toString());
 			job.put("endDate", exhibition.getEndDate().toString());
@@ -282,7 +282,7 @@ public class ExhibitionController {
 			Exhibition exhibition = new Exhibition();
 			exhibition.setTitle((String) job.get("TITLE"));
 			exhibition.setLocalId((String) job.get("LOCAL_ID"));		
-			exhibition.setCnctInsttNm((String) job.get("CNTC_INSTT_NM"));
+			exhibition.setCntcInsttNm((String) job.get("CNTC_INSTT_NM"));
 			exhibition.setDescription((String) job.get("DESCRIPTION"));
 			exhibition.setFileUrl((String) job.get("IMAGE_OBJECT"));
 			exhibition.setUrl((String) job.get("URL"));
