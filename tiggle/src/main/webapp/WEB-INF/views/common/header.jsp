@@ -125,7 +125,7 @@
 
 	            <div class="m_bt">
 	                <ul class="m_gnb">
-	                    <li><a href="#"><span>&middot;</span>전시회</a></li>
+	                    <li><a href="exhibitionMain.do"><span>&middot;</span>전시회</a></li>
 	                    <li><a href="#"><span>&middot;</span>박람회</a></li>
 	                    <li><a href="nearbyMap.do"><span>&middot;</span>내 주변?</a></li>
 	                    <li><a href="nlist.do?page=1"><span>&middot;</span>공지사항</a></li>
@@ -151,7 +151,7 @@
 
 	            <div class="m_bt">
 	                <ul class="m_gnb">
-	                    <li><a href="#"><span>&middot;</span>전시회</a></li>
+	                    <li><a href="exhibitionMain.do"><span>&middot;</span>전시회</a></li>
 	                    <li><a href="#"><span>&middot;</span>박람회</a></li>
 	                    <li><a href="nearbyMap.do"><span>&middot;</span>내 주변?</a></li>
 	                    <li><a href="nlist.do?page=1"><span>&middot;</span>공지사항</a></li>
