@@ -4,16 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ex.tiggle.common.Paging;
+import com.ex.tiggle.common.Search;
+import com.ex.tiggle.exhibition.controller.ExhibitionController;
 import com.ex.tiggle.exhibition.model.dto.Exhibition;
 
 @Repository("exhibitionDao")
 public class ExhibitionDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
+	private static final Logger logger = LoggerFactory.getLogger(ExhibitionDao.class);
 	
 	public int insertExhibition(Exhibition exhibition) {
 		return sqlSessionTemplate.insert("exhibitionMapper.insertExhibition", exhibition);
@@ -53,6 +58,16 @@ public class ExhibitionDao {
 
 	public int updateAddReadCount(String totalId) {
 		return sqlSessionTemplate.update("exhibitionMapper.updateAddReadCount", totalId);
+	}
+
+	public int selectSearchTitleCount(String keyword) {
+		return sqlSessionTemplate.selectOne("exhibitionMapper.selectSearchTitleCount", keyword);
+	}
+
+	public ArrayList<Exhibition> selectSearchTitle(Search search) {
+		List<Exhibition> list = sqlSessionTemplate.selectList("exhibitionMapper.selectSearchTitle", search);
+		logger.info("Dao =" + list.size());
+		return (ArrayList<Exhibition>)list;
 	}
 
 	

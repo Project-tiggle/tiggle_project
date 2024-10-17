@@ -21,28 +21,28 @@
 	
 		
 	<resultMap type="Exhibition" id="resultExhibition">
-		<result property="totalId" column="total_Id" />
-		<result property="uuid" column="uuid" />
-		<result property="title" column="title" />
-		<result property="localId" column="local_id" />
-		<result property="contributor" column="contributor" />
+		<result property="totalId" column="TOTAL_ID" />
+		<result property="uuid" column="UUID" />
+		<result property="title" column="TITLE" />
+		<result property="localId" column="LOCAL_ID" />
+		<result property="contributor" column="CONTRIBUTOR" />
 		<result property="cntcInsttNm" column="CNTC_INSTT_NM" />
-		<result  property="description" column="E_description" />
-		<result property="eventSite" column="event_Site" />
-		<result property="detailEventSite" column="detail_Event_Site" />
-		<result property="latitude" column="latitude" />
-		<result property="longitude" column="longitude" />
-		<result property="genre" column="genre" />
-		<result property="contactPoint" column="contact_Point" />
-		<result property="viewCounter" column="view_Counter" />
+		<result property="description" column="E_DESCRIPTION" />
+		<result property="eventSite" column="EVENT_SITE" />
+		<result property="detailEventSite" column="DETAIL_EVENT_SITE" />
+		<result property="latitude" column="LATITUDE" />
+		<result property="longitude" column="LONGITUDE" />
+		<result property="genre" column="GENRE" />
+		<result property="contactPoint" column="CONTACT_POINT" />
+		<result property="viewCounter" column="VIEW_COUNTER" />
 		<result property="url" column="E_URL" />
-		<result property="period" column="period" />
-		<result property="startDate" column="start_Date" />
-		<result property="endDate" column="end_Date" />
-		<result property="approvalStatus" column="approval_Status" />
-		<result property="category" column="E_category" />
-		<result property="fileUrl" column="file_Url" />
-		<result property="charge" column="charge" />
+		<result property="period" column="PERIOD" />
+		<result property="startDate" column="START_DATE" />
+		<result property="endDate" column="END_DATE" />
+		<result property="approvalStatus" column="APPROVAL_STATUS" />
+		<result property="category" column="E_CATEGORY" />
+		<result property="fileUrl" column="FILE_URL" />
+		<result property="charge" column="CHARGE" />
 	</resultMap>
 	
 	<!-- dao 에서 사용되는 쿼리문(sql문)을 각 엘리멘트 안에 작성함 
@@ -224,5 +224,48 @@
 	<delete id="deleteApi">
 		delete from TB_EXHIBITION_FAIR where uuid is null
 	</delete>
+	
+	
+	<!-- 검색관련 목록 총 갯수 조회용 쿼리 -->
+	<select id="selectSearchTitleCount" resultType="_int" parameterType="String">
+		select count(*) from TB_EXHIBITION_FAIR
+		where title like '%' || #{ keyword } || '%'
+		AND end_date >= sysdate
+	</select>
+	
+	<!-- 전시 검색용 쿼리문 -->
+	<select id="selectSearchTitle" resultMap="resultExhibition" parameterType="Search">
+		select *
+		from (select rownum rnum, 
+					 UUID,
+					 TOTAL_ID,
+					 TITLE,
+					 LOCAL_ID,
+					 CONTRIBUTOR,
+					 CNTC_INSTT_NM,
+					 E_DESCRIPTION,
+					 EVENT_SITE,
+					 DETAIL_EVENT_SITE,
+					 LATITUDE,
+					 LONGITUDE,
+					 GENRE,
+					 CONTACT_POINT,
+					 VIEW_COUNTER,
+					 E_URL,
+					 PERIOD,
+					 START_DATE,
+					 END_DATE,
+					 APPROVAL_STATUS,
+					 E_CATEGORY,
+					 FILE_URL,
+					 CHARGE
+	          from (select * from TB_EXHIBITION_FAIR
+	        		where title like '%' || #{ keyword } || '%'
+	        		AND end_date >= sysdate
+	                order by end_date desc))
+		where rnum between #{ startRow } and #{ endRow }
+	</select>
+	
+	
 	
 </mapper>

@@ -113,7 +113,7 @@ public class Exhibition implements java.io.Serializable {
 		return cntcInsttNm;
 	}
 	
-	public void setContInsttNm(String cntcInsttNm) {
+	public void setCnctInsttNm(String cntcInsttNm) {
 		this.cntcInsttNm = cntcInsttNm;
 	}
 	

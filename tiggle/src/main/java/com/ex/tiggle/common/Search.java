@@ -8,6 +8,7 @@ public class Search {
 	private int endRow;			//한 페이지에 출력할 목록의 끝행
 	private Date begin;			//등록날짜 검색의 시작날짜
 	private Date end;			//등록날짜 검색의 끝날짜
+	
 
 	public Search() {
 		super();

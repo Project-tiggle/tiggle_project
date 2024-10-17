@@ -65,8 +65,8 @@
             </div><!-- logo end -->
 
             <div class="search_box">
-                <form action="" method="get">
-                    <input type="search" placeholder="검색">
+                <form action="esearchTitle.do" method="get" name="action">
+                    <input type="search" name="keyword" placeholder="검색">
                     <div class="search_btn">
                         <img src="/tiggle/resources/images/search_icon_bk.png" alt="search_btn">
                     </div><!-- search_btn end -->
