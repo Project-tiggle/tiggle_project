@@ -102,4 +102,42 @@ public class CustBoardDao {
 		return (ArrayList<CustBoard>)list;
 	}
 
+	public int selectNoCustListCount() {
+		return sqlSessionTemplate.selectOne("custBoardMapper.selectNoCustListCount");
+	}
+
+	public ArrayList<CustBoard> selectNoCustList(Paging paging) {
+		List<CustBoard> list = sqlSessionTemplate.selectList("custBoardMapper.selectNoCustList", paging);
+		return (ArrayList<CustBoard>)list;
+	}
+
+	public int selectNoMemSearchNoCount(String keyword) {
+		return sqlSessionTemplate.selectOne("custBoardMapper.selectNoMemSearchNoCount", keyword);
+	}
+
+	public int selectNoMemSearchTitleCount(String keyword) {
+		return sqlSessionTemplate.selectOne("custBoardMapper.selectNoMemSearchTitleCount", keyword);
+	}
+
+	public int selectNoMemSearchIdCount(String keyword) {
+		return sqlSessionTemplate.selectOne("custBoardMapper.selectNoMemSearchIdCount", keyword);
+	}
+
+	public ArrayList<CustBoard> selectNoMemSearchNo(Search search) {
+		List<CustBoard> list = sqlSessionTemplate.selectList("custBoardMapper.selectNoMemSearchNo", search);
+		return (ArrayList<CustBoard>)list;
+	}
+
+	public ArrayList<CustBoard> selectNoMemSearchTitle(Search search) {
+		List<CustBoard> list = sqlSessionTemplate.selectList("custBoardMapper.selectNoMemSearchTitle", search);
+		return (ArrayList<CustBoard>)list;
+	}
+
+	public ArrayList<CustBoard> selectNoMemSearchId(Search search) {
+		List<CustBoard> list = sqlSessionTemplate.selectList("custBoardMapper.selectNoMemSearchId", search);
+		return (ArrayList<CustBoard>)list;
+	}
+	
+	
+
 }

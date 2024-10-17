@@ -117,5 +117,45 @@ public class CustBoardServiceImpl implements CustBoardService {
 		return custBoardDao.selectSearchCbId(search);
 	}
 
+	@Override
+	public int selectNoCustListCount() {
+		return custBoardDao.selectNoCustListCount();
+	}
+
+	@Override
+	public ArrayList<CustBoard> selectNoCustList(Paging paging) {
+		return custBoardDao.selectNoCustList(paging);
+	}
+
+	@Override
+	public int selectNoMemSearchNoCount(String keyword) {
+		return custBoardDao.selectNoMemSearchNoCount(keyword);
+	}
+
+	@Override
+	public int selectNoMemSearchTitleCount(String keyword) {
+		return custBoardDao.selectNoMemSearchTitleCount(keyword);
+	}
+
+	@Override
+	public int selectNoMemSearchIdCount(String keyword) {
+		return custBoardDao.selectNoMemSearchIdCount(keyword);
+	}
+
+	@Override
+	public ArrayList<CustBoard> selectNoMemSearchNo(Search search) {
+		return custBoardDao.selectNoMemSearchNo(search);
+	}
+
+	@Override
+	public ArrayList<CustBoard> selectNoMemSearchTitle(Search search) {
+		return custBoardDao.selectNoMemSearchTitle(search);
+	}
+
+	@Override
+	public ArrayList<CustBoard> selectNoMemSearchId(Search search) {
+		return custBoardDao.selectNoMemSearchId(search);
+	}
+
 
 }

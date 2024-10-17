@@ -18,7 +18,15 @@
                     <li><a href="#">개인정보처리방침</a></li>
                     <li><a href="#">위치기반서비스 이용약관</a></li>
                     <li><a href="#">티켓판매안내</a></li>
-                    <li><a href="#">고객센터</a></li>
+                    <c:if test="${ empty sessionScope.loginMember }">
+                    	<li><a href="noneMemCBoard.do">고객센터</a></li>
+                    </c:if>
+                    <c:if test="${ !empty sessionScope.loginMember and sessionScope.loginMember.memberType eq 'ADMIN' }">
+                    	<li><a href="adminCustBoard.do">고객센터</a></li>
+                    </c:if>
+                    <c:if test="${ !empty sessionScope.loginMember and sessionScope.loginMember.memberType ne 'ADMIN' }">
+                    	<li><a href="userCustBoard.do">고객센터</a></li>
+                    </c:if>
                     <c:if test="${ !empty sessionScope.loginMember and sessionScope.loginMember.memberType eq 'ORGANIZER' }">
                     	<li><a href="orgRegistPage.do">전시등록</a></li>
                     </c:if>

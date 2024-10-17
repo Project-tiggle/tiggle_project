@@ -11,27 +11,6 @@
 <link rel="stylesheet" href="/tiggle/resources/css/member_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/custBoard_style.css">
 
-<script type="text/javascript">
-$(function(){
-	//input 태그의 name이 item인 radio 값이 바뀌면(change) 작동되는 이벤트 핸들러 작성
-	//jQuery('태그선택자').실행할메소드명(.....); => jQuery 는 줄여서  $로 표시함
-	$('input[name=item]').on('change', function(){
-		//3개의 item 중에 체크표시가 된 radio 를 선택 => 반복 처리 : each() 메소드 사용
-		$('input[name=item]').each(function(index){
-			//선택된 radio 순번대로 하나씩 checked 인지 확인함 : is() 메소드 사용
-			if($(this).is(':checked')){
-				//체크 표시된 아이템에 대한 폼이 보여지게 처리함
-				$('form.sform').eq(index).css('display', 'block');
-			}else{
-				//체크 표시 안된 아이템에 대한 폼이 안 보여지게 처리함
-				$('form.sform').eq(index).css('display', 'none');
-			}
-		});  //each
-		
-	});  //onchange
-}); //document.ready
-</script>
-
 </head>
 <body>
 	<c:import url="/WEB-INF/views/common/header.jsp" />
@@ -132,7 +111,7 @@ $(function(){
 				</table>
 				
 			</div>
-			<div class="">
+			<div>
 				<form action="cbSearch.do" method="get" id="cbSearch">
 					<select name="sOption" class="search_option">
 						<option value="">검색</option>
@@ -141,11 +120,11 @@ $(function(){
 						<option value="cbId">아이디</option>
 					</select>
 
-					<input type="text" name="keyword" style="padding: 5px;">
-					<input type="submit" value="검색" style="padding: 5px;">
+					<input type="text" name="keyword" style="padding:6px;border:1px solid #ccc;">
+					<input type="submit" value="검색" style="padding:6px;border:1px solid #ccc;">
 				</form>
 			</div>
-			<c:import url="/WEB-INF/views/common/pagingView.jsp" />
+			<c:import url="/WEB-INF/views/common/pagingSOptionView.jsp" />
 			<br><br><br><br>
 		</div>
 	</div>
