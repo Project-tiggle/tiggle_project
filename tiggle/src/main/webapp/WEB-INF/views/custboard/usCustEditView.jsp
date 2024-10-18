@@ -27,7 +27,6 @@
 					<li><a
 						href="myInfo.do?uuid=${ sessionScope.loginMember.uuid }">내정보
 							보기</a></li>
-					<li><a href="#">예약확인 / 취소</a></li>
 					<li><a href="userCustBoard.do">1:1 문의내역</a></li>
 					<li><a href="delMemPage.do">회원탈퇴</a></li>
 				</ul>

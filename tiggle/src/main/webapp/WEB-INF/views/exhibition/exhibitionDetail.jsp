@@ -186,7 +186,6 @@ $(function() {
     }
 });
 
-
 function rviPopupOpen() {
 	  // 팝업을 띄울 페이지 URL
 	  var popupURL = "rvmove.do" + "?no=${ exhibition.totalId }";
@@ -226,10 +225,8 @@ function rvdPopupOpen(rN){
     // 서버에서 받을 
 	setTimeout(function () {
     location.reload();
-    }, 300); 
+    }, 200); 
 }
- 
-
 
 </script>
 

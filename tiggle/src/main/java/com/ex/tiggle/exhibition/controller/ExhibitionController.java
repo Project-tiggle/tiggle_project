@@ -42,13 +42,6 @@ public class ExhibitionController {
 	@Autowired
 	private ReviewService reviewService;
 	
-	
-	@RequestMapping("toss.do")
-	public String moveToss() {
-		return "reserve/tossTest";
-	}
-	
-	
 	// 전시 페이지 관련 컨트롤러
 	// 전시 페이지로 이동
 	@RequestMapping("exhibitionMain.do")
@@ -361,7 +354,7 @@ public class ExhibitionController {
 		
 				mv.setViewName("exhibition/exhibitionSearchResult");
 			} else {
-				mv.addObject("message", action + "에 대한" + keyword + "검색 결과가 존재하지 않습니다.");
+				mv.addObject("message","'" + keyword + "'" + " 에 대한 검색 결과가 존재하지 않습니다.");
 				mv.setViewName("common/error");
 			}
 			return mv;

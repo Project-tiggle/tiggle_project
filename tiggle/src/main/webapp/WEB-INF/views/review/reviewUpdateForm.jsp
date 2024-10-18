@@ -11,20 +11,17 @@
 </head>
 <body>
 <script type="text/javascript">
-
-
-
 function closeWindow(){
 	// 자신의 창을 닫기 처리할때는 form 태그에 action 속성을 직접 설정하면 안됨. 
 	document.rupdate.action="rupdate.do"
 	var ref = document.rupdate.submit();
-	alert("함수 작동" + ref);
+	//alert("한줄평 변경 완료");
 	
 	window.location.href = 'http://localhost:8080/tiggle/exhibitionDetail.do?no=${ review.totalId }';
-	opener.parent.reload(); // 부모 쪽 reload 함수를 실행시키는 함수
-	setTimeout(function () {
+    opener.parent.reload(); // 부모 쪽 reload 함수를 실행시키는 함수
+    setTimeout(function () {
 		window.open("about:blank", "_self").close();
-	    }, 100); 
+	    }, 50);
 }
 
 </script>
