@@ -232,7 +232,7 @@ html, body {background: #fff; color: #333; font-family: -apple-system, BlinkMacS
 
 @media all and (max-width: 789px) {
     .main_notice_top > p:nth-child(1) {font-size: 24px;}
-    .new_notice > p {font-size: 14px;}
+    .new_notice > p {font-size: 13px;}
     .new_notice > p:nth-child(2) {box-sizing: border-box; padding: 0 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 }
 /* main_notice end */

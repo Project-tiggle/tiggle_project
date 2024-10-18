@@ -109,8 +109,7 @@ button {
 }
 
 div.sdiv {
-	border: 3px black;
-	background: lightgray;
+	border: 1px ligntgray;
 	width: 150x;
 	width-max: 1280px;
 	left: 450px;
@@ -125,15 +124,18 @@ div.sdiv {
 	object-fit: cover;
 }
 
-#reserve_b {
-	width: 100px;
-	height: 50px;
-	font-size: 16pt;
-	border: 0.5px solid lightgray;
-	font-weight: bold;
-	color: white;
-	background-color: #ff5f2c;
+#guide_b {
+	width: 170px;
+	height: 30px;
+	font-size: 14pt;
+	font-weight: bolder;
+	color: #ff5f2c;
 }
+
+.review_t td {
+	border-top: 1px solid lightgray;
+}
+
 </style>
 
 <script type="text/javascript"
@@ -199,25 +201,18 @@ function rvuPopupOpen() {
 	  var popupURL = "rvmoveup.do?no=${ exhibition.totalId }&page=${ currentPage }";
 	  // 팝업 창의 속성
 	  var popupProperties = "width=600,height=400,scrollbars=no,left=600,top=200,location=no";
+	  var dat
 	  // 팝업 열기
 	  window.open(popupURL, "Popup", popupProperties);
 	    
 	}
 
 function rePopupOpen() {
-	  // 팝업을 띄울 페이지 URL
+	  // 이동할 페이지 URL
 	  var popupURL = "remove.do?no=${ exhibition.totalId }";
 	  // 팝업 창의 속성
 	  var popupProperties = "width=600,height=400,scrollbars=no,left=600,top=200,location=no";
 	}
-
-function reload(){
-    // 자신을 새로고침하는데, 100 : 0.1초 뒤에 새로고침을 진행하라는 함수
-    // 서버에서 받을 
-	setTimeout(function () {
-    location.reload();
-    }, 100); 
-}
 
 function rvdPopupOpen(rN){
 	var delYN = window.confirm('한줄평을 삭제하시겠습니까?')
@@ -225,6 +220,16 @@ function rvdPopupOpen(rN){
 		location.href="rdelete.do?rNum=" + rN + "&totalId=" + ${ exhibition.totalId };
 	}
 }
+
+ function reload(){
+    // 자신을 새로고침하는데, 100 : 0.1초 뒤에 새로고침을 진행하라는 함수
+    // 서버에서 받을 
+	setTimeout(function () {
+    location.reload();
+    }, 300); 
+}
+ 
+
 
 </script>
 
@@ -240,21 +245,35 @@ function rvdPopupOpen(rN){
 		<section class="esection">
 			<div class="detail">
 				<div class="detailc">
-					<img id="Edtail" src="${ exhibition.fileUrl }">
+					<c:if test="${exhibition.fileUrl.toUpperCase().startsWith('H')}">
+		            	<img id="Edtail" src="${ exhibition.fileUrl }" >
+		            </c:if>
+       			 	<c:if test="${!exhibition.fileUrl.toUpperCase().startsWith('H')}">
+		           		<img id="Edtail" src="${pageContext.request.contextPath}/resources/exhibit_upfiles/${exhibition.fileUrl}">
+		            </c:if>
+					
+					<%-- <img id="Edtail" src="${ exhibition.fileUrl }"> --%>
 				</div>
 				<div class="detailc">
 					<h1>${ exhibition.title }</h1>
 					<br>
+					<h3>기간</h3>
 					<p>
-					<h3>기간 :</h3>
-					${ exhibition.startDate } ~ ${ exhibition.endDate }<br>
-					<br>
-					<h3>장소 :</h3>
-					${ exhibition.contributor }
+					${ exhibition.startDate } ~ ${ exhibition.endDate }
 					</p>
 					<br>
-					<button id="reserve_b">
-						<a href="remove.do?no=${ exhibition.totalId }">예매하기</a>
+					<h3>장소</h3>
+					<p>
+					${ exhibition.cntcInsttNm }
+					</p>
+					<br>
+					<h3>입장료</h3>
+					<p>
+					${ exhibition.charge }
+					</p>
+					<br>
+					<button id="guide_b">
+						<a href="${ exhibition.url }">전시 안내페이지 이동</a>
 					</button>
 				</div>
 			</div>
@@ -273,42 +292,39 @@ function rvdPopupOpen(rN){
 			<br style="clear: both;">
 
 			<%-- 상세정보 클릭시 출력될 폼 --%>
-			<div id="contentdiv" class="sdiv">
-				<input type="hidden" name="action" value="content">
+			<div id="contentdiv" class="sdiv" style="margin-bottom: 60px;">
+				<input type="hidden" name="action" value="content" >
 				<fieldset>
 					<h2>상세보기</h2>
 					<div>
 						<hr>
-						소개 : ${ exhibition.description }
+						소개 ${ exhibition.description }
 					</div>
 				</fieldset>
 			</div>
 
 			<%-- 한줄평 클릭시 출력될 폼 --%>
-			<div id="reviewdiv" class="sdiv">
+			<div id="reviewdiv" class="sdiv" style="margin-bottom: 60px;">
 				<input type="hidden" name="action" value="review">
 
 				<fieldset>
 					<div>
 						<c:set var="writeflag" value="false" />
-						<table align="center" width="650" border="1" cellspacing="0"
-							cellpadding="0">
+						<table class="review_t" align="center" width="1280"  cellspacing="0" cellpadding="0" >
 							<tr>
-								<th>번호</th>
-								<th>작성자</th>
-								<th>내용</th>
-								<th>날짜</th>
-								<th>...</th>
+								<th width="100px">번호</th>
+								<th width="930px">내용</th>
+								<th width="150px">작성날짜</th>
+								<th width="100px">...</th>
 							</tr>
 							<c:forEach items="${ list }" var="rv">
 								<c:set var="i" value="${ i + 1 }" />
 								<tr>
 									<c:if test="${ deleteYN != 'Y' }">
-										<td align="center">${ i }</td>
-										<td align="center">${ rv.nickName }</td>
-										<td align="left">&nbsp; ${ rv.rContents }</td>
+										<td align="center" >${ i }</td>
+										<td align="left" >&nbsp; ${ rv.rContents }</td>
 										<td align="center"><fmt:formatDate value="${ rv.writeDate }" pattern="yyyy-MM-dd" /></td>
-										<td>
+										<td align="center" >
 											<c:if test="${ !empty sessionScope.loginMember && rv.uuid eq sessionScope.loginMember.uuid }">
 												<button onclick="rvuPopupOpen()">수정</button>
 												<button onclick="rvdPopupOpen(${ rv.rNum })">삭제</button>
@@ -319,7 +335,7 @@ function rvdPopupOpen(rN){
 								</tr>
 							</c:forEach>
 						</table>
-						<c:if test="${ writeflag eq false }">
+						<c:if test="${ !empty sessionScope.loginMember && writeflag eq false }">
 							<button onclick="rviPopupOpen()">등록</button>
 						</c:if>
 					</div>
@@ -327,7 +343,7 @@ function rvdPopupOpen(rN){
 			</div>
 
 			<%-- 오시는길 클릭시 출력될 폼 --%>
-			<div id="mapdiv" class="sdiv">
+			<div id="mapdiv" class="sdiv" style="margin-bottom: 60px;">
 				<input type="hidden" name="action" value="date">
 				<fieldset>
 					<c:import url="/WEB-INF/views/exhibition/exhibitDirections.jsp" />

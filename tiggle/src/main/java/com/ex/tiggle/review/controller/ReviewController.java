@@ -49,17 +49,17 @@ public class ReviewController {
 	// 한줄평 수정 팝업 띄우는 메소드 
 	@RequestMapping("rvmoveup.do")
 	public ModelAndView moveUpdatePage(HttpSession session,
-			@RequestParam("no") String totalId,
-			ModelAndView mv) {
-		Member member = (Member)session.getAttribute("loginMember");
-		Review review = new  Review();
+		   @RequestParam("no") String totalId,
+		   ModelAndView mv) {
+		Member member = (Member) session.getAttribute("loginMember");
+		Review review = new Review();
+		
 		review.setUuid(member.getUuid());
 		review.setTotalId(totalId);
-		
+
 		Exhibition exhibition = exhibitionService.selectExhibitionOne(totalId);
 		Review reviewF = reviewService.selectReivew(review);
-		
-	
+
 		logger.info(totalId);
 		if (reviewF != null) {
 			mv.addObject("exhibition", exhibition);
@@ -71,6 +71,7 @@ public class ReviewController {
 		}
 		return mv;
 	}
+
 	
 	
 	// 한줄평 목록 띄우는 메소드
@@ -122,15 +123,13 @@ public class ReviewController {
 	
 	// 새 게시글 등록 요청 처리용
 	@RequestMapping(value = "rinsert.do", method = RequestMethod.POST)
-	public String reviewInsertMethod(Review review, Model model, HttpServletRequest request) {
+	public ResponseEntity reviewInsertMethod(Review review, Model model, HttpServletRequest request) {
 		logger.info("rinsert.do : " + review);
 
-		if (reviewService.insertReview(review) > 0) {
-			// 새 공지글 등록 성공시 목록 페이지 내보내기 요청
-			return "redirect:/exhibitionDetail.do?no=" + review.getTotalId();
-		} else {
-			model.addAttribute("massage", "새 한줄평 등록 실패!");
-			return "common/error";
+		if(reviewService.insertReview(review) > 0) {
+			return new ResponseEntity(HttpStatus.OK);
+		}else {
+			return new ResponseEntity(HttpStatus.REQUEST_TIMEOUT);
 		}
 	}
 

@@ -59,7 +59,7 @@
 	<!-- 전시/박람회 등록하기(insert & update) -->
 	<insert id="insertOrgRegist" parameterType="OrgRegist">
 		insert into tb_exhibition_fair
-		values (#{ uuid }, #{ totalId }, #{ title }, null,#{ contributor }, null, #{ eDescription },
+		values (#{ uuid }, #{ totalId }, #{ title }, null,#{ contributor }, #{ contributor }, #{ eDescription },
 				#{ eventSite }, #{ detailEventSite }, #{ latitude }, #{ longitude }, null,
 				#{ contactPoint }, #{ viewCounter }, #{ eUrl }, null, #{ startDate }, #{ endDate },
 				#{ approvalStatus }, #{ eCategory }, #{ fileUrl }, #{ charge })
