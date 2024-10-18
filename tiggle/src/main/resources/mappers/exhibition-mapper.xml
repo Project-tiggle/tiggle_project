@@ -136,7 +136,7 @@
 		where total_id = #{ totalId }
 	</update>
 	
-	<!-- ajax 요청 : 최근 등록 게시글 3개 조회용 (top-N) -->
+	<!-- ajax 요청 : 최근 등록 게시글 10개 조회용 (top-N) -->
 	<select id="selectListTop10" resultMap="resultTop10">
 		SELECT *
 		FROM (SELECT rownum rnum,

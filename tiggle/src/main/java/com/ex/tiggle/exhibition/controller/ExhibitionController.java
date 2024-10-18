@@ -181,7 +181,6 @@ public class ExhibitionController {
 		return sendJson.toJSONString();
 		}
 	
-	
 	// 클릭한 포스터와 같은 전시의 내용을 담은 상세 정보 페이지로 이동
 	@RequestMapping(value = "exhibitionDetail.do")
 	public ModelAndView exhibitionDetailMethod(@RequestParam("no") String totalId , ModelAndView mv, HttpSession session) {
@@ -241,7 +240,7 @@ public class ExhibitionController {
 		return mv;
 	}
 	
-	// 클릭한 포스터와 같은 전시의 내용을 담은 상세 정보 페이지로 이동
+	// 전시회 등록해주는 메소드
 	@RequestMapping(value = "rinsert.do")
 	public ModelAndView reviewInsertMethod(@RequestParam("no") String totalId , ModelAndView mv) {
 		
@@ -266,8 +265,6 @@ public class ExhibitionController {
 		}
 		return mv;
 	}
-
-
 
 	// 전시회 데이터 저장
 	@RequestMapping(value = "apiDbSave.do", method = RequestMethod.POST)
@@ -319,7 +316,7 @@ public class ExhibitionController {
 	
 	// 게시글 제목 검색용 (페이징 처리 포함)
 	@RequestMapping("esearchTitle.do")
-	public ModelAndView ExhibitionSearchTitleMethod(ModelAndView mv, 
+	public ModelAndView exhibitionSearchTitleMethod(ModelAndView mv, 
 			@RequestParam(name= "action", defaultValue="POST") String action,
 			@RequestParam("keyword") String keyword,
 			@RequestParam(name = "page", required = false) String page,

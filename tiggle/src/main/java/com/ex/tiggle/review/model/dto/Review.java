@@ -1,4 +1,4 @@
-package com.ex.tiggle.review.model.dto;
+ package com.ex.tiggle.review.model.dto;
 
 import java.sql.Date;
 
