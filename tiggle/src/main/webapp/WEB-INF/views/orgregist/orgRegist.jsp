@@ -7,7 +7,8 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>기업 전시/박람회 등록</title>
+<title>전시/박람회 등록 - 티글</title>
+<link rel="shortcut icon" href="/tiggle/resources/images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <style>
 #orgContainer {

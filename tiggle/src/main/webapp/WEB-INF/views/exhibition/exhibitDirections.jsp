@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>오시는 길</title>
+<link rel="shortcut icon" href="/tiggle/resources/images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 	<!-- 이미지 지도를 표시할 div 입니다 -->
