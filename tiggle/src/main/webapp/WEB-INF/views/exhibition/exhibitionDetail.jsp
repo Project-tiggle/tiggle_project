@@ -303,16 +303,17 @@ function rvdPopupOpen(rN){
 			<%-- 한줄평 클릭시 출력될 폼 --%>
 			<div id="reviewdiv" class="sdiv" style="margin-bottom: 60px;">
 				<input type="hidden" name="action" value="review">
-
+						
 				<fieldset>
 					<div>
-						<c:set var="writeflag" value="false" />
 						<table class="review_t" align="center" width="1280"  cellspacing="0" cellpadding="0" >
 							<tr>
 								<th width="100px">번호</th>
 								<th width="930px">내용</th>
 								<th width="150px">작성날짜</th>
-								<th width="100px">...</th>
+								<th width="100px">
+									<c:if test="${ !empty sessionScope.loginMember and uuidCount eq 0 }"><button onclick="rviPopupOpen()">등록</button></c:if>
+								</th>
 							</tr>
 							<c:forEach items="${ list }" var="rv">
 								<c:set var="i" value="${ i + 1 }" />
@@ -322,7 +323,7 @@ function rvdPopupOpen(rN){
 										<td align="left" >&nbsp; ${ rv.rContents }</td>
 										<td align="center"><fmt:formatDate value="${ rv.writeDate }" pattern="yyyy-MM-dd" /></td>
 										<td align="center" >
-											<c:if test="${ !empty sessionScope.loginMember && rv.uuid eq sessionScope.loginMember.uuid }">
+											<c:if test="${ !empty sessionScope.loginMember and rv.uuid eq sessionScope.loginMember.uuid }">
 												<button onclick="rvuPopupOpen()">수정</button>
 												<button onclick="rvdPopupOpen(${ rv.rNum })">삭제</button>
 												<c:set var="writeflag" value="true" />
@@ -332,9 +333,6 @@ function rvdPopupOpen(rN){
 								</tr>
 							</c:forEach>
 						</table>
-						<c:if test="${ !empty sessionScope.loginMember && writeflag eq false }">
-							<button onclick="rviPopupOpen()">등록</button>
-						</c:if>
 					</div>
 				</fieldset>
 			</div>

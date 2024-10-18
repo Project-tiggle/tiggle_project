@@ -26,18 +26,15 @@ public class ReviewDao {
 		return sqlSessionTemplate.selectOne("reviewMapper.selectListCount", totalId);
 	}
 
-
 	public ArrayList<Review> selectList(ReviewPaging reviewPaging) {
 //		System.out.print(reviewPaging.toString());
 		List<Review> list = sqlSessionTemplate.selectList("reviewMapper.selectList", reviewPaging);
 		return (ArrayList<Review>)list;
 	}
 
-
 	public Review selectReview(Review review) {
 		return sqlSessionTemplate.selectOne("reviewMapper.selectReview", review);
 	}
-
 
 	public int insertReview(Review review) {
 		return sqlSessionTemplate.insert("reviewMapper.insertReview", review);
@@ -57,5 +54,9 @@ public class ReviewDao {
 	public int deleteReveiw(int rNum) {
 		return sqlSessionTemplate.update("reviewMapper.deleteReview", rNum);
 	}
-
+	
+	public int reviewWriterCount(Review review) {
+		return sqlSessionTemplate.selectOne("reviewMapper.reviewWriterCount", review);
+	}
+	
 }

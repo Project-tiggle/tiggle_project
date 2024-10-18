@@ -34,6 +34,14 @@
 		where total_id = #{ no }
 	</select>
 	
+	<select id="reviewWriterCount" resultType="_int" parameterType="Review">
+		select count(uuid)
+		from TB_REVIEW
+		where uuid = #{ uuid }
+		AND total_id = #{ totalId }
+	</select>
+	
+	
 	<select id="selectList" resultMap="resultReview" parameterType="ReviewPaging">
 		select *
 		from (select rownum rnum,

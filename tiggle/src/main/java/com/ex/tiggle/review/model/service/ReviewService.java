@@ -13,6 +13,8 @@ public interface ReviewService {
 	ArrayList<Review> selectList(ReviewPaging reviewPaging);
 	Review selectReivew(Review review);
 	
+	int reviewWriterCount(Review review);
+	
 	// dml 
 	int insertReview(Review review);
 	int insertReviewD(Review reviewd);

@@ -6,6 +6,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -29,6 +30,7 @@ import com.ex.tiggle.common.Search;
 import com.ex.tiggle.exhibition.model.dto.Exhibition;
 import com.ex.tiggle.exhibition.model.service.ExhibitionService;
 import com.ex.tiggle.map.model.dto.NearbyMap;
+import com.ex.tiggle.member.model.dto.Member;
 import com.ex.tiggle.review.model.dto.Review;
 import com.ex.tiggle.review.model.dto.ReviewPaging;
 import com.ex.tiggle.review.model.service.ReviewService;
@@ -182,7 +184,7 @@ public class ExhibitionController {
 	
 	// 클릭한 포스터와 같은 전시의 내용을 담은 상세 정보 페이지로 이동
 	@RequestMapping(value = "exhibitionDetail.do")
-	public ModelAndView exhibitionDetailMethod(@RequestParam("no") String totalId , ModelAndView mv) {
+	public ModelAndView exhibitionDetailMethod(@RequestParam("no") String totalId , ModelAndView mv, HttpSession session) {
 		
 		Exhibition exhibition = exhibitionService.selectExhibitionOne(totalId);
 		// 같은 totalId 를 갖는 전시 리스트
@@ -197,7 +199,19 @@ public class ExhibitionController {
 		// 한 페이지에 출력할 한줄평 갯수 10개로 지정
 		int limit = 10;
 		// 총 목록갯수 조회해서 총 페이지 수 계산
+		
 		int listCount = reviewService.selectListCount(totalId);
+		
+		int uuidCount = 1;
+		if(session.getAttribute("loginMember") != null) {
+		Review review = new Review();
+		
+		String uuid = ((Member)session.getAttribute("loginMember")).getUuid(); 
+		review.setUuid(uuid);
+		review.setTotalId(totalId);
+		uuidCount = reviewService.reviewWriterCount(review);
+		logger.info("Review : " + review);
+		}
 		
 		Paging paging = new Paging(listCount, limit, currentPage, "exhibitionDetail.do");
 		paging.calculate();
@@ -219,6 +233,7 @@ public class ExhibitionController {
 			mv.addObject("searchLon", searchLon);
 			mv.addObject("link", ak);
 			/*************************************/
+			mv.addObject("uuidCount", uuidCount);
 			mv.addObject("exhibition", exhibition);
 			mv.addObject("list", list);
 			mv.setViewName("exhibition/exhibitionDetail");

@@ -56,4 +56,9 @@ public class ReviewServiceImpl implements ReviewService {
 	public int insertReviewD(Review reviewd) {
 		return reviewDao.insertReviewD(reviewd);
 	}
+
+	@Override
+	public int reviewWriterCount(Review review) {
+		return reviewDao.reviewWriterCount(review);
+	}
 } // ReviewService end
