@@ -38,7 +38,7 @@
 
 	<!-- 이메일로 소셜로그인 -->
 	<select id="selectSocialLogin" parameterType="string" resultMap="resultMember">
-		select * from tb_member where email = #{ email } and login_ok = 'Y'
+		select * from tb_member where email = #{ email } and login_ok = 'Y' and signtype != 'TIGGLE'
 	</select>
 
 	<!-- 소셜 회원가입용 쿼리 -->
