@@ -40,24 +40,28 @@
 
 	
 	<!-- main section start -->
-	<div class="exhibition"  style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start; padding:20px;">
+	<div class="exhibition"  style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start; padding:20px; margin-bottom: 60px;">
 			 <c:forEach var="p" items="${ list }">
        			 <div class="poster" style="flex-basis: calc(20% - 20px);">
+       			 	<c:if test="${p.fileUrl.toUpperCase().startsWith('H')}">
 		            <a href="exhibitionDetail.do?no=${ p.totalId }" ><img id="Emain" src="${ p.fileUrl }" ></a>
+		            </c:if>
+       			 	<c:if test="${!p.fileUrl.toUpperCase().startsWith('H')}">
+		            <a href="exhibitionDetail.do?no=${ p.totalId }" ><img id="Emain" src="${pageContext.request.contextPath}/resources/exhibit_upfiles/${p.fileUrl}"></a>
+		            </c:if>
 		            <div class="poster_p">
 		            	${ p.title }<br>
-			            기간 : <br>
 			            ${ p.startDate } ~ ${ p.endDate } <br>
 		            </div>
 		        </div>
 		    </c:forEach>
+	<c:import url="/WEB-INF/views/common/pagingView.jsp" />
 	</div>
 	
 
 	<!-- main section end -->
 
 
-	<c:import url="/WEB-INF/views/common/pagingView.jsp" />
 	<a href="chatbot.do" class="chatbot_wrap"><img src="/tiggle/resources/images/chatbot.png" alt="챗봇로고"></a>
 	<c:import url="/WEB-INF/views/common/footer.jsp" />
 

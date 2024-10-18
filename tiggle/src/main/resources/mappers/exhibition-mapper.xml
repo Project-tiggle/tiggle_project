@@ -88,7 +88,9 @@
 					 file_url,
 					 charge
 			   from (select * from TB_EXHIBITION_FAIR
-			   order by TO_DATE(end_date) desc))
+			   where APPROVAL_STATUS = 'Y'
+			   order by TO_DATE(end_date) desc)
+			   )
 		where rnum between #{ startRow } and #{ endRow }
 	</select>
 	
@@ -118,9 +120,11 @@
 					 file_url,
 					 charge
 				from (select * from TB_EXHIBITION_FAIR
+				where APPROVAL_STATUS = 'Y'
 		     	order by TO_DATE(end_date) desc))
 		where rnum between 1 and 5
 		AND end_date >= sysdate
+		
 	</select>
 	
 	<!-- 메인 출력 포스터 관련 쿼리************************************************************ -->
@@ -144,6 +148,7 @@
 					 end_date,
 					 file_url
      		  	from (select * from TB_EXHIBITION_FAIR
+     		  	where APPROVAL_STATUS = 'Y'
 		     	order by view_counter desc,
 		     			 TO_DATE(end_date) desc))
 		where rnum between 1 and 10
@@ -162,16 +167,18 @@
 					 end_date,
 					 file_url
 				from (select * from TB_EXHIBITION_FAIR
+				where APPROVAL_STATUS = 'Y'
 		     	order by TO_DATE(start_date))) 
         where end_date >= sysdate AND
         EXTRACT(month from start_date) = extract(month from sysdate) 
-        AND EXTRACT(year from start_date) >= EXTRACT(year from sysdate) 
+        AND EXTRACT(year from start_date) >= EXTRACT(year from sysdate)
 	</select>
 		
 	<select id="selectListCount" resultType="_int">
 		select count(*)
 		from TB_EXHIBITION_FAIR
 		where end_date >= sysdate
+		AND APPROVAL_STATUS = 'Y'
 	</select>		
 	
 	<!-- PK 전달을 위해 total_id를 추출해주는 쿼리 -->
@@ -262,6 +269,7 @@
 	          from (select * from TB_EXHIBITION_FAIR
 	        		where title like '%' || #{ keyword } || '%'
 	        		AND end_date >= sysdate
+	        		AND APPROVAL_STATUS = 'Y'
 	                order by end_date desc))
 		where rnum between #{ startRow } and #{ endRow }
 	</select>

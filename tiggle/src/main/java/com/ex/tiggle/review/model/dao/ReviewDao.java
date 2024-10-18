@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.ex.tiggle.reserve.controller.TossController;
 import com.ex.tiggle.review.model.dto.Review;
 import com.ex.tiggle.review.model.dto.ReviewPaging;
 
