@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>tiggle</title>
+<title>한줄평 - 티글</title>
+<link rel="shortcut icon" href="/tiggle/resources/images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 <script type="text/javascript">

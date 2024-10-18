@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>안내</title>
+<title>한줄평 - 티글</title>
+<link rel="shortcut icon" href="/tiggle/resources/images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 	

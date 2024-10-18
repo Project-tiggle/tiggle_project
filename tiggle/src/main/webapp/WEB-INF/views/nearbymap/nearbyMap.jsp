@@ -5,7 +5,8 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>내 주변 전시</title>
+<title>내 주변 전시 - 티글</title>
+<link rel="shortcut icon" href="/tiggle/resources/images/favicon.ico" type="image/x-icon" />
 <script type="text/javascript" src="${ link }"></script>
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/map_style.css">

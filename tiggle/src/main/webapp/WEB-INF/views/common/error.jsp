@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>tiggle - Error</title>
+<link rel="shortcut icon" href="/tiggle/resources/images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 </head>
 <body>

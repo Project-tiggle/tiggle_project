@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
+<link rel="shortcut icon" href="/tiggle/resources/images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 </head>
 <body>
@@ -34,7 +35,7 @@
                     	<li><a href="orgRegistAd.do">전시등록</a></li>
                     </c:if>
                     <c:if test="${ empty sessionScope.loginMember or (!empty sessionScope.loginMember and sessionScope.loginMember.memberType eq 'USER') }">
-                    	<li><a href="#">전시등록</a></li>
+                    	<li><a href="loginPage.do">전시등록</a></li>
                     </c:if>
                 </ul><!-- f_menu end -->
             </nav>

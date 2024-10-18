@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>first</title>
+<link rel="shortcut icon" href="/tiggle/resources/images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 <h2>결제 실패 : <%= request.getParameter("msg") %></h2>

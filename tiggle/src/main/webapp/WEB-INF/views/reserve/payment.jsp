@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>tiggle</title>
+<link rel="shortcut icon" href="/tiggle/resources/images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 <h1>I'mport 결제 api 이용 테스트</h1>

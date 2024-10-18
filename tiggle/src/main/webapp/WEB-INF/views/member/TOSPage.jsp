@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>티글 회원가입</title>
+<title>회원가입 - 티글</title>
+<link rel="shortcut icon" href="/tiggle/resources/images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/member_style.css">
 </head>

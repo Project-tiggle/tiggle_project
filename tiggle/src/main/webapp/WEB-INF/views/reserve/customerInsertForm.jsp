@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>tiggle</title>
+<link rel="shortcut icon" href="/tiggle/resources/images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <script type="text/javascript" src="/first/resources/js/jquery-3.7.0.min.js"></script>
 <!-- jQuery와 Postcodify를 로딩한다. -->

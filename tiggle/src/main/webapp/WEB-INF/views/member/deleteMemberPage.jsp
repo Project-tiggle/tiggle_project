@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원탈퇴</title>
+<title>회원탈퇴 - 티글</title>
+<link rel="shortcut icon" href="/tiggle/resources/images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/member_style.css">
 </head>
@@ -49,7 +50,7 @@
 					</c:if>
 					<p>정말 탈퇴하시겠어요?</p>
 					<p>계정을 삭제하면 한줄평, 예약정보 등 모든 정보가 삭제됩니다.</p>
-					<p>계정 삭제 후 7일간 다시 가입하지 못해요.</p>
+					<p>계정 삭제 후 동일한 아이디로 재가입 불가합니다.</p>
 				</div><!-- orginfo_top end -->
 
 				<div class="orginfo_bt">

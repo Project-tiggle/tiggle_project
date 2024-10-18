@@ -5,8 +5,8 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>고객센터</title>
-
+<title>고객센터 - 티글</title>
+<link rel="shortcut icon" href="/tiggle/resources/images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="/tiggle/resources/css/main_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/member_style.css">
 <link rel="stylesheet" href="/tiggle/resources/css/custBoard_style.css">
