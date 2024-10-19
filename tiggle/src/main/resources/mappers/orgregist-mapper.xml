@@ -131,7 +131,7 @@
 	</select>
 	
 	<!-- 등록상태 Y로 변경 -->
-	<update id="apStatusYn" parameterType="string">
+	<update id="updateApStatusYn" parameterType="string">
 		update tb_exhibition_fair
     	set APPROVAL_STATUS = 'Y'
     	where TOTAL_ID = #{ totalId }

@@ -62,8 +62,8 @@ public class OrgRegistDao {
 		return (ArrayList<OrgRegist>)list;
 	}
 
-	public int apStatusYn(String totalId) {
-		return sqlSessionTemplate.update("orgRegistMapper.apStatusYn", totalId);
+	public int updateApStatusYn(String totalId) {
+		return sqlSessionTemplate.update("orgRegistMapper.updateApStatusYn", totalId);
 	}
 
 	public ArrayList<OrgRegist> selectLocation() {

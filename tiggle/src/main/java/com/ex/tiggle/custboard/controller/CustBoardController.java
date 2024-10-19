@@ -561,76 +561,76 @@ public class CustBoardController {
 	}
 
 	// 게시글 수정 요청 처리용 (파일 업로드 기능 사용)
-		@RequestMapping(value = "usCbUp.do", method = RequestMethod.POST)
-		public String usInquiryUp(
-				CustBoard custBoard,
-				Model model,
-				HttpServletRequest request,
-				@RequestParam(name = "saveFile", required = false) String saveFile,
-				@RequestParam(name = "page", required = false) String page,
-				@RequestParam(name = "deleteFlag", required = false) String delFlag,
-				@RequestParam(name = "cfile", required = false) MultipartFile mfile) {
-			logger.info("usCbUp.do : " + custBoard); // 전송온 값 확인
+	@RequestMapping(value = "usCbUp.do", method = RequestMethod.POST)
+	public String usInquiryUp(
+			CustBoard custBoard,
+			Model model,
+			HttpServletRequest request,
+			@RequestParam(name = "saveFile", required = false) String saveFile,
+			@RequestParam(name = "page", required = false) String page,
+			@RequestParam(name = "deleteFlag", required = false) String delFlag,
+			@RequestParam(name = "cfile", required = false) MultipartFile mfile) {
+		logger.info("usCbUp.do : " + custBoard); // 전송온 값 확인
 
-			int currentPage = 1;
-			if (page != null) {
-				currentPage = Integer.parseInt(page);
-			}
-
-			// 첨부파일 관련 변경 사항 처리
-			// 게시원글 첨부파일 저장 폴더 경로 지정
-			String savePath = request.getSession().getServletContext().getRealPath("resources/custboard_upfiles");
-
-			// 1. 원래 첨부파일이 있는데 '파일삭제'를 선택한 경우
-			// 또는 원래 첨부파일이 있는데 새로운 첨부파일로 변경 업로드된 경우
-			// => 이전 파일과 파일정보 삭제함
-			if (saveFile != null && (delFlag != null && delFlag.equals("yes"))) {
-				// 저장 폴더에서 이전 파일은 삭제함
-				new File(savePath + "\\" + saveFile).delete();
-				// board 안의 파일 정보도 삭제함
-				custBoard.setFileUrl(null);
-			}
-
-			// 2. 새로운 첨부파일이 있을 때 또는 변경 첨부파일이 있을 때 (공지글 첨부파일은 1개임)
-			if (!mfile.isEmpty()) {
-				// 전송온 파일이름 추출함
-				String fileName = mfile.getOriginalFilename();
-				String renameFileName = null;
-
-				// 저장폴더에는 변경된 이름을 저장 처리함
-				// 파일 이름바꾸기함 : 년월일시분초.확장자
-				if (fileName != null && fileName.length() > 0) {
-					// 바꿀 파일명에 대한 문자열 만들기
-					renameFileName = FileNameChange.change(fileName, "yyyyMMddHHmmss") + "_" + fileName;
-					// 바뀐 파일명 확인
-					logger.info("첨부파일명 확인 : " + renameFileName);
-
-					try {
-						// 저장 폴더에 파일명 바꾸어 저장하기
-						mfile.transferTo(new File(savePath + "\\" + renameFileName));
-						new File(savePath + "\\" + saveFile).delete();	// 기존파일 삭제
-					} catch (Exception e) {
-						e.printStackTrace();
-						model.addAttribute("message", "첨부파일 저장 실패!");
-						return "common/error";
-					}
-				} // 파일명 바꾸기
-
-				custBoard.setFileUrl(renameFileName);
-			} // 첨부파일이 있을 때
-
-			if (custBoardService.updateUsOrigin(custBoard) > 0
-					&& custBoardService.updateUpAt(custBoard.getcId()) > 0) { // 게시원글 수정 성공시
-				
-				model.addAttribute("cId", custBoard.getcId());
-				model.addAttribute("page", currentPage);
-
-				return "redirect:userCustBoard.do";
-			} else {
-				model.addAttribute("message", custBoard.getcId() + "번 게시 원글 수정 실패!");
-				return "common/error";
-			}
+		int currentPage = 1;
+		if (page != null) {
+			currentPage = Integer.parseInt(page);
 		}
+
+		// 첨부파일 관련 변경 사항 처리
+		// 게시원글 첨부파일 저장 폴더 경로 지정
+		String savePath = request.getSession().getServletContext().getRealPath("resources/custboard_upfiles");
+
+		// 1. 원래 첨부파일이 있는데 '파일삭제'를 선택한 경우
+		// 또는 원래 첨부파일이 있는데 새로운 첨부파일로 변경 업로드된 경우
+		// => 이전 파일과 파일정보 삭제함
+		if (saveFile != null && (delFlag != null && delFlag.equals("yes"))) {
+			// 저장 폴더에서 이전 파일은 삭제함
+			new File(savePath + "\\" + saveFile).delete();
+			// board 안의 파일 정보도 삭제함
+			custBoard.setFileUrl(null);
+		}
+
+		// 2. 새로운 첨부파일이 있을 때 또는 변경 첨부파일이 있을 때 (공지글 첨부파일은 1개임)
+		if (!mfile.isEmpty()) {
+			// 전송온 파일이름 추출함
+			String fileName = mfile.getOriginalFilename();
+			String renameFileName = null;
+
+			// 저장폴더에는 변경된 이름을 저장 처리함
+			// 파일 이름바꾸기함 : 년월일시분초.확장자
+			if (fileName != null && fileName.length() > 0) {
+				// 바꿀 파일명에 대한 문자열 만들기
+				renameFileName = FileNameChange.change(fileName, "yyyyMMddHHmmss") + "_" + fileName;
+				// 바뀐 파일명 확인
+				logger.info("첨부파일명 확인 : " + renameFileName);
+
+				try {
+					// 저장 폴더에 파일명 바꾸어 저장하기
+					mfile.transferTo(new File(savePath + "\\" + renameFileName));
+					new File(savePath + "\\" + saveFile).delete();	// 기존파일 삭제
+				} catch (Exception e) {
+					e.printStackTrace();
+					model.addAttribute("message", "첨부파일 저장 실패!");
+					return "common/error";
+				}
+			} // 파일명 바꾸기
+
+			custBoard.setFileUrl(renameFileName);
+		} // 첨부파일이 있을 때
+
+		if (custBoardService.updateUsOrigin(custBoard) > 0
+				&& custBoardService.updateUpAt(custBoard.getcId()) > 0) { // 게시원글 수정 성공시
+			
+			model.addAttribute("cId", custBoard.getcId());
+			model.addAttribute("page", currentPage);
+
+			return "redirect:userCustBoard.do";
+		} else {
+			model.addAttribute("message", custBoard.getcId() + "번 게시 원글 수정 실패!");
+			return "common/error";
+		}
+	}
 
 
 //------------------------------------------비회원---------------------------------------------------

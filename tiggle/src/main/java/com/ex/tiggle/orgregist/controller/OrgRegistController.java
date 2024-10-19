@@ -364,7 +364,7 @@ public class OrgRegistController {
 	@RequestMapping(value = "apStatusYn.do", method = RequestMethod.POST)
 	public String registYn(Model model, @RequestParam("totalId") String totalId) {
 
-		int result = orgRegistService.apStatusYn(totalId);
+		int result = orgRegistService.updateApStatusYn(totalId);
 
 		if (result > 0) {
 			model.addAttribute("message", "승인처리 완료");

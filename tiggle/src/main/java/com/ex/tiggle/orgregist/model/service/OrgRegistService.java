@@ -23,7 +23,7 @@ public interface OrgRegistService {
 	/* 관리자용 */
 	int selectApCount();							//approvalStatus에서 N값만 받아옴
 	ArrayList<OrgRegist> selectApList(Paging paging);	//N값 불러오기
-	int apStatusYn(String totalId); 				//전시등록 승인처리
+	int updateApStatusYn(String totalId); 				//전시등록 승인처리
 	
 	/* API용 */
 	ArrayList<OrgRegist> selectLocation();			//API용 전체 전시 조회

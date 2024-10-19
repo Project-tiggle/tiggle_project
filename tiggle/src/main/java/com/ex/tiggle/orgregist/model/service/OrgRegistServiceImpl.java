@@ -72,8 +72,8 @@ public class OrgRegistServiceImpl implements OrgRegistService {
 	}
 
 	@Override
-	public int apStatusYn(String totalId) {
-		return orgRegistDao.apStatusYn(totalId);
+	public int updateApStatusYn(String totalId) {
+		return orgRegistDao.updateApStatusYn(totalId);
 	}
 
 	@Override
