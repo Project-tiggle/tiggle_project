@@ -240,17 +240,17 @@ public class ExhibitionController {
 		return mv;
 	}
 	
-	// 전시회 등록해주는 메소드
+	// 한줄평 등록창에 해당 전시/한줄평 리스트를 전달해주는 메소드
 	@RequestMapping(value = "rinsert.do")
 	public ModelAndView reviewInsertMethod(@RequestParam("no") String totalId , ModelAndView mv) {
 		
+		// 같은 totalId 를 갖는 전시 리스트 조회
 		Exhibition exhibition = exhibitionService.selectExhibitionOne(totalId);
-		// 같은 totalId 를 갖는 한줄평 조회
 		
 		int currentPage = 1;
-		// 한 페이지에 출력할 공지 갯수 10개로 지정
+		// 한 페이지에 출력할 한줄평 갯수 10개로 지정
 		int limit = 10;
-		// 총 목록갯수 조회해서 총 페이지 수 계산
+		// 총 목록갯수 조회해서 한줄평 총 페이지 수 계산
 		int listCount = reviewService.selectListCount(totalId);
 		
 		Paging paging = new Paging(listCount, limit, currentPage, "reviewList.do");
@@ -314,7 +314,7 @@ public class ExhibitionController {
 		return new ResponseEntity<String>("success", HttpStatus.OK);
 	}
 	
-	// 게시글 제목 검색용 (페이징 처리 포함)
+	// 전시 제목 검색용 메소드 (페이징 처리 포함)
 	@RequestMapping("esearchTitle.do")
 	public ModelAndView exhibitionSearchTitleMethod(ModelAndView mv, 
 			@RequestParam(name= "action", defaultValue="POST") String action,
