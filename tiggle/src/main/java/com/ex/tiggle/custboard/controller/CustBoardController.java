@@ -419,7 +419,7 @@ public class CustBoardController {
 		// 목록갯수 조회
 		int listCount = custBoardService.selectUserCbListCount(loginMember.getId());
 		// 페이지 관련 항목 계산 처리
-		Paging paging = new Paging(listCount, limit, currentPage, "adminCustBoard.do");
+		Paging paging = new Paging(listCount, limit, currentPage, "userCustBoard.do");
 		paging.calculate();
 		
 		Map<String, Object> idNpaging = new HashMap<>();
