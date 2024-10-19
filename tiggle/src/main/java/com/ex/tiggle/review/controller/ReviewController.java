@@ -36,7 +36,7 @@ public class ReviewController {
 	private ExhibitionService exhibitionService;
 	
 	
-	// 한줄평 등록 팝업 띄우는 메소드
+	// 한줄평 팝업에 전시내용을 담아주는 메소드
 	@RequestMapping("rvmove.do")
 	public String moveReviewPage(
 			@RequestParam("no") String totalId, Model model) {
@@ -44,9 +44,9 @@ public class ReviewController {
 			model.addAttribute("exhibition", exhibition);
 			
 			return "review/reviewWriteForm";
-	}
+	}	
 	
-	// 한줄평 수정 팝업 띄우는 메소드 
+	// 한줄평 수정창에 유저/전시/한줄평 정보를 담아주는 메소드
 	@RequestMapping("rvmoveup.do")
 	public ModelAndView moveUpdatePage(HttpSession session,
 		   @RequestParam("no") String totalId,
@@ -74,7 +74,7 @@ public class ReviewController {
 
 	
 	
-	// 한줄평 목록 띄우는 메소드
+	// 한줄평 목록을 가져오는 메소드
 	@RequestMapping("reviewList.do")
 	public ModelAndView reviewListMethod(ModelAndView mv, @RequestParam(name = "page", required = false) String page,
 			@RequestParam(name = "limit", required = false) String slimit, 
@@ -121,7 +121,7 @@ public class ReviewController {
 		return mv;
 	}
 	
-	// 새 게시글 등록 요청 처리용
+	// 한줄평 등록 요청 처리용
 	@RequestMapping(value = "rinsert.do", method = RequestMethod.POST)
 	public ResponseEntity reviewInsertMethod(Review review, Model model, HttpServletRequest request) {
 		logger.info("rinsert.do : " + review);
