@@ -20,7 +20,7 @@
 	
 	
 
-	<!-- ajax 테스트용 : 최근 등록된 마지막 공지글 한 개 조회용 -->
+	
 	<select id="selectReview" parameterType="Review" resultMap="resultReview">
 		select * 
 		from TB_REVIEW

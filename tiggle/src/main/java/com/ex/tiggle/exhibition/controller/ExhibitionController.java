@@ -188,11 +188,9 @@ public class ExhibitionController {
 		Exhibition exhibition = exhibitionService.selectExhibitionOne(totalId);
 		// 같은 totalId 를 갖는 전시 리스트
 		
-		/****************확인후지우셔도됩니다.***************************/
 		String ak = new NearbyMap().getAppKeyUrl();	//APPKEY포함 URL
 		String searchLat = exhibition.getLatitude();
 		String searchLon = exhibition.getLongitude();
-		/****************************************************************/
 
 		int currentPage = 1;
 		// 한 페이지에 출력할 한줄평 갯수 10개로 지정
@@ -227,11 +225,9 @@ public class ExhibitionController {
 		ArrayList<Review> list = reviewService.selectList(reviewPaging);
 		
 		if (exhibition != null) {
-			/*************************************/
 			mv.addObject("searchLat", searchLat);
 			mv.addObject("searchLon", searchLon);
 			mv.addObject("link", ak);
-			/*************************************/
 			mv.addObject("uuidCount", uuidCount);
 			mv.addObject("exhibition", exhibition);
 			mv.addObject("list", list);
@@ -299,10 +295,10 @@ public class ExhibitionController {
 			exhibition.setPeriod((String) job.get("PERIOD"));
 			logger.info(exhibition.toString());
 			
-			// 새 공지글 등록 처리용 메소드 실행
+			// 새 전시회 데이터 등록 처리용 메소드 실행
 			int result = exhibitionService.insertExhibition(exhibition);
 			
-			// 에러 발생 또는 공지글 등록 실패시
+			// 에러 발생 또는 데이터 등록 실패시
 			if(result <= 0) {
 				return new ResponseEntity<String>("failed", HttpStatus.REQUEST_TIMEOUT);
 			}
